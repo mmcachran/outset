@@ -1,0 +1,43 @@
+{#{{ dump() }}#}
+{% set classes = [
+    base,
+    width,
+] %}
+<section class="{{ classes|join(' ') }}">
+    <div class="{{ layout }}__wrapper container">
+        {% for i, product in products %}
+            {% set item_class = "#{base}--#{i}" %}
+            {% set color = product.color %}
+            <div class="{{ layout }}__card {{ item_class }}">
+                <style>
+                    .{{ item_class }} .button:focus,
+                    .{{ item_class }} .button:hover,
+                    .{{ item_class }} li:before {
+                        background-color: {{ color }};
+                    }
+                    .{{ item_class }} .button,
+                    .{{ item_class }} {
+                        border-color: {{ color }};
+                    }
+                </style>
+                <div class="{{ layout }}__image">
+                    <figure>
+                        <img src="{{ product.image.url }}"
+                             alt="{{ product.image.alt }}">
+                    </figure>
+                </div>
+                <div class="{{ layout }}__description">
+                    {{ product.description }}
+                </div>
+                <div class="{{ layout }}__action">
+                    <a href="{{ product.link.url }}"
+                       target="{{ product.link.url }}"
+                       class="button">
+                        <span>Learn More</span>
+                    </a>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</section>

@@ -1,0 +1,14 @@
+.button {
+  @include button__primary;
+}
+.button-secondary {
+  @include button__alternate;
+}
+
+.buttonTertiary {
+  @include buttonTertiary;
+}
+
+.button-small {
+  @include button-small;
+}

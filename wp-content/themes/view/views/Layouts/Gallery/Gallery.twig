@@ -1,0 +1,18 @@
+{#{{ dump() }}#}
+{% set classes = [
+    layout,
+    width,
+] %}
+<section class="{{ classes|join(' ') }}">
+    <div class="container">
+        {% if heading %}
+            <h3 class="{{ layout }}__heading">{{ heading }}</h3>
+        {% endif %}
+        {% if images %}
+            {% for image in images %}
+                {#{{ dump(image) }}#}
+                <img src="{{ image.sizes.medium }}" alt="{{ image.alt }}">
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>

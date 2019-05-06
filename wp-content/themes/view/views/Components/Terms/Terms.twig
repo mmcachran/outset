@@ -1,0 +1,10 @@
+{#{{ dump() }}#}
+<ul class="terms">
+    {% for term in post.terms %}
+        <li class="terms__item">
+            <a class="terms__link" href="{{ term.link }}">
+                <span>{{ __(term.name|e, 'view') }}</span>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

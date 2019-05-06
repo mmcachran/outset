@@ -1,0 +1,20 @@
+<?php
+
+namespace Core\Controllers\PostTypes;
+
+use Core\Utils\General;
+use Core\Utils\WordPress;
+
+class Page
+{
+    public static function init()
+    {
+        $class = new self;
+        add_filter('Singles/Pages', [$class, 'singles']);
+    }
+
+    public function singles($data)
+    {
+        return $data;
+    }
+}

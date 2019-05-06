@@ -1,0 +1,29 @@
+{#{{ dump() }}#}
+{% set classes = [
+    base,
+] %}
+<section class="{{ classes|join(' ') }}">
+    <div class="{{ layout }}__inner container">
+        <header class="{{ layout }}__header">
+            {% if image %}
+                <figure class="{{ layout }}__image">
+                    <img src="{{ image.url | e('esc_url')}}" alt="{{ image.alt }}">
+                </figure>
+            {% endif %}
+            {% if title %}
+                <h3 class="{{ layout }}__title">{{ title | e }}</h3>
+            {% endif %}
+            {% if subtitle %}
+                <h4 class="{{ layout }}__subtitle">{{ subtitle | e }}</h4>
+            {% endif %}
+        </header>
+        {% if content %}
+            <div class="{{ layout }}__content">{{ content | e('wp_kses_post') }}</div>
+        {% endif %}
+        {% if video %}
+            <figure class="{{ layout }}__video">
+                <div class="embed-container">{{ video }}</div>
+            </figure>
+        {% endif %}
+    </div>
+</section>

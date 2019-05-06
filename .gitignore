@@ -1,0 +1,47 @@
+## Globally Ignored
+.DS_Store
+node_modules
+yarn-error.log
+npm-debug.log
+debug.log
+
+# Root Files / Folders
+/.idea
+/.env
+/.vscode
+/.vscode/launch.json
+/vendor
+
+## WordPress
+/core
+/wp-config.php
+/wp-activate.php
+/wp-cron.php
+/wp-config-sample.php
+/wp-comments-post.php
+/index.php
+/wp-load.php
+/wp-links-opml.php
+/wp-login.php
+/license.txt
+/wp-settings.php
+/wp-blog-header.php
+/wp-mail.php
+/xmlrpc.php
+/wp-signup.php
+/wp-trackback.php
+/readme.html
+/wp-includes
+/wp-admin
+/wp-content/uploads/*
+/wp-content/mu-plugins/*
+/wp-content/plugins/*
+/wp-content/themes/*
+
+## Exceptions (Generally, our custom work)
+!/wp-content/mu-plugins/trackduck.php
+!/wp-content/mu-plugins/pyxl-mu.php
+!/wp-content/mu-plugins/pyxl-mu
+!/wp-content/themes/view
+!/wp-content/plugins/_core
+

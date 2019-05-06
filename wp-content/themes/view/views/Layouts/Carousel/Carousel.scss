@@ -1,0 +1,25 @@
+.image-carousel {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  //this makes all the slides the same height
+  //.carousel-cell {min-height:100%}
+
+  &__header {
+    text-align: center;
+    padding: 2em 0;
+  }
+
+
+  &__item {
+    @include for-tablet__landscape--up {
+      width: 25%;
+    }
+  }
+
+  &[data-grayscale="yes"] {
+    img {
+      filter: grayscale(100%);
+    }
+  }
+}

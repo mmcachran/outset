@@ -1,0 +1,162 @@
+.draw-in {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 15s ease-in-out alternate infinite;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-in-arrow {
+  from {
+    stroke-dashoffset: 150;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.draw-in-1x {
+  stroke-dasharray: 1000;
+  animation: draw-1x 5s ease-in-out;
+  animation-iteration-count: 1;
+}
+
+@keyframes draw-1x {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.item-to {
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+}
+
+.bounce-1 {
+  animation-name: bounce-1;
+  animation-timing-function: ease;
+}
+
+@keyframes bounce-1 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bounce-2 {
+  animation-name: bounce-2;
+  animation-timing-function: ease;
+}
+
+@keyframes bounce-2 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bounce-3 {
+  animation-name: bounce-3;
+  animation-timing-function: ease;
+}
+
+@keyframes bounce-3 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hr-draw-in {
+  stroke-dasharray: 1000;
+  animation: hr-draw-in 5s ease-in-out;
+}
+
+@keyframes hr-draw-in {
+  0% {
+    width: 50%;
+  }
+  50% {
+    width: 78%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+.hr-short {
+  stroke-dasharray: 1000;
+  animation: hr-short 8s ease-in-out alternate infinite;
+}
+
+@keyframes hr-short {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 50px;
+  }
+  50% {
+    width: 50px;
+  }
+  100% {
+    width: 50px;
+  }
+}
+
+.blockquote-draw-in {
+  stroke-dasharray: 1000;
+  animation: blockquote-draw-in 5s ease-in-out;
+}
+
+@keyframes blockquote-draw-in {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 40px;
+  }
+}
+
+.button-arrow-animate {
+  border: 1px $brand__gray solid;
+  animation: button-arrow-animate 5s ease-in-out alternate infinite;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+@keyframes button-arrow-animate {
+  0% {
+    border: 1px pink solid;
+  }
+  100% {
+    border: 0px pink solid;
+  }
+}

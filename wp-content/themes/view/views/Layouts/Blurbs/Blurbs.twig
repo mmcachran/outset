@@ -1,0 +1,26 @@
+{#{{ dump(context) }}#}
+{% set classes = [
+    layout,
+] %}
+<section class="{{ classes|join(' ') }}">
+    <div class="{{ layout }}__inner container">
+        <header class="{{ layout }}__header">
+            <div class="container">
+                <h3 class="{{ layout }}__title">{{ heading }}</h3>
+            </div>
+        </header>
+        <div class="{{ layout }}__items ">
+            {% for blurb in blurbs %}
+                {#{{ dump(blurb) }}#}
+                <div class="{{ layout }}__item">
+                    <figure>
+                        <img src="{{ blurb.image.url }}">
+                    </figure>
+                    <div class="{{ layout }}__item-content">
+                        <p>{{ blurb.content }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

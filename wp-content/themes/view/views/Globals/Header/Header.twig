@@ -1,0 +1,25 @@
+{#{{ dump(menus) }}#}
+{% set base = 'Header' %}
+{% set classes = [
+    base,
+] %}
+{#{% include 'Globals/TopBar/TopBar.twig' %}#}
+<header id="header" class="{{ classes|join(' ') }}">
+    <div class="container">
+        <section class="{{ base }}__primary">
+            <div id="logo" class="{{ base }}__logo">
+                <a href="{{ function('get_home_url') | e('esc_url') }}">
+                    {{ svg_inline('logo') }}
+                </a>
+            </div>
+        </section>
+        <section class="{{ base }}__secondary">
+            <div class="hide--mobile">
+                {% include 'Globals/MenuMobile/MenuMobile.twig' %}
+            </div>
+            <div class="hide--desktop">
+                {% include 'Globals/MenuPrimary/MenuPrimary.twig' %}
+            </div>
+        </section>
+    </div>
+</header>
