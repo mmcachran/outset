@@ -25,6 +25,9 @@ class TemplateRouting
 
     public function head()
     {
+        if (!class_exists(Timber\Timber::class)) {
+            return;
+        }
         $context = Timber\Timber::get_context();
         Utils\Timber::render([
             'path' => 'Globals/Head',
@@ -35,6 +38,9 @@ class TemplateRouting
 
     public function header()
     {
+        if (!class_exists(Timber\Timber::class)) {
+            return;
+        }
         $context = Timber\Timber::get_context();
         Utils\Timber::render([
             'path' => 'Globals/Header/Header',

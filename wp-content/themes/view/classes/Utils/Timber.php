@@ -35,7 +35,7 @@ class Timber
         }
 
         do_action("{$args['path']}/before");
-        TemplatingEngine\Timber::render($path, $data);
+        TemplatingEngine\Timber::render($path, apply_filters($args['hook'], $data));
         do_action("{$args['path']}/after");
     }
 }
