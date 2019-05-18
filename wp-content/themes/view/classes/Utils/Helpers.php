@@ -156,4 +156,9 @@ class Helpers
     {
         return preg_replace('/\s+/', ' ', ucfirst($srting));
     }
+
+    public static function get_plugin_activation_uri($plugin_file)
+    {
+        return wp_nonce_url(self_admin_url("plugins.php?action=activate&plugin={$plugin_file}"), "activate-plugin_{$plugin_file}");
+    }
 }

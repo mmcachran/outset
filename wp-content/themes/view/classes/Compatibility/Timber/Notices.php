@@ -2,6 +2,7 @@
 
 namespace Pyxl\View\Compatibility\Timber;
 
+use Pyxl\View\Utils\Helpers;
 use Timber\Timber;
 use const Pyxl\View\PATH;
 
@@ -21,9 +22,9 @@ class Notices
         }
 
         $link = sprintf(
-            '<a href="%1$s" target="_blank"><strong>%2$s</strong></a>',
-            get_admin_url(null, 'plugin-install.php?s=timber&tab=search&type=term'),
-            __('Click here to search for the plugin', 'view')
+            '<a href="%1$s"><strong>%2$s</strong></a>',
+            Helpers::get_plugin_activation_uri('timber-library/timber.php'),
+            __('Click here to activate plugins', 'view')
         );
 
         $message = sprintf(
