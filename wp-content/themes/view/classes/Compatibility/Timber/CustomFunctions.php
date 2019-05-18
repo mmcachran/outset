@@ -31,20 +31,12 @@ class CustomFunctions
                 'action' => 'wp_enqueue_style',
             ],
             [
-                'name'   => 'enqueue_style',
-                'action' => 'wp_enqueue_style',
-            ],
-            [
                 'name'   => 'enqueue_script',
                 'action' => 'wp_enqueue_script',
             ],
             [
                 'name'   => 'get_dist_image_uri',
                 'action' => [Helpers::class, 'get_dist_image_uri'],
-            ],
-            [
-                'name'   => 'implode',
-                'action' => 'implode',
             ],
             [
                 'name'   => 'archive_link',
@@ -57,10 +49,6 @@ class CustomFunctions
             [
                 'name'   => 'menu',
                 'action' => 'wp_nav_menu',
-            ],
-            [
-                'name'   => 'image',
-                'action' => [Helpers::class, 'image'],
             ],
             [
                 'name'   => 'site',
@@ -77,10 +65,6 @@ class CustomFunctions
             [
                 'name'   => 'critical',
                 'action' => [CriticalAssets::class, 'render'],
-            ],
-            [
-                'name'   => '__',
-                'action' => '__',
             ],
             [
                 'name'   => 'wp_kses_post',

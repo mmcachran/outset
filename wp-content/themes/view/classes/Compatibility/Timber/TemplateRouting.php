@@ -6,7 +6,6 @@ use Timber;
 use Pyxl\View\Utils;
 use const Pyxl\View\PATH;
 use const Pyxl\View\URI;
-use const Pyxl\View\DEBUG;
 
 class TemplateRouting
 {
@@ -28,11 +27,9 @@ class TemplateRouting
         if (!class_exists(Timber\Timber::class)) {
             return;
         }
-        $context = Timber\Timber::context();
+
         Utils\Timber::render([
-            'path' => 'Globals/Head',
-            'hook' => 'globals/head',
-            'data' => $context,
+            'view' => 'Globals/Head',
         ]);
     }
 
@@ -41,24 +38,33 @@ class TemplateRouting
         if (!class_exists(Timber\Timber::class)) {
             return;
         }
-        $context = Timber\Timber::context();
+
         Utils\Timber::render([
-            'path' => 'Globals/Header/Header',
-            'hook' => 'globals/header',
-            'data' => $context,
+            'view' => 'Globals/Header',
+        ]);
+    }
+
+    public function footer()
+    {
+        if (!class_exists(Timber\Timber::class)) {
+            return;
+        }
+
+        Utils\Timber::render([
+            'view' => 'Globals/Footer',
         ]);
     }
 
     public function main()
     {
         if (!class_exists(Timber\Timber::class)) {
-            do_action('view_main_timber_inactive');
+            do_action('view/main/timber_check');
             return;
         }
 
+        $context   = [];
         $type      = $this->get_view_type();
         $queried   = get_queried_object();
-        $context   = Timber\Timber::context();
         $post_type = Utils\Helpers::has_key('post_type', $queried) ?: 'post';
 
         switch ($type) {
@@ -74,39 +80,33 @@ class TemplateRouting
                         break;
                 }
                 $context['posts'] = new Timber\PostQuery();
-                $path             = "{$type}/{$archive_type}/{$dir_path}/{$dir_path}";
-                // var_dump($path);
-                $context['path'] = file_exists(PATH . "views/{$path}.twig")
+                $path             = "{$type}/{$archive_type}/{$dir_path}";
+                $context['view']  = file_exists(PATH . "views/{$path}.twig")
                     ? $path
-                    : "{$type}/{$archive_type}/Fallback/Fallback";
+                    : "{$type}/{$archive_type}/Fallback";
                 break;
             case 'Singles':
                 $dir_path        = self::get_sub_path($post_type);
                 $context['post'] = new Timber\Post();
-                $path            = "{$type}/{$dir_path}/{$dir_path}";
-                $context['path'] = file_exists(PATH . "views/{$path}.twig")
+                $path            = "{$type}/{$dir_path}";
+                $context['view'] = file_exists(PATH . "views/{$path}.twig")
                     ? $path
-                    : "{$type}/Fallback/Fallback";
+                    : "{$type}/Fallback";
                 break;
             case 'Search':
                 $context['search_query'] = get_search_query();
                 $context['posts']        = new Timber\PostQuery();
-                $context['path']         = "{$type}/{$type}";
+                $context['view']         = "{$type}";
                 break;
             default:
-                $context['path'] = "FourOhFour/FourOhFour";
+                $context['view'] = "FourOhFour";
                 // Probably 404
                 break;
         }
 
-        if (DEBUG) {
-            var_dump($context);
-        }
-
         if (apply_filters('view/main/render', true)) {
             Utils\Timber::render([
-                'path' => $context['path'],
-                'hook' => $context['path'],
+                'view' => $context['view'],
                 'data' => $context,
             ]);
         }
@@ -129,20 +129,6 @@ class TemplateRouting
         $no_spaces_label        = str_replace(' ', '', $forced_uppercase_label);
 
         return $no_spaces_label;
-    }
-
-
-    public function footer()
-    {
-        if (!class_exists(Timber\Timber::class)) {
-            return;
-        }
-        $context = Timber\Timber::context();
-        Utils\Timber::render([
-            'path' => 'Globals/Footer/Footer',
-            'hook' => 'globals/footer',
-            'data' => $context,
-        ]);
     }
 
 

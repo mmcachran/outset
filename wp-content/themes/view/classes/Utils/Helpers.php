@@ -52,15 +52,6 @@ class Helpers
         return get_template_directory_uri() . "/dist/images/{$file}";
     }
 
-    public static function image($args)
-    {
-        $filename          = $args['file'];
-        $alt               = $args['alt'];
-        $relative_filepath = "dist/images/{$filename}";
-        $url               = file_exists(PATH . $relative_filepath) ? URI . $relative_filepath : false;
-        return "<img src='{$url}' alt='{$alt}'>";
-    }
-
     public static function is_empty($data)
     {
         if (is_integer($data)) {

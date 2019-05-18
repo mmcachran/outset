@@ -14,16 +14,6 @@ class Header
 
     public function filter($data)
     {
-        $data->header_background_color = General::has_key('ID', $data)
-            ? get_post_meta($data->ID, 'header_background', true)
-            : 'white';
-
-        if (General::is_post_type_archive('post')) {
-            $data->header_background_color = 'transparent';
-        }
-
-        $data->mobile_menu_background = General::get_image_data((int)get_option('site_header_mobile_menu_background'));
-
         return $data;
     }
 }

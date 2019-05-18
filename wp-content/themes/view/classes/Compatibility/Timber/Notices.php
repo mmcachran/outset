@@ -12,7 +12,7 @@ class Notices
     {
         $class = new self;
         add_action('admin_notices', [$class, 'backend_notice']);
-        add_action('view_main_timber_inactive', [$class, 'frontend_notice']);
+        add_action('view/main/timber_check', [$class, 'frontend_notice']);
     }
 
     public function backend_notice()
