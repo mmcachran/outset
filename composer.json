@@ -76,7 +76,7 @@
     "deliciousbrains-plugin/wp-offload-media": "*",
     "mcguffin/acf-duplicate-repeater": "*",
     "nickford/acf-swatch": "*",
-    "pyxl/acf-pro": "^5.7.8",
+    "pyxl/acf-pro": "^5.8.0",
     "pyxl/gravity-forms": "^2.4",
     "vlucas/phpdotenv": "^3.3",
     "wpackagist-plugin/acf-image-crop-add-on": "^1.4",
