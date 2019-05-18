@@ -15,9 +15,6 @@ defined('WPINC') || die;
 define(__NAMESPACE__ . '\PATH', plugin_dir_path(__FILE__));
 define(__NAMESPACE__ . '\URI', plugin_dir_url(__FILE__));
 
-// Default theme
-defined('WP_DEFAULT_THEME') || define('WP_DEFAULT_THEME', 'view');
-
 // Gravity Forms
 define('GF_LICENSE_KEY', 'XXXXXXXXXXXXXXX');
 
