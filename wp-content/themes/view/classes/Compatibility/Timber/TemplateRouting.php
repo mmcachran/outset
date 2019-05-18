@@ -28,7 +28,7 @@ class TemplateRouting
         if (!class_exists(Timber\Timber::class)) {
             return;
         }
-        $context = Timber\Timber::get_context();
+        $context = Timber\Timber::context();
         Utils\Timber::render([
             'path' => 'Globals/Head',
             'hook' => 'globals/head',
@@ -41,7 +41,7 @@ class TemplateRouting
         if (!class_exists(Timber\Timber::class)) {
             return;
         }
-        $context = Timber\Timber::get_context();
+        $context = Timber\Timber::context();
         Utils\Timber::render([
             'path' => 'Globals/Header/Header',
             'hook' => 'globals/header',
@@ -58,7 +58,7 @@ class TemplateRouting
 
         $type    = $this->get_view_type();
         $queried = get_queried_object();
-        $context = Timber\Timber::get_context();
+        $context = Timber\Timber::context();
         $post_type = is_post_type_archive() ? $queried->name : $queried->post_type;
 
         switch ($type) {
@@ -75,7 +75,7 @@ class TemplateRouting
                 }
                 $context['posts'] = new Timber\PostQuery();
                 $path             = "{$type}/{$archive_type}/{$dir_path}/{$dir_path}";
-                var_dump($path);
+                // var_dump($path);
                 $context['path']  = file_exists(PATH . "views/{$path}.twig")
                     ? $path
                     : "{$type}/{$archive_type}/Fallback/Fallback";
@@ -137,7 +137,7 @@ class TemplateRouting
         if (!class_exists(Timber\Timber::class)) {
             return;
         }
-        $context = Timber\Timber::get_context();
+        $context = Timber\Timber::context();
         Utils\Timber::render([
             'path' => 'Globals/Footer/Footer',
             'hook' => 'globals/footer',
