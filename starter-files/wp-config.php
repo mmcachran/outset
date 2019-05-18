@@ -41,9 +41,6 @@ define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_LOG', true );
 define( 'WP_DEBUG_DISPLAY', true );
 
-define( 'JWT_AUTH_SECRET_KEY', 'MONALISA' );
-define( 'JWT_AUTH_CORS_ENABLE', true );
-
 // Composer support
 require 'vendor/autoload.php';
 
