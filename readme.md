@@ -47,21 +47,19 @@ Helpful info on getting a local development set up.
 * Pages
 * Testimonials
 
-## ACF Layouts
-Blurbs
-CallToAction
-Carousel
-ComparisonTable
-Featurette
-FeaturetteSlider
-Form
-General
-Hero
-Posts
-RegisterLayout
-Slider
-Testimonial
-Video
+## Blocks
+* Blurbs
+* CallToAction
+* Carousel
+* ComparisonTable
+* Featurette
+* Form
+* General
+* Hero
+* Posts
+* Slider
+* Testimonial
+* Video
 
 
 
