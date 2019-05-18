@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e57f77978de7817f85594a0b8642ee26",
+    "content-hash": "30aedcd2b80116c9ad9ffdf6228daace",
     "packages": [
         {
             "name": "composer/installers",
@@ -266,10 +266,10 @@
         },
         {
             "name": "pyxl/acf-pro",
-            "version": "5.7.13",
+            "version": "5.8.0",
             "dist": {
                 "type": "zip",
-                "url": "https://pyxl-bucket.s3.amazonaws.com/public-access/wordpress/plugins/acf/advanced-custom-fields-pro.5.7.13.zip"
+                "url": "https://pyxl-bucket.s3.amazonaws.com/public-access/wordpress/plugins/acf/advanced-custom-fields-pro.5.8.0.zip"
             },
             "type": "wordpress-plugin"
         },
@@ -537,7 +537,26 @@
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "wpackagist-plugin/query-monitor",
+            "version": "3.3.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/query-monitor/",
+                "reference": "tags/3.3.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.3.5.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/query-monitor/"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
