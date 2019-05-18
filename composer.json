@@ -67,6 +67,7 @@
     }
   ],
   "require-dev": {
+    "wpackagist-plugin/query-monitor": "^3.3"
   },
   "require": {
     "php": "^7.1",

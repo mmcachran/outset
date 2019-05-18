@@ -33,6 +33,7 @@ debug.log
 /readme.html
 /wp-includes
 /wp-admin
+/wp-content/db.php
 /wp-content/uploads/*
 /wp-content/mu-plugins/*
 /wp-content/plugins/*
