@@ -6,25 +6,10 @@ class General
 {
     public static function init()
     {
-        $class = new self;
-        add_action('init', [$class, 'general']);
-        add_action('init', [$class, 'registerSidebars']);
-    }
-
-    /**
-     * General.
-     */
-    public function general()
-    {
-
-        add_theme_support('align-wide');
-
+        // General
         add_theme_support('title-tag');
-
         add_theme_support('automatic-feed-links');
-
         add_theme_support('post-thumbnails');
-
         add_theme_support(
             'html5',
             [
@@ -36,22 +21,30 @@ class General
             ]
         );
 
+        // Block Editor Settings
         add_theme_support('align-wide');
         add_theme_support('wp-block-styles');
         add_theme_support('responsive-embeds');
-
         add_theme_support('disable-custom-font-sizes');
         add_theme_support('disable-custom-colors');
 
+        $colors = [
+            [
+                'name'  => 'Magenta',
+                'color' => '#a156b4',
+            ],
+            [
+                'name'  => 'Dark Gray',
+                'color' => '#444444',
+            ],
+        ];
 
-    }
-
-
-    /**
-     * Register Sidebars.
-     */
-    public function registerSidebars()
-    {
-
+        add_theme_support('editor-color-palette', array_map(function ($color) {
+            return [
+                'name'  => $color['name'],
+                'slug'  => sanitize_title($color['name']),
+                'color' => $color['color'],
+            ];
+        }, $colors));
     }
 }
