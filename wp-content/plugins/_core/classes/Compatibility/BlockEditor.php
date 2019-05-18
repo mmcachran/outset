@@ -6,6 +6,7 @@ class BlockEditor
 {
     const WHITELIST = [
         'post',
+        'page'
     ];
 
     public static function init()
@@ -16,10 +17,6 @@ class BlockEditor
 
     public function disable_block_editor($use_block_editor, $post_type)
     {
-        if (in_array($post_type, self::WHITELIST)) {
-            return true;
-        }
-
-        return false;
+        return in_array($post_type, self::WHITELIST);
     }
 }
