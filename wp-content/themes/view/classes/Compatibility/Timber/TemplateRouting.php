@@ -56,10 +56,10 @@ class TemplateRouting
             return;
         }
 
-        $type    = $this->get_view_type();
-        $queried = get_queried_object();
-        $context = Timber\Timber::context();
-        $post_type = is_post_type_archive() ? $queried->name : $queried->post_type;
+        $type      = $this->get_view_type();
+        $queried   = get_queried_object();
+        $context   = Timber\Timber::context();
+        $post_type = Utils\Helpers::has_key('post_type', $queried) ?: 'post';
 
         switch ($type) {
             case 'Archives':
@@ -67,7 +67,7 @@ class TemplateRouting
                 $dir_path     = self::get_sub_path($post_type);
                 switch ($archive_type) {
                     case 'PostTypes';
-                        $context['post_type'] = get_post_type_object(is_home() ? 'post' : $post_type);
+                        $context['post_type'] = get_post_type_object($post_type);
                         break;
                     case 'Taxonomies';
                         $context['term'] = new Timber\Term();
@@ -76,7 +76,7 @@ class TemplateRouting
                 $context['posts'] = new Timber\PostQuery();
                 $path             = "{$type}/{$archive_type}/{$dir_path}/{$dir_path}";
                 // var_dump($path);
-                $context['path']  = file_exists(PATH . "views/{$path}.twig")
+                $context['path'] = file_exists(PATH . "views/{$path}.twig")
                     ? $path
                     : "{$type}/{$archive_type}/Fallback/Fallback";
                 break;
