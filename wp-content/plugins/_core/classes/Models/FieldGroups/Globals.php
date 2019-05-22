@@ -2,7 +2,6 @@
 
 namespace Core\Models\FieldGroups;
 
-use Core\Data\Fields;
 use Core\Models\PostTypes;
 use Core\Models\OptionsPages;
 use Core\Utils\GravityForms as GF;

@@ -4,7 +4,7 @@ namespace Core\Models\PostTypes;
 
 use Core\Utils\ACF;
 
-class Page
+class Pages
 {
     const SLUG = 'page';
 

@@ -6,6 +6,13 @@ use WP_REST_Request;
 
 class Data
 {
+    /**
+     * @param string $post_type
+     * @param array $params
+     * @return mixed|\WP_Error|null
+     *
+     * @note This is a way to pull data based on the REST API format
+     */
     public static function get_posts($post_type = 'posts', $params = [])
     {
         $request = new WP_REST_Request('GET', "/wp/v2/{$post_type}");
@@ -19,6 +26,13 @@ class Data
         return $response->get_data();
     }
 
+    /**
+     * @param $post_type
+     * @param $id
+     * @return mixed|\WP_Error|null
+     *
+     * @note This is a way to pull data based on the REST API format
+     */
     public static function get_post($post_type, $id)
     {
         $request  = new WP_REST_Request('GET', "/wp/v2/{$post_type}/{$id}");

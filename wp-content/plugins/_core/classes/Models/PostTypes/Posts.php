@@ -2,7 +2,7 @@
 
 namespace Core\Models\PostTypes;
 
-class Post
+class Posts
 {
     const SLUG = 'post';
 

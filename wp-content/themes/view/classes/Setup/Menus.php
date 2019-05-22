@@ -29,7 +29,7 @@ class Menus
     {
         $class = new self;
         add_action('init', [$class, 'register']);
-        add_filter('timber/context', [$class, 'timber_menus'], 100);
+        // add_filter('timber/context', [$class, 'timber_menus'], 100);
     }
 
     public function timber_menus($context)

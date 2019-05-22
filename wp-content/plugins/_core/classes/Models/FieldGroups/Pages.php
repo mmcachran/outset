@@ -4,7 +4,7 @@ namespace Core\Models\FieldGroups;
 
 use Core\Utils\Fields;
 
-class PageSettings extends RegisterFieldGroup
+class Pages extends RegisterFieldGroup
 {
     const SLUG = 'page_settings';
     const LABEL = 'Settings';

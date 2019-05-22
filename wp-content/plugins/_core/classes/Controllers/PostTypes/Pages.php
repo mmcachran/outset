@@ -5,7 +5,7 @@ namespace Core\Controllers\PostTypes;
 use Core\Utils\General;
 use Core\Utils\WordPress;
 
-class Page
+class Pages
 {
     public static function init()
     {

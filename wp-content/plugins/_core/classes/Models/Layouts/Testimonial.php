@@ -17,7 +17,7 @@ class Testimonial extends RegisterLayout
                 'label'         => 'Testimonial',
                 'slug'          => 'testimonial',
                 'post_type'     => [
-                    PostTypes\Testimonial::SLUG,
+                    PostTypes\Testimonials::SLUG,
                 ],
                 'return_format' => 'id',
             ]),

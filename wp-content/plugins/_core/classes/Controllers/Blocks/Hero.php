@@ -1,15 +1,13 @@
 <?php
 
-namespace Core\Controllers\Globals;
+namespace Core\Controllers\Blocks;
 
-use Core\Utils\General;
-
-class Footer
+class Hero
 {
     public static function init()
     {
         $class = new self;
-        add_filter('Globals/Footer', [$class, 'filter'], 10, 3);
+        add_filter('Blocks/Hero', [$class, 'filter'], 10, 3);
     }
 
     public function filter($data)

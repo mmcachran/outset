@@ -5,7 +5,7 @@ namespace Core\Models\FieldGroups;
 use Core\Utils\Fields;
 use Core\Models\PostTypes;
 
-class Testimonial extends RegisterFieldGroup
+class Testimonials extends RegisterFieldGroup
 {
     const SLUG = 'testimonials';
     const SINGULAR = 'Testimonial';
@@ -26,7 +26,7 @@ class Testimonial extends RegisterFieldGroup
                     [
                         'param'    => 'post_type',
                         'operator' => '==',
-                        'value'    => PostTypes\Testimonial::SLUG,
+                        'value'    => PostTypes\Testimonials::SLUG,
                     ],
                 ],
             ],

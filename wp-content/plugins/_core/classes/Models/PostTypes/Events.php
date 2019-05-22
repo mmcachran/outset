@@ -2,15 +2,15 @@
 
 namespace Core\Models\PostTypes;
 
-class Testimonial extends RegisterPostType
+class Events extends RegisterPostType
 {
-    const SLUG = 'testimonial';
+    const SLUG = 'event';
 
-    const REST_BASE = 'testimonials';
+    const REST_BASE = 'events';
 
-    const SINGULAR = 'Testimonial';
+    const SINGULAR = 'Event';
 
-    const PLURAL = 'Testimonials';
+    const PLURAL = 'Events';
 
     public static function init()
     {

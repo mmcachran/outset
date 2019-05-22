@@ -10,7 +10,6 @@ class BlockEditor
     ];
 
     const BLOCKS = [
-        // 'custom/section',
         'core/paragraph',
         'core/image',
         'core/heading',

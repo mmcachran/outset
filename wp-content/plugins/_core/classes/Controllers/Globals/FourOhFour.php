@@ -14,7 +14,6 @@ class FourOhFour
 
     public function filter($data)
     {
-        $fields = get_field('four_oh_four', 'site');
-        return General::merge($data, $fields);
+        return $data;
     }
 }

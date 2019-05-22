@@ -29,41 +29,29 @@ require_once 'lib/autoload.php';
 
 add_action('plugins_loaded', function () {
 
-    // Page Templates
-    Models\PageTemplates\Modules::init();
-    Models\PageTemplates\Careers::init();
-
+    /**
+     * Models
+     */
     // Post Types
-    Models\PostTypes\Post::init();
-    Models\PostTypes\Page::init();
-    Models\PostTypes\Testimonial::init();
+    Models\PostTypes\Posts::init();
+    Models\PostTypes\Pages::init();
+    // Models\PostTypes\Events::init();
+    // Models\PostTypes\Testimonial::init();
+    // Models\PostTypes\Careers::init();
 
     // Taxonomies
     // Models\Taxonomies\EventType::init();
 
     // Options Pages
-    // Models\OptionsPages\Globals::init();
-
-    // Layouts
-    Models\Layouts\Blurbs::init();
-    Models\Layouts\CallToAction::init();
-    Models\Layouts\Carousel::init();
-    // Models\Layouts\ComparisonTable::init();
-    Models\Layouts\Featurette::init();
-    Models\Layouts\Form::init();
-    Models\Layouts\General::init();
-    Models\Layouts\Hero::init();
-    Models\Layouts\Slider::init();
-    Models\Layouts\Video::init();
-    Models\Layouts\Testimonial::init();
-    Models\Layouts\Posts::init();
-    Models\Layouts\Gallery::init();
+    Models\OptionsPages\Globals::init();
 
     // Field Groups
-    Models\FieldGroups\PageSettings::init();
-    Models\FieldGroups\Modules::init();
-    Models\FieldGroups\Testimonial::init();
     Models\FieldGroups\Globals::init();
+    Models\FieldGroups\Pages::init();
+    // Models\FieldGroups\Testimonial::init();
+
+    // Blocks
+    Models\Blocks\Hero::init();
 
     /**
      * Controllers
@@ -73,20 +61,11 @@ add_action('plugins_loaded', function () {
     Controllers\Globals\FourOhFour::init();
 
     // Layouts
-    Controllers\Layouts\Hero::init();
-    // Controllers\Layouts\Featurette::init();
-    // Controllers\Layouts\Testimonial::init();
-    // Controllers\Layouts\FormBlock::init();
-    Controllers\Layouts\Posts::init();
 
     // Post Types
-    Controllers\PostTypes\Page::init();
-    // Controllers\PostTypes\Post::init();
+    Controllers\PostTypes\Pages::init();
+    Controllers\PostTypes\Posts::init();
     // Controllers\PostTypes\Event::init();
-
-    // Page Templates
-    Controllers\PageTemplates\Modules::init();
-    Controllers\PageTemplates\Careers::init();
 
     /**
      * Compatibility
