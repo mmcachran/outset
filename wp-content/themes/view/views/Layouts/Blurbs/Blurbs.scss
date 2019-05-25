@@ -1,7 +1,0 @@
-.Blurbs {
-  &__inner {
-    @include for-tablet__landscape--up {
-      display: grid;
-    }
-  }
-}
