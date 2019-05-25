@@ -19,6 +19,10 @@ class CustomFunctions
     {
         $actions = [
             [
+                'name'   => 'list_keys',
+                'action' => [Helpers::class, 'list_keys'],
+            ],
+            [
                 'name'   => 'gform',
                 'action' => 'gravity_form',
             ],
