@@ -7,6 +7,8 @@ use Core\Utils\Brand;
 
 final class Fields
 {
+    public $boolean;
+
     public $button_group;
 
     public $forms;
@@ -63,6 +65,18 @@ final class Fields
 
     public function __construct()
     {
+        $this->boolean = [
+            'slug'          => 'boolean',
+            'label'         => 'Boolean',
+            'type'          => 'true_false',
+            'instructions'  => '',
+            'message'       => '',
+            'default_value' => 1,
+            'ui'            => 1,
+            'ui_on_text'    => 'On',
+            'ui_off_text'   => 'Off',
+        ];
+
         $this->heading = [
             'label' => __('Heading', 'core'),
             'slug'  => 'heading',
@@ -246,14 +260,14 @@ final class Fields
             'label'     => __('General', 'core'),
             'slug'      => 'general',
             'type'      => 'tab',
-            'placement' => 'left',
+            'placement' => 'top',
         ];
 
         $this->tab_advanced = [
             'label'     => __('Advanced', 'core'),
             'slug'      => 'advanced',
             'type'      => 'tab',
-            'placement' => 'left',
+            'placement' => 'top',
         ];
 
         $this->color = [
