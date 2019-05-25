@@ -8,6 +8,16 @@ use const Pyxl\View\URI;
 class Helpers
 {
 
+    public static function list_keys($data)
+    {
+        if (is_array($data)) {
+            var_dump(array_keys($data));
+        }
+        if (is_object($data)) {
+            var_dump(get_object_vars($data));
+        }
+    }
+
     public static function get_dist_uri($filepath)
     {
         return get_template_directory_uri() . "/dist/{$filepath}";
