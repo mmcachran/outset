@@ -7,6 +7,12 @@ use Core\Utils\Fields;
 
 class Hero extends RegisterBlock
 {
+    /**
+     * @const VIEW
+     * @note Should be Uppercase, no spaces, no dashes (e.g. CallToAction), used for filenames and slugs
+     */
+    const VIEW = 'Hero';
+
     public static function init()
     {
         $acf    = new Fields();
@@ -21,11 +27,12 @@ class Hero extends RegisterBlock
         ];
 
         parent::register([
-            'slug'     => 'Hero',
-            'name'     => 'Hero',
+            'view'        => self::VIEW,
+            'label'       => __('Custom - Hero', 'core'),
+            'description' => __("The Hero Block", 'core'),
             // 'icon' => 'dashicons-welcome-view-site',
-            'keywords' => ['hero', 'slider'],
-            'fields'   => $fields,
+            'keywords'    => ['hero', 'custom'],
+            'fields'      => $fields,
         ]);
     }
 }

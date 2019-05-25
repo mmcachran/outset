@@ -56,17 +56,18 @@ add_action('plugins_loaded', function () {
     /**
      * Controllers
      */
+    // Globals
     Controllers\Globals\Footer::init();
     Controllers\Globals\Header::init();
     Controllers\Globals\FourOhFour::init();
-
-    // Layouts
 
     // Post Types
     Controllers\PostTypes\Pages::init();
     Controllers\PostTypes\Posts::init();
     // Controllers\PostTypes\Event::init();
 
+    // Blocks
+    Controllers\Blocks\Hero::init();
     /**
      * Compatibility
      */
