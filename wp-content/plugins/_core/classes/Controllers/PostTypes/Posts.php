@@ -5,7 +5,7 @@ namespace Core\Controllers\PostTypes;
 use Core\Utils\General;
 use Core\Models\OptionsPages\Globals;
 
-class Post
+class Posts
 {
     public static function init()
     {
