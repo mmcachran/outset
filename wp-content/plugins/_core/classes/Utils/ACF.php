@@ -75,6 +75,7 @@ class ACF
      */
     public static function slug_handler($prefix, $fields)
     {
+
         $acf_fields = [];
         foreach ($fields as $field) {
             $new_field = [
@@ -85,37 +86,40 @@ class ACF
             if (General::has_key('sub_fields', $field)) {
                 $new_field['sub_fields'] = self::slug_handler($prefix, $field['sub_fields']);
             }
-            // TODO: Mizner, review this ternary. There's probably a better way
-            $acf_fields[] = array_merge($field ?: [], $new_field);
+
+
+            if (General::has_key('conditional_logic', $field)) {
+                $new_field['conditional_logic'] = self::conditional_logic_keys($prefix, $field['conditional_logic']);
+            }
+
+            $acf_fields[] = array_merge($field, $new_field);
         }
+
         return $acf_fields;
     }
 
-    public static function conditional_logic_keys($prefix, $fields)
+    public static function conditional_logic_keys($prefix, $condition_group)
     {
-        $new_fields = [];
+        $new_condition_group = [];
 
-        foreach ($fields as $field) {
+        foreach ($condition_group as $condition_set) {
+            $new_set = [];
 
-            $new_field = [];
+            foreach ($condition_set as $condition) {
+                $adjusted_condition = [];
 
-            if (General::has_key('conditional_logic', $field)) {
-                foreach ($field['conditional_logic'] as $condition) {
-                    $new_logic = [];
-
-                    foreach ($condition as $logic) {
-                        $new_logic[] = array_merge($logic, [
-                            'field' => "{$prefix}/{$logic['field']}",
-                        ]);
-                    }
-
-                    $new_field['conditional_logic'][] = $new_logic;
+                if (General::has_key('field', $condition)) {
+                    $adjusted_condition = array_merge($condition, [
+                        'field' => "{$prefix}/{$condition['field']}",
+                    ]);
                 }
+
+                $new_set[] = $adjusted_condition;
             }
 
-            $new_fields[] = array_merge($field, $new_field);
+            $new_condition_group[] = $new_set;
         }
 
-        return $new_fields;
+        return $new_condition_group;
     }
 }
