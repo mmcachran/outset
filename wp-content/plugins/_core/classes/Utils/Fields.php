@@ -104,7 +104,7 @@ final class Fields
         ];
 
         $this->gallery = [
-            'label'   => 'Images',
+            'label'   => __('Images', 'core'),
             'slug'    => 'images',
             'type'    => 'gallery',
             'insert'  => 'append',
@@ -313,5 +313,23 @@ final class Fields
     public function add($field_name, $override = [])
     {
         return array_merge($this->{$field_name}, $override);
+    }
+
+    /**
+     * @param $condition
+     * @return array
+     *
+     * Example usage:
+     $acf->add('heading', ['conditional_logic' => $acf->simple_conditional_logic([
+            'field'    => 'choices',
+            'operator' => '==',
+            'value'    => 'one',
+        ]),
+    ]),
+     */
+    public function simple_conditional_logic($condition)
+    {
+        // Matching the structure of ACF's deep array structure, which we don't often need/**/
+        return [[$condition]];
     }
 }
