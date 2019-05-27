@@ -1,8 +1,8 @@
 {#{{ dump() }}#}
 {% set classes = [
-    layout,
-    width,
+    base,
+    "width--#{block.align}",
 ] %}
-<section class="{{ classes|join(' ') }}">
-    <h1>HERO</h1>
+<section class="{{ classes|join(' ')|e }}">
+    <h1>{{ __(heading|e, 'view') }}</h1>
 </section>

@@ -15,10 +15,31 @@ class Hero extends RegisterBlock
 
     public static function init()
     {
+
         $acf    = new Fields();
         $fields = [
             $acf->tab_general,
-            $acf->heading,
+            $acf->add('select', [
+                'label'   => __('Choices', 'core'),
+                'slug'    => 'choices',
+                'type'    => 'select',
+                'choices' => [
+                    'one' => 'One',
+                    'two' => 'Two',
+                ],
+            ]),
+            $acf->add('heading', [
+                'conditional_logic' => $acf->simple_conditional_logic([
+                    'field'    => 'choices',
+                    'operator' => '==',
+                    'value'    => 'one',
+                ]),
+            ]),
+            $acf->simple_conditional_logic([
+                'field'    => 'choices',
+                'operator' => '==',
+                'value'    => 'one',
+            ]),
             $acf->subheading,
             $acf->image,
             $acf->content,
