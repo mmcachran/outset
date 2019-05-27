@@ -76,7 +76,7 @@ class RegisterBlock
         $slug = General::convert_capitalcase_to_underscores($args['view']);
 
         $defaults = [
-            'align'           => 'full',
+            'align'           => 'wide',
             'name'            => $slug,
             'title'           => $args['label'],
             'description'     => $args['description'],
@@ -88,24 +88,23 @@ class RegisterBlock
                     $args['view']
                 );
 
-                $context = Timber::get_context();
-
-                $context = array_merge($context, [
-                    'block'      => $block, // Store block values.
-                    'acf'        => get_fields(), // Store field values.
-                    'is_preview' => $is_preview, // Store $is_preview value.
-                ]);
+                $data               = function_exists('get_fields') ? get_fields() : [];
+                $data['base']       = $args['view'];
+                $data['path']       = $view_path;
+                $data['block']      = $block;
+                $data['is_preview'] = $is_preview;
+                $data['context']    = Timber::context();
 
                 // Render the block.
-                Timber::render($view_path, $context);
+                Timber::render($view_path, $data);
             },
             'supports'        => [
                 'mode'     => 'auto',
-                'align'    => 'wide',
+                'align'    => ['full', 'wide'],
                 'multiple' => true,
             ],
             'category'        => 'layout',
-            'icon'            => 'dashicons-welcome-widgets-menus', // http://aalmiray.github.io/ikonli/cheat-sheet-dashicons.html
+            'icon'            => 'layout', // http://aalmiray.github.io/ikonli/cheat-sheet-dashicons.html
             'mode'            => 'preview',
             'keywords'        => General::convert_capitalcase_to_keywords($args['view']),
         ];
