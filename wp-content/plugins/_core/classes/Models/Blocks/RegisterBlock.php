@@ -75,18 +75,19 @@ class RegisterBlock
     {
         $slug = General::convert_capitalcase_to_underscores($args['view']);
 
+        $view_path = sprintf(
+            '%1$s/views/Blocks/%2$s/%2$s',
+            get_stylesheet_directory(),
+            $args['view']
+        );
+
         $defaults = [
             'align'           => 'wide',
             'name'            => $slug,
             'title'           => $args['label'],
             'description'     => $args['description'],
-            'render_callback' => function ($block, $content = '', $is_preview = false) use ($args) {
-
-                $view_path = sprintf(
-                    '%1$s/views/Blocks/%2$s/%2$s.twig',
-                    get_stylesheet_directory(),
-                    $args['view']
-                );
+            'enqueue_script'  => get_stylesheet_directory_uri() . "{$view_path}.js",
+            'render_callback' => function ($block, $content = '', $is_preview = false) use ($args, $view_path) {
 
                 $data               = function_exists('get_fields') ? get_fields() : [];
                 $data['base']       = $args['view'];
@@ -96,7 +97,7 @@ class RegisterBlock
                 $data['context']    = Timber::context();
 
                 // Render the block.
-                Timber::render($view_path, $data);
+                Timber::render("{$view_path}.twig", $data);
             },
             'supports'        => [
                 'mode'     => 'auto',
