@@ -1,5 +1,5 @@
 .Hero {
-  @include vertical-padding;
+  //@include vertical-padding;
   position: relative;
 
   &__overlay {
@@ -24,13 +24,6 @@
   &__inner {
     position: relative;
     z-index: 10;
-    max-width: $width--normal;
-    margin-right: auto;
-    margin-left: auto;
-    @include for-tablet__landscape--up {
-      padding-left: 0;
-      padding-right: 0;
-    }
   }
 
   &__button {
