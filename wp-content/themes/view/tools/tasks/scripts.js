@@ -30,7 +30,7 @@ function filterToIdentifyBlocks (file) {
 
   const blockMatch = srcPaths.find(item => item.includes(`Blocks/${fileName}`));
   if ('undefined' !== typeof blockMatch) {
-    return `${root}/dist/blocks/${fileName}`;
+    return `${paths.dist.blocks}${fileName}`;
   }
 
   return paths.dist.scripts;

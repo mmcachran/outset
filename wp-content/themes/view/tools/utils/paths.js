@@ -18,7 +18,7 @@ const paths = {
     images: `${root}/dist/images/`,
     fonts: `${root}/dist/fonts/`,
     svgs: `${root}/dist/svgs/`,
-    blocks: `${root}/dist/blocks/`,
+    blocks: `${root}/dist/Blocks/`,
   }
 };
 

@@ -48,12 +48,13 @@ class Hero extends RegisterBlock
         ];
 
         parent::register([
-            'view'        => self::VIEW,
-            'label'       => __('Custom - Hero', 'core'),
-            'description' => __("The Hero Block", 'core'),
-            // 'icon' => 'dashicons-welcome-view-site',
-            'keywords'    => ['hero', 'custom'],
-            'fields'      => $fields,
+            'easy_enqueues' => ['script', 'style'],
+            'view'          => self::VIEW,
+            'label'         => __('Custom - Hero', 'core'),
+            'description'   => __("The Hero Block", 'core'),
+            'icon' => 'dashicons-welcome-view-site',
+            'keywords'      => ['hero', 'custom'],
+            'fields'        => $fields,
         ]);
     }
 }
