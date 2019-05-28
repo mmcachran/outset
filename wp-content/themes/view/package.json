@@ -49,6 +49,7 @@
     "core-js": "^2.6.5",
     "flickity": "^2.2.0",
     "flickity-fade": "^1.0.0",
+    "font-awesome-5": "https://pyxl-bucket.s3.amazonaws.com/public-access/npm/font-awesome/font-awesome-5.0.12.tar.gz",
     "line-clamp": "^0.0.9",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
