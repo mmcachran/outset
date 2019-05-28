@@ -7,7 +7,7 @@
   "version": "1.0.0",
   "license": "GPL-3.0-or-later",
   "watch": {
-    "proxy": "https://pyxl.test",
+    "proxy": "https://outset.test",
     "port": 3333,
     "ui": false,
     "online": true
