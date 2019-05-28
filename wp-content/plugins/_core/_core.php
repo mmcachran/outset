@@ -52,6 +52,7 @@ add_action('plugins_loaded', function () {
 
     // Blocks
     Models\Blocks\Hero::init();
+    Models\Blocks\CallToAction::init();
 
     /**
      * Controllers

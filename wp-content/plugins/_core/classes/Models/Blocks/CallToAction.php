@@ -5,13 +5,13 @@ namespace Core\Models\Blocks;
 use Core\Models\Blocks;
 use Core\Utils\Fields;
 
-class Hero extends RegisterBlock
+class CallToAction extends RegisterBlock
 {
     /**
      * @const VIEW
      * @note Should be Uppercase, no spaces, no dashes (e.g. CallToAction), used for filenames and slugs
      */
-    const VIEW = 'Hero';
+    const VIEW = 'CallToAction';
 
     public static function init()
     {
@@ -45,10 +45,10 @@ class Hero extends RegisterBlock
         parent::register([
             'easy_enqueues' => ['script', 'style'],
             'view'          => self::VIEW,
-            'label'         => __('Custom - Hero', 'core'),
-            'description'   => __("The Hero Block", 'core'),
-            // 'icon' => 'dashicons-welcome-view-site',
-            'keywords'      => ['hero', 'custom'],
+            'label'         => __('Custom - Call To Action', 'core'),
+            'description'   => __("The CTA Block", 'core'),
+            'icon'          => 'dashicons-welcome-view-site',
+            'keywords'      => ['cta', 'custom'],
             'fields'        => $fields,
         ]);
     }

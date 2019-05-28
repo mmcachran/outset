@@ -86,7 +86,6 @@ class RegisterBlock
      */
     protected static function register_block($args)
     {
-        $slug = General::convert_capitalcase_to_underscores($args['view']);
 
         $view_path = sprintf(
             '%1$s/views/Blocks/%2$s/%2$s',
@@ -102,7 +101,7 @@ class RegisterBlock
 
         $defaults = [
             'align'           => 'wide',
-            'name'            => $slug,
+            'name'            => $args['slug'],
             'title'           => $args['label'],
             'description'     => $args['description'],
             'category'        => 'layout',
