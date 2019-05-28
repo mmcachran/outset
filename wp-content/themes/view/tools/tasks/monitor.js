@@ -1,6 +1,6 @@
 import { series, watch } from 'gulp';
 import { quit, reload } from './serve';
-import { scripts, styles, svgs, fonts, clean, sprite } from '../index';
+import { scripts, styles, svgs, fonts, clean, sprite, blockStyles } from '../index';
 
 function monitor (cb) {
   watch(
@@ -26,6 +26,7 @@ function monitor (cb) {
   watch(
     [
       `./src/**/*.js`,
+      `./views/**/*.js`,
     ],
     series(
       scripts,
@@ -38,7 +39,8 @@ function monitor (cb) {
       `./views/**/*.scss`,
     ],
     series(
-      styles
+      styles,
+      blockStyles
     )
   );
   watch(

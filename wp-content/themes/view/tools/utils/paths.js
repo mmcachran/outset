@@ -5,18 +5,20 @@ const root = resolve(process.env.PWD);
 
 const paths = {
   src: {
-    styles: resolve(`${root}/src/styles/`),
-    scripts: resolve(`${root}/src/scripts/`),
-    images: resolve(`${root}/src/images/`),
-    fonts: resolve(`${root}/src/fonts/`),
-    svgs: resolve(`${root}/src/svgs/`),
+    styles: `${root}/src/styles/`,
+    scripts: `${root}/src/scripts/`,
+    images: `${root}/src/images/`,
+    fonts: `${root}/src/fonts/`,
+    svgs: `${root}/src/svgs/`,
+    blocks: `${root}/views/Blocks/`,
   },
   dist: {
-    styles: resolve(`${root}/dist/styles/`),
-    scripts: resolve(`${root}/dist/scripts/`),
-    images: resolve(`${root}/dist/images/`),
-    fonts: resolve(`${root}/dist/fonts/`),
-    svgs: resolve(`${root}/dist/svgs/`),
+    styles: `${root}/dist/styles/`,
+    scripts: `${root}/dist/scripts/`,
+    images: `${root}/dist/images/`,
+    fonts: `${root}/dist/fonts/`,
+    svgs: `${root}/dist/svgs/`,
+    blocks: `${root}/dist/blocks/`,
   }
 };
 
