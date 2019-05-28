@@ -23,6 +23,9 @@ const options = {
   },
   sass: {
     importer: sassImport(),
+    includePaths: [
+      paths.src.styles
+    ]
   },
   rename: {
     suffix: 'production' === mode ? `.min` : ``,

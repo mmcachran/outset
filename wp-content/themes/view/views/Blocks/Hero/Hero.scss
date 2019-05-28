@@ -1,5 +1,8 @@
+@import "utils/variables";
+@import "utils/mixins";
+
 .Hero {
-  //@include vertical-padding;
+  @include vertical-padding;
   position: relative;
 
   &__overlay {
