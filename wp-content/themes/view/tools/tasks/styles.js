@@ -53,4 +53,23 @@ function styles (cb) {
   );
 }
 
-export { styles };
+function blockStyles (cb) {
+  return pump(
+    [
+      src(`${paths.src.blocks}**/*.scss`),
+      plumber(),
+      'production' === mode ? noop() : sourcemaps.init(),
+      sassGlob(),
+      sass(options.sass),
+      'production' === mode ? cleanCSS(options.cleanCSS) : noop(),
+      autoprefixer(options.autoprefixer),
+      rename(options.rename),
+      'production' === mode ? noop() : sourcemaps.write('.'),
+      dest(paths.dist.blocks),
+      server.stream()
+    ],
+    cb
+  );
+}
+
+export { styles, blockStyles };
