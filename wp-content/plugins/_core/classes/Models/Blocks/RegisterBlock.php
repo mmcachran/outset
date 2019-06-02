@@ -86,6 +86,9 @@ class RegisterBlock
      */
     protected static function register_block($args)
     {
+        if (!function_exists('acf_register_block')) {
+            return;
+        }
 
         $view_path = sprintf(
             '%1$s/views/Blocks/%2$s/%2$s',
