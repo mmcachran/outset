@@ -65,7 +65,7 @@ class TemplateRouting
         $context   = [];
         $type      = $this->get_view_type();
         $queried   = get_queried_object();
-        $post_type = Utils\Helpers::has_key('post_type', $queried) ?: 'post';
+	    $post_type = Utils\Helpers::has_key('post_type', $queried) ? $queried->post_type : 'post';
 
         switch ($type) {
             case 'Archives':
