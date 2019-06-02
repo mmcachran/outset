@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff4bb95f16f679ae5a64d6f4adc408c7",
+    "content-hash": "9c0b0ee350158ef534ed901574dd6769",
     "packages": [
         {
             "name": "composer/installers",
@@ -381,15 +381,15 @@
         },
         {
             "name": "wpackagist-plugin/kirki",
-            "version": "3.0.39",
+            "version": "3.0.40",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/kirki/",
-                "reference": "tags/3.0.39"
+                "reference": "tags/3.0.40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/kirki.3.0.39.zip"
+                "url": "https://downloads.wordpress.org/plugin/kirki.3.0.40.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -453,15 +453,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "11.2.1",
+            "version": "11.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/11.2.1"
+                "reference": "tags/11.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.11.2.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.11.3.zip"
             },
             "require": {
                 "composer/installers": "~1.0"

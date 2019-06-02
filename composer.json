@@ -55,7 +55,7 @@
     "vlucas/phpdotenv": "^3.3",
     "wpackagist-plugin/acf-image-crop-add-on": "^1.4",
     "wpackagist-plugin/imsanity": "^2.4",
-    "wpackagist-plugin/kirki": "^3.0",
+    "wpackagist-plugin/kirki": "^3.0.4",
     "wpackagist-plugin/post-duplicator": "^2.20",
     "wpackagist-plugin/simple-page-ordering": "^2.3",
     "wpackagist-plugin/timber-library": "1.9.4",
