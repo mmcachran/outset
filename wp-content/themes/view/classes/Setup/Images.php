@@ -44,8 +44,8 @@ class Images
         $class = new self;
         add_action('init', [$class, 'register_sizes']);
         add_filter('intermediate_image_sizes_advanced', [$class, 'deregister_sizes']);
-        add_action('admin_print_styles', [$class, 'hide_sizes_interface']);
         add_filter('image_size_names_choose', [$class, 'image_size_choices_registration'], 10, 1);
+        add_action('admin_print_styles', [$class, 'hide_sizes_interface']);
     }
 
     public function register_sizes()
@@ -72,10 +72,11 @@ class Images
     public function deregister_sizes($sizes)
     {
         $removals = [
-            'small', // 150px
-            'medium', // 300px
-            'large', // 1024px
-            'medium_large', // 768px
+            // 'thumbnail',
+            // 'small',
+            // 'medium',
+            'medium_large',
+            // 'large',
         ];
 
         foreach ($removals as $size) {

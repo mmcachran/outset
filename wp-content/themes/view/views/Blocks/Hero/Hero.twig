@@ -4,5 +4,10 @@
     "width--#{block.align}",
 ] %}
 <section class="{{ classes|join(' ')|e }}">
-    <h1>{{ __(heading|e, 'view') }}</h1>
+    <picture>
+        <source srcset="{{ image.srcset }}" sizes="{{ image.img_sizes }}">
+        <img src="{{ image.src }}" srcset="{{ image.srcset }}">
+    </picture>
+    <h2>{{ __(heading|e, 'view') }}</h2>
+    <h3>{{ __(subheading|e, 'view') }}</h3>
 </section>

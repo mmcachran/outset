@@ -19,23 +19,9 @@ class Hero extends RegisterBlock
         $acf    = new Fields();
         $fields = [
             $acf->tab_general,
-            $acf->add('select', [
-                'label'   => __('Choices', 'core'),
-                'slug'    => 'choices',
-                'type'    => 'select',
-                'choices' => [
-                    'one' => 'One',
-                    'two' => 'Two',
-                ],
-            ]),
-            $acf->add('heading', [
-                'conditional_logic' => $acf->simple_conditional_logic([
-                    'field'    => 'choices',
-                    'operator' => '==',
-                    'value'    => 'one',
-                ]),
-            ]),
+            $acf->heading,
             $acf->subheading,
+            $acf->image,
             $acf->image,
             $acf->content,
             $acf->link,
@@ -43,11 +29,11 @@ class Hero extends RegisterBlock
         ];
 
         parent::register([
-            'easy_enqueues' => ['script', 'style'],
+            'easy_enqueues' => ['script', 'style'], // options: style, script
             'view'          => self::VIEW,
             'label'         => __('Custom - Hero', 'core'),
             'description'   => __("The Hero Block", 'core'),
-            // 'icon' => 'dashicons-welcome-view-site',
+            'icon'          => 'welcome-view-site', // http://aalmiray.github.io/ikonli/cheat-sheet-dashicons.html
             'keywords'      => ['hero', 'custom'],
             'fields'        => $fields,
         ]);

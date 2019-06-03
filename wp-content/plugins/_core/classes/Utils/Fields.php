@@ -138,9 +138,6 @@ final class Fields
             'slug'    => 'choices',
             'type'    => 'button_group',
             'choices' => [],
-            'wrapper' => [
-                'width' => '50%',
-            ],
         ];
 
         $this->group = [
@@ -163,10 +160,11 @@ final class Fields
         ];
 
         $this->image = [
-            'label'        => __('Image', 'core'),
-            'slug'         => 'image',
-            'type'         => 'image',
-            'preview_size' => 'medium',
+            'label'         => __('Image', 'core'),
+            'slug'          => 'image',
+            'type'          => 'image',
+            'preview_size'  => 'medium',
+            'return_format' => 'id',
         ];
 
         $this->post_object = [
@@ -183,9 +181,6 @@ final class Fields
             'slug'          => 'range',
             'type'          => 'range',
             'instructions'  => '',
-            'wrapper'       => [
-                'width' => '50%',
-            ],
             'default_value' => 70,
             'min'           => '',
             'max'           => '',
@@ -320,12 +315,12 @@ final class Fields
      * @return array
      *
      * Example usage:
-     $acf->add('heading', ['conditional_logic' => $acf->simple_conditional_logic([
-            'field'    => 'choices',
-            'operator' => '==',
-            'value'    => 'one',
-        ]),
-    ]),
+     * $acf->add('heading', ['conditional_logic' => $acf->simple_conditional_logic([
+     * 'field'    => 'choices',
+     * 'operator' => '==',
+     * 'value'    => 'one',
+     * ]),
+     * ]),
      */
     public function simple_conditional_logic($condition)
     {
