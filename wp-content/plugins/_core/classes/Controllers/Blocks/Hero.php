@@ -14,7 +14,7 @@ class Hero
 
     public function filter($data)
     {
-        if (class_exists(Timber\Image::class)) {
+        if (class_exists(Timber\Image::class) && !empty($data['image'])) {
             $data['image'] = new Timber\Image($data['image']);
         }
 
