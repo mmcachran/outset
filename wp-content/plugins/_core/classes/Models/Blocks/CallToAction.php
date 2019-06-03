@@ -19,22 +19,7 @@ class CallToAction extends RegisterBlock
         $acf    = new Fields();
         $fields = [
             $acf->tab_general,
-            $acf->add('select', [
-                'label'   => __('Choices', 'core'),
-                'slug'    => 'choices',
-                'type'    => 'select',
-                'choices' => [
-                    'one' => 'One',
-                    'two' => 'Two',
-                ],
-            ]),
-            $acf->add('heading', [
-                'conditional_logic' => $acf->simple_conditional_logic([
-                    'field'    => 'choices',
-                    'operator' => '==',
-                    'value'    => 'one',
-                ]),
-            ]),
+            $acf->heading,
             $acf->subheading,
             $acf->image,
             $acf->content,
@@ -47,7 +32,7 @@ class CallToAction extends RegisterBlock
             'view'          => self::VIEW,
             'label'         => __('Custom - Call To Action', 'core'),
             'description'   => __("The CTA Block", 'core'),
-            'icon'          => 'dashicons-welcome-view-site',
+            'icon'          => 'welcome-view-site',
             'keywords'      => ['cta', 'custom'],
             'fields'        => $fields,
         ]);
