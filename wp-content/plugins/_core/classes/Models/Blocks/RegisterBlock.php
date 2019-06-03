@@ -34,7 +34,8 @@ class RegisterBlock
             return new WP_Error('missing_keys', __('Arguments "' . $key . '" is required', 'core'));
         }
 
-        $args['slug'] = General::convert_capitalcase_to_underscores($args['view']);
+        // ACF handles blocks by converting to underscores to dashes, so we're *required* to use dashes (e.g. "call-to-action") for the filter
+        $args['slug'] = General::convert_capitalcase_to_dashes($args['view']);
 
         // Register "Gutenberg" Block
         self::register_block($args);
@@ -43,9 +44,9 @@ class RegisterBlock
         self::register_field_group($args);
 
         // Add Block to whitelist
-        add_filter('allowed_block_types', function ($allowed_blocks, $post) use ($args) {
+        add_filter('core/blocks', function ($allowed_blocks) use ($args) {
             return array_merge($allowed_blocks, ["acf/{$args['slug']}"]);
-        }, 15, 2);
+        });
     }
 
     /**
@@ -131,6 +132,8 @@ class RegisterBlock
         if (General::has_key('easy_enqueues', $args) && in_array('styles', $args['easy_enqueues'])) {
             $defaults['enqueue_style'] = "{$view_dist_uri}.css";
         }
+
+        // var_dump(array_merge($defaults, $args));
 
         acf_register_block(array_merge($defaults, $args));
     }

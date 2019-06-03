@@ -59,6 +59,11 @@ class General
         return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $input));
     }
 
+    public static function convert_capitalcase_to_dashes($input = '')
+    {
+        return strtolower(preg_replace('/(?<!^)[A-Z]/', '-$0', $input));
+    }
+
     public static function get_image_data($id)
     {
         if (!$id) {
