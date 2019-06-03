@@ -11,8 +11,7 @@
  * - sprite_icon: If we want to use an SVG from the Sprite
  */
 #}
-
-<a class="button {{ classes|join(' ') }}" href="{{ link|e('esc_url') }}">
+<a class="button {{ classes|join(' ')|e }}" href="{{ link|e('esc_url') ?: '#' }}" target="{{ target|e ?: '' }}">
     <span>{{ __(title ? title|e : 'Click here', 'view') }}</span>
     {% if sprite_icon %}
         <use xlink:href="#{{ sprite_icon }}"/>

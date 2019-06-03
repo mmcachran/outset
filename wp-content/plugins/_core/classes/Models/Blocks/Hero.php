@@ -22,7 +22,6 @@ class Hero extends RegisterBlock
             $acf->heading,
             $acf->subheading,
             $acf->image,
-            $acf->image,
             $acf->content,
             $acf->link,
             $acf->tab_advanced,
