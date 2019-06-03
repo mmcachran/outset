@@ -14,7 +14,6 @@ class Hero
 
     public function filter($data)
     {
-        var_dump(get_intermediate_image_sizes());
         if (class_exists(Timber\Image::class)) {
             $data['image'] = new Timber\Image($data['image']);
         }
