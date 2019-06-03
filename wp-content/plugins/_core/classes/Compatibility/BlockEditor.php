@@ -96,6 +96,6 @@ class BlockEditor
 
     public function allowed_blocks($allowed_blocks, $post)
     {
-        return self::BLOCKS;
+        return apply_filters('core/blocks', self::BLOCKS);
     }
 }
