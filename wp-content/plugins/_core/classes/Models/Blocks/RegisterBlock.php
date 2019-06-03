@@ -11,15 +11,6 @@ use WP_Error;
 /**
  * Class RegisterBlock
  * @package Core\Models\Blocks
- * @example parent::register([
- *      'easy_enqueues' => ['script', 'style'],
- *      'view'          => self::VIEW,
- *      'label'         => __('Custom - Hero', 'core'),
- *      'description'   => __("The Hero Block", 'core'),
- *      'icon' => 'dashicons-welcome-view-site',
- *      'keywords'      => ['hero', 'custom'],
- *      'fields'        => $fields,
- * ]);
  */
 class RegisterBlock
 {
@@ -30,6 +21,10 @@ class RegisterBlock
         'description',
     ];
 
+    /**
+     * @param $args
+     * @return WP_Error
+     */
     protected static function register($args)
     {
         foreach (self::REQUIRED_KEYS as $key) {
@@ -125,7 +120,7 @@ class RegisterBlock
                 $data['context']    = Timber::context();
 
                 // Render the block.
-                Timber::render("{$view_path}.twig", $data);
+                Timber::render("{$view_path}.twig", apply_filters("Blocks/{$args['view']}", $data));
             },
         ];
 
