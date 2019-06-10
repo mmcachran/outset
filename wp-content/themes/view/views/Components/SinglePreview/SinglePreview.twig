@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Preview of a single post
+ *
+ * @link https://timber.github.io/docs/reference/timber-post/#preview
+ */
+#}
+
+{#{{ dump(post) }}#}
+{% set base = 'SinglePreview' %}
+{% set terms = post.terms %}
+<article class="{{ base }}">
+    {#<img src="{{ post.thumbnail.src }}" alt="{{ post.thumbnail.alt }}"/>#}
+    {#{{ dump(get_image_sizes()) }}#}
+    <figure class="{{ base }}__graphic">
+        {# TODO: Investigate small image size issues #}
+        <img src="{{ post.thumbnail.src('small') }}"
+             alt="{{ post.thumbnail.alt }}"
+             width="{{ post.thumbnail.sizes.small.width }}"
+             height="{{ post.thumbnail.sizes.small.height }}">
+    </figure>
+    <a href="{{ post.link }}" class="{{ base }}__heading">
+        <h3 class="{{ base }}__title">{{ post.title }}</h3>
+    </a>
+    <div class="{{ base }}__preview">
+        {{ post.preview.length(50).read_more('Continue Reading') }}
+    </div>
+    {% if post.terms %}
+        {% include "Components/Terms/Terms.twig" with terms %}
+    {% endif %}
+</article>

@@ -1,0 +1,16 @@
+{#{{ dump() }}#}
+{% set base = 'BottomBar' %}
+<section class="{{ base }}">
+   <div class="container">
+        <section class="{{ base }}__primary">
+            <div id="bottomBar" class="{{ base }}__logo">
+                <a href="{{ function('get_home_url') | e('esc_url') }}">
+                    {{ svg_inline('logo') }}
+                </a>
+            </div>
+        </section>
+       <div class="{{ base }}__secondary">
+           <p class="{{ base }}__copyright">{{ '©'|raw }} {{ "now"|date('Y') }} {{ site.title }} . All Rights Reserved</p>
+       </div>
+   </div>
+</section>

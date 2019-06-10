@@ -1,0 +1,23 @@
+.terms {
+  display: flex;
+  flex-wrap: wrap;
+  text-transform: uppercase;
+
+  li {
+    &:before {
+      content: none;
+    }
+  }
+
+  &__item {
+    padding-left: 0;
+  }
+
+  &__link {
+    @include font--menu-item;
+    font-size: .6em;
+    text-decoration: none;
+    padding-right: .5em;
+    padding-left: .5em;
+  }
+}

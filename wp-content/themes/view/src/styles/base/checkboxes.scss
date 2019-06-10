@@ -1,0 +1,140 @@
+// High Contrast Mode drops background-images, colors, and box-shadows
+// replace with outline so we can still see a focus state
+@mixin custom-checkbox-radio-high-contrast-mode-mods {
+  input[type="checkbox"],
+  input[type="radio"] {
+    &:focus {
+      + label::before {
+        box-shadow: none;
+        outline: solid .2em;
+        outline-offset: .2em;
+      }
+    }
+  }
+}
+
+$checkbox-border-color: $brand__gray;
+$checkbox-color-checked-marker: #fff;
+$checkbox-focus-ring-color: $brand__gray--light;
+$checkbox-focus-gap-color: #fff;
+$checkbox-color-disabled: #999;
+
+// CHECKBOXES & RADIO BUTTONS
+input[type="checkbox"],
+input[type="radio"] {
+  // hide default checkbox & radio elements
+  // still keyboard & screen reader accessible
+  // e.g. Don't use display: none or visibility: hidden
+  position: absolute;
+  opacity: 0;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  border: 0;
+
+  + label {
+    display: inline-block;
+    position: relative;
+    padding: 0 0 0 1.5em;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    font-size: .8em;
+
+    &::before {
+      // visually replace default checkbox element
+      content: "";
+      display: inline-block;
+      box-sizing: border-box;
+      width: 1em;
+      height: 1em;
+      position: absolute;
+      top: .15em;
+      left: 0;
+      border: solid 1px $checkbox-border-color;
+    }
+  }
+
+  &:checked {
+    + label {
+      &::before {
+        border-width: .3em;
+      }
+
+      &::after {
+        content: "";
+        display: inline-block;
+        box-sizing: border-box;
+        position: absolute;
+        top: .48em;
+        left: .38em;
+        width: .24em;
+        height: .24em;
+        border: solid .12em $checkbox-color-checked-marker;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &:focus {
+    + label {
+      &::before {
+        box-shadow: 0 0 0 1px $checkbox-focus-gap-color,
+        0 0 0 2px $checkbox-focus-ring-color;
+      }
+    }
+  }
+
+  &:disabled {
+    + label {
+      &::before {
+        border-color: $checkbox-color-disabled;
+      }
+    }
+
+    + label {
+      &::after {
+        content: "";
+        display: inline-block;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: absolute;
+        width: 1px;
+        height: 1.3em;
+        top: -.03em;
+        left: .5em;
+        border: solid 1px $checkbox-color-disabled;
+        border-right: 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  // radio tweaks - make 'em round
+  &[type="radio"] {
+    + label {
+      &::before {
+        border-radius: 50%;
+      }
+    }
+
+    &:disabled {
+      + label::after {
+        height: 1em;
+        top: .1em;
+        left: .5em;
+      }
+    }
+  }
+}
+
+// Firefox + HCM (requires JavaScript snippet to apply class to body element)
+.hcm-true {
+  @include custom-checkbox-radio-high-contrast-mode-mods();
+}
+
+// IE + HCM
+@media screen and (-ms-high-contrast: active) {
+  @include custom-checkbox-radio-high-contrast-mode-mods();
+}

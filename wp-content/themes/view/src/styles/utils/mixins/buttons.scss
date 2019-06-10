@@ -1,0 +1,189 @@
+@mixin button__primary {
+  position: relative;
+  display: inline-block;
+  font-size: 1em;
+  padding: .6em .6em .6em .9em;
+  text-decoration: none;
+  color: $brand__gray;
+  @include font--label-alt;
+  font-size: 1rem;
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-height: 1px;
+    height: .02em;
+    background-color: $brand__gray;
+    transform: scaleX(1);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  &:before {
+    top: 0;
+    transform-origin: left;
+  }
+  &:after {
+    bottom: 0;
+    transform-origin: right;
+  }
+
+  &:hover:before, &:focus-within:before {
+    transform: scaleX(0);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  &:hover:after, &:focus-within:after {
+    transform: scaleX(0);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  .button-arrow {
+    margin-right: -40px;
+  }
+  .draw-in-arrow {
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+  }
+  &:hover .draw-in-arrow {
+    opacity: 1;
+    transform: scaleX(1);
+    stroke-dasharray: 150;
+    transition: opacity .5s ease-in-out;
+    animation: draw-in-arrow 4s ease-in-out alternate infinite;
+  }
+  &-light {
+    &:after, &:before {
+      background-color: white;
+    }
+
+  }
+}
+
+@mixin button__alternate {
+  font-size: .89rem;
+  color: $brand__light;
+  border: 2px solid $brand__gray--dark;
+  border-radius: 20.5px;
+  padding: .4rem 1.2rem;
+  //margin: .4em 0;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+  font-weight: 400;
+
+  &:focus,
+  &:hover {
+    background-color: $brand__gray--dark;
+    color: $brand__light;
+    cursor: pointer;
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin buttonTertiary {
+  position: relative;
+  display: inline-block;
+  font-size: 1em;
+  padding: .2em 0;
+  text-decoration: none;
+  color: $brand__gray;
+  @include font--accent;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-height: 1px;
+    height: .02em;
+    background-color: $brand__gray;
+    transform: scaleX(1);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  &:after {
+    bottom: 0;
+    transform-origin: right;
+  }
+
+  &:hover:before {
+    transform: scaleX(0);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  &:hover:after {
+    transform: scaleX(0);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+}
+
+
+
+
+@mixin button-terchiary {
+  position: relative;
+  display: inline-block;
+  font-size: 1em;
+  padding: .2em 0;
+  text-decoration: none;
+  color: $brand__gray;
+  @include font--accent;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-height: 1px;
+    height: .02em;
+    background-color: $brand__gray;
+    transform: scaleX(1);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  &:after {
+    bottom: 0;
+    transform-origin: right;
+  }
+
+  &:hover:before {
+    transform: scaleX(0);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  &:hover:after {
+    transform: scaleX(0);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+}
+
+@mixin button-small {
+  position: relative;
+  display: inline-block;
+  font-size: 1rem;
+  padding: .2em 0;
+  text-decoration: none;
+  color: $brand__gray;
+  @include font--label-alt;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-height: 1px;
+    height: .02em;
+    background-color: $brand__gray;
+    transform: scaleX(1);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  &:after {
+    bottom: 0;
+    transform-origin: right;
+  }
+
+  &:hover:before {
+    transform: scaleX(0);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  &:hover:after {
+    transform: scaleX(0);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+}

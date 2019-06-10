@@ -1,0 +1,18 @@
+{#{{ dump(post_type) }}#}
+{% set base = 'Archive' %}
+<div class="{{ base }}">
+    {% include "Components/ArchiveHeader/ArchiveHeader.twig" with {
+        heading: post_type.label,
+        background_image: false
+    } only %}
+    <section class="{{ base }}__posts">
+        <div class="container">
+            <div class="{{ base }}__inner">
+                {% for post in posts %}
+                    {% include "Components/SinglePreview/SinglePreview.twig" %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% include "Components/Pagination/Pagination.twig" %}
+</div>

@@ -1,0 +1,55 @@
+
+.parallax-css-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+}
+
+.parallax-css-card {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.parallax-css::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-1px) scale(1.5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  //background-attachment: fixed;
+  z-index: -1;
+
+}
+
+.kit1::after {
+  background-image: url("http://box5828.temp.domains/~joyannad/wp-content/uploads/2019/04/MVIMG_20190302_111129-1.jpg");
+  background:
+          repeating-radial-gradient(
+                          circle at 0 0,
+                          #777,
+                          #888 200px
+          );
+}
+
+.kit2::after {
+  background-image: url("http://box5828.temp.domains/~joyannad/wp-content/uploads/2019/04/IMG_6624-1.jpg");
+}
+
+.kit3:after {
+  background-image: url("http://box5828.temp.domains/~joyannad/wp-content/uploads/2019/04/2019-04-18.jpg");
+}
+
+.kit4:after {
+  background-image: url("http://placehold.it/775x80");
+}

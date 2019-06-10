@@ -1,0 +1,11 @@
+// ===========================================================================
+// Font Face
+// Example: @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg)
+// ===========================================================================
+
+// Fonts
+$font__path: '../../dist/fonts';
+
+// @include font-face(Hoccen-Caps, "#{$font--path}/Hoccen-Caps", normal, normal, eot woff2 woff);
+// @include font-face(Open Sans, "#{$font--path}/Open-Sans", normal, normal, eot woff2 woff);
+// @include font-face(Open Sans, "#{$font--path}/Open-Sans-Bold", bold, bold, eot woff2 woff);

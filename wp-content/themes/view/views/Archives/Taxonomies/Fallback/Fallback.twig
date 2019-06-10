@@ -1,0 +1,22 @@
+{#{{ dump(taxonomy) }}#}
+{% set base = 'Archive' %}
+<div class="{{ base }}">
+    {% include "Components/ArchiveHeader/ArchiveHeader.twig" with {
+        heading: term.name,
+        background_image: false
+    } %}
+    <section class="{{ base }}__posts">
+        <div class="container">
+            <div class="{{ base }}__inner">
+                {% for post in posts %}
+                    {% include "Components/SinglePreview/SinglePreview.twig" %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="{{ base }}__pagination">
+        <div class="container">
+            {% include "Components/Pagination/Pagination.twig" %}
+        </div>
+    </section>
+</div>

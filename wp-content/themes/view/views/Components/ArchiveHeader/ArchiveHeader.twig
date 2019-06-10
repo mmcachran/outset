@@ -1,0 +1,12 @@
+{#{{ dump(taxonomy) }}#}
+{% set base = 'ArchiveHeader' %}
+<header class="{{ base }}">
+    <figure class="{{ base }}__graphic">
+        <img src="{{ background_image ?: get_dist_image_uri('image-default-fullwidth.jpg') }}" alt="">
+    </figure>
+    <div class="{{ base }}__inner">
+        <div class="container">
+            <h1 class="{{ base }}__heading">{{ __(heading|e, 'view') }}</h1>
+        </div>
+    </div>
+</header>

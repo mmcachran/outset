@@ -1,0 +1,35 @@
+.BottomBar {
+  @include vertical-padding;
+  background-color: $brand__dark;
+  color: $brand__gray--light;
+
+  a {
+    color: $brand__gray--light;
+  }
+
+  > .container {
+    @include for-tablet__landscape--up {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    max-width: 5rem;
+
+    svg {
+      width: 100%;
+    }
+
+    path {
+      fill: white;
+    }
+  }
+
+  &__copyright {
+    @include font--label-alt;
+    font-size: .6em;
+  }
+}

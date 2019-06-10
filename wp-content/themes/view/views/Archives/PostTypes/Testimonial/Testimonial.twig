@@ -1,0 +1,47 @@
+{#{{ dump() }}#}
+{% set base = 'archive-events' %}
+<div class="{{ base }}">
+    <section class="{{ base }}__hero">
+        <div class="{{ base }}__inner container">
+            <h1>Events</h1>
+        </div>
+    </section>
+    <section class="{{ base }} {{ base }}__list post-list">
+        <div class="container">
+            <header class="{{ base }}__header">
+                <form class="{{ base }}__sortby" action="" method="get">
+                    <label for="sortby">
+                        <span class="label-text">Sort By</span>
+                        <select name="sortby" onchange="this.form.submit()">
+                            {% for key, value in sort_options %}
+                                <option value="{{ key }}">{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                </form>
+            </header>
+            <div class="post-list__list">
+                {% for post in posts %}
+                    {#{{ dump(post) }}#}
+                    <article class="{{ base }}__item post-list__item">
+                        <div class="post-list__inner">
+                            <div class="post-list__primary">
+                                <figure class="post-list__image object-fit">
+                                    {#{{ dump(post.image.sizes.thumbnail.url) }}#}
+                                    <img src="{{ post.image.url }}" alt="{{ post.image.alt }}">
+                                    <figcaption class="post-list__category">Category</figcaption>
+                                </figure>
+                            </div>
+                            <div class="post-list__secondary">
+                                <h5 class="post-list__date">April 17th, 2019</h5>
+                                <h3 class="post-list__title">{{ post.title.rendered }}</h3>
+                                <div class="post-list__excerpt line-clamp--3">{{ post.excerpt.rendered }}</div>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+            {#{% include 'views/globals/pagination/pagination.twig' with pagination only %}#}
+        </div>
+    </section>
+</div>

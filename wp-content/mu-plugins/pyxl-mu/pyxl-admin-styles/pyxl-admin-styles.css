@@ -1,0 +1,50 @@
+/*
+    ACF Tab Width
+ */
+.wp-admin .acf-fields.-sidebar:before {
+    width: 10%;
+}
+
+.wp-admin .acf-tab-wrap.-left .acf-tab-group {
+    width: 10%;
+}
+
+.wp-admin .acf-fields.-sidebar {
+    padding-left: 10% !important;
+}
+
+/*
+   ACF Flexible Content Collapse Plugin
+ */
+.field-repeater-toggle,
+.field-flexible-toggle {
+    display: none !important;
+}
+
+.acf-field-flexible-content > .field-flexible-toggle:first-of-type {
+    display: block !important;
+    right: 16px;
+    top: -42px;
+    transform: scale(0.8);
+}
+
+.field-flexible-toggle span {
+    display: none;
+}
+
+.field-flexible-toggle:before {
+    margin: 0 !important;
+}
+
+/*
+    ACF color swatches
+ */
+.acf-swatch-list {
+    /*column-count: 2;*/
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.acf-swatch-list > * {
+    flex: 1 40%;
+}
