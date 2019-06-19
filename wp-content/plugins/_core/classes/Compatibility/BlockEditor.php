@@ -10,6 +10,7 @@ class BlockEditor
     ];
 
     const BLOCKS = [
+        'core/group', // 06/19/2019 - Pulling from the Gutenberg plugin until it's in core.
         'core/paragraph',
         'core/image',
         'core/heading',
