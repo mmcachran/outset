@@ -15,7 +15,12 @@ class User
         return $user;
     }
 
-    public static function isEmployee($user = [], $domains = [])
+    public static function is_admin($user = [])
+    {
+        return in_array('administrator', $user->roles);
+    }
+
+    public static function is_employee($user = [], $domains = [])
     {
         if (!$domains) {
             $domains = self::AUTHORIZED_EMAIL_DOMAINS;
