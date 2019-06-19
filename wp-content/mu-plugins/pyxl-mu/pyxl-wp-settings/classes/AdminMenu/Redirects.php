@@ -20,10 +20,10 @@ class Redirects
 
     public static function init()
     {
-        add_action('admin_init', [self::instance(), 'restrictWithRedirect']);
+        add_action('admin_init', [self::instance(), 'restrict_with_redirect']);
     }
 
-    public function restrictWithRedirect()
+    public function restrict_with_redirect()
     {
         $restrictions = [
             // 'widgets.php',
@@ -65,7 +65,8 @@ class Redirects
             // 'about.php',
             'edit.php?post_type=acf-field-group' // ACF
         ];
-        if (User::isEmployee(wp_get_current_user())) {
+
+        if (User::is_admin(User::current())) {
             return;
         }
 
