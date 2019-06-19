@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d44fd0ab14b0c512c3e6743448526ea",
+    "content-hash": "84a5dcf73d4a473b40856da2c88a0a06",
     "packages": [
         {
             "name": "composer/installers",
@@ -152,10 +152,10 @@
         },
         {
             "name": "deliciousbrains-plugin/wp-offload-media",
-            "version": "2.1.1",
+            "version": "2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.deliciousbrains.com/?wc-api=delicious-brains&request=composer_download&package=wp-offload-media&version=2.1.1&composer_key=3998821A01BD70FAD9531E70B4F5EE17"
+                "url": "https://composer.deliciousbrains.com/?wc-api=delicious-brains&request=composer_download&package=wp-offload-media&version=2.2&composer_key=3998821A01BD70FAD9531E70B4F5EE17"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -217,19 +217,19 @@
         },
         {
             "name": "pyxl/acf-pro",
-            "version": "5.8.0",
+            "version": "5.8.1",
             "dist": {
                 "type": "zip",
-                "url": "https://pyxl-bucket.s3.amazonaws.com/public-access/wordpress/plugins/acf/advanced-custom-fields-pro.5.8.0.zip"
+                "url": "https://pyxl-bucket.s3.amazonaws.com/public-access/wordpress/plugins/acf/advanced-custom-fields-pro.5.8.1.zip"
             },
             "type": "wordpress-plugin"
         },
         {
             "name": "pyxl/gravity-forms",
-            "version": "2.4.3",
+            "version": "2.4.10",
             "dist": {
                 "type": "zip",
-                "url": "https://pyxl-bucket.s3.amazonaws.com/public-access/wordpress/plugins/gravityforms/gravityforms_2.4.3.zip"
+                "url": "https://pyxl-bucket.s3.amazonaws.com/public-access/wordpress/plugins/gravityforms/gravityforms_2.4.10.zip"
             },
             "type": "wordpress-plugin"
         },
@@ -293,16 +293,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v3.3.3",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "dbcc609971dd9b55f48b8008b553d79fd372ddde"
+                "reference": "5084b23845c24dbff8ac6c204290c341e4776c92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/dbcc609971dd9b55f48b8008b553d79fd372ddde",
-                "reference": "dbcc609971dd9b55f48b8008b553d79fd372ddde",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/5084b23845c24dbff8ac6c204290c341e4776c92",
+                "reference": "5084b23845c24dbff8ac6c204290c341e4776c92",
                 "shasum": ""
             },
             "require": {
@@ -316,7 +316,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -341,25 +341,43 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-03-06T09:39:45+00:00"
+            "time": "2019-06-15T22:40:20+00:00"
         },
         {
-            "name": "wpackagist-plugin/acf-image-crop-add-on",
-            "version": "1.4.12",
+            "name": "wpackagist-plugin/acf-image-aspect-ratio-crop",
+            "version": "2.0.3",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/acf-image-crop-add-on/",
-                "reference": "tags/1.4.12"
+                "url": "https://plugins.svn.wordpress.org/acf-image-aspect-ratio-crop/",
+                "reference": "trunk"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/acf-image-crop-add-on.1.4.12.zip"
+                "url": "https://downloads.wordpress.org/plugin/acf-image-aspect-ratio-crop.zip?timestamp=1556884911"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/acf-image-crop-add-on/"
+            "homepage": "https://wordpress.org/plugins/acf-image-aspect-ratio-crop/"
+        },
+        {
+            "name": "wpackagist-plugin/gutenberg",
+            "version": "5.9.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/gutenberg/",
+                "reference": "tags/5.9.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.5.9.2.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/gutenberg/"
         },
         {
             "name": "wpackagist-plugin/imsanity",
@@ -378,24 +396,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/imsanity/"
-        },
-        {
-            "name": "wpackagist-plugin/kirki",
-            "version": "3.0.40",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/kirki/",
-                "reference": "tags/3.0.40"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/kirki.3.0.40.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/kirki/"
         },
         {
             "name": "wpackagist-plugin/post-duplicator",
@@ -453,15 +453,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "11.3",
+            "version": "11.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/11.3"
+                "reference": "tags/11.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.11.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.11.4.zip"
             },
             "require": {
                 "composer/installers": "~1.0"

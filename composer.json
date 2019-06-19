@@ -53,9 +53,9 @@
     "pyxl/acf-pro": "^5.8.0",
     "pyxl/gravity-forms": "^2.4",
     "vlucas/phpdotenv": "^3.3",
-    "wpackagist-plugin/acf-image-crop-add-on": "^1.4",
+    "wpackagist-plugin/acf-image-aspect-ratio-crop": "^2.0",
+    "wpackagist-plugin/gutenberg": "^5.9",
     "wpackagist-plugin/imsanity": "^2.4",
-    "wpackagist-plugin/kirki": "^3.0.4",
     "wpackagist-plugin/post-duplicator": "^2.20",
     "wpackagist-plugin/simple-page-ordering": "^2.3",
     "wpackagist-plugin/timber-library": "1.9.5",
@@ -88,6 +88,6 @@
     "prod": [
       "composer install --no-dev --optimize-autoloader"
     ],
-    "wp_core_download": "wp core download --path=core --skip-content --force --version=5.2.1"
+    "wp_core_download": "wp core download --path=core --skip-content --force --version=5.2.2"
   }
 }
