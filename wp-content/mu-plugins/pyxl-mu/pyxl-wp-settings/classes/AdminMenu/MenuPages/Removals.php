@@ -24,11 +24,12 @@ class Removals
 
     public static function init()
     {
-        add_action('admin_menu', [self::instance(), 'parentMenuItems'], 999);
-        add_action('admin_menu', [self::instance(), 'childMenuItems'], 999);
+        add_action('admin_menu', [self::instance(), 'parent_menu_items'], 999);
+        add_action('admin_menu', [self::instance(), 'child_menu_items'], 999);
     }
 
-    public function parentMenuItems()
+
+    public function parent_menu_items()
     {
         $menu_pages = [
             // 'edit.php',                   // Posts
@@ -37,14 +38,15 @@ class Removals
             'themes.php',                 // Appearance
             'plugins.php',                // Plugins
             // 'users.php',                  // Users
-            'tools.php',                  // Tools
+            // 'tools.php',                  // Tools
             // 'options-general.php',        // Settings
             // 'admin.php?page=mp_st',
             // 'admin.php?page=cp_main',
             'edit.php?post_type=acf-field-group' // ACF
         ];
 
-        if (User::isEmployee(wp_get_current_user())) {
+
+        if (User::is_admin(User::current())) {
             return;
         }
 
@@ -53,7 +55,7 @@ class Removals
         }
     }
 
-    public function childMenuItems()
+    public function child_menu_items()
     {
         $menu_items = [
 
@@ -76,7 +78,14 @@ class Removals
                 'options-discussion.php',
                 'options-writing.php',
                 'options-permalink.php',
-                'duplicatepost'
+                'duplicatepost',
+            ],
+
+            // Settings
+            'tools.php'           => [
+                'tools.php',
+                'import.php',
+                'export.php',
             ],
 
             // WooCommerce
@@ -88,9 +97,10 @@ class Removals
             // ],
         ];
 
-        if (User::isEmployee(wp_get_current_user())) {
+        if (User::is_admin(wp_get_current_user())) {
             return;
         }
+
 
         foreach ($menu_items as $menu_item_parent => $menu_item_children) {
             foreach ($menu_item_children as $menu_item_child) {
