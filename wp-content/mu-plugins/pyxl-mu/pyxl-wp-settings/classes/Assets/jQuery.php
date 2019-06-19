@@ -38,12 +38,12 @@ class jQuery
 
         // jQuery Core
         wp_deregister_script('jquery-core');
-        $jQuery_core = '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js';
+        $jQuery_core = '//code.jquery.com/jquery-1.12.4.min.js';
         wp_register_script('jquery-core', $jQuery_core, false, '1.12.4', true);
 
         // jQuery Migrate
         wp_deregister_script('jquery-migrate');
-        $jQuery_migrate = includes_url('/js/jquery/jquery-migrate.min.js');
+        $jQuery_migrate = '//code.jquery.com/jquery-migrate-1.2.1.min.js';
         wp_register_script('jquery-migrate', $jQuery_migrate, true, '1.2.1', true);
 
         wp_enqueue_script('jquery-core');
