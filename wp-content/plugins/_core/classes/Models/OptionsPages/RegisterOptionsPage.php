@@ -12,6 +12,10 @@ class RegisterOptionsPage
 
     public static function register($child_args)
     {
+        if (!function_exists('acf_add_options_page')) {
+            return;
+        }
+        
         // https://www.advancedcustomfields.com/resources/acf_add_options_page/
         $args = [
             'page_title'      => 'Options',
