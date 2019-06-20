@@ -5,6 +5,7 @@ namespace Core\Models\Blocks;
 use const Core\PATH;
 use Core\Utils\ACF;
 use Core\Utils\General;
+use Pyxl\View\Utils\Helpers;
 use Timber\Timber;
 use WP_Error;
 
@@ -99,7 +100,7 @@ class RegisterBlock
         );
 
         $defaults = [
-            'align'           => 'wide',
+            'align'           => 'full',
             'name'            => $args['slug'],
             'title'           => $args['label'],
             'description'     => $args['description'],
@@ -119,21 +120,44 @@ class RegisterBlock
                 $data['block']      = $block;
                 $data['is_preview'] = $is_preview;
                 $data['context']    = Timber::context();
+                $data['base']       = $args['view'];
+                $classes            = [
+                    'custom-block',
+                    "width--{$block['align']}",
+                ];
+
+                if ($is_preview) {
+                    $classes[] = "{$args['view']}--preview";
+                    $classes[] = "custom-block--preview";
+                }
+
+                if (Helpers::has_key('content_width', $data)) {
+                    $classes[] = "content--{$data['content_width']}";
+                }
+
+                if (Helpers::has_key('className', $block)) {
+                    $classes[] = $block['className'];
+                }
+
+                if (Helpers::has_key('appearance', $data)) {
+                    $classes[] = $data['appearance'];
+                }
+
+                $data['css_classes'] = apply_filters("Blocks/{$args['view']}/Styles", join(' ', $classes));
 
                 // Render the block.
                 Timber::render("{$view_path}.twig", apply_filters("Blocks/{$args['view']}", $data));
             },
         ];
 
-        if (General::has_key('easy_enqueues', $args) && in_array('script', $args['easy_enqueues'])) {
-            $defaults['enqueue_script'] = "{$view_dist_uri}.js";
+        // TODO - load scripts
+        if (General::has_key('easy_enqueues', $args) && in_array('scripts', $args['easy_enqueues'])) {
+            $defaults['enqueue_script'] = General::env_check("dist/Blocks/{$args['view']}/{$args['view']}.js");
         }
 
         if (General::has_key('easy_enqueues', $args) && in_array('styles', $args['easy_enqueues'])) {
-            $defaults['enqueue_style'] = "{$view_dist_uri}.css";
+            $defaults['enqueue_style'] = General::env_check("dist/Blocks/{$args['view']}/{$args['view']}.css");
         }
-
-        // var_dump(array_merge($defaults, $args));
 
         acf_register_block(array_merge($defaults, $args));
     }

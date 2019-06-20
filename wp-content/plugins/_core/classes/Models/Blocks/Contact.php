@@ -5,13 +5,13 @@ namespace Core\Models\Blocks;
 use Core\Models\Blocks;
 use Core\Utils\Fields;
 
-class Hero extends RegisterBlock
+class Contact extends RegisterBlock
 {
     /**
      * @const VIEW
      * @note Should be Uppercase, no spaces, no dashes (e.g. CallToAction), used for filenames and slugs
      */
-    const VIEW = 'Hero';
+    const VIEW = 'Contact';
 
     public static function init()
     {
@@ -30,9 +30,9 @@ class Hero extends RegisterBlock
         parent::register([
             'easy_enqueues' => ['scripts', 'styles'], // options: styles, scripts
             'view'          => self::VIEW,
-            'label'         => __('Custom - Hero', 'core'),
-            'description'   => __('The Hero Block', 'core'),
-            'icon' => 'laptop', // http://aalmiray.github.io/ikonli/cheat-sheet-dashicons.html
+            'label'         => __('Custom - Contact', 'core'),
+            'description'   => __("The Contact Block", 'core'),
+            'icon'          => 'laptop', // http://aalmiray.github.io/ikonli/cheat-sheet-dashicons.html
             'supports' => [
                 'align' => ['full'],
             ],
