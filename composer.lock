@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84a5dcf73d4a473b40856da2c88a0a06",
+    "content-hash": "0a627d6b9da20e2771ae963b39f7f9eb",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
+                "reference": "141b272484481432cda342727a427dc1e206bfa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
-                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "url": "https://api.github.com/repos/composer/installers/zipball/141b272484481432cda342727a427dc1e206bfa0",
+                "reference": "141b272484481432cda342727a427dc1e206bfa0",
                 "shasum": ""
             },
             "require": {
@@ -73,6 +73,7 @@
                 "RadPHP",
                 "SMF",
                 "Thelia",
+                "Whmcs",
                 "WolfCMS",
                 "agl",
                 "aimeos",
@@ -95,6 +96,7 @@
                 "installer",
                 "itop",
                 "joomla",
+                "known",
                 "kohana",
                 "laravel",
                 "lavalite",
@@ -124,7 +126,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2018-08-27T06:10:37+00:00"
+            "time": "2019-08-12T15:00:31+00:00"
         },
         {
             "name": "deliciousbrains-plugin/wp-migrate-db-pro",
@@ -152,10 +154,10 @@
         },
         {
             "name": "deliciousbrains-plugin/wp-offload-media",
-            "version": "2.2",
+            "version": "2.2.1",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.deliciousbrains.com/?wc-api=delicious-brains&request=composer_download&package=wp-offload-media&version=2.2&composer_key=3998821A01BD70FAD9531E70B4F5EE17"
+                "url": "https://composer.deliciousbrains.com/?wc-api=delicious-brains&request=composer_download&package=wp-offload-media&version=2.2.1&composer_key=3998821A01BD70FAD9531E70B4F5EE17"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -226,25 +228,25 @@
         },
         {
             "name": "pyxl/gravity-forms",
-            "version": "2.4.10",
+            "version": "2.4.11.4",
             "dist": {
                 "type": "zip",
-                "url": "https://pyxl-bucket.s3.amazonaws.com/public-access/wordpress/plugins/gravityforms/gravityforms_2.4.10.zip"
+                "url": "https://pyxl-bucket.s3.amazonaws.com/public-access/wordpress/plugins/gravityforms/gravityforms_2.4.11.4.zip"
             },
             "type": "wordpress-plugin"
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "82ebae02209c21113908c229e9883c419720738a"
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
-                "reference": "82ebae02209c21113908c229e9883c419720738a",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
                 "shasum": ""
             },
             "require": {
@@ -256,7 +258,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -273,12 +275,12 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
                 },
                 {
-                    "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -289,7 +291,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -345,7 +347,7 @@
         },
         {
             "name": "wpackagist-plugin/acf-image-aspect-ratio-crop",
-            "version": "2.0.3",
+            "version": "2.2.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/acf-image-aspect-ratio-crop/",
@@ -353,7 +355,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/acf-image-aspect-ratio-crop.zip?timestamp=1556884911"
+                "url": "https://downloads.wordpress.org/plugin/acf-image-aspect-ratio-crop.zip?timestamp=1564665061"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -363,15 +365,15 @@
         },
         {
             "name": "wpackagist-plugin/gutenberg",
-            "version": "5.9.2",
+            "version": "6.3.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/gutenberg/",
-                "reference": "tags/5.9.2"
+                "reference": "tags/6.3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/gutenberg.5.9.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.6.3.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -381,21 +383,39 @@
         },
         {
             "name": "wpackagist-plugin/imsanity",
-            "version": "2.4.2",
+            "version": "2.4.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/imsanity/",
-                "reference": "tags/2.4.2"
+                "reference": "tags/2.4.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/imsanity.2.4.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/imsanity.2.4.3.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/imsanity/"
+        },
+        {
+            "name": "wpackagist-plugin/ninja-forms",
+            "version": "3.4.18",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/ninja-forms/",
+                "reference": "tags/3.4.18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/ninja-forms.3.4.18.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/ninja-forms/"
         },
         {
             "name": "wpackagist-plugin/post-duplicator",
@@ -453,15 +473,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "11.4",
+            "version": "11.9",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/11.4"
+                "reference": "tags/11.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.11.4.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.11.9.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -485,15 +505,15 @@
         },
         {
             "name": "wpackagist-plugin/query-monitor",
-            "version": "3.3.6",
+            "version": "3.3.7",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/query-monitor/",
-                "reference": "tags/3.3.6"
+                "reference": "tags/3.3.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.3.6.zip"
+                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.3.7.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
