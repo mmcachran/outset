@@ -8,8 +8,6 @@ debug.log
 # Root Files / Folders
 /.idea
 /.env
-/.vscode
-/.vscode/launch.json
 /vendor
 
 ## WordPress
@@ -45,4 +43,3 @@ debug.log
 !/wp-content/mu-plugins/pyxl-mu
 !/wp-content/themes/view
 !/wp-content/plugins/_core
-

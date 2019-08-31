@@ -1,0 +1,17 @@
+{
+    "Var_Dump": {
+        "prefix": "boop",
+        "body": [
+            "var_dump($1);",
+            "$2"
+        ],
+        "description": "var_dump"
+    },
+    "Print to console": {
+        "prefix": "log",
+        "body": [
+            "console.log($1);"
+        ],
+        "description": "Log output to console"
+    }
+}
