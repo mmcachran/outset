@@ -1,0 +1,107 @@
+/*
+ * Spacer
+ */
+
+.u-spacer {
+  $base: '.u-spacer';
+  $sizes: (
+    xs: 5px,
+    sm: 10px,
+    md: 30px,
+    lg: 60px,
+    xl: 120px
+  );
+
+  &-small-green {
+    background-color: $color-green;
+    height: 1px;
+    margin-bottom: map-get($sizes, lg);
+    margin-top: map-get($sizes, lg);
+    width: 44px;
+  }
+
+  &-line {
+    border: 1px solid $medium-gray;
+  }
+
+  &-v-line {
+    border-bottom: 1px solid $medium-gray;
+    border-top: 1px solid $medium-gray;
+  }
+
+  &-h-line {
+    border-left: 1px solid $medium-gray;
+    border-right: 1px solid $medium-gray;
+  }
+
+  &-t-line {
+    border-top: 1px solid $medium-gray;
+  }
+
+  &-r-line {
+    border-right: 1px solid $medium-gray;
+  }
+
+  &-b-line {
+    border-bottom: 1px solid $medium-gray;
+  }
+
+  &-l-line {
+    border-left: 1px solid $medium-gray;
+  }
+
+  @each $size, $px in $sizes {
+    &-#{$size} {
+      padding: $px;
+      @include breakpoint(small only) {
+        padding: $px / 2;
+      }
+    }
+
+    &-v-#{$size} {
+      padding-bottom: $px;
+      padding-top: $px;
+      @include breakpoint(small only) {
+        padding-bottom: $px / 2;
+        padding-top: $px / 2;
+      }
+    }
+
+    &-h-#{$size} {
+      padding-left: $px;
+      padding-right: $px;
+      @include breakpoint(small only) {
+        padding-left: $px / 2;
+        padding-right: $px / 2;
+      }
+    }
+
+    &-t-#{$size} {
+      padding-top: $px;
+      @include breakpoint(small only) {
+        padding-top: $px / 2;
+      }
+    }
+
+    &-r-#{$size} {
+      padding-right: $px;
+      @include breakpoint(small only) {
+        padding-right: $px / 2;
+      }
+    }
+
+    &-b-#{$size} {
+      padding-bottom: $px;
+      @include breakpoint(small only) {
+        padding-bottom: $px / 2;
+      }
+    }
+
+    &-l-#{$size} {
+      padding-left: $px;
+      @include breakpoint(small only) {
+        padding-left: $px / 2;
+      }
+    }
+  }
+}

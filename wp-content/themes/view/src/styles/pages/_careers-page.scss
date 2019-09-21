@@ -1,0 +1,21 @@
+.career-listing {
+  background-color: $color-white;
+}
+
+.careers {
+  &__special-button {
+    border: 3px solid $color-green;
+    border-radius: 4px;
+    color: $color-black;
+    display: inline-block;
+    font-family: $font-aktiv;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 1em 1.5em;
+
+    &:hover {
+      background-color: $color-green;
+      color: $color-white;
+    }
+  }
+}

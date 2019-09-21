@@ -1,0 +1,26 @@
+.contact-list {
+  margin: rem-calc(120px 0 0);
+  @include breakpoint(medium) {
+    margin: rem-calc(0);
+  }
+
+  .contact-item {
+    margin: rem-calc(0 0 30px);
+
+    h4 {
+      margin: rem-calc(0);
+    }
+  }
+}
+
+#contact {
+  .locations {
+    .bottom-line {
+      margin-bottom: 1.25em;
+    }
+  }
+
+  .submitted-message {
+    @extend .h2;
+  }
+}

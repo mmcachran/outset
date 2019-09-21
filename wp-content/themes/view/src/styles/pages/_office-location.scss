@@ -1,0 +1,42 @@
+.office-banner {
+  .columns {
+    &:nth-child(2) {
+      display: none;
+      @include breakpoint(medium) {
+        display: block;
+      }
+    }
+
+    &:nth-child(3) {
+      display: none;
+      @include breakpoint(large) {
+        display: block;
+      }
+    }
+  }
+}
+
+.office-stat {
+  margin: rem-calc(0 0 30px);
+
+  .animation {
+    width: 50%;
+    @include breakpoint(medium) {
+      width: 100%;
+    }
+  }
+
+  p {
+    font-family: $font-minion;
+    font-size: 36px;
+    line-height: 1em;
+    margin: 0;
+  }
+
+  strong {
+    color: $color-green;
+    font-family: $font-aktiv;
+    font-size: 72px;
+    line-height: 51px;
+  }
+}

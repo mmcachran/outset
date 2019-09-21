@@ -2,9 +2,8 @@
     /**
     * VS Code General
     */
-    "window.title": "pyxl.com - ${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
+    "window.title": "Outset - ${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
     "files.associations": {
-        "*.mustache": "handlebars",
     },
     "files.exclude": {
         "starter-files/*": true,

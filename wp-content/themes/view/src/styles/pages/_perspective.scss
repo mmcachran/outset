@@ -1,0 +1,27 @@
+.perspective-hero {
+  @include breakpoint(medium) {
+    height: calc(75vh - 76px);
+  }
+  @include breakpoint(large) {
+    height: calc(100vh - 76px);
+  }
+
+  .hero-content {
+    background-color: $color-white;
+    display: block;
+    margin: rem-calc(42px 0 60px);
+    position: relative;
+    z-index: 2;
+    @include breakpoint(medium) {
+      padding: rem-calc(30px 30px 30px 15px);
+    }
+    @include breakpoint(large) {
+      margin: rem-calc(0);
+      padding: rem-calc(50px 35px);
+    }
+
+    .arrow-link {
+      text-align: right;
+    }
+  }
+}

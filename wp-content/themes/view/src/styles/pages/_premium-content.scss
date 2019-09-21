@@ -1,0 +1,30 @@
+.premium-hero {
+  margin-top: rem-calc(180);
+  text-align: center;
+  // margin-bottom: 5rem;
+
+  .post-category {
+    margin-bottom: 0;
+  }
+
+  .post-title {
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  .author-text {
+    a {
+      color: $color-cool-grey;
+    }
+  }
+
+  .featured-image {
+    background-color: grey;
+    margin-top: 5rem;
+    min-height: rem-calc(360);
+  }
+}
+
+.premium-content-container {
+  //margin-top: 5rem;
+}

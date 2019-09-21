@@ -1,0 +1,116 @@
+// Sass utilities
+@import 'util/util';
+
+$width--line-length: 40rem;
+$width--normal: 40rem;
+$width--container: 100%;
+$width--full: 100%;
+$width--wide: 60rem;
+
+// colors
+$color-black: #293547;
+$color-blue: #114dba;
+$color-green: #13ce66;
+$color-dark-grey: #515861;
+$color-medium-grey: #6c7178;
+$color-cool-grey: #8d97a4;
+$color-red: #f35845;
+$color-orange: #ffa32a;
+$color-purple: #8e6ddc;
+$color-light-blue-grey: #d8e0ec;
+$color-blue-grey: #b9c1cc;
+$color-off-white: #f6f8fa;
+$color-white: #fff;
+$color-yellow: #ffec2e;
+$color-light-green: #c2ffdd;
+$color-light-blue: #d2e2ff;
+
+// Cheer collective -- initiative colors
+$cheer-grey-blue-lt: #8db7de;
+$cheer-yellow: #fad430;
+$cheer-navy: #1d2543;
+$cheer-coral: #f35846;
+$cheer-olive: #1d604a;
+$cheer-olive-dk: #103e2e;
+$cheer-yellow-lt: #fad430;
+$cheer-peach: #f6a99f;
+$cheer-maroon: #6e1a45;
+$cheer-razzleberry: #431e2f;
+
+// fonts
+// $font-abril: "abril-fatface", serif;
+$font-aktiv: 'aktiv-grotesk', sans-serif;
+$font-minion: 'minion-pro', serif;
+$font-minion-it: $font-minion; // not sure if this var is used anywhere so deprecating for now
+$font-gibson: 'canada-type-gibson', sans-serif;
+
+// path to Ionicons fonts
+// $ionicons-font-path: "../fonts";
+
+// change row width
+$grid-row-width: rem-calc(1200);
+
+// breakpoints
+$breakpoints: (
+  small: 0,
+  medium: 768px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px
+);
+
+// gutter
+$grid-column-gutter: (
+  small: 30px,
+  medium: 30px,
+  large: 30px
+);
+
+// ui classes
+$colors: (
+  white: $color-white,
+  blue: $color-blue,
+  green: $color-green,
+  yellow: $color-yellow,
+  blue-grey: $color-blue-grey,
+  red: $color-red,
+  dark-grey: $color-dark-grey,
+  medium-grey: $color-medium-grey,
+  cool-grey: $color-cool-grey,
+  off-white: $color-off-white,
+  light-blue: $color-light-blue,
+  light-green: $color-light-green,
+  purple: $color-purple,
+  orange: $color-orange,
+  light-blue-grey: $color-light-blue-grey
+);
+
+@each $name, $color in $colors {
+  .ui-theme-color--#{$name} {
+    color: $color;
+  }
+
+  .ui-theme-bg--#{$name} {
+    background-color: $color;
+  }
+
+  .ui-theme--#{$name} {
+    .ui-theme__color {
+      color: $color;
+    }
+
+    .ui-theme__border-color {
+      border-color: $color !important;
+    }
+
+    .ui-theme__bg {
+      background-color: $color;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .ui-theme__before-bg::before {
+      background-color: $color !important;
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
+}

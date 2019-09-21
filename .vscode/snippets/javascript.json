@@ -1,12 +1,4 @@
 {
-    "Var_Dump": {
-        "prefix": "boop",
-        "body": [
-            "var_dump($1);",
-            "$2"
-        ],
-        "description": "var_dump"
-    },
     "Print to console": {
         "prefix": "log",
         "body": [

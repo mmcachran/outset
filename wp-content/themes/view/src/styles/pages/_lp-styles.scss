@@ -1,0 +1,325 @@
+body#lp-campaign,
+body#lp-event,
+body#lp-premium-content {
+  margin-bottom: 0 !important;
+
+  #stage {
+    @include breakpoint(medium up) {
+      height: 100vh;
+      padding-top: 0;
+    }
+  }
+
+  .hs-form {
+    .field {
+      .input,
+      .select-input {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .nav-holder {
+    display: none;
+  }
+
+  .button-full {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .page-header {
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+  }
+
+  .c-sections__slider {
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .c-sections {
+    $base: '.c-sections';
+    $section-break: (20px * 4) + (420px + 500px); // block width and padding
+
+    &,
+    &__block,
+    &__block-inner,
+    &__slider {
+      // make everything fill the screen above mobile
+      @include breakpoint(medium up) {
+        height: 100%;
+      }
+    }
+
+    & {
+      // make the blocks half screen when they fit
+      @media screen and (min-width: #{$section-break}) {
+        @include flex;
+      }
+    }
+
+    &__block {
+      &--fixed {
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+
+      // make the blocks half screen when they fit
+      @media screen and (min-width: #{$section-break}) {
+        width: 50%;
+      }
+    }
+
+    &__block-inner {
+      @include breakpoint(medium up) {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      &--main {
+        // make sure the static block doesnt scroll
+        @include breakpoint(medium up) {
+          #{$base}__block--static & {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+
+    .reveal-content {
+      height: 100%;
+      opacity: 0;
+      z-index: 10000;
+    }
+  }
+
+  .c-block {
+    $base: '.c-block';
+
+    & {
+      // center the block content
+      @include flex;
+      @include flex-align(center, middle);
+      height: 100%;
+    }
+
+    &--bottom-content {
+      @include flex-align(center, bottom);
+      padding: 80px 0;
+    }
+
+    &--bg-image {
+      position: relative;
+
+      &::before {
+        background-image: attr(data-background-image);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        content: '';
+        height: 100%;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        // right: 0;
+        // bottom: 0;
+        width: 100%;
+      }
+
+      #{$base}__content {
+        // keep it above the bg image
+        position: relative;
+      }
+    }
+
+    &__content {
+      margin: rem-calc(50px 0 60px);
+      max-width: 500px;
+      padding: rem-calc(0 30px);
+      width: 100%; // the flex parent makes them no longer 100%
+      @include breakpoint(medium) {
+        margin: rem-calc(0);
+      }
+
+      &--text {
+        max-width: rem-calc(460px);
+      }
+    }
+  }
+
+  .text-input-group .text-input,
+  .text-input-group .button {
+    margin: 0;
+    max-width: none;
+    width: 100%;
+  }
+}
+
+body#lp-event {
+  .c-sections__block-inner:not(.full) {
+    overflow: hidden;
+  }
+
+  .hs-form {
+    margin: rem-calc(40px 0);
+  }
+}
+
+body#lp-premium-content {
+  .hs-form {
+    .field {
+      float: left !important;
+      margin: rem-calc(0);
+      width: 60% !important;
+      @include breakpoint(medium) {
+        float: left !important;
+        width: 70% !important;
+      }
+
+      label {
+        z-index: 2;
+      }
+
+      .input {
+        background-color: #fff;
+        margin-bottom: 0;
+        padding: rem-calc(9.5px 15px);
+        z-index: 1;
+      }
+    }
+
+    .hs_submit {
+      float: left !important;
+      margin: rem-calc(0);
+      width: 40% !important;
+      @include breakpoint(medium) {
+        float: left !important;
+        width: 30% !important;
+      }
+
+      .button {
+        background-color: $color-blue;
+        border: rem-calc(0);
+        max-width: 100%;
+        min-width: rem-calc(0);
+
+        &:hover {
+          background: $color-black;
+          color: $color-white;
+        }
+      }
+    }
+
+    .hs-error-msgs {
+      padding: 5px;
+    }
+
+    .text-input + label {
+      left: 17px;
+      top: 17px;
+
+      span {
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .text-input__field:focus + .text-input__label .text-input__label-content,
+    .text-input--focused + label span,
+    .text-input--filled .text-input__label-content,
+    .text-input--filled + label span {
+      color: $color-white;
+      display: none;
+      left: -17px;
+      top: -40px;
+    }
+  }
+
+  .c-block--bg-image {
+    position: relative;
+
+    &::before {
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: cover;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  #side-2 .c-block__content {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 20px;
+  }
+}
+
+body#lp-campaign {
+  .c-block {
+    height: auto;
+    margin: 100px 0;
+  }
+
+  .hs-form {
+    .field {
+      label {
+        span {
+          color: $color-white;
+        }
+      }
+
+      input {
+        color: $color-white;
+      }
+
+      .select-input {
+        color: $color-white;
+
+        &::after {
+          color: $color-white;
+        }
+      }
+    }
+
+    .hs_submit {
+      clear: both;
+
+      .button {
+      }
+    }
+  }
+
+  #hs-form-holder {
+    .submitted-message {
+      &,
+      & * {
+        color: $color-white !important;
+      }
+    }
+  }
+}
+
+body#lp-premium-content {
+  .hs-form {
+    .field {
+      label {
+        color: $color-white;
+      }
+    }
+  }
+
+  #hs-form-holder {
+    .submitted-message {
+      &,
+      & * {
+        color: $color-white !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "pyxl/core",
+  "description": "Core plugin for custom functionality",
+  "keywords": [],
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Pyxl Development",
+      "email": "development@pyxl.com",
+      "homepage": "https://pyxl.com"
+    }
+  ],
+  "extra": {},
+  "scripts": {},
+  "require-dev": {},
+  "require": {
+    "php": "~7",
+    "lstrojny/functional-php": "^1.9",
+    "timber/timber": "^1.10"
+  },
+	"autoload": {
+    "files": [
+			"includes/autoloader.php"
+		]
+	}
+}

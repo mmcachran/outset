@@ -1,0 +1,55 @@
+.people-blocks {
+  padding: rem-calc(0 15px);
+
+  .column {
+    margin: rem-calc(0);
+    padding: rem-calc(0);
+  }
+
+  figure,
+  a.column-block {
+    align-items: flex-end;
+    display: flex;
+    text-decoration: none;
+  }
+
+  a.column-block {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .cta {
+    align-items: center;
+    display: flex;
+
+    .cta-info {
+      padding: rem-calc(20px);
+    }
+  }
+
+  .team-member-info {
+    margin: rem-calc(15px 20px);
+    width: 100%;
+
+    span {
+      color: $color-white;
+      font-size: 0.2em;
+      letter-spacing: 2.4px;
+      line-height: 1.75;
+      margin: rem-calc(0);
+    }
+
+    h3 {
+      color: $color-white;
+      margin: rem-calc(0);
+    }
+  }
+}
+
+.staff-image {
+  margin: rem-calc(0 0 30px);
+}
+
+.staff-content {
+}

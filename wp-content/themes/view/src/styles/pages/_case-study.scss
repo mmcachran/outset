@@ -1,0 +1,292 @@
+.case-study-hero {
+  @include breakpoint(medium) {
+    height: calc(75vh - 75px);
+  }
+  @include breakpoint(large) {
+    height: calc(100vh - 75px);
+  }
+
+  .row {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-content {
+    margin: rem-calc(42px 0 60px);
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      position: relative;
+      @include breakpoint(large) {
+        font-size: rem-calc(82px);
+        line-height: 1.2;
+      }
+    }
+
+    .description {
+      position: relative;
+      width: 100%;
+      @include breakpoint(large) {
+        width: 75%;
+      }
+    }
+  }
+}
+
+.bg-cover {
+  @include breakpoint(medium down) {
+    //left: rem-calc(0);
+  }
+}
+
+.large-underline {
+  height: 16px;
+  position: absolute;
+  right: 0;
+  width: 36%;
+
+  &-blue {
+    background: $color-blue;
+  }
+
+  &-green {
+    background: $color-green;
+  }
+}
+
+.featured-image {
+  background-position: center center;
+  background-size: cover;
+  bottom: rem-calc(0);
+  height: 100%;
+  position: absolute;
+  right: rem-calc(0);
+  width: 55%;
+
+  .large-underline {
+    bottom: -1rem;
+    height: 1rem;
+    position: absolute;
+    right: 0;
+    width: 60%;
+
+    &-blue {
+      background-color: $color-blue;
+    }
+
+    &-green {
+      background-color: $color-green;
+    }
+  }
+}
+
+.result-item {
+  margin: rem-calc(0 0 30px);
+}
+
+.offset-image {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  //margin: rem-calc(100px 0px);
+  @include breakpoint(large) {
+    flex-direction: row;
+    height: 55vh;
+    margin: rem-calc(40px 0);
+  }
+  @media screen and (min-width: 1400px) {
+    //margin: rem-calc(260px 0px);
+    margin: rem-calc(100px 0);
+  }
+
+  figure {
+    left: rem-calc(0);
+    @include breakpoint(medium) {
+      max-width: rem-calc(800px);
+      position: absolute;
+      width: 60%;
+    }
+  }
+
+  .row {
+    width: 100%;
+  }
+}
+
+.sp-off-up {
+  margin: rem-calc(280px 0 0);
+
+  figure {
+    margin: rem-calc(-120px 0 0);
+  }
+
+  &-large {
+    margin: rem-calc(380px 0 0);
+
+    figure {
+      margin: rem-calc(-240px 0 0);
+    }
+  }
+}
+
+.sp-off-down {
+  margin: rem-calc(0 0 280px);
+
+  figure {
+    margin: rem-calc(0 0 -120px);
+  }
+
+  &-large {
+    margin: rem-calc(0 0 380px);
+
+    figure {
+      margin: rem-calc(0 0 -240px);
+    }
+  }
+}
+
+.listing {
+  margin: rem-calc(20px 0);
+
+  a {
+    color: $color-blue;
+  }
+}
+
+.column-content {
+  margin: rem-calc(40px 0 0);
+
+  ul,
+  ol {
+    margin: rem-calc(0);
+  }
+}
+
+.case-study-details {
+  h6,
+  .h6,
+  .label {
+    margin-top: rem-calc(30px);
+  }
+
+  ol {
+    float: left;
+
+    li {
+      @include breakpoint(medium) {
+        float: left;
+        width: 50%;
+      }
+    }
+  }
+}
+
+.case-study-more {
+  .start-here {
+    padding-bottom: rem-calc(50px);
+    padding-top: rem-calc(50px);
+    text-align: center;
+    @include breakpoint(medium) {
+      padding-bottom: rem-calc(160px);
+      padding-top: rem-calc(160px);
+    }
+
+    a {
+      @extend h1;
+      color: $color-green;
+      margin: rem-calc(0);
+    }
+  }
+
+  .project-selection {
+    overflow: hidden;
+
+    .project-container {
+      background-position: center;
+      background-size: cover;
+      height: rem-calc(360px);
+
+      &:last-child {
+        a {
+          justify-content: flex-end;
+        }
+      }
+
+      &:hover {
+        .project-prev {
+          left: rem-calc(0);
+        }
+
+        .project-next {
+          right: rem-calc(0);
+        }
+      }
+
+      a {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        width: 100%;
+
+        .project-next,
+        .project-prev {
+          background: $color-white;
+          padding: rem-calc(20px);
+          position: relative;
+          transition: all 100ms ease-in;
+          width: 70%;
+        }
+
+        .project-next {
+          padding: rem-calc(20px 60px 20px 20px);
+          right: rem-calc(-20px);
+        }
+
+        .project-prev {
+          left: rem-calc(-20px);
+          padding: rem-calc(20px 20px 20px 60px);
+          text-align: right;
+
+          .arrow-link {
+            transform: scale(-1);
+          }
+        }
+      }
+    }
+  }
+
+  .view-all {
+    padding: rem-calc(120px 0);
+    @include breakpoint(large) {
+      padding: rem-calc(0);
+    }
+
+    a {
+      @extend h4;
+      margin: rem-calc(0);
+      position: relative;
+
+      &:hover {
+        &::before {
+          bottom: rem-calc(-24px);
+          top: rem-calc(-24px);
+        }
+      }
+
+      &::before {
+        border-bottom: rem-calc(1px) solid $color-green;
+        border-top: rem-calc(1px) solid $color-green;
+        bottom: rem-calc(-16px);
+        content: '';
+        left: 50%;
+        position: absolute;
+        top: rem-calc(-16px);
+        transform: translateX(-50%);
+        transition: all 200ms;
+        width: rem-calc(16px);
+      }
+    }
+  }
+}

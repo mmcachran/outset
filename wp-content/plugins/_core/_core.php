@@ -1,77 +1,81 @@
-<?php
+<?php // phpcs:disable WordPress.Files.FileName.NotHyphenatedLowercase
+
 /**
- * Plugin Name: (custom) Core Plugin
- * Description: Plugin for custom WordPress development
- * Version: 1.0.0
- * Author: Pyxl Inc.
+ * Plugin Name: (custom) Core
+ * Plugin URI: https://pyxl.com
+ * Description:
+ * Version: 1.0
+ * Author: Pyxl
  * Author URI: https://pyxl.com
  * License: GPLv3+
  */
 
-namespace Core;
 
-defined('WPINC') || die;
+namespace _core;
 
-define(__NAMESPACE__ . '\PATH', plugin_dir_path(__FILE__));
-define(__NAMESPACE__ . '\URI', plugin_dir_url(__FILE__));
+defined( 'WPINC' ) || die;
 
-// Gravity Forms
-define('GF_LICENSE_KEY', 'XXXXXXXXXXXXXXX');
+define( __NAMESPACE__ . '\PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+define( __NAMESPACE__ . '\URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 
-// S3 Media Offload
-define('AS3CF_SETTINGS', serialize([
-    'provider'          => 'aws',
-    'access-key-id'     => 'XXXXXXXXXXXXXXX',
-    'secret-access-key' => 'XXXXXXXXXXXXXXX',
-]));
+// Composer Require
+require_once PATH . 'vendor/autoload.php';
 
-require_once 'lib/autoload.php';
+add_action( 'plugins_loaded', '_core\run' );
+function run() {
+	/**
+ *  A Convenient pseudo autoloader. As always, consider using composer via https://getcomposer.org/doc/04-schema.md#files
+ *  Note, this is available due to being loaded in composer.json
+ */
+	autoloader\simple_glob_require(
+		[
+			'includes/helpers/*.php',
+			'includes/helpers/acf/*.php',
+			'includes/helpers/wp/*.php',
+			'includes/actions/*.php',
+			'includes/models/*.php',
+		]
+	);
 
-add_action('plugins_loaded', function () {
+	/**
+	 * Post Types
+	 */
 
-    /**
-     * Models
-     */
-    // Post Types
-    Models\PostTypes\Posts::init();
-    Models\PostTypes\Pages::init();
-    // Models\PostTypes\Events::init();
-    // Models\PostTypes\Testimonial::init();
-    // Models\PostTypes\Careers::init();
+	// Add post types to registry
+	add_filter( 'core/post_types', '_core\filters\post_types\career' );
+	add_filter( 'core/post_types', '_core\filters\post_types\event' );
+	add_filter( 'core/post_types', '_core\filters\post_types\testimonial' );
 
-    // Taxonomies
-    // Models\Taxonomies\EventType::init();
+	// Initialize registration of post types
+	add_action( 'init', '_core\actions\register\blocks' );
 
-    // Options Pages
-    Models\OptionsPages\Globals::init();
+	/**
+	 * Taxonomies
+	 */
 
-    // Field Groups
-    Models\FieldGroups\Globals::init();
-    Models\FieldGroups\Pages::init();
-    // Models\FieldGroups\Testimonial::init();
+	// Add taxonomies to registry
+	add_filter( 'core/taxonomies', '_core\models\taxonomies\event' );
+	add_filter( 'core/taxonomies', '_core\models\taxonomies\location' );
 
-    // Blocks
-    Models\Blocks\Hero::init();
-    Models\Blocks\Featurette::init();
-    // Models\Blocks\CallToAction::init();
+	// Initialize registration of taxonomies
+	add_action( 'init', '_core\actions\register\taxonomies' );
 
-    /**
-     * Controllers
-     */
-    // Globals
-    Controllers\Globals\Footer::init();
-    Controllers\Globals\Header::init();
-    Controllers\Globals\FourOhFour::init();
+	/**
+	 * Blocks
+	 */
 
-    // Post Types
-    Controllers\PostTypes\Pages::init();
-    Controllers\PostTypes\Posts::init();
-    // Controllers\PostTypes\Event::init();
+	// Add blocks to registry
+	add_filter( '_core\blocks', '_core\models\blocks\cta' );
+	add_filter( '_core\blocks', '_core\models\blocks\hero' );
 
-    // Blocks
-    Controllers\Blocks\Hero::init();
-    /**
-     * Compatibility
-     */
-    Compatibility\BlockEditor::init();
-});
+	// Initialize registration of blocks
+	add_action( 'init', '_core\actions\register\blocks' );
+
+	/**
+	 * Metaboxes
+	 */
+	// add_filter( 'core/field_group', '_core\filters\field_groups\career' );
+	// add_filter( 'core/field_group', '_core\filters\field_groups\testimonial' );
+	// add_filter( 'core/field_group', '_core\filters\field_groups\event' );
+	// add_filter( 'core/option_pages', '_core\models\option_pages\general' );
+}

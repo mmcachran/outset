@@ -1,10 +1,10 @@
 [
     {
         "type": "Directory",
-        "name": "/Users/miz/Local/pyxl/app/public/wp-content/themes/pyxl",
+        "name": "./wp-content/themes/view",
         "parent_id": null,
-        "workspaceRoot": "/Users/miz/Local/pyxl/app/public",
-        "workspacePath": "wp-content/themes/pyxl",
+        "workspaceRoot": "./",
+        "workspacePath": "./wp-content/themes/view",
         "id": "ENdbxgXkRuqITJOF"
     }
 ]

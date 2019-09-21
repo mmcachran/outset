@@ -16,7 +16,6 @@
 		// CSS
 		"mrmlnc.vscode-scss", // SCSS IntelliSense - https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss
 		// Misc
-		// "esbenp.prettier-vscode", // Prettier - https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 		"mikestead.dotenv", // DotENV - https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv
 		"andrejunges.Handlebars", // Handlebars - https://marketplace.visualstudio.com/items?itemName=andrejunges.Handlebars
 		"DotJoshJohnson.xml", // XML Tools - https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml

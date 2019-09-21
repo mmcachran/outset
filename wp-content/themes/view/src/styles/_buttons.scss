@@ -1,0 +1,176 @@
+//
+// BUTTONS
+//
+
+.button {
+  background-color: $color-white;
+  border: solid rem-calc(1px);
+  color: $color-green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $font-minion;
+  font-size: rem-calc(18px);
+  line-height: 1.321em;
+  padding: rem-calc(15px 25px);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 200ms ease-in;
+
+  &::after {
+    content: $ionicon-var-small-arrow;
+    font-family: $ionicons-font-family;
+    margin: rem-calc(0 0 0 10px);
+    position: relative;
+    top: rem-calc(2px);
+  }
+
+  &.button-blue {
+    color: $color-blue;
+
+    &:hover,
+    &:active {
+      background: $color-blue;
+      color: $color-white;
+    }
+  }
+
+  &.button-green {
+    color: $color-green;
+
+    &:hover,
+    &:active {
+      background: $color-green;
+      color: $color-white;
+    }
+  }
+
+  &.button-download {
+    &::after {
+      content: $ionicon-var-download-arrow;
+    }
+  }
+
+  &.large {
+    font-size: rem-calc(22px);
+    min-width: rem-calc(220px);
+  }
+
+  &.button-alt {
+    border: none;
+    box-shadow: 0 1px 18px 0 rgba(41, 53, 71, 0.13);
+
+    &.button-blue {
+      color: $color-blue;
+
+      &:hover,
+      &:active {
+        background: $color-blue;
+        color: $color-white;
+      }
+    }
+
+    &.button-green {
+      color: $color-green;
+
+      &:hover,
+      &:active {
+        background: $color-green;
+        color: $color-white;
+      }
+    }
+  }
+
+  &.button-solid {
+    background: $color-white;
+    box-shadow: none;
+    color: $color-white;
+
+    &.button-blue {
+      background: $color-blue;
+      border: solid rem-calc(1px) $color-blue;
+
+      &:hover,
+      &:active {
+        background: $color-white;
+        color: $color-blue;
+      }
+    }
+
+    &.button-green {
+      background: $color-green;
+      border: solid rem-calc(1px) $color-green;
+
+      &:hover,
+      &:active {
+        background: $color-white;
+        color: $color-green;
+      }
+    }
+  }
+}
+
+.arrow-link {
+  color: $color-green;
+  display: inline-block;
+  position: relative;
+
+  &::after {
+    content: $ionicon-var-small-arrow;
+    display: inline-block;
+    font-family: $ionicons-font-family;
+    padding: rem-calc(0 0 0 5px);
+    position: relative;
+    top: rem-calc(2px);
+    transform: translateX(rem-calc(0));
+    transition: all 100ms;
+  }
+
+  &:hover {
+    &::after {
+      transform: translateX(rem-calc(5px));
+    }
+  }
+}
+
+.large-arrow-link {
+  color: $color-green;
+  display: inline-block;
+  font-family: $font-aktiv;
+  font-size: rem-calc(48px);
+  position: relative;
+
+  &::after {
+    bottom: rem-calc(0);
+    content: $ionicon-var-large-arrow;
+    display: inline-block;
+    font-family: $ionicons-font-family;
+    padding: rem-calc(0 0 0 16px);
+    position: relative;
+    transform: translateX(rem-calc(0));
+    transition: all 100ms;
+  }
+
+  &:hover {
+    &::after {
+      transform: translateX(rem-calc(5px));
+    }
+  }
+}
+
+.play-button {
+  background-image: url('../img/play-button.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: rem-calc(70px);
+  width: rem-calc(70px);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.test {
+  font-family: $ionicon-var-bullet;
+}

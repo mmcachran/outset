@@ -1,0 +1,346 @@
+body {
+  &#front-page {
+    .nav-toggle {
+      border: rem-calc(1px) solid $color-white;
+      color: $color-white;
+    }
+  }
+
+  &.nav-down {
+    &#front-page {
+      .navbar {
+        background: $color-white;
+      }
+    }
+
+    .navbar {
+      background: $color-white;
+
+      .top-menu {
+        .nav-holder {
+          .nav-toggle {
+            border: rem-calc(1px) solid $color-green !important;
+            color: $color-green !important;
+          }
+
+          ul {
+            //padding: rem-calc(0);
+          }
+        }
+      }
+    }
+  }
+
+  &.nav-up {
+    .navbar {
+      transform: translateY(-76px);
+
+      .top-menu {
+        .nav-holder {
+          ul {
+            top: rem-calc(-76px);
+          }
+        }
+      }
+    }
+  }
+
+  &.nav-open {
+    overflow: hidden;
+
+    .logo {
+      svg {
+        path,
+        polygon {
+          fill: $color-white;
+        }
+      }
+    }
+
+    .nav-toggle {
+      border: rem-calc(1px) solid $color-white !important;
+      color: $color-white !important;
+    }
+  }
+}
+
+.navbar {
+  background: $color-white;
+  position: fixed;
+  transition: all 200ms ease-out;
+  width: 100%;
+  z-index: 9999;
+
+  #front-page & {
+    background: transparent;
+  }
+
+  .top-menu {
+    font-family: $font-aktiv;
+    font-size: rem-calc(14px);
+    position: relative;
+    width: 100%;
+
+    .nav-holder {
+      //transition: all 200ms;
+      overflow: hidden;
+      padding: rem-calc(13px 13px 13px 0);
+      text-align: right;
+
+      .nav-toggle {
+        border: rem-calc(1px) solid $color-green;
+        color: $color-green;
+        display: block;
+        float: right;
+        font-family: $font-gibson;
+        font-size: rem-calc(10px);
+        height: rem-calc(50px);
+        letter-spacing: rem-calc(1px);
+        padding: rem-calc(19px 10px 18px);
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        width: rem-calc(54px);
+        @include breakpoint(large) {
+          display: none;
+        }
+
+        &.open {
+          border-color: $color-white;
+          color: $color-white;
+          z-index: 10000;
+
+          &::before {
+            content: $ionicon-var-close;
+            font-family: $ionicons-font-family;
+          }
+        }
+
+        &::before {
+          content: 'Menu';
+          display: block;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .nav {
+        bottom: rem-calc(0);
+        left: rem-calc(0);
+        overflow: hidden;
+        position: relative;
+        right: rem-calc(0);
+        top: rem-calc(0);
+        transition: all 200ms;
+        z-index: -50;
+        @include breakpoint(large) {
+          z-index: 1;
+        }
+
+        &.open {
+          background: $color-blue;
+          display: block;
+          position: fixed;
+          transform: translateY(0);
+          z-index: 9999;
+
+          .nav-container {
+            opacity: 1;
+            visibility: visible;
+
+            ul {
+              display: block;
+            }
+
+            li {
+              a {
+                color: $color-green;
+                font-size: rem-calc(36px);
+                font-weight: 500;
+                line-height: 2.14;
+                margin: rem-calc(0);
+                padding: rem-calc(0);
+
+                &::before,
+                &::after {
+                  display: none;
+                }
+
+                &:hover,
+                &:focus {
+                  background: $color-green;
+                  color: $color-blue;
+                }
+              }
+            }
+          }
+
+          .searchform {
+            div {
+              padding: 20px;
+            }
+
+            [type='text'] {
+              border-color: #13ce66;
+              font-size: 2.25rem;
+              margin-left: auto;
+              margin-right: auto;
+              max-width: 400px;
+              padding-left: 45px;
+              text-align: center;
+              width: 100%;
+            }
+          }
+        }
+
+        .nav-container {
+          opacity: 0;
+          padding: rem-calc(0);
+          position: absolute;
+          text-align: center;
+          top: 50%;
+          transform: translateY(-50%);
+          visibility: hidden;
+          width: 100%;
+          z-index: 3;
+          //transition: all 200ms;
+          @include breakpoint(large) {
+            opacity: 1;
+            padding: rem-calc(7px 0);
+            position: relative;
+            text-align: right;
+            top: rem-calc(0);
+            transform: translateY(0);
+            visibility: visible;
+            width: auto;
+            //transition: none;
+          }
+
+          ul {
+            display: inline-block;
+            vertical-align: middle;
+          }
+
+          li {
+            display: block;
+            margin: rem-calc(0);
+            @include breakpoint(large) {
+              display: table-cell;
+            }
+
+            a {
+              color: $color-green;
+              font-family: $font-aktiv;
+              font-size: rem-calc(36px);
+              font-weight: 500;
+              line-height: 2.14;
+              margin: rem-calc(0);
+              padding: rem-calc(0);
+              text-transform: capitalize;
+              @include breakpoint(large) {
+                color: $color-dark-grey;
+                font-size: rem-calc(14px);
+                line-height: 1;
+                margin: rem-calc(0 6px 0);
+                padding: rem-calc(11px 18px);
+                position: relative;
+              }
+
+              &::before,
+              &::after {
+                @include breakpoint(large) {
+                  bottom: 0;
+                  content: '';
+                  height: rem-calc(3px);
+                  left: 0;
+                  position: absolute;
+                  transform: scale3d(0, 1, 1);
+                  transform-origin: center left;
+                  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+                  width: 100%;
+                }
+              }
+
+              &::before {
+                background: $color-green;
+              }
+
+              &:hover,
+              &:focus {
+                background: $color-green;
+                color: $color-blue;
+                @include breakpoint(large) {
+                  background: transparent;
+                  color: $color-green;
+                }
+
+                &::before {
+                  transform: scale3d(1, 1, 1);
+                  transition-delay: 0s;
+                }
+              }
+            }
+
+            &.current a:hover,
+            &.current a:focus,
+            &.current a {
+              color: $color-blue;
+            }
+
+            &.current a::before,
+            &.current::after {
+              @include breakpoint(large) {
+                background: $color-blue;
+                transform: scale3d(1, 1, 1);
+              }
+            }
+
+            &.current a::before {
+              transition-delay: 0s;
+            }
+          }
+        }
+
+        .searchform {
+          display: inline-block;
+          position: relative;
+          vertical-align: middle;
+
+          [type='submit'] {
+            display: none;
+          }
+
+          label {
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 45px;
+          }
+
+          [type='text'] {
+            background: transparent;
+            background: url(../images/search.svg) no-repeat 13px center;
+            background-size: 18px;
+            border: 1px solid transparent;
+            color: #13ce66;
+            font-size: 14px;
+            padding: 10px 25px;
+            transition: all 0.3s ease-in-out;
+            width: 50px;
+
+            &:focus {
+              border-color: #13ce66;
+              padding-left: 45px;
+              width: 400px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
