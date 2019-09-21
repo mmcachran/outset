@@ -1,0 +1,24 @@
+{% set base = 'social_menu' %}
+
+{% set defaults = {
+  items: [],
+} %}
+
+{% set classes = [
+  base,
+] %}
+
+{% if items %}
+    <ul class="{{ classes|join(' ') }} {{ base }}__list">
+        {% for item in items %}
+            <li class="{{ base }}__item">
+                <a class="{{ base }}__link" href="{{ item.url }}" target="{{ item.target }}">
+                    <svg class="icon">
+                        <use xlink:href="#icon-{{ title|lower }}"/>
+                    </svg>
+                    <span class="screen-reader-text">{{ title }}</p>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

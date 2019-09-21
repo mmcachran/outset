@@ -1,0 +1,15 @@
+{% set base = 'MenuFooter' %}
+{% set classes = [
+    'menu',
+    'PrimaryMenu',
+    base
+] %}
+
+<nav id="menuFooter" class="{{ classes|join(' ') }}">
+    <h3 class="{{ base }}__title">{{ title }}</h3>
+    {% include "Components/Menu/Menu.twig" with {
+        items: items,
+        base: base,
+        classes: classes,
+    } only %}
+</nav>

@@ -1,0 +1,164 @@
+@import "utils/variables";
+@import "utils/mixins";
+
+.SinglePreview {
+  $base: &;
+
+  background-color: $brand__light;
+  box-shadow: $box__shadow;
+  padding: 1.8em 1.511em;
+
+  @include for-tablet__landscape--up {
+    padding: 2em 1.611em;
+  }
+
+  &__lead-in {
+    @include font--highlight;
+  }
+
+  &__heading {
+    text-decoration: none;
+  }
+
+  &__title {
+    @include font--subheading;
+    padding-top: .5em;
+  }
+
+  &__description {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--normal {
+    flex: 1 1 auto;
+    margin: .8em .5em;
+    @include for-tablet__landscape--up {
+      margin: .8em;
+      min-width: 326px;
+    }
+
+    #{$base}__description {
+      flex: 1 1 auto;
+    }
+
+    #{$base}__image {
+      width: 100%;
+      max-width: 445px;
+    }
+  }
+  &--featured {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include for-tablet__landscape--up {
+      padding: 3em;
+    }
+
+    #{$base}__lead-in {
+      margin-bottom: 1.7em;
+      @include for-tablet__landscape--up {
+        margin-bottom: 2em;
+      }
+    }
+
+    #{$base}__description {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include for-tablet__landscape--up {
+        flex-direction: row;
+      }
+    }
+
+    #{$base}__content {
+      padding-left: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+      @include for-tablet__landscape--up {
+        flex: 1 1 0%;
+      }
+    }
+
+    #{$base}__title {
+      //@include font--headline-xl;
+    }
+
+    #{$base}__preview {
+      @include font--base-larger;
+      color: $brand__dark;
+    }
+
+    #{$base}__image {
+      width: 100%;
+      height: 100%;
+
+      @include for-tablet__landscape--up {
+        max-width: 454px;
+        max-height: 303px;
+      }
+    }
+  }
+
+  &--condensed {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 1.7em;
+    padding: 1.3em 1.411em 1.4em;
+
+    @include for-tablet__landscape--up {
+      margin: 1.5em 0;
+      padding: 1.3em 1.411em;
+    }
+
+    #{$base}__description {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #{$base}__title {
+      padding-top: 0;
+    }
+
+    #{$base}__content {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0;
+
+      @include for-tablet__landscape--up {
+        flex-direction: row;
+      }
+    }
+
+    #{$base}__image {
+      max-width: 160px;
+      max-height: 106px;
+      display: none;
+
+      @include for-tablet__landscape--up {
+        display: block;
+      }
+    }
+
+    #{$base}__heading {
+      flex: 1 1 0;
+      padding: 0;
+
+      @include for-tablet__landscape--up {
+        padding: 0 2em;
+      }
+    }
+  }
+  &--dark {
+    background-color: $brand__gray--light;
+  }
+  &--light {
+    background-color: $brand__light;
+  }
+}

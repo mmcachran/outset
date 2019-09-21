@@ -1,0 +1,201 @@
+@import "utils/variables";
+@import "utils/mixins";
+
+.CTA {
+  $base: &;
+
+  .container {
+    max-width: $width--small;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    @include for-tablet__landscape--up {
+      justify-content: space-evenly;
+    }
+
+    //basic padding -- gets override with form--true
+    padding-top: 2.5em;
+    padding-bottom: 2.8em;
+
+  }
+
+  &__primary {
+    max-width: $width--small;
+    text-align: left;
+
+    @include for-tablet__landscape--up {
+      margin-bottom: 2em;
+      padding-right: 2em;
+    }
+  }
+
+  &__secondary {
+
+  }
+
+  &__heading {
+    @include font--headline;
+  }
+
+  &__content {
+    max-width: $width--line-length-medium;
+    p {
+      margin-top: .1em;
+      margin-bottom: .1em;
+    }
+  }
+
+  &__link {
+    margin-top: 3em;
+    margin-bottom: 1em;
+
+    @include for-tablet__landscape--up {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+  }
+
+  // Appearance Styles
+  &--dark {
+    background-color: $brand__blue;
+
+    #{$base}__heading,
+    #{$base}__content {
+      color: $brand__light;
+    }
+
+    .gform_wrapper {
+      color: $brand__light;
+
+      label {
+        color: $brand__light;
+      }
+
+      .gfield_description {
+        color: $brand__light !important;
+      }
+    }
+  }
+
+  &--form {
+
+    > .container {
+      max-width: $width--medium;
+    }
+
+    #{$base}__heading {
+      @include font--headline;
+    }
+
+    #{$base}__secondary {
+      max-width: 24.056em;
+      //flex: 1; can't remember why this is here
+      width: 100%;
+    }
+
+    #{$base}__wrapper {
+      @include vertical-padding();
+
+      // larger padding for desktop
+      @include for-tablet__landscape--up {
+        @include vertical-padding(7.111em);
+      }
+    }
+
+  }
+
+  &--light {
+    background-color: $brand__gray--light;
+
+    #{$base}__heading {
+      color: $brand__blue;
+    }
+  }
+
+  // Alignment Styles
+  &--left {
+    #{$base}__wrapper {
+      @include for-tablet__landscape--up {
+        flex-direction: row;
+      }
+    }
+
+    #{$base}__primary {
+      @include for-tablet__landscape--up {
+        margin-bottom: .1em;
+      }
+    }
+  }
+
+  &--center {
+    #{$base}__primary {
+      text-align: center;
+      padding-right: 0;
+    }
+    #{$base}__content {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    // Centered and FULL fontsize changes. 
+     &.CTA--full {
+     #{$base}__heading {
+        @include font--headline-medium;
+      }
+    }
+  }
+
+  // Width Styles ?? not sure if needed
+  &--wide {
+    max-width: 92%;
+    margin-right: auto;
+    margin-left: auto;
+    @include vertical-margin(2em);
+
+    @include for-tablet__landscape--up {
+      max-width: $width--container;
+      padding-left: 3em;
+      padding-right: 3em;
+      @include vertical-margin(3em);
+    }
+
+  }
+
+  &--full {
+    & > .container {
+      max-width: $width--container--full;
+    }
+
+    &.CTA--left {
+      #{$base}__primary {
+        max-width: 38.056em;
+      }
+    }
+  }
+
+  .homepage-signup, .contact-form {
+    width: 100%;
+
+    label {
+      color: $brand__peach;
+      font-size: 1.2em;
+    }
+
+    .gform_button {
+      cursor: pointer;
+    }
+
+    .gfield_required {
+      color: $brand__peach !important;
+    }
+
+    input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+      width: 100%;
+    }
+  }
+}

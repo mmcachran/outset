@@ -1,0 +1,121 @@
+version: 2.1
+# Environment Variables: https://circleci.com/docs/2.0/env-vars/#built-in-environment-variables
+
+# https://circleci.com/docs/2.0/reusing-config/#authoring-reusable-commands
+orbs:
+  slack: circleci/slack@3.3.0
+
+commands:
+  setup:
+    description: "Setup our build"
+    steps:
+      - run:
+          name: "Remove all .gitignore files"
+          command: find . -name ".gitignore" -exec rm -f {} \;
+      - run:
+          name: "Add WPEngine to known hosts"
+          command: ssh-keyscan -H git.wpengine.com >> ~/.ssh/known_hosts
+  npm:
+    description: "Run NPM tasks"
+    parameters:
+      npm_script:
+        default: "build"
+        type: string
+    steps:
+      - run: |
+          source .env
+          npm ci --prefix $PATH_THEME
+          npm run --prefix $PATH_THEME << parameters.npm_script >>
+  composer:
+    description: "Install Composer Packages (including WordPress Plugins from wpackagist, satis, etc.)"
+    steps:
+      - run: composer install --no-dev --optimize-autoloader
+  clean:
+    description: "Remove files we don't want pushed to the server"
+    steps:
+      - run: |
+          rm -rf $(cat .clean)
+          find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
+          find . -name '.gitignore' -type d -prune -exec rm -rf '{}' +
+  git_push:
+    description: "Deploy our files"
+    parameters:
+      repo:
+        type: string
+    steps:
+      - run:
+          name: "Push files to WPEngine"
+          command: |
+            git add .
+            git commit -m "deploy!"
+            git push -f << parameters.repo >> ${CIRCLE_BRANCH}
+  notify:
+    description: "Send notification about the deployment"
+    steps:
+      - slack/notify:
+          color: "#1C2375"
+          mentions: "here"
+          message: "A new commit has been pushed to ${CIRCLE_BRANCH}"
+          webhook: "https://hooks.slack.com/services/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"
+
+
+# https://circleci.com/docs/2.0/configuration-reference/#jobs
+jobs:
+  prod:
+    docker:
+      - image: pyxl/wordpress-ci-cd-2019
+    steps:
+      - checkout
+      - setup
+      - composer
+      - npm:
+          npm_script: "prod"
+      - clean
+      - git_push:
+          repo: "git@git.wpengine.com:production/elexio.git"
+  stag:
+    docker:
+      - image: pyxl/wordpress-ci-cd-2019
+    steps:
+      - checkout
+      - setup
+      - composer
+      - npm:
+          npm_script: "prod"
+      - clean
+      - git_push:
+          repo: "git@git.wpengine.com:production/elexiostag.git"
+  dev:
+    docker:
+      - image: pyxl/wordpress-ci-cd-2019
+    steps:
+      - checkout
+      - setup
+      - composer
+      - npm:
+          npm_script: "prod"
+      - clean
+      - git_push:
+          repo: "git@git.wpengine.com:production/elexiodev.git"
+      - notify
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - prod:
+          filters:
+            branches:
+              only:
+                - env/production
+      - stag:
+          filters:
+            branches:
+              only:
+                - /release/.*/
+      - dev:
+          filters:
+            branches:
+              only:
+                - /bug/.*/
+                - /feature/.*/

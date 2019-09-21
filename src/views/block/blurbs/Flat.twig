@@ -1,0 +1,41 @@
+{% for blurb in blurbs %}
+
+    {% set classes = [
+        base~"__blurb",
+        base~"__blurb--"~layout,
+        base~"__blurb--"~blurb.columns,
+    ] %}
+
+    <div class="{{ classes|join(' ') }}">
+        <div class="{{ base }}__title">
+            {% if blurb.icon %}
+                {% if blurb.link %}
+                    <a href="{{ blurb.link.url }}" target="{{ blurb.link.target }}">
+                {% endif %}
+                {% include 'Components/Image/Image.twig' with {
+                    image: blurb.icon,
+                    base: base,
+                } only %}
+                {% if blurb.link %}
+                    </a>
+                {% endif %}
+            {% endif %}
+            <h4 class="{{ base }}__blurb-heading">
+                {{ blurb.heading }}
+            </h4>
+        </div>
+        <div>
+            <div class="{{ base }}__blurb-content">
+                {{ blurb.content }}
+                {% if blurb.link %}
+                    {% include "Components/Button/ButtonTertiary.twig" with {
+                        link: blurb.link,
+                        appearance: appearance,
+                        size: 'small',
+                    } only %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endfor %}

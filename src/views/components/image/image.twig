@@ -1,0 +1,29 @@
+{#
+/*
+ * Available variables:
+ * - image {src, alt}
+ * - css_classes - add classes as needed ex: object-fit
+ * - base - accepts the base class
+ */
+#}
+
+{% set defaults = {
+    base: 'image',
+    css_classes: '',
+    image: {
+        url: '',
+        alt: '',
+    }
+} %}
+{% set base = base ?: defaults.base %}
+{% set image = image ?: defaults.image %}
+{% set css_classes = css_classes ?: defaults.css_classes %}
+{% set attributes = attributes ?: '' %}
+
+{% set classes = [
+    base~"__image",
+    css_classes,
+] %}
+<figure class="{{ classes|join(" ") }}" {{ attributes }}>
+    <img src="{{ image.url }}" alt="{{ image.alt }}">
+</figure>

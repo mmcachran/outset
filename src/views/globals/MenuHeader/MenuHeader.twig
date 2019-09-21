@@ -1,0 +1,37 @@
+{% set base = 'MenuPrimary' %}
+{% set classes = [
+    'menu',
+    'MenuHeader',
+    base
+] %}
+
+<nav id="menuHeader" class="{{ classes|join(' ') }}">
+    <ul class="{{ classes|join(' ') }} {{ base }}__list">
+        <li class="{{ base }}__item menu-item-has-dropdown">
+            <a href="{{ menus.primary_dropdown.link.url }}" href="{{ menus.primary_dropdown.link.target }}" class="{{ base }}__link" href="">
+                {{ menus.primary_dropdown.title }}
+            </a>
+
+            {% include "Components/Dropdown/Dropdown.twig" with menus.primary_dropdown only  %}
+        </li>
+        <li class="{{ base }}__item menu-item-has-dropdown">
+            {# <p class="{{ base }}__link" href="">
+                {{ menus.secondary_dropdown.title }}
+            </p> #}
+            <a href="{{ menus.secondary_dropdown.link.url }}" href="{{ menus.secondary_dropdown.link.target }}" class="{{ base }}__link" href="">
+                {{ menus.secondary_dropdown.title }}
+            </a>
+
+            {% include "Components/Dropdown/Dropdown.twig" with menus.secondary_dropdown only  %}
+        </li>
+
+        {% for item in menus.primary.items %}
+            {% include "Components/MenuItem/MenuItem.twig" with {
+                title: item.title,
+                url: item.url,
+                target: item.target,
+                base: base,
+            } only %}
+        {% endfor %}
+    </ul>
+</nav>

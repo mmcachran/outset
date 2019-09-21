@@ -1,0 +1,88 @@
+@import "utils/variables";
+@import "utils/mixins";
+
+.Posts {
+  $base: &;
+
+  max-width: 1090px;
+  @include vertical-padding(1.1rem);
+  padding-right: $width--container-padding;
+  padding-left: $width--container-padding;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include for-tablet__landscape--up {
+    @include vertical-padding();
+  }
+
+  &__intro {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $width--medium;
+  }
+
+  &__title {
+    @include font--highlight;
+    @include font--headline-medium;
+  }
+
+  &__content {
+    @include font--subheading--thin;
+    color: $brand__blue;
+  }
+
+  &__wrapper {
+    width: 100%;
+    padding: 2em 0;
+
+    &.dark {
+      background-color: $brand__gray--light;
+    }
+
+    &.light {
+      background-color: $brand__light;
+    }
+  }
+
+  &--normal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    #{$base}__list {
+      margin: -.5em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include for-tablet__landscape--up {
+        flex-direction: row;
+      }
+    }
+
+    & > * {
+      flex: 1 1 auto;
+      min-height: 100px;
+    }
+  }
+
+  &--condensed {
+
+    & > * {
+      margin: 0 auto;
+
+      @include for-tablet__portrait--up {
+        margin: 2em auto;
+      }
+    }
+  }
+
+  &--dark {
+    background-color: $brand__gray--light;
+  }
+
+  &--light {
+    background-color: $brand__light;
+  }
+}

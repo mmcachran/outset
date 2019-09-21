@@ -1,0 +1,44 @@
+{% set base = 'Archive' %}
+
+<div class="{{ base }}">
+    {% include "Blocks/HeroBasic/HeroBasic.twig" with {
+        heading: post_title,
+        content: post_content,
+        alignment: 'center',
+        appearance: 'light'
+    } only %}
+
+    {% if featured_post %}
+        {% include "Blocks/Posts/Posts.twig" with {
+            layout: 'featured',
+            posts: [
+                featured_post
+            ],
+            appearance: 'dark',
+        } only %}
+    {% endif %}
+
+    {% include "Blocks/Posts/Posts.twig" with {
+        layout: 'normal',
+        posts: posts|slice(0, 3),
+        heading: 'Our Latest News & Tips'
+    } only %}
+
+    {% include "Blocks/Posts/Posts.twig" with {
+        layout: 'condensed',
+        posts: posts|slice(3)
+    } only %}
+
+    {% include "Components/Pagination/Pagination.twig" with {
+        prev: timber_query.pagination.prev,
+        next: timber_query.pagination.next,
+        pages: timber_query.pagination.pages,
+    } only %}
+
+    {% include "Blocks/CallToAction/CallToAction.twig" with {
+        heading: 'Sign up for our newsletter to <strong>stay in the know</strong> with all things ELEXIO!',
+        form: form,
+        alignment: 'left',
+        blockAlign: 'full',
+    } only %}
+</div>

@@ -1,0 +1,24 @@
+{% set base = 'MenuSecondary' %}
+{% set classes = [
+    base,
+    "Menu"
+] %}
+
+<nav id="menuSecondary" class="{{ classes|join(' ') }}">
+    <ul class="{{ base }}__list">
+        {% for item in menus.secondary.items %}
+            <li class="{{ base }}__item {{ item.classes|join(' ') }}">
+                <a class="{{ base }}__link" href="{{ item.link }}">{{ item.title }}</a>
+                {% if item.children %}
+                    <ul class="{{ base }}__drop">
+                        {% for child in item.children %}
+                            <li class="{{ base }}__drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

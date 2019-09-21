@@ -1,0 +1,22 @@
+{#
+/*
+ * Available variables:
+ * - video oEmbed
+ * - css_classes - add classes as needed
+ * - base - accepts the base class
+ */
+#}
+{% set base = 'video' %}
+{% set defaults = {
+    base: 'video',
+    css_classes: '',
+} %}
+
+{% set classes = [
+    "#{base}__video",
+    'embed-container',
+] %}
+
+<div class="{{ classes|join(' ') }}">
+    {{ video }}
+</div>

@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Preview of a single post
+ *
+ * @link https://timber.github.io/docs/reference/timber-post/#preview
+ */
+#}
+
+{% set base = 'post_preview' %}
+{% set terms = post.terms %}
+{% set classes = [
+    base,
+    base~"--"~appearance,
+] %}
+
+<article class="{{ classes|join(' ') }}">
+
+    {% if layout == 'featured' %}
+        <h4 class="{{ base }}__lead-in">Featured Post</h4>
+    {% endif %}
+
+    <div class="{{ base }}__description">
+        {% if link %}
+        <a href="{{ link.url }}" target="{{ link.target }}">
+            {% endif %}
+            {% include "Components/Image/Image.twig" with {
+                image: image,
+                base: base,
+                css_classes: 'object-fit',
+            } only %}
+            {% if link %}
+        </a>
+        {% endif %}
+
+        <div class="{{ base }}__content">
+            <a href="{{ link.url }}" class="{{ base }}__heading">
+                <h3 class="{{ base }}__title">{{ title }}</h3>
+            </a>
+
+            {% if layout != 'condensed' %}
+                <div class="{{ base }}__preview">
+                    {{ excerpt }}
+                </div>
+            {% endif %}
+
+            <div class="{{ base }}__link">
+                {% include 'components/button/button_tertiary.twig' with {
+                    link: {
+                        title: 'Read Full Article',
+                        url: link.url
+                    },
+                    appearance: 'light',
+                    size: 'small',
+                } only %}
+            </div>
+        </div>
+    </div>
+</article>

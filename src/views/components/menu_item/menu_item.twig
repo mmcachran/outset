@@ -1,0 +1,41 @@
+{% set defaults = {
+  url: '',
+  target: '_self',
+  title: '',
+  classes: [],
+  items: [],
+  link_classes: [],
+  base: 'menu',
+  tooltip: false,
+} %}
+
+{% set url = url ?: defaults.url %}
+{% set target = target ?: defaults.target %}
+{% set title = title ?: defaults.title %}
+{% set classes = classes ?: defaults.classes %}
+{% set items = items ?: defaults.items %}
+{% set link_classes = link_classes ?: defaults.link_classes %}
+{% set base = base ?: defaults.base %}
+{% set tooltip = tooltip ?: defaults.tooltip %}
+{% set children_class = items|length ? base~"__parent" : '' %}
+{% set aria_expanded = items|length ? 'aria-expanded="false"' : '' %}
+
+<li class="{{ classes|join(' ') }} {{ base }}__item {{ children_class }}" {{ aria_expanded }}>
+    <a class="{{ link_classes|join(' ') }} {{ base }}__link" href="{{ url }}" target="{{ target }}">
+        {{ title }}
+
+        {% if tooltip and tooltip|length %}
+          <span class="{{ base }}__tooltip">
+            {{ tooltip }}
+          </span>
+        {% endif %}
+    </a>
+
+    {% if items|length %}
+      {% include "Components/Menu/Menu.twig" with {
+        items: items,
+        base: base,
+        classes: base ~ '__child',
+      } %}
+    {% endif %}
+</li>

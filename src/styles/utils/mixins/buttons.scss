@@ -1,0 +1,127 @@
+@mixin button__primary {
+  @include font--label-button;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: $brand__dark;
+  padding: .2em .4em;
+  z-index: 3;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    min-height: 2px;
+    height: .03em;
+    background-color: $brand__dark;
+    transition: height .6s cubic-bezier(.165, .84, .44, 1), color .8s ease-in-out, background-color 1s cubic-bezier(0.42, 0, 0.14, 0.99);
+  }
+
+  &:hover {
+    color: $brand__light;
+  }
+
+  &:hover:after {
+    height: 100%;
+    background-color: $brand__aqua;
+  }
+
+}
+
+@mixin button__primary--white {
+  @include button__primary;
+  color: $brand__light;
+  &:after {
+    background-color: $brand__light;
+  }
+  &:hover {
+    color: $brand__dark;
+  }
+  &:hover:after {
+    background-color: $brand__aqua;
+  }
+}
+
+@mixin button__alternate {
+  padding: .7em 2.9em;
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  @include font--base;
+  font-size: 1rem;
+  background-color: $brand__dark;
+  color: $brand__light;
+
+  &:after, &:before {
+    height: 0;
+    min-height: 0;
+  }
+}
+
+
+@mixin buttonTertiary {
+  position: relative;
+  display: inline-block;
+  font-size: 1em;
+  padding: 0;
+  text-decoration: none;
+  color: $brand__gray;
+  @include font--base;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 1px;
+    height: .02em;
+    background-color: $brand__gray;
+    transform-origin: right;
+    transform: scaleX(1);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1), color .8s ease-in-out;
+  }
+
+  &:hover:after {
+    transform: scaleX(0);
+  }
+}
+
+
+@mixin button-small {
+  position: relative;
+  display: inline-block;
+  font-size: 1rem;
+  padding: .2em 0;
+  text-decoration: none;
+  color: $brand__gray;
+  @include font--label-alt;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-height: 1px;
+    height: .02em;
+    background-color: $brand__gray;
+    transform: scaleX(1);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  &:after {
+    bottom: 0;
+    transform-origin: right;
+  }
+
+  &:hover:before {
+    transform: scaleX(0);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+  &:hover:after {
+    transform: scaleX(0);
+    transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  }
+}

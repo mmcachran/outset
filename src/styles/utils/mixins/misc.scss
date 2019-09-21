@@ -1,0 +1,20 @@
+@mixin vertical-padding {
+  padding-top: 3em;
+  padding-bottom: 3em;
+  @include for-tablet__landscape--up {
+    padding-top: 6em;
+    padding-bottom: 6em;
+  }
+}
+
+@mixin container {
+  max-width: $width--container;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.8em;
+  padding-right: 1.8em;
+  @include for-tablet__landscape--up {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+}

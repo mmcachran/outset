@@ -1,0 +1,22 @@
+.object-fit {
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  img {
+    object-fit: cover;
+    object-position: 50% 50%;
+    height: inherit;
+    width: inherit;
+  }
+
+  video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__fallback-support {
+    opacity: 0;
+  }
+}

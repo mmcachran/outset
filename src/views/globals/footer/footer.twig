@@ -1,0 +1,42 @@
+{% set base = 'Footer' %}
+{% set heading = 'New to lorem ipsum?' %}
+
+<section class="{{ base }}">
+    <div class="{{ base }}__wrapper">
+        <div class="{{ base }}__cta">
+            <h3 class="{{ base }}__cta-heading">{{ cta.heading }}</h3>
+            <p class="{{ base }}__cta-description">{{ cta.content }}</p>
+            <a href="{{ cta.link.url }}" target="{{ cta.link.target }}" class="button-primary button-primary--all_white">
+                <span class="button-primary__link">{{ cta.link.title }}</span>
+                <span class="button-primary__arrow">
+                                     <svg height="35" viewBox="0 0 38 35" width="38" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                        <path class="box" d="m1.2 1.2h35.6v32.6h-35.6z" stroke="#1c2375" stroke-width="2.4"/>
+                        <g class="arrow" fill="#ff6f61" transform="translate(7 12)">
+                            <path d="m9.57874564 3.624225h-4.65505226-3.17584204l-1.44297329 3.48333333h4.61881533 4.65505226 10.51495936v-3.48333333z"/>
+                            <path d="m15.3838328 0v5.36616667 5.36525003l4.7098722-2.68308337 4.7098722-2.68216666-4.7098722-2.68308334z"/></g></g></svg>
+                                        </span>
+            </a>
+        </div>
+        <div class="{{ base }}__menu-wrapper">
+            <div class="{{ base }}__menus">
+                <div class="{{ base }}__primary">
+                    {% include "Globals/MenuFooter/FooterPrimaryMenu.twig" with menus.footer_primary only %}
+                </div>
+                <div class="{{ base }}__secondary">
+                    {% include "Globals/MenuFooter/FooterSecondaryMenu.twig" with menus.footer_secondary only %}
+                </div>
+                <div class="{{ base }}__tertiary">
+                    {% include "Globals/MenuFooter/FooterTertiaryMenu.twig" with menus.footer_tertiary only %}
+                </div>
+            </div>
+            <div class="{{ base }}__social">
+                {% include "Globals/MenuFooter/FooterSocialMenu.twig" with menus.social only  %}
+            </div>
+
+        </div>
+    </div>
+</section>
+{% include "Globals/BottomBar/BottomBar.twig" with { home_link: home_link } only %}
+
+{{ function('wp_footer') }}

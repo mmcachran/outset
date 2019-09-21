@@ -1,0 +1,61 @@
+{#
+/*
+ * Available variables:
+ * - heading
+ * - subheading
+ * - footnote
+
+ columns:
+
+
+ */
+#}
+
+{% set defaults = {
+    heading: '',
+    content: '',
+    columns: '',
+    footnote: '',
+} %}
+
+{% set heading = heading ?: defaults.heading %}
+{% set content = content ?: defaults.content %}
+{% set columns = columns ?: defaults.columns %}
+{% set footnote = footnote ?: defaults.footnote %}
+
+{% set base = 'ComparisonTable' %}
+{% set classes = [
+    base,
+] %}
+
+<section class="{{ classes|join(' ') }}">
+    <div class="container">
+        <div class="{{ base }}__intro">
+            <h3 class="{{ base }}__heading">{{ heading }}</h3>
+            <div class="{{ base }}__content">{{ content }}</div>
+        </div>
+        <div class="{{ base }}__table-wrapper">
+            <div class="{{ base }}__table">
+                {% for col in columns %}
+                    <div class="{{ base }}__cell {{ base }}__cell-header"
+                         style="color: {{ col.header.brand_color }};">
+                        {{ col.header.title }}
+                    </div>
+                {% endfor %}
+                {% for row in rows %}
+                    <div class="{{ base }}__rows">
+                        {% for cell in row %}
+                            {#{{ dump(cell) }}#}
+                            {% set isSticky = cell.sticky ? 'sticky' %}
+                            <div class="{{ base }}__cell {{ isSticky }}">
+                                {{ cell.content }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+</section>

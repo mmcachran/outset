@@ -1,0 +1,23 @@
+// ===========================================================================
+// Base Fonts
+// NOTE: If you're adding another font mixin, you're probably doing it wrong. Default mixins: "font--base", "font--alternate", "font--accent"
+// ===========================================================================
+
+@mixin font--base {
+  font-family: 'Aleo';
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin font--alternate {
+  font-family: 'itc-avant-garde-gothic-pro';
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -.053em;
+}
+
+@mixin font--accent {
+  font-family: 'Aleo';
+  font-style: italic;
+  font-weight: 400;
+}

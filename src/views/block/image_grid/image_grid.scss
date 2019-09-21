@@ -1,0 +1,50 @@
+@import "utils/variables";
+@import "utils/mixins";
+
+.LogoGrid {
+  $base: &;
+
+  @include vertical-padding(1rem);
+
+  &__heading {
+    text-align: center;
+    @include heading--four;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: $width--line-length-wide;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__image {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 1em;
+    @include for-tablet__landscape--up {
+      margin: 1.4em;
+    }
+
+    img {
+      max-width: 150px;
+      max-height: 45px;
+    }
+  }
+  &--light {
+    background-color: $brand__gray--light;
+  }
+  &--dark {
+    background-color: $brand__green;
+  }
+  &--wide {
+    max-width: $width--medium;
+  }
+  &--full {
+    max-width: $width--container;
+  }
+}

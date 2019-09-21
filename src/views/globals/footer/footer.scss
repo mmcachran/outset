@@ -1,0 +1,145 @@
+.Footer {
+  $base: &;
+  background-color: $brand__blue;
+
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+
+    @include for-tablet__landscape--up {
+      flex-direction: row;
+      flex-wrap: wrap;
+      & > * {
+        flex: 1 0 auto;
+      }
+    }
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $brand__peach;
+    padding: 3em $width--container-padding;
+
+    @include for-tablet__landscape--up {
+      padding: 4em 2em;
+      max-width: 466px;
+    }
+  }
+
+  &__cta-heading {
+    color: $brand__light;
+    @include font--subheading;
+  }
+
+  &__cta-description {
+    margin-top: 0;
+    color: $brand__light;
+    margin-bottom: 1em;
+  }
+
+  &__menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include for-desktop--up {
+      max-width: 57.833em;
+      padding-top: 1.667em;
+      padding-left: 6.833em;
+      padding-right: 1rem;
+    }
+  }
+
+  &__menus {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em $width--container-padding 0;
+
+    @include for-tablet__portrait--only {
+      padding: 2em 2em 0;
+    }
+
+    @include for-desktop--up {
+      padding: 0;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+  }
+
+  //Getting two columns on menu
+  .MenuFooter ul {
+    columns: 2;
+  }
+
+  .SecondaryMenu,
+  .TertiaryMenu {
+    ul {
+      @include for-desktop--up {
+        columns: 1;
+      }
+    }
+  }
+
+  &__primary {
+    flex: 3;
+    //min-width: 516px;
+  }
+
+  &__secondary,
+  &__tertiary {
+    flex: 1;
+    flex-shrink: 0;
+    @include for-desktop--up {
+      padding-left: 1em;
+    }
+  }
+
+  &__primary,
+  &__secondary,
+  &__tertiary {
+    border-bottom: 1px solid $brand__green;
+    margin-bottom: 1.8em;
+    padding-bottom: 1em;
+
+    @include for-desktop--up {
+      border-bottom: none;
+      margin-bottom: .3em;
+      padding-bottom: .3em;
+    }
+  }
+
+  &__social {
+    align-self: center;
+
+    @include for-phone--only {
+      margin-top: -1.8em;
+      margin-bottom: 1em;
+    }
+    
+    @include for-desktop--up {
+      align-self: flex-end;
+      padding-right: 3em;
+    }
+  }
+
+  // Can't find file for this to live in...
+  .SocialMenu__list {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .SocialMenu__item {
+    padding-right: .8em;
+  }
+
+  .SocialMenu__link .icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+}

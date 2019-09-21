@@ -1,0 +1,107 @@
+@import "utils/variables";
+@import "utils/mixins";
+
+.Tabs {
+  $base: &;
+
+  text-align: center;
+  @include vertical-padding();
+
+  &__primary {
+
+  }
+
+  &__secondary {
+    display: flex;
+    max-width: $width--line-length-large;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include for-tablet__landscape--up {
+      flex-direction: row;
+      justify-content: center;
+
+      & > * {
+        //flex: 1;
+      }
+    }
+
+  }
+
+  &__tertiary {
+    max-width: 37em;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  &__heading {
+    @include font--headline;
+    padding-bottom: .7em;
+  }
+
+  &__content {
+    @include font--base-larger;
+    font-size: 1em;
+    max-width: $width--line-length-medium;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__tab-title {
+    @include font--subheading-large;
+    cursor: pointer;
+    display: block;
+    font-weight: 400;
+    color: $brand__gray;
+    padding: .1em 0;
+    margin-bottom: 1em;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: border .1s ease-in, color .1s ease-in;
+    @include for-tablet__landscape--up {
+      margin-right: .8em;
+    }
+
+    &[aria-selected="true"], &:hover, &:active, &:focus {
+      outline: none;
+      background: transparent;
+      color: $brand__blue;
+      border-top: 0px solid transparent;
+      border-bottom: 4px solid $brand__green;
+      padding: .1em 0;
+
+
+    }
+
+    &:hover {
+      &:not([aria-selected="true"]) {
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid $brand__green;
+      }
+    }
+  }
+
+  &__tab-content {
+    text-align: left;
+    @include font--base-larger;
+    position: absolute;
+    opacity: 0;
+    max-height: 0;
+    transform: translateX(-10px);
+    transition: opacity .3s ease-in-out, transform .2s ease-in-out;
+    z-index: -1;
+
+    &[aria-expanded="true"] {
+      transform: translateX(0);
+      position: relative;
+      max-height: 500px;
+      opacity: 1;
+      z-index: 5;
+    }
+  }
+
+}

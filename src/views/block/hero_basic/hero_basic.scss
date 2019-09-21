@@ -1,0 +1,76 @@
+@import "utils/variables";
+@import "utils/mixins";
+
+.HeroBasic {
+  $base: &;
+  overflow: auto;
+
+  padding-top: 1em;
+  padding-bottom: 2em;
+
+  @include for-tablet__landscape--up {
+    @include vertical-padding(4em);
+  }
+
+  margin-left: auto;
+  margin-right: auto;
+
+  &__heading {
+    @include font--headline--large;
+  }
+  &__subheading {
+    @include for-phone--only {
+      text-align: left;
+      @include font--base;
+    }
+    @include for-tablet__landscape--up {
+      @include font--subheading-large-thin;
+    }
+    max-width: $width--line-length;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: .5em;
+  }
+
+  &__content {
+    @include for-phone--only {
+      text-align: left;
+    }
+    @include font--base;
+    max-width: $width--line-length;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__link {
+    margin-top: 1em;
+  }
+
+  &--center {
+    @include for-phone--only {
+      text-align: left;
+    }
+    text-align: center;
+  }
+
+  &--left {
+    text-align: left;
+  }
+
+  &--white {
+    background-color: $brand__light;
+  }
+  &--light {
+    @include for-phone--only {
+      background-color: $brand__light;
+    }
+    background-color: $brand__gray--light;
+  }
+  &--dark {
+    background-color: $brand__blue;
+    #{$base}__heading,
+    #{$base}__content {
+      color: $brand__light;
+    }
+  }
+}

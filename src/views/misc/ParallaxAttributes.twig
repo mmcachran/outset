@@ -1,0 +1,10 @@
+{% if fast %}
+    data-rellax-percentage="{{ percentage ?: '.05' }}"
+    data-rellax-max="{{ max ?: '15' }}"
+    data-rellax-min="{{ min ?: '-10' }}"
+{% elseif slow %}
+    data-rellax-percentage="{{ percentage ?: '.05' }}"
+    data-rellax-min="{{ min ?: '-10' }}"
+    data-rellax-max="{{ max ?: '10' }}"
+{% endif %}
+

@@ -1,0 +1,31 @@
+{% set base = 'MenuFooter' %}
+{% set classes = [
+    'menu',
+    base
+] %}
+
+<nav id="menuFooter" class="{{ classes|join(' ') }}">
+    <h3 class="{{ base }}__title">Products</h3>
+    <ul class="{{ classes|join(' ') }} {{ base }}__list">
+        <li class="{{ base }}__item">
+            <a class="{{ base }}__link" href="">
+                Link Example
+            </a>
+        </li>
+        <li class="{{ base }}__item">
+            <a class="{{ base }}__link" href="">
+                Link Example
+            </a>
+        </li>
+        <li class="{{ base }}__item">
+            <a class="{{ base }}__link" href="">
+                Link Example
+            </a>
+        </li>
+{#            <ul class="{{ base }}__drop">#}
+{#                <li class="{{ base }}__drop-item">#}
+{#                    <a href="#">Thing Two</a>#}
+{#                </li>#}
+{#            </ul>#}
+    </ul>
+</nav>

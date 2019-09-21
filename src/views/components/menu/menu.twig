@@ -1,0 +1,14 @@
+{% if items %}
+    <ul class="menu">
+        {% for item in items %}
+            {% include "components/menu_item/menu_item.twig" with {
+              title: item.title ?: '',
+              url: item.url ?: '',
+              target: item.target ?: '',
+              items: item.items ?: [],
+              tooltip: item.tooltip ?: false,
+              base: base,
+            } only %}
+        {% endfor %}
+    </ul>
+{% endif %}

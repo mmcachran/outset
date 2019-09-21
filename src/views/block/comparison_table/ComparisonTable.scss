@@ -1,0 +1,123 @@
+@import "utils/variables";
+@import "utils/mixins";
+
+.ComparisonTable {
+  $base: &;
+  position: relative;
+  height: 100%;
+  @include vertical-padding();
+
+  & > .container {
+    @include for-phone--only {
+      padding-right: 0;
+      padding-left: 0;
+    }
+    @include for-tablet__landscape--up {
+      max-width: 1250px;
+    }
+  }
+
+  &__intro {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    max-width: $width--line-length;
+  }
+
+  &__heading {
+    @include font--headline;
+  }
+
+  &__content {
+    @include font--base-larger;
+  }
+
+  &__table-wrapper {
+    overflow-x: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: auto;
+    min-width: 100%;
+  }
+
+  &__table {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  &__rows {
+    display: table-row;
+    background-color: $brand__light;
+
+    &:nth-child(odd) {
+      background-color: $brand__gray--light;
+    }
+
+  }
+
+  &__cell {
+    display: table-cell;
+    padding: .8em .8em 1em;
+    max-width: 13.278em;
+    min-width: 180px;
+    text-align: center;
+    border-right: 1px solid $brand__dark;
+    border-collapse: collapse;
+
+    @include for-tablet__landscape--up {
+      padding: 1em 1em 2em;
+    }
+
+    &:last-of-type {
+      border-right: none;
+    }
+
+    &.sticky {
+      position: sticky;
+      left: 0;
+      font-size: 1em;
+      text-align: left;
+      border-collapse: collapse;
+      background-color: inherit;
+      border-right: none;
+      height: 100%;
+      font-weight: 700;
+
+      @include for-tablet__landscape--up {
+        @include font--subheading;
+        font-size: 1.3em;
+        max-width: 240px;
+        border-right: 1px solid $brand__dark;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 100%;
+        background-color: inherit;
+        border-right: 1px solid #8d95a08c;
+        right: -2px;
+        top: 0;
+        box-shadow: 3px -1px 5px 1px rgba(0, 0, 0, 0.1);
+        @include for-tablet__landscape--up {
+          content: none;
+        }
+      }
+
+    }
+
+    &-header {
+      border-right: none;
+      font-weight: 700;
+      @include heading--three;
+    }
+  }
+}

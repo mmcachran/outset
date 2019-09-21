@@ -1,0 +1,17 @@
+{% set base = 'MobileMenu' %}
+{% set classes = [
+    'menu',
+    'MenuHeader',
+    base
+] %}
+<nav id="menuHeader" class="{{ classes|join(' ') }}">
+    {% include "Components/Menu/Menu.twig" with {
+        items: items,
+        base: base,
+        classes: [
+            'MenuHeader',
+            base,
+            base ~ '__list',
+        ]
+    } only %}
+</nav>

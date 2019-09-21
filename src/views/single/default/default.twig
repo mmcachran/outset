@@ -1,0 +1,31 @@
+{% set base = 'Single' %}
+{% set classes = [
+    base
+] %}
+{% set terms = post.terms %}
+
+<section class="{{ classes|join(' ') }}">
+    <header class="{{ base }}__header container">
+        <section class="{{ base }}__intro">
+            {% if post.thumbnail %}
+                <div class="{{ base }}__thumbnail">
+                    {% include "Components/Image/Image.twig" with {
+                        image: {
+                            url: post.thumbnail.src,
+                            alt: post.thumbnail,
+                        }
+                    } only %}
+                </div>
+            {% endif %}
+            <div class="{{ base }}__details">
+                <h1 class="{{ base }}__title">{{ __(post.post_title|e, 'view') }}</h1>
+                <p class="{{ base }}__credit">
+                    {{ __('%1$s'|format(post.date('F jS Y')|e), 'view') }}
+                </p>
+            </div>
+        </section>
+    </header>
+    <article class="{{ base }}__content container">
+        {{ post.content }}
+    </article>
+</section>
