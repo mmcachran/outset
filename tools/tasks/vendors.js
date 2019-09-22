@@ -1,15 +1,15 @@
-import { root } from '../utils/paths';
+import { theme } from '../utils/paths';
 import { src, dest } from 'gulp';
 import { config } from '../utils/env';
 import pump from 'pump';
 
-function vendors (cb) {
+function vendors(cb) {
   return pump(
     [
       src(config.vendors),
-      dest(`${root}/dist/vendors`),
+      dest(`${theme}/dist/vendors`),
     ],
-    cb
+    cb,
   );
 }
 

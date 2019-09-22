@@ -2,14 +2,13 @@
 
 namespace _core\autoloader;
 
-use const _core\PATH;
 use function Functional\each;
 
 function get_glob_brace_pattern( $paths = [] ) {
 	$pattern = '{';
 
 	foreach ( $paths as $path ) {
-		$pattern .= PATH . $path . ',';
+		$pattern .= $path . ',';
 	}
 
 	$pattern .= '}';

@@ -63,16 +63,16 @@
     "setup": [
       "composer install",
       "@wp_core_download",
-      "yarn",
+      "yarn install",
       "yarn build"
     ],
     "prod": [
       "composer install --no-dev --optimize-autoloader",
-      "composer install -d wp-content/themes/view --no-dev --optimize-autoloader",
+      "composer install -d wp-content/themes/_view --no-dev --optimize-autoloader",
       "composer install -d wp-content/plugins/_core --no-dev --optimize-autoloader"
     ],
     "post-install-cmd": [
-      "composer install -d wp-content/themes/view",
+      "composer install -d wp-content/themes/_view",
       "composer install -d wp-content/plugins/_core"
     ],
     "post-update-cmd": [

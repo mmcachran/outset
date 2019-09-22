@@ -1,8 +1,0 @@
-@import "utils/variables";
-@import "utils/mixins";
-
-.Blockquote {
-  $base: &;
-  @include vertical-padding();
-
-}

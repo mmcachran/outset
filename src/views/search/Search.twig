@@ -14,7 +14,7 @@
         <div class="container">
             {% if posts | length > 0 %}
                 {% for post in posts %}
-                    {% include "Components/SinglePreview/SinglePreview.twig" %}
+                    {% include "components/post_preview/post_preview.twig" %}
                 {% endfor %}
             {% else %}
                 {# No results #}
@@ -23,7 +23,7 @@
     </section>
     <section class="{{ base }}__pagination">
         <div class="container">
-            {% include "Components/Pagination/Pagination.twig" %}
+            {% include "components/pagination/pagination.twig" %}
         </div>
     </section>
 </section>

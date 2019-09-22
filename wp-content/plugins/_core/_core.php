@@ -27,13 +27,15 @@ function run() {
  *  A Convenient pseudo autoloader. As always, consider using composer via https://getcomposer.org/doc/04-schema.md#files
  *  Note, this is available due to being loaded in composer.json
  */
+
 	autoloader\simple_glob_require(
 		[
-			'includes/helpers/*.php',
-			'includes/helpers/acf/*.php',
-			'includes/helpers/wp/*.php',
-			'includes/actions/*.php',
-			'includes/models/*.php',
+			PATH . 'includes/helpers/*.php',
+			PATH . 'includes/helpers/acf/*.php',
+			PATH . 'includes/helpers/wp/*.php',
+			PATH . 'includes/actions/*.php',
+			PATH . 'includes/filters/*.php',
+			PATH . 'includes/models/*.php',
 		]
 	);
 
@@ -42,34 +44,34 @@ function run() {
 	 */
 
 	// Add post types to registry
-	add_filter( 'core/post_types', '_core\filters\post_types\career' );
-	add_filter( 'core/post_types', '_core\filters\post_types\event' );
-	add_filter( 'core/post_types', '_core\filters\post_types\testimonial' );
+	// add_filter( 'core/post_types', '_core\filters\post_types\career' );
+	// add_filter( 'core/post_types', '_core\filters\post_types\event' );
+	// add_filter( 'core/post_types', '_core\filters\post_types\testimonial' );
 
 	// Initialize registration of post types
-	add_action( 'init', '_core\actions\register\blocks' );
+	// add_action( 'init', '_core\actions\register\blocks' );
 
 	/**
 	 * Taxonomies
 	 */
 
 	// Add taxonomies to registry
-	add_filter( 'core/taxonomies', '_core\models\taxonomies\event' );
-	add_filter( 'core/taxonomies', '_core\models\taxonomies\location' );
+	// add_filter( 'core/taxonomies', '_core\models\taxonomies\event' );
+	// add_filter( 'core/taxonomies', '_core\models\taxonomies\location' );
 
 	// Initialize registration of taxonomies
-	add_action( 'init', '_core\actions\register\taxonomies' );
+	// add_action( 'init', '_core\actions\register\taxonomies' );
 
 	/**
 	 * Blocks
 	 */
 
 	// Add blocks to registry
-	add_filter( '_core\blocks', '_core\models\blocks\cta' );
-	add_filter( '_core\blocks', '_core\models\blocks\hero' );
+	// add_filter( '_core\blocks', '_core\models\blocks\cta' );
+	// add_filter( '_core\blocks', '_core\models\blocks\hero' );
 
 	// Initialize registration of blocks
-	add_action( 'init', '_core\actions\register\blocks' );
+	// add_action( 'init', '_core\actions\register\blocks' );
 
 	/**
 	 * Metaboxes
@@ -78,4 +80,12 @@ function run() {
 	// add_filter( 'core/field_group', '_core\filters\field_groups\testimonial' );
 	// add_filter( 'core/field_group', '_core\filters\field_groups\event' );
 	// add_filter( 'core/option_pages', '_core\models\option_pages\general' );
+
+	/**
+	 *
+	 */
+
+	add_action('_view/head', '_core\actions\views\head');
+	add_action('_view/header', '_core\actions\views\header');
+	add_action('_view/footer', '_core\actions\views\footer');
 }

@@ -7,8 +7,7 @@
  */
 #}
 
-{% set base = 'post_preview' %}
-{% set terms = post.terms %}
+{% set base = 'content_preview' %}
 {% set classes = [
     base,
     base~"--"~appearance,
@@ -45,7 +44,7 @@
             {% endif %}
 
             <div class="{{ base }}__link">
-                {% include 'components/button/button_tertiary.twig' with {
+                {% include 'components/button/tertiary.twig' with {
                     link: {
                         title: 'Read Full Article',
                         url: link.url

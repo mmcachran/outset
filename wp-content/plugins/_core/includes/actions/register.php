@@ -35,7 +35,7 @@ function blocks() {
 
 function field_groups() {
 	return each(
-		apply_filters( 'core\field_groups', [] ),
+		apply_filters( '_core\field_groups', [] ),
 		function ( $args ) {
 			register_field_group( $args );
 		}
@@ -44,7 +44,7 @@ function field_groups() {
 
 function option_pages() {
 	each(
-		apply_filters( 'core/option_pages', [] ),
+		apply_filters( '_core/option_pages', [] ),
 		function ( $args ) {
 			acf_add_options_page( $args );
 		}

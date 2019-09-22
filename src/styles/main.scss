@@ -1,5 +1,4 @@
 @import "~sanitize.css";
-@import "utils/**/*";
 @import "base/*";
 @import "compatibility/*";
 @import "helpers/*";
@@ -11,5 +10,5 @@
 @import "../../views/misc/**/*";
 @import "../../views/page_templates/**/*";
 @import "../../views/search/**/*";
-@import "../../views/singles/**/*";
+// @import "../../views/singles/**/*";
 //@import "../../views/Blocks/**/*"; // handling with individual styles sheets per block

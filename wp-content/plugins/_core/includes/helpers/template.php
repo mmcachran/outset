@@ -3,7 +3,6 @@
 namespace _core\helpers\template;
 
 use Timber\Timber;
-use WP_Error;
 use const _core\PATH;
 
 function render( $path, $context = [] ) {
@@ -22,6 +21,5 @@ function get_view_location( $path ) {
 		return PATH . $path;
 	}
 
-	return PATH . get_view_path( 'views/misc/Missing' );
+	return PATH . get_view_path( 'views/misc/missing' );
 }
-

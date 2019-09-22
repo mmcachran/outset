@@ -26,6 +26,9 @@ const options = {
     includePaths: [
       paths.src.styles,
     ],
+    includes: [
+      `${paths.src.styles}/utils/`,
+    ],
   },
   rename: {
     suffix: 'production' === mode ? '.min' : '',
