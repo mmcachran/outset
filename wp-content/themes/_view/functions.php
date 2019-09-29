@@ -12,5 +12,11 @@ require_once PATH . 'vendor/autoload.php';
 
 // A Convenient pseudo autoloader. As always, consider using composer via https://getcomposer.org/doc/04-schema.md#files
 glob_autoloader( [ PATH . 'includes/*.php' ] );
+
+// Actions
 add_action( 'wp_enqueue_scripts', '_view\enqueues\registrations' );
 add_action( 'after_setup_theme', '_view\setup\theme_supports' );
+
+// Filters
+add_filter('script_loader_tag', '_view\enqueues\handle_async', 50, 3);
+add_filter('script_loader_tag', '_view\enqueues\handle_defer', 50, 3);

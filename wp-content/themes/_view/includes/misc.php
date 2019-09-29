@@ -55,8 +55,18 @@ function load_style($string){
 	wp_enqueue_style($string);
 }
 
-function register_script( $handle, $src, $deps = [], $ver = false, $in_footer = true ) {
+function register_script( $handle, $src, $deps = [], $ver = false, $in_footer = true, $async = false, $defer = false ) {
 	wp_register_script( $handle, env_check( $src ), $deps, mod_time( $src ), $in_footer );
+	if ($async){
+		add_filter('view/enqueues/async', function($array) use ($handle){
+			return merge($array, [$handle]);
+		});
+	}
+	if ($defer){
+		add_filter('view/enqueues/defer', function($array) use ($handle){
+			return merge($array, [$handle]);
+		});
+	}
 }
 
 function localize_script_data( $handle, $object_name, $l10n ) {
@@ -75,6 +85,9 @@ function mod_time( $file ) {
 	return filemtime( PATH . $file );
 }
 
+/**
+ * Checks for a minified version of given asset and attempts a string to help load it
+ */
 function env_check( $path ) {
 	// Create a string to match a possible production file e.g.( app.min.js ) which is likely uglified/minified.
 	$file_path      = substr( $path, 0, strrpos( $path, '.' ) );
@@ -92,7 +105,6 @@ function env_check( $path ) {
 	}
 }
 
-
 /**
  *
  * Includes SVG ready for responsive display
@@ -103,8 +115,6 @@ function env_check( $path ) {
  * @return HTML svg tag wrapped in resposive html elements
  *
  **/
-
-
 
 function include_svg( $svg, $echo = true, $create_path = true ) {
 	$theme_directory = PATH;
