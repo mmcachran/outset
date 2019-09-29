@@ -38,8 +38,7 @@ debug.log
 /wp-content/themes/*
 
 ## Exceptions (Generally, our custom work)
-!/wp-content/mu-plugins/trackduck.php
 !/wp-content/mu-plugins/pyxl-mu.php
 !/wp-content/mu-plugins/pyxl-mu
-!/wp-content/themes/view
+!/wp-content/themes/_view
 !/wp-content/plugins/_core

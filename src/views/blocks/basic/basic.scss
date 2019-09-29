@@ -1,14 +1,3 @@
-@import "utils/variables";
-@import "utils/mixins";
+.basic {
 
-.General {
-
-  @include vertical-padding();
-
-  &--light {
-    background-color: $brand__light;
-  }
-  &--dark {
-    background-color: $brand__gray--light;
-  }
 }

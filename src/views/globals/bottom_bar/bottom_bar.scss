@@ -1,32 +1,3 @@
-.BottomBar {
-  padding-top: 1.4em;
-  padding-bottom: 1em;
+.bottom_bar {
 
-  &__logo {
-    @include for-phone--only {
-      padding-bottom: .4rem;
-    }
-    
-    svg {
-      max-width: 4.4em;
-      max-height: 1.833em;
-      width: 100%;
-      color: $brand__blue;
-    }
-  }
-
-  &__wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @include for-tablet__landscape--up {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-  &__copyright {
-  }
-  &__privacy-policy {
-    font-weight: 700;
-  }
 }

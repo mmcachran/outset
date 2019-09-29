@@ -20,21 +20,21 @@
     link: false,
     appearance: 'light',
     alignment: 'center',
-    css_classes: '',
+    classes: '',
 } %}
 
 {% set heading = heading ?: defaults.heading %}
 {% set content = content ?: defaults.content %}
 {% set appearance = appearance ?: default.appearance %}
 {% set alignment = alignment ?: default.alignment %}
-{% set css_classes = block.className ?: default.css_classes %}
+{% set classes = block.className ?: default.classes %}
 
 {% set base = 'HeroBasic' %}
 {% set classes = [
     base,
     base~"--"~appearance,
     base~"--"~alignment,
-    css_classes
+    classes
 ] %}
 <section class="{{ classes|join(' ') }}">
     <div class="container">

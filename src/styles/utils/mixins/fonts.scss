@@ -4,20 +4,20 @@
 // ===========================================================================
 
 @mixin font--base {
-  font-family: 'Aleo';
+  font-family: 'Helvetica';
   font-weight: 400;
   font-style: normal;
 }
 
 @mixin font--alternate {
-  font-family: 'itc-avant-garde-gothic-pro';
+  font-family: 'Helvetica';
   font-weight: 700;
   font-style: normal;
   letter-spacing: -.053em;
 }
 
 @mixin font--accent {
-  font-family: 'Aleo';
+  font-family: 'Helvetica';
   font-style: italic;
   font-weight: 400;
 }

@@ -41,14 +41,14 @@
                         {% include 'Components/Image/Image.twig' with {
                             image: logo.image,
                             base: base,
-                            css_classes: 'object-fit',
+                            classes: 'object-fit',
                         } only %}
                     </a>
                 {% else %}
                     {% include 'Components/Image/Image.twig' with {
                         image: logo.image,
                         base: base,
-                        css_classes: 'object-fit',
+                        classes: 'object-fit',
                     } only %}
                 {% endif %}
             {% endfor %}

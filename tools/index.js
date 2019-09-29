@@ -1,5 +1,5 @@
 export { scripts } from './tasks/scripts';
-export { styles, blockStyles } from './tasks/styles';
+export { globalStyles, blockStyles } from './tasks/styles';
 export { fonts } from './tasks/fonts';
 export { templates } from './tasks/templates';
 export { images } from './tasks/images';

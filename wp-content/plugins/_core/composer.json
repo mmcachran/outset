@@ -16,7 +16,7 @@
   "require": {
     "php": "~7",
     "lstrojny/functional-php": "^1.9",
-    "timber/timber": "^1.10"
+    "timber/timber": "^1.11"
   },
 	"autoload": {
     "files": [

@@ -34,6 +34,7 @@ function run() {
 			PATH . 'includes/helpers/acf/*.php',
 			PATH . 'includes/helpers/wp/*.php',
 			PATH . 'includes/actions/*.php',
+			PATH . 'includes/actions/views/*.php',
 			PATH . 'includes/filters/*.php',
 			PATH . 'includes/models/*.php',
 		]
@@ -88,4 +89,5 @@ function run() {
 	add_action('_view/head', '_core\actions\views\head');
 	add_action('_view/header', '_core\actions\views\header');
 	add_action('_view/footer', '_core\actions\views\footer');
+	add_action('_view/single', '_core\actions\views\single');
 }

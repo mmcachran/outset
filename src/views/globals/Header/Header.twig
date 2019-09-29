@@ -1,47 +1,18 @@
-{% set base = 'Header' %}
-
-<section class="{{ base }}">
-    <div class="hide--mobile">
-        <div id="menuMobileHeader" class="{{ base }}__mobile-header">
-            <div class="{{ base }}__mobile-logo">
-                <a href="{{ home_link }}">
-                    {{ svg_inline('Elexio_Logo') }}
-{#                    {{ svg_inline('Elexio_Logo_White') }}#}
-                </a>
-            </div>
-            <div id="menuMobileToggle" class="{{ base }}__menu-icon">
-                {{ svg_inline('Icon_MobileMenu') }}
-            </div>
-        </div>
-        <div id="menuMobile" class="{{ base }}__mobile-menu-wrapper" aria-hidden="true">
-            <div class="{{ base }}__heading-ad">
-                <p>{{ menus.mobile.content|e('wp_kses_post') }}</p>
-            </div>
-
-            {% if menus.mobile.link %}
-                <div class="{{ base }}__cta">
-                    {% include "Components/Button/ButtonSecondary.twig" with {
-                        link: menus.mobile.link,
-                        appearance: 'medium',
-                    } only %}
-                </div>
-            {% endif %}
-
-            {% include "Globals/MobileMenu/MobileMenu.twig" with menus.mobile only %}
-        </div>
-    </div>
+{# {{ dump() }} #}
+{% set base = 'header' %}
+<header class="{{ base }}">
     <div class="container">
         <div class="{{ base }}__wrapper">
-            <div class="{{ base }}__logo hide--desktop">
+            <div class="{{ base }}__logo">
                 <a href="{{ home_link }}">
-                    {{ svg_inline('Elexio_Logo') }}
+                    <span>Logo</span>
                 </a>
             </div>
-            <div class="{{ base }}__menu-wrapper hide--desktop">
-                {% include "Globals/MenuHeader/MenuHeader.twig" with {
+            <div class="{{ base }}__menu-wrapper">
+                {# {% include "Globals/MenuHeader/MenuHeader.twig" with {
                     menus: menus
-                } only %}
+                } only %} #}
             </div>
         </div>
     </div>
-</section>
+</header>

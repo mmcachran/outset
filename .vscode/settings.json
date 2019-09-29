@@ -29,7 +29,7 @@
     /**
     * Search Node modules vscode - https://marketplace.visualstudio.com/items?itemName=jasonnutter.search-node-modules
     */
-    "search-node-modules.path": "./wp-content/themes/pyxl-2017/node_modules",
+    "search-node-modules.path": "./wp-content/themes/_view/node_modules",
     /**
     * ESLint
     */
@@ -48,7 +48,7 @@
         },
     ],
     "eslint.workingDirectories": [
-        "./wp-content/themes/pyxl",
+        "./wp-content/themes/_view",
         "./wp-content/plugins/_core",
     ],
     /**
@@ -66,6 +66,10 @@
         "stylelint",
         "trailingslashit",
         "wp"
+    ],
+    "cSpell.words": [
+        "lozad",
+        "tailwindcss"
     ],
     // "eslint.autoFixOnSave": true,
 }

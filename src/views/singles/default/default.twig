@@ -1,31 +1,18 @@
-{% set base = 'Single' %}
-{% set classes = [
-    base
-] %}
-{% set terms = post.terms %}
-
+{# {{dump()}} #}
+{% set base = 'single' %}
 <section class="{{ classes|join(' ') }}">
-    <header class="{{ base }}__header container">
+    <header class="{{ base }}__header">
         <section class="{{ base }}__intro">
-            {% if post.thumbnail %}
+            {% if featured_image %}
                 <div class="{{ base }}__thumbnail">
-                    {% include "Components/Image/Image.twig" with {
-                        image: {
-                            url: post.thumbnail.src,
-                            alt: post.thumbnail,
-                        }
-                    } only %}
+                    {% include "components/image/image.twig" with featured_image only %}
                 </div>
             {% endif %}
             <div class="{{ base }}__details">
-                <h1 class="{{ base }}__title">{{ __(post.post_title|e, 'view') }}</h1>
-                <p class="{{ base }}__credit">
-                    {{ __('%1$s'|format(post.date('F jS Y')|e), 'view') }}
-                </p>
+                <h1 class="{{ base }}__title">{{ title }}</h1>
+                <p class="{{ base }}__date">{{ date.posted }}</p>
             </div>
         </section>
     </header>
-    <article class="{{ base }}__content container">
-        {{ post.content }}
-    </article>
+    {{ content }}
 </section>

@@ -5,16 +5,15 @@ import flatten from 'gulp-flatten';
 
 const types = ['png', 'jpg'];
 
-function images (cb) {
+function images(cb) {
   return pump(
     [
       src(types.map(type => `${paths.src.images}/**/*.${type}`)),
       flatten(),
       dest(paths.dist.images),
     ],
-    cb
+    cb,
   );
-
 }
 
 export { images };

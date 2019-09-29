@@ -1,14 +1,14 @@
 @import "~sanitize.css";
-@import "base/*";
-@import "compatibility/*";
-@import "helpers/*";
-@import "features/*";
-@import "../../views/globals/**/*";
-@import "../../views/components/**/*";
-@import "../../views/archives/**/*";
-@import "../../views/four_oh_four/*";
-@import "../../views/misc/**/*";
-@import "../../views/page_templates/**/*";
-@import "../../views/search/**/*";
-// @import "../../views/singles/**/*";
-//@import "../../views/Blocks/**/*"; // handling with individual styles sheets per block
+@import "./base/*";
+@import "./compatibility/*";
+@import "./helpers/*";
+@import "./features/*";
+@import "./views/globals/**/*";
+@import "./views/components/**/*";
+@import "./views/archives/**/*";
+@import "./views/four_oh_four/*";
+@import "./views/misc/**/*";
+@import "./views/page_templates/**/*";
+@import "./views/search/**/*";
+@import "./views/singles/**/*";
+// @import "./views/blocks/**/*"; // handling with individual styles sheets per block

@@ -1,5 +1,5 @@
 import { mode } from '../utils/env';
-import { paths } from '../utils/paths';
+import { paths, root, theme } from '../utils/paths';
 import { server } from './serve';
 import { src, dest } from 'gulp';
 import noop from 'gulp-noop';
@@ -10,8 +10,11 @@ import rename from 'gulp-rename';
 import cleanCSS from 'gulp-clean-css';
 import sourcemaps from 'gulp-sourcemaps';
 import sassImport from 'node-sass-package-importer';
+import postcss from 'gulp-postcss';
+import inject from 'gulp-header';
 import sassGlob from 'gulp-sass-glob';
-import autoprefixer from 'gulp-autoprefixer';
+import autoprefixer from 'autoprefixer';
+import tailwindcss from 'tailwindcss';
 
 const options = {
   cleanCSS: {
@@ -23,12 +26,20 @@ const options = {
   },
   sass: {
     importer: sassImport(),
+    // data: '@import styles/utils/**/*";',
+    // data: `
+    // @import "@/utils/_variables.scss";
+    // body { background-color: red; }
+    // `,
     includePaths: [
       paths.src.styles,
+      paths.src.views,
+      // tailwindcss.includePaths,
+      // `${paths.src.styles}utils/mixins/screen-reader-text.scss`,
     ],
-    includes: [
-      `${paths.src.styles}/utils/`,
-    ],
+    // includes: [],
+    // indentedSyntax: true,
+    // indentWidth: 10,
   },
   rename: {
     suffix: 'production' === mode ? '.min' : '',
@@ -40,23 +51,26 @@ const options = {
   },
 };
 
-function styles(cb) {
-  return pump(
-    [
-      src(`${paths.src.styles}/*.scss`),
-      plumber(),
-      'production' === mode ? noop() : sourcemaps.init(),
-      sassGlob(),
-      sass(options.sass),
-      'production' === mode ? cleanCSS(options.cleanCSS) : noop(),
+function globalStyles(cb) {
+  return pump([
+    src(`${paths.src.styles}/*.scss`),
+    plumber(),
+    'production' === mode ? noop() : sourcemaps.init(),
+    inject(`
+      @import "utils/**/*";
+    `),
+    sassGlob(),
+    sass(options.sass).on('error', sass.logError),
+    'production' === mode ? cleanCSS(options.cleanCSS) : noop(),
+    postcss([
+      // tailwindcss(`${root}/tailwind.config.js`),
       autoprefixer(options.autoprefixer),
-      rename(options.rename),
-      'production' === mode ? noop() : sourcemaps.write('.'),
-      dest(paths.dist.styles),
-      server.stream(),
-    ],
-    cb,
-  );
+    ]),
+    rename(options.rename),
+    'production' === mode ? noop() : sourcemaps.write('.'),
+    dest(paths.dist.styles),
+    server.stream(),
+  ], cb);
 }
 
 function blockStyles(cb) {
@@ -65,10 +79,15 @@ function blockStyles(cb) {
       src(`${paths.src.blocks}**/*.scss`),
       plumber(),
       'production' === mode ? noop() : sourcemaps.init(),
-      sassGlob(),
-      sass(options.sass),
+      inject(`
+        @import "utils/**/*";
+      `),
+      sass(options.sass).on('error', sass.logError),
       'production' === mode ? cleanCSS(options.cleanCSS) : noop(),
-      autoprefixer(options.autoprefixer),
+      postcss([
+        // tailwindcss(`${root}/tailwind.config.js`),
+        autoprefixer(options.autoprefixer),
+      ]),
       rename(options.rename),
       'production' === mode ? noop() : sourcemaps.write('.'),
       dest(paths.dist.blocks),
@@ -78,4 +97,4 @@ function blockStyles(cb) {
   );
 }
 
-export { styles, blockStyles };
+export { globalStyles, blockStyles };

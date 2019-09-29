@@ -1,19 +1,17 @@
 import del from 'del';
-import { paths } from '../utils/paths';
+import { theme } from '../utils/paths';
 
-const { root } = paths;
-
-export function clean () {
+export function clean() {
   return Promise.all(
     [
       del(
         [
-          `./dist/**/*`
+          `${theme}/dist/**/*`,
         ],
         {
-          force: true
-        }
-      )
-    ]
+          force: true,
+        },
+      ),
+    ],
   );
 }

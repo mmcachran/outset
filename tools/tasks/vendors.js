@@ -6,7 +6,7 @@ import pump from 'pump';
 function vendors(cb) {
   return pump(
     [
-      src(config.vendors),
+      src(config.vendors.map(item => `node_modules/${item}`)),
       dest(`${theme}/dist/vendors`),
     ],
     cb,

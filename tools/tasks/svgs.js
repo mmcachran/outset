@@ -7,25 +7,23 @@ const svgCleanerOptions = {
   plugins:
     [
       {
-        removeViewBox: false
+        removeViewBox: false,
       },
       {
-        cleanupIDs: false
-      }
-    ]
+        cleanupIDs: false,
+      },
+    ],
 };
 
-function svgs (cb) {
-
+function svgs(cb) {
   return pump(
     [
       src(`${paths.src.svgs}/*.svg`),
       svgCleaner(svgCleanerOptions),
       dest(paths.dist.svgs),
     ],
-    cb
+    cb,
   );
-
 }
 
 export { svgs };

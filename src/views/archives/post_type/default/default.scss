@@ -1,49 +1,4 @@
 .Archive {
 
-  &__inner {
-    @include for-tablet__portrait--up {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-      column-gap: 5%;
-      row-gap: 1em;
-    }
-    @include for-desktop--up {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  .SinglePreview {
 
-  }
-
-  .Posts {
-
-    &--featured {
-      padding: 2em 1.25rem;
-
-      @include for-tablet__landscape--up {
-        padding: 0 0 5em 0;
-      }
-    }
-
-    &--normal {
-      padding-top: 3em;
-
-      @include for-tablet__landscape--up {
-        padding-top: 5em;
-      }
-    }
-
-    &--condensed {
-      padding-top: 0;
-
-      @include for-tablet__landscape--up {
-        padding-top: 1em;
-      }
-    }
-
-    &__wrapper {
-      padding: 0;
-    }
-  }
 }

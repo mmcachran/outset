@@ -1,29 +1,22 @@
+{# {{dump()}} #}
 {#
-/*
- * Available variables:
- * - image {src, alt}
- * - css_classes - add classes as needed ex: object-fit
- * - base - accepts the base class
- */
+    References:
+        * https://www.responsivebreakpoints.com
+        * https://jakearchibald.com/2015/anatomy-of-responsive-images/
+        * https://scottjehl.github.io/picturefill/#ie9
 #}
-
-{% set defaults = {
-    base: 'image',
-    css_classes: '',
-    image: {
-        url: '',
-        alt: '',
-    }
-} %}
-{% set base = base ?: defaults.base %}
-{% set image = image ?: defaults.image %}
-{% set css_classes = css_classes ?: defaults.css_classes %}
-{% set attributes = attributes ?: '' %}
-
-{% set classes = [
-    base~"__image",
-    css_classes,
-] %}
-<figure class="{{ classes|join(" ") }}" {{ attributes }}>
-    <img src="{{ image.url }}" alt="{{ image.alt }}">
+<figure class="{{ classes|join(' ') }}" {{ attributes }}>
+    <picture class="lozad" data-iesrc="{{ src }}" data-alt="{{ alt }}" style="display: block; min-height: 1rem">
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        {% for image in sizes %}
+            {# <source srcset="images/thumbs/04.jpg" media="(min-width: 1280px)"> #}
+            <source media="(min-width: {{ image.width }}px)" srcset="{{ image.url }}">
+        {% endfor %}
+        <!--[if IE 9]></video><![endif]-->
+        <img src="{{ src }}" alt="{{ alt }}">
+        <noscript><img data-src="{{ src }}" alt="{{ alt }}"></noscript>
+    </picture>
 </figure>
+
+
+{# <source class="lozad" sizes="{{ img_sizes }}" data-srcset="{{ srcset }}"> #}

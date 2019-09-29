@@ -56,8 +56,7 @@
     "wpackagist-plugin/ninja-forms": "^3.4",
     "wpackagist-plugin/post-duplicator": "^2.20",
     "wpackagist-plugin/simple-page-ordering": "^2.3",
-    "wpackagist-plugin/timber-library": "1.9.5",
-    "wpackagist-plugin/wordpress-seo": "^11.0"
+    "wpackagist-plugin/wordpress-seo": "^12.0"
   },
   "scripts": {
     "setup": [

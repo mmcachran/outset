@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fee64e2d5be8e7e70923d14bd991a981",
+    "content-hash": "701de39a8c5b27ac3f38a8455610717c",
     "packages": [
         {
             "name": "composer/installers",
@@ -258,34 +258,16 @@
             "homepage": "https://wordpress.org/plugins/simple-page-ordering/"
         },
         {
-            "name": "wpackagist-plugin/timber-library",
-            "version": "1.9.5",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/timber-library/",
-                "reference": "tags/1.9.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/timber-library.1.9.5.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/timber-library/"
-        },
-        {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "11.9",
+            "version": "12.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/11.9"
+                "reference": "tags/12.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.11.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.12.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"

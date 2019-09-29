@@ -1,64 +1,63 @@
 import { series, watch } from 'gulp';
 import { quit, reload } from './serve';
-import { scripts, styles, svgs, fonts, clean, sprite, blockStyles } from '../index';
+import { scripts, globalStyles, blockStyles, svgs, fonts, clean, sprite, templates } from '../index';
 
-function monitor (cb) {
+function monitor(cb) {
   watch(
     [
-      `./tools/**/*`,
-      `./gulpfile.babel.js`,
-      `./postcss.config.js`,
-      `./babel.config.js`,
-      `./package.json`,
+      './tools/**/*',
+      './gulpfile.babel.js',
+      './postcss.config.js',
+      './babel.config.js',
+      './package.json',
     ],
-    quit
+    quit,
   );
   watch(
     [
-      `./src/**/*.svg`,
+      './src/**/*.svg',
     ],
     series(
       svgs,
       sprite,
-      reload
-    )
+      reload,
+    ),
   );
   watch(
     [
-      `./src/**/*.js`,
-      `./views/**/*.js`,
+      './src/**/*.js',
+      './views/**/*.js',
     ],
     series(
       scripts,
-      reload
-    )
+      reload,
+    ),
   );
   watch(
     [
-      `./src/**/*.scss`,
-      `./views/**/*.scss`,
+      './src/**/*.scss',
     ],
     series(
-      styles,
-      blockStyles
-    )
+      globalStyles,
+      blockStyles,
+    ),
   );
   watch(
     [
-      `./src/images/**/*`,
+      './src/images/**/*',
     ],
     series(
-      reload
-    )
+      reload,
+    ),
   );
   watch(
     [
-      `./**/*.php`,
-      `./**/*.twig`
+      './src/**/*.twig',
     ],
     series(
-      reload
-    )
+      templates,
+      reload,
+    ),
   );
   cb();
 }
