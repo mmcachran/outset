@@ -1,0 +1,9 @@
+{% if items %}
+    <ul class="terms taxonomy-{{ taxonomy }}">
+        {% for term in items %}
+            <li>
+                <a href="{{ term.link }}">{{ term.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

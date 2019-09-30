@@ -1,0 +1,18 @@
+{# {{dump()}} #}
+<article class="post container">
+    <header class="{{ base }}__header">
+        <section class="{{ base }}__intro">
+            {% if featured_image %}
+                <div class="{{ base }}__thumbnail">
+                    {% include "component/picture/picture.twig" with featured_image only %}
+                </div>
+            {% endif %}
+            <div class="{{ base }}__details">
+                <h1 class="{{ base }}__title">{{ title }}</h1>
+                {% include "component/terms/terms.twig" with tags only %}
+                <p class="{{ base }}__date">{{ date.posted }}</p>
+            </div>
+        </section>
+    </header>
+    <div class="content">{{ content }}</div>
+</article>

@@ -3,8 +3,11 @@
 namespace _core\helpers\wp\post_type;
 
 use function _core\helpers\utils\merge;
-use function _core\helpers\has_key;
+use function _core\helpers\utils\has_key;
 
+/**
+ * Uses the same argument as register_post_type, but uses 'slug' as the post type
+ */
 function create( $args ) {
 	$required = [
 		'slug',
@@ -25,7 +28,7 @@ function create( $args ) {
 	$plural_lower = strtolower( $plural );
 	$plural_slug  = sanitize_title( $plural_lower );
 
-	return merge(
+	$post_type = merge(
 		[
 			'capability_type'     => 'post', // http://justintadlock.com/archives/2010/07/10/meta-capabilities-for-custom-post-types
 		// 'capabilities'          => [],
@@ -72,4 +75,8 @@ function create( $args ) {
 		],
 		$args
 	);
+
+	register_post_type($slug, $post_type);
+
+	return $post_type;
 }

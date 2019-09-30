@@ -2,10 +2,13 @@
 
 namespace _core\helpers\acf\block;
 
+use Timber;
 use function _core\helpers\template\render;
 use function _core\helpers\utils\has_key;
 use function _core\helpers\utils\merge;
 use function _core\helpers\acf\misc\easy_field_transformations;
+use function _core\helpers\utils\underscores_to_dashes;
+use function Functional\select_keys;
 
 function create( $args = [] ) {
 	$required = [
@@ -21,11 +24,15 @@ function create( $args = [] ) {
 		wp_die( '<pre>' . var_export( $args, true ) . '</pre>', "Error: {$key} missing" );
 	}
 
+	if ( ! function_exists( 'acf_register_block_type' ) ) {
+		return;
+	}
+
 	acf_register_block_type(
 		merge(
 			[
 				'align'           => 'full',
-				'name'            => $args['slug'],
+				'name'            => 'block-' . underscores_to_dashes($args['slug']),
 				'title'           => $args['label'],
 				'description'     => $args['description'],
 				'category'        => 'layout',
@@ -34,14 +41,24 @@ function create( $args = [] ) {
 				'keywords'        => $args['slug'],
 				'supports'        => [
 					'mode'     => 'auto',
-					'align'    => [ 'full', 'wide' ],
+					// 'align'    => [ 'full', 'wide' ],
+					'align'    => false,
 					'multiple' => true,
 				],
-				'render_callback' => function ( $block, $content = '', $is_preview = false ) use ( $args ) {
-					// render_callback(merge([
-					//     'block'   => $block,
-					//     'content' => $content,
-					// ], $args));
+				'render_callback' => function ( $block, $content = '', $is_preview = false ){
+					// var_dump($block);
+
+					render("block/{$block['slug']}",
+						apply_filters("_view/block/{$block['slug']}", merge(
+							get_fields(),
+							select_keys($block, ['align', 'mode', 'title']),
+							[
+								'base' => $block['slug'],
+								'is_preview' => $is_preview,
+								'classes' => has_key('className', $block) ? $block['className']: '',
+							]
+						))
+					);
 				},
 			],
 			$args
@@ -56,24 +73,17 @@ function create( $args = [] ) {
 		[
 			'key'      => "block/{$args['slug']}",
 			'title'    => __( $args['label'], 'core' ),
-			'fields'   => easy_field_transformations( 'block', $args['fields'] ),
+			'fields'   => easy_field_transformations($args['slug'], $args['fields'] ),
 			'location' => [
 				[
 					[
 						'param'    => 'block',
 						'operator' => '==',
-						'value'    => "acf/{$args['slug']}",
+						'value'    => 'acf/block-' . underscores_to_dashes($args['slug']),
 					],
 				],
 			],
 			3,
 		]
 	);
-}
-
-function render_callback( $args = [] ) {
-	var_dump( $args );
-	die;
-	// Render the block.
-	render( $view_path, apply_filters( "Blocks/{$args['view']}", [] ) );
 }

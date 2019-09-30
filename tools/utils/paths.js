@@ -12,7 +12,7 @@ const paths = {
     fonts: `${root}/src/fonts`,
     svgs: `${root}/src/svgs`,
     views: `${root}/src/views`,
-    blocks: `${root}/src/views/blocks`,
+    blocks: `${root}/src/views/block`,
   },
   dist: {
     styles: `${theme}/dist/styles`,
@@ -21,7 +21,7 @@ const paths = {
     fonts: `${theme}/dist/fonts`,
     svgs: `${theme}/dist/svgs`,
     views: `${theme}/dist/views`,
-    blocks: `${root}/dist/views/blocks`,
+    blocks: `${theme}/dist/views/block`,
   },
 };
 

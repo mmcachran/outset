@@ -4,7 +4,20 @@ namespace _core\helpers\acf\misc;
 
 use function _core\helpers\utils\has_key;
 use function _core\helpers\utils\merge;
-use function Functional\each;
+use function Functional\map;
+
+function easy_field_transformations( $prefix, $fields ) {
+	return map($fields, function($field) use ($prefix){
+		return merge(
+			$field,
+			slug_handler($prefix, $field),
+			conditional_logic_handler( $prefix, $field),
+			[
+				'sub_fields' => has_key('sub_fields', $field) ? easy_field_transformations( "{$prefix}/{$field['slug']}", $field['sub_fields'] ) : [],
+			]
+		);
+	});
+}
 
 function slug_handler( $prefix, $field ) {
 	if ( ! has_key( 'slug', $field ) ) {
@@ -19,28 +32,6 @@ function slug_handler( $prefix, $field ) {
 		]
 	);
 }
-
-
-function easy_field_transformations( $prefix, $fields ) {
-	$adjusted_fields = [];
-
-	each(
-		$fields,
-		function ( $field ) use ( $prefix ) {
-
-			$fields = slug_handler( $prefix, $field );
-			$fields = conditional_logic_handler( $prefix, $field );
-
-			if ( has_key( 'sub_fields', $field ) ) {
-				$adjusted_field['sub_fields'] = easy_field_transformations( $prefix, $field['sub_fields'] );
-			}
-		}
-	);
-
-	return $adjusted_fields;
-}
-
-
 
 function conditional_logic_handler( $prefix, $field ) {
 

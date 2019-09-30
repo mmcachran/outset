@@ -87,3 +87,10 @@
     max-width: 100%;
   }
 }
+
+body #wpadminbar {
+    height: 46px;
+    min-width: 240px;
+    top: 0;
+    position: fixed;
+}

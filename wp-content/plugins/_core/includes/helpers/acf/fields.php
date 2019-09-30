@@ -4,6 +4,8 @@ namespace _core\helpers\fields;
 
 use GravityForm;
 
+use function _core\helpers\utils\merge;
+
 function boolean() {
 	return [
 		'slug'          => 'boolean',
@@ -177,15 +179,15 @@ function video() {
 }
 
 
-function repeater() {
-	return [
+function repeater($args = []) {
+	return merge([
 		'label'        => __( 'Items', 'core' ),
-		'slug'         => 'blurbs',
+		'slug'         => 'items',
 		'type'         => 'repeater',
 		'layout'       => 'block',
-		'button_label' => __( 'Add Blurb', 'core' ),
+		'button_label' => __( 'Add Item', 'core' ),
 		'sub_fields'   => [],
-	];
+	], $args);
 }
 
 

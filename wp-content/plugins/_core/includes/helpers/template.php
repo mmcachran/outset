@@ -18,7 +18,7 @@ function render( $path, $context = [] ) {
 				'base' => basename($path)
 			],
 			(array) $context
-			)
+		)
 	 );
 }
 

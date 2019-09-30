@@ -1,0 +1,12 @@
+ <article class="preview px-3">
+    {% if post.featured_image %}
+        <div class="preview__image">
+            <img class="lozad" data-src="{{ featured_image.sizes.medium.url }}" alt="{{ featured_image.alt }}">
+        </div>
+    {% endif %}
+    <h3 class="preview__title">{{ title }}</h3>
+    <div class="preview__date">
+        <p>{{ date.posted }}</p>
+    </div>
+    <div class="preview__content">{{ excerpt }}</div>
+</article>

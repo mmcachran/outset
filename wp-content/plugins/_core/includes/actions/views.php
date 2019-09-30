@@ -2,44 +2,35 @@
 
 namespace _core\actions\views;
 
-use Timber\Menu;
-use function _core\helpers\utils\merge;
-use function _core\helpers\query\post;
 use function _core\helpers\template\render;
 
-function head() {
-	render('globals/head', [
-		'charset' => get_bloginfo('charset')
-	]);
+function head($data) {
+	render('global/head', $data );
 }
 
-function header() {
+function header($data) {
 	printf('<body class="%s">', join(get_body_class(), ' '));
-	printf('<div id="wrapper" class="%s">', join(apply_filters('view/wrapper/classes', [])));
-	printf('<main class="%s">', join(apply_filters('view/main/classes', [])));
-	render('globals/header', [
-		'menus' => [
-			'primary' => (array) new Menu('primary'),
-		]
-	]);
+	require_once get_stylesheet_directory() . '/dist/svgs/sprite.svg';
+	printf('<div id="wrapper" class="%s">', join(apply_filters('_view/wrapper/classes', ['wrapper'])));
+	printf('<main class="%s">', join(apply_filters('_view/main/classes', ['main'])));
+	render('global/header', $data);
 }
 
-function footer() {
-	render('globals/footer', apply_filters('_view/globals/footer/data', []));
-	printf('</div><!-- #wrapper -->');
+function footer($data) {
+	render('global/footer', $data);
 	printf('</main><!-- main -->');
-	printf('</div><!-- body -->');
+	printf('</div><!-- #wrapper -->');
+	printf('</body><!-- body -->');
 }
 
-function archive() {
-	render(
-		'_view/archive/post',
-		merge(
-			get_post()
-		)
-	);
+function archive($data) {
+	render( 'archive/post_type/default', $data);
 }
 
-function single() {
-	render('singles/default', merge(post(get_the_ID())));
+function singular($data) {
+	render('single/default', $data);
+}
+
+function post($data) {
+	render('single/post', $data);
 }

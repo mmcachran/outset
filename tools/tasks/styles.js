@@ -1,5 +1,5 @@
 import { mode } from '../utils/env';
-import { paths, root, theme } from '../utils/paths';
+import { paths, root } from '../utils/paths';
 import { server } from './serve';
 import { src, dest } from 'gulp';
 import noop from 'gulp-noop';
@@ -10,11 +10,13 @@ import rename from 'gulp-rename';
 import cleanCSS from 'gulp-clean-css';
 import sourcemaps from 'gulp-sourcemaps';
 import sassImport from 'node-sass-package-importer';
-import postcss from 'gulp-postcss';
 import inject from 'gulp-header';
 import sassGlob from 'gulp-sass-glob';
+import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
-import tailwindcss from 'tailwindcss';
+import purgeCSS from '@fullhuman/postcss-purgecss';
+import tailwindCSS from 'tailwindcss';
+import postCSSNoop from 'postcss-noop';
 
 const options = {
   cleanCSS: {
@@ -26,20 +28,11 @@ const options = {
   },
   sass: {
     importer: sassImport(),
-    // data: '@import styles/utils/**/*";',
-    // data: `
-    // @import "@/utils/_variables.scss";
-    // body { background-color: red; }
-    // `,
     includePaths: [
       paths.src.styles,
       paths.src.views,
-      // tailwindcss.includePaths,
-      // `${paths.src.styles}utils/mixins/screen-reader-text.scss`,
+      tailwindCSS.includePaths,
     ],
-    // includes: [],
-    // indentedSyntax: true,
-    // indentWidth: 10,
   },
   rename: {
     suffix: 'production' === mode ? '.min' : '',
@@ -49,11 +42,23 @@ const options = {
     grid: 'autoplace',
     cascade: false,
   },
+  purgeCSS: {
+    whitelist: [
+      'body',
+    ],
+    content: [
+      './src/**/*.js',
+      './src/**/*.twig',
+    ],
+  },
 };
 
 function globalStyles(cb) {
   return pump([
-    src(`${paths.src.styles}/*.scss`),
+    src([
+      `${paths.src.styles}/*.scss`,
+      `!${paths.src.styles}/tailwind.scss`,
+    ]),
     plumber(),
     'production' === mode ? noop() : sourcemaps.init(),
     inject(`
@@ -61,40 +66,52 @@ function globalStyles(cb) {
     `),
     sassGlob(),
     sass(options.sass).on('error', sass.logError),
-    'production' === mode ? cleanCSS(options.cleanCSS) : noop(),
     postcss([
-      // tailwindcss(`${root}/tailwind.config.js`),
+      tailwindCSS(),
+      'production' === mode ? purgeCSS(options.purgeCSS) : postCSSNoop(),
       autoprefixer(options.autoprefixer),
     ]),
+    'production' === mode ? cleanCSS(options.cleanCSS) : noop(),
     rename(options.rename),
-    'production' === mode ? noop() : sourcemaps.write('.'),
+    'production' === mode ? noop() : sourcemaps.write(),
     dest(paths.dist.styles),
     server.stream(),
   ], cb);
 }
 
 function blockStyles(cb) {
-  return pump(
-    [
-      src(`${paths.src.blocks}**/*.scss`),
-      plumber(),
-      'production' === mode ? noop() : sourcemaps.init(),
-      inject(`
-        @import "utils/**/*";
-      `),
-      sass(options.sass).on('error', sass.logError),
-      'production' === mode ? cleanCSS(options.cleanCSS) : noop(),
-      postcss([
-        // tailwindcss(`${root}/tailwind.config.js`),
-        autoprefixer(options.autoprefixer),
-      ]),
-      rename(options.rename),
-      'production' === mode ? noop() : sourcemaps.write('.'),
-      dest(paths.dist.blocks),
-      server.stream(),
-    ],
-    cb,
-  );
+  return pump([
+    src(`${paths.src.blocks}/**/*.scss`),
+    plumber(),
+    'production' === mode ? noop() : sourcemaps.init(),
+    inject(`
+      @import "utils/**/*";
+    `),
+    sassGlob(),
+    sass(options.sass).on('error', sass.logError),
+    rename(options.rename),
+    'production' === mode ? noop() : sourcemaps.write(),
+    dest(paths.dist.blocks),
+    server.stream(),
+  ], cb);
 }
 
-export { globalStyles, blockStyles };
+function tailwindStyles(cb) {
+  return pump([
+    src(`${paths.src.styles}/tailwind.scss`),
+    plumber(),
+    'production' === mode ? noop() : sourcemaps.init(),
+    postcss([
+      tailwindCSS(`${root}/tailwind.config.js`),
+      'production' === mode ? purgeCSS(options.purgeCSS) : postCSSNoop(),
+      autoprefixer(options.autoprefixer),
+    ]),
+    'production' === mode ? cleanCSS(options.cleanCSS) : noop(),
+    rename(options.rename),
+    'production' === mode ? noop() : sourcemaps.write(),
+    dest(paths.dist.styles),
+    server.stream(),
+  ], cb);
+}
+
+export { globalStyles, blockStyles, tailwindStyles };

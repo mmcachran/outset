@@ -19,3 +19,10 @@ function theme_supports(){
     add_theme_support('editor-styles,');
     add_theme_support('wp-block-styles');
 }
+
+function menus(){
+    register_nav_menus( array(
+		'primary' => 'Primary Menu',
+		'footer' => 'Footer menu',
+	) );
+}

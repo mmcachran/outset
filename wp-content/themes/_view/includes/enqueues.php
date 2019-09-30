@@ -33,6 +33,9 @@ function registrations() {
 	localize_script_data( 'main', 'globals', $localized );
 	load_script('main');
 
+	register_style( 'tailwind', 'dist/styles/tailwind.css' );
+	load_style( 'tailwind' );
+
 	register_style( 'main', 'dist/styles/main.css' );
 	load_style( 'main' );
 

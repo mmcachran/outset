@@ -68,8 +68,11 @@
         "wp"
     ],
     "cSpell.words": [
+        "bloginfo",
+        "get",
         "hubspot",
         "lozad",
+        "purgecss",
         "tailwindcss"
     ],
     // "eslint.autoFixOnSave": true,

@@ -1,6 +1,6 @@
 import { series, watch } from 'gulp';
 import { quit, reload } from './serve';
-import { scripts, globalStyles, blockStyles, svgs, fonts, clean, sprite, templates } from '../index';
+import { scripts, globalStyles, blockStyles, tailwindStyles, svgs, fonts, clean, sprite, templates } from '../index';
 
 function monitor(cb) {
   watch(
@@ -30,16 +30,19 @@ function monitor(cb) {
     ],
     series(
       scripts,
+      tailwindStyles,
       reload,
     ),
   );
   watch(
     [
       './src/**/*.scss',
+      './tailwind.config.js',
     ],
     series(
       globalStyles,
       blockStyles,
+      tailwindStyles,
     ),
   );
   watch(
@@ -56,6 +59,7 @@ function monitor(cb) {
     ],
     series(
       templates,
+      tailwindStyles,
       reload,
     ),
   );

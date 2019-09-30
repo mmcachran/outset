@@ -1,19 +1,8 @@
-html, body {
-  position: relative;
-  height: 100%;
-}
-
 body {
+  margin: 0;
   font-size: 16px;
   color: $brand__gray;
   -webkit-font-smoothing: antialiased;
-
-  @include font--base;
-  @include for-desktop--up {
-    font-size: 18px;
-  }
-
-
 
   &[data-scroll-enabled="false"] {
     overflow: hidden;
@@ -26,7 +15,6 @@ body {
 }
 
 main {
-  transition: background-color .75s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -70,12 +58,12 @@ p {
 }
 
 a {
-  color: $brand__aqua;
+  color: $brand__blue;
   text-decoration: underline;
 
   &:focus,
   &:hover {
-    color: $brand__aqua;
+    color: $brand__blue;
   }
 }
 

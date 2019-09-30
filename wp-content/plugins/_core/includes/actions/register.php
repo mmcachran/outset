@@ -8,7 +8,7 @@ use function Functional\each;
 
 function post_types() {
 	each(
-		apply_filters( '_core\post_types', [] ),
+		apply_filters( '_core/post_types', [] ),
 		function ( $args ) {
 			wp\post_type\create( $args );
 		}
@@ -17,16 +17,16 @@ function post_types() {
 
 function taxonomies() {
 	each(
-		apply_filters( '_core\taxonomies', [] ),
+		apply_filters( '_core/taxonomies', [] ),
 		function ( $args ) {
-			register_taxonomy( $args['slug'], $args['type'], $args );
+			wp\taxonomy\create($args);
 		}
 	);
 }
 
 function blocks() {
 	return each(
-		apply_filters( '_core\blocks', [] ),
+		apply_filters( '_core/blocks', [] ),
 		function ( $args ) {
 			acf\block\create( $args );
 		}
@@ -35,7 +35,7 @@ function blocks() {
 
 function field_groups() {
 	return each(
-		apply_filters( '_core\field_groups', [] ),
+		apply_filters( '_core/field_groups', [] ),
 		function ( $args ) {
 			register_field_group( $args );
 		}

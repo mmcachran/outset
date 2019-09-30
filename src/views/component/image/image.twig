@@ -1,0 +1,10 @@
+{# {{dump()}} #}
+{#
+    References:
+        * https://www.responsivebreakpoints.com
+        * https://jakearchibald.com/2015/anatomy-of-responsive-images/
+        * https://scottjehl.github.io/picturefill/#ie9
+        * https://apoorv.pro/lozad.js/#example-with-picture-tag
+#}
+{{ dump(img) }}
+<img class="lozad" data-srcset="{{ srcset }}" alt="{{ alt }}">

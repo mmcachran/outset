@@ -23,3 +23,7 @@ function has_key( $key, $data ) {
 		return property_exists( $data, $key );
 	}
 }
+
+function underscores_to_dashes($string = '') {
+	return str_replace('_', '-', $string);
+}
