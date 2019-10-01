@@ -3,6 +3,7 @@ import path from 'path';
 const { resolve } = path;
 const root = resolve(process.env.PWD);
 const theme = `${root}/wp-content/themes/_view`;
+const plugin = `${root}/wp-content/plugins/_core`;
 
 const paths = {
   src: {
@@ -25,4 +26,4 @@ const paths = {
   },
 };
 
-export { paths, root, theme };
+export { paths, root, theme, plugin };

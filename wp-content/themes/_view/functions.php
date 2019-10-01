@@ -19,5 +19,5 @@ add_action( 'after_setup_theme', '_view\setup\theme_supports' );
 add_action( 'after_setup_theme', '_view\setup\menus' );
 
 // Filters
-add_filter('script_loader_tag', '_view\enqueues\handle_async', 50, 3);
-add_filter('script_loader_tag', '_view\enqueues\handle_defer', 50, 3);
+add_filter( 'script_loader_tag', '_view\enqueues\handle_async', 50, 3 );
+add_filter( 'script_loader_tag', '_view\enqueues\handle_defer', 50, 3 );

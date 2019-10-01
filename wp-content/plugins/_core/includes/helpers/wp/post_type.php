@@ -76,7 +76,7 @@ function create( $args ) {
 		$args
 	);
 
-	register_post_type($slug, $post_type);
+	register_post_type( $slug, $post_type );
 
 	return $post_type;
 }

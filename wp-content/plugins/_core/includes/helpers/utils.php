@@ -24,6 +24,6 @@ function has_key( $key, $data ) {
 	}
 }
 
-function underscores_to_dashes($string = '') {
-	return str_replace('_', '-', $string);
+function underscores_to_dashes( $string = '' ) {
+	return str_replace( '_', '-', $string );
 }

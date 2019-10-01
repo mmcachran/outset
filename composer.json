@@ -44,7 +44,8 @@
   "require-dev": {
     "vlucas/phpdotenv": "^3.3",
     "squizlabs/php_codesniffer": "*",
-    "wpackagist-plugin/query-monitor": "^3.3"
+    "wpackagist-plugin/query-monitor": "^3.3",
+    "wp-coding-standards/wpcs": "*"
   },
   "require": {
     "php": "^7.3",

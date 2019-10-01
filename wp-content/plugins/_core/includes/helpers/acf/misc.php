@@ -7,16 +7,19 @@ use function _core\helpers\utils\merge;
 use function Functional\map;
 
 function easy_field_transformations( $prefix, $fields ) {
-	return map($fields, function($field) use ($prefix){
-		return merge(
-			$field,
-			slug_handler($prefix, $field),
-			conditional_logic_handler( $prefix, $field),
-			[
-				'sub_fields' => has_key('sub_fields', $field) ? easy_field_transformations( "{$prefix}/{$field['slug']}", $field['sub_fields'] ) : [],
-			]
-		);
-	});
+	return map(
+		$fields,
+		function( $field ) use ( $prefix ) {
+			return merge(
+				$field,
+				slug_handler( $prefix, $field ),
+				conditional_logic_handler( $prefix, $field ),
+				[
+					'sub_fields' => has_key( 'sub_fields', $field ) ? easy_field_transformations( "{$prefix}/{$field['slug']}", $field['sub_fields'] ) : [],
+				]
+			);
+		}
+	);
 }
 
 function slug_handler( $prefix, $field ) {

@@ -3,8 +3,9 @@ import { dest, src } from 'gulp';
 import { paths } from '../utils/paths';
 import svgCleaner from 'gulp-svgo';
 
-const svgCleanerOptions = {
-  plugins:
+const options = {
+  svgCleaner: {
+    plugins:
     [
       {
         removeViewBox: false,
@@ -13,13 +14,14 @@ const svgCleanerOptions = {
         cleanupIDs: false,
       },
     ],
+  },
 };
 
 function svgs(cb) {
   return pump(
     [
       src(`${paths.src.svgs}/*.svg`),
-      svgCleaner(svgCleanerOptions),
+      svgCleaner(options.svgCleaner),
       dest(paths.dist.svgs),
     ],
     cb,

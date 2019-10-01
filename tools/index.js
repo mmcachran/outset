@@ -2,6 +2,7 @@ export { scripts } from './tasks/scripts';
 export { globalStyles, blockStyles, tailwindStyles } from './tasks/styles';
 export { fonts } from './tasks/fonts';
 export { templates } from './tasks/templates';
+export { php } from './tasks/php';
 export { images } from './tasks/images';
 export { svgs } from './tasks/svgs';
 export { sprite } from './tasks/sprite';

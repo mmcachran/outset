@@ -1,6 +1,7 @@
 import { series, watch } from 'gulp';
 import { quit, reload } from './serve';
-import { scripts, globalStyles, blockStyles, tailwindStyles, svgs, fonts, clean, sprite, templates } from '../index';
+import { theme, plugin } from '../utils/paths';
+import { scripts, globalStyles, blockStyles, tailwindStyles, svgs, fonts, clean, sprite, templates, php } from '../index';
 
 function monitor(cb) {
   watch(
@@ -12,6 +13,18 @@ function monitor(cb) {
       './package.json',
     ],
     quit,
+  );
+  watch(
+    [
+      `${theme}/**/*.php`,
+      `!${theme}/vendor/**/*.*`,
+      `${plugin}/**/*.php`,
+      `!${plugin}/vendor/**/*.*`,
+    ],
+    series(
+      php,
+      reload,
+    ),
   );
   watch(
     [

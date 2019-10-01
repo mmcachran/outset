@@ -179,15 +179,18 @@ function video() {
 }
 
 
-function repeater($args = []) {
-	return merge([
-		'label'        => __( 'Items', 'core' ),
-		'slug'         => 'items',
-		'type'         => 'repeater',
-		'layout'       => 'block',
-		'button_label' => __( 'Add Item', 'core' ),
-		'sub_fields'   => [],
-	], $args);
+function repeater( $args = [] ) {
+	return merge(
+		[
+			'label'        => __( 'Items', 'core' ),
+			'slug'         => 'items',
+			'type'         => 'repeater',
+			'layout'       => 'block',
+			'button_label' => __( 'Add Item', 'core' ),
+			'sub_fields'   => [],
+		],
+		$args
+	);
 }
 
 

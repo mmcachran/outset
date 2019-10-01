@@ -46,6 +46,9 @@ const options = {
     whitelist: [
       'body',
     ],
+    css: [
+      // './src/**/*.scss',
+    ],
     content: [
       './src/**/*.js',
       './src/**/*.twig',

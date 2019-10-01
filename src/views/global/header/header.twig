@@ -1,12 +1,13 @@
 {# {{ dump() }} #}
 <header class="{{ base }}">
-        <div class="{{ base }}__wrapper w-10/12 mx-auto flex flex-wrap justify-between items-center h-12">
+        <div class="{{ base }}__wrapper w-10/12 mx-auto flex flex-wrap justify-between items-center bg-gray-100">
             <div class="{{ base }}__logo">
                 <a href="{{ urls.home }}">
-                    <h1>Logo</h1>
+                    {% include "svgs/logo.svg" %}
                 </a>
             </div>
             <div class="{{ base }}__menu-wrapper">
+                {% include "component/social_menu/social_menu.twig" with menus.social only %}
                 {% include "component/menu/menu.twig" with menus.primary only %}
             </div>
         </div>

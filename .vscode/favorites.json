@@ -1,18 +1,18 @@
 [
     {
         "type": "Directory",
-        "name": "/Users/miz/Local/outset/app/public/wp-content/plugins/_core",
+        "name": "../wp-content/plugins/_core",
         "parent_id": null,
-        "workspaceRoot": "/Users/miz/Local/outset/app/public",
+        "workspaceRoot": "../",
         "workspacePath": "wp-content/plugins/_core",
         "id": "9Oat3CyzNRwekZuG"
     },
     {
         "type": "Directory",
-        "name": "/Users/miz/Local/outset/app/public/wp-content/themes/_view",
+        "name": "../wp-content/themes/_view",
         "parent_id": null,
-        "workspaceRoot": "/Users/miz/Local/outset/app/public",
-        "workspacePath": "wp-content/themes/_view",
+        "workspaceRoot": "../",
+        "workspacePath": "../wp-content/themes/_view",
         "id": "ko6qgiURyLrWaF5P"
     }
 ]

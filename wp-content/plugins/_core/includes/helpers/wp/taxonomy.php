@@ -54,7 +54,7 @@ function create( $args ) {
 		$args
 	);
 
-	register_taxonomy( $args['slug'], $args['types'], $taxonomy);
+	register_taxonomy( $args['slug'], $args['types'], $taxonomy );
 
 	return $taxonomy;
 }

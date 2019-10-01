@@ -1,5 +1,5 @@
 import { series, parallel } from 'gulp';
-import { scripts, globalStyles, blockStyles, tailwindStyles, fonts, templates, images, svgs, sprite, clean, monitor, vendors } from './tools/index';
+import { scripts, globalStyles, blockStyles, tailwindStyles, fonts, templates, images, svgs, sprite, clean, monitor, vendors, php } from './tools/index';
 import { serve } from './tools/tasks/serve';
 
 const start = parallel(
@@ -20,6 +20,7 @@ const build = series(
     sprite,
     images,
     vendors,
+    php,
   ),
 );
 
@@ -36,11 +37,13 @@ const prod = series(
     sprite,
     images,
     vendors,
+    php,
   ),
 );
 
 export {
   build,
   start,
-  prod
+  prod,
+  php
 };

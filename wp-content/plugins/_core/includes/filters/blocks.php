@@ -18,12 +18,14 @@ function cta( $blocks ) {
 				fields\tab_general(),
 				fields\heading(),
 				fields\content(),
-				fields\repeater([
-					'sub_fields' => [
-						fields\heading(),
-						fields\content(),
+				fields\repeater(
+					[
+						'sub_fields' => [
+							fields\heading(),
+							fields\content(),
+						],
 					]
-				])
+				),
 			],
 		]
 	);

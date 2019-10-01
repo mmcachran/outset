@@ -12,10 +12,10 @@ function registrations() {
 	global $is_IE;
 
 	$localized = [
-		'debug'           => WP_DEBUG,
-		'is_search'       => is_search(),
-		'is_logged_in'    => is_user_logged_in(),
-		'urls'            => [
+		'debug'        => WP_DEBUG,
+		'is_search'    => is_search(),
+		'is_logged_in' => is_user_logged_in(),
+		'urls'         => [
 			'endpoint'  => esc_url_raw( get_rest_url( null, 'wp/v2/' ) ),
 			'root'      => home_url(),
 			'local'     => wp_parse_url( home_url(), PHP_URL_HOST ),
@@ -24,14 +24,14 @@ function registrations() {
 			'theme'     => get_template_directory_uri(),
 			'edit_post' => admin_url( 'post.php?post=%%post_id%%&action=edit' ),
 		],
-		'site'            => [
+		'site'         => [
 			'name' => get_bloginfo( 'name' ),
 		],
 	];
 
-	register_script( 'main', 'dist/scripts/main.js', null, 1.0, false, true, true);
+	register_script( 'main', 'dist/scripts/main.js', null, 1.0, false, true, true );
 	localize_script_data( 'main', 'globals', $localized );
-	load_script('main');
+	load_script( 'main' );
 
 	register_style( 'tailwind', 'dist/styles/tailwind.css' );
 	load_style( 'tailwind' );
@@ -44,28 +44,26 @@ function registrations() {
 
 	if ( $is_IE ) {
 		register_script( 'hubspot-legacy', '//js.hsforms.net/forms/v2-legacy.js', [], '2.0', true );
-		load_script('hubspot-legacy');
+		load_script( 'hubspot-legacy' );
 	}
 	register_script( 'hubspot', '//js.hsforms.net/forms/v2-legacy.js', [], '2.0', true );
-	load_script('hubspot');
+	load_script( 'hubspot' );
 }
 
-function handle_async($html, $handle, $src)
-{
-    // Async
-    if (in_array($handle, apply_filters('view/enqueues/async', []))) {
-        return substr_replace($html, "async='async' ", strpos($html, "type='text/javascript' "), 0);
-    }
+function handle_async( $html, $handle, $src ) {
+	// Async
+	if ( in_array( $handle, apply_filters( 'view/enqueues/async', [] ) ) ) {
+		return substr_replace( $html, "async='async' ", strpos( $html, "type='text/javascript' " ), 0 );
+	}
 
-    return $html;
+	return $html;
 }
 
-function handle_defer($html, $handle, $src)
-{
-       // Defer
-       if (in_array($handle, apply_filters('view/enqueues/defer', []))) {
-        return substr_replace($html, "defer='defer' ", strpos($html, "type='text/javascript' "), 0);
-    }
+function handle_defer( $html, $handle, $src ) {
+	   // Defer
+	if ( in_array( $handle, apply_filters( 'view/enqueues/defer', [] ) ) ) {
+		return substr_replace( $html, "defer='defer' ", strpos( $html, "type='text/javascript' " ), 0 );
+	}
 
-    return $html;
+	return $html;
 }

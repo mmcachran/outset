@@ -19,7 +19,7 @@ function taxonomies() {
 	each(
 		apply_filters( '_core/taxonomies', [] ),
 		function ( $args ) {
-			wp\taxonomy\create($args);
+			wp\taxonomy\create( $args );
 		}
 	);
 }

@@ -51,21 +51,27 @@ function register_style( $handle, $src = '', $deps = [], $ver = false, $media = 
 	wp_register_style( $handle, env_check( $src ), $deps, mod_time( $ver ), $media );
 }
 
-function load_style($string){
-	wp_enqueue_style($string);
+function load_style( $string ) {
+	wp_enqueue_style( $string );
 }
 
 function register_script( $handle, $src, $deps = [], $ver = false, $in_footer = true, $async = false, $defer = false ) {
 	wp_register_script( $handle, env_check( $src ), $deps, mod_time( $src ), $in_footer );
-	if ($async){
-		add_filter('view/enqueues/async', function($array) use ($handle){
-			return merge($array, [$handle]);
-		});
+	if ( $async ) {
+		add_filter(
+			'view/enqueues/async',
+			function( $array ) use ( $handle ) {
+				return merge( $array, [ $handle ] );
+			}
+		);
 	}
-	if ($defer){
-		add_filter('view/enqueues/defer', function($array) use ($handle){
-			return merge($array, [$handle]);
-		});
+	if ( $defer ) {
+		add_filter(
+			'view/enqueues/defer',
+			function( $array ) use ( $handle ) {
+				return merge( $array, [ $handle ] );
+			}
+		);
 	}
 }
 
@@ -73,8 +79,8 @@ function localize_script_data( $handle, $object_name, $l10n ) {
 	wp_localize_script( $handle, $object_name, $l10n );
 }
 
-function load_script($string){
-	wp_enqueue_script($string);
+function load_script( $string ) {
+	wp_enqueue_script( $string );
 }
 
 function mod_time( $file ) {

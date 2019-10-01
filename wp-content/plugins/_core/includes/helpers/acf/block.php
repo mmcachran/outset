@@ -32,7 +32,7 @@ function create( $args = [] ) {
 		merge(
 			[
 				'align'           => 'full',
-				'name'            => 'block-' . underscores_to_dashes($args['slug']),
+				'name'            => 'block-' . underscores_to_dashes( $args['slug'] ),
 				'title'           => $args['label'],
 				'description'     => $args['description'],
 				'category'        => 'layout',
@@ -45,19 +45,23 @@ function create( $args = [] ) {
 					'align'    => false,
 					'multiple' => true,
 				],
-				'render_callback' => function ( $block, $content = '', $is_preview = false ){
+				'render_callback' => function ( $block, $content = '', $is_preview = false ) {
 					// var_dump($block);
 
-					render("block/{$block['slug']}",
-						apply_filters("_view/block/{$block['slug']}", merge(
-							get_fields(),
-							select_keys($block, ['align', 'mode', 'title']),
-							[
-								'base' => $block['slug'],
-								'is_preview' => $is_preview,
-								'classes' => has_key('className', $block) ? $block['className']: '',
-							]
-						))
+					render(
+						"block/{$block['slug']}",
+						apply_filters(
+							"_view/block/{$block['slug']}",
+							merge(
+								get_fields(),
+								select_keys( $block, [ 'align', 'mode', 'title' ] ),
+								[
+									'base'       => $block['slug'],
+									'is_preview' => $is_preview,
+									'classes'    => has_key( 'className', $block ) ? $block['className'] : '',
+								]
+							)
+						)
 					);
 				},
 			],
@@ -73,13 +77,13 @@ function create( $args = [] ) {
 		[
 			'key'      => "block/{$args['slug']}",
 			'title'    => __( $args['label'], 'core' ),
-			'fields'   => easy_field_transformations($args['slug'], $args['fields'] ),
+			'fields'   => easy_field_transformations( $args['slug'], $args['fields'] ),
 			'location' => [
 				[
 					[
 						'param'    => 'block',
 						'operator' => '==',
-						'value'    => 'acf/block-' . underscores_to_dashes($args['slug']),
+						'value'    => 'acf/block-' . underscores_to_dashes( $args['slug'] ),
 					],
 				],
 			],

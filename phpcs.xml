@@ -10,7 +10,7 @@
     Section: Directories & Files to include
     -->
     <file>./wp-content/plugins/_core</file>
-    <file>./wp-content/themes/pyxl/includes</file>
+    <file>./wp-content/themes/_view</file>
 
     <!--
     Section: Exclusions for directories and files
