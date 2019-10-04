@@ -72,7 +72,7 @@ jobs:
           npm_script: "prod"
       - clean
       - git_push:
-          repo: "git@git.wpengine.com:production/elexio.git"
+          repo: ${GIT_DEPLOY_PRODUCTION}
   stag:
     docker:
       - image: pyxl/wordpress-ci-cd-2019
@@ -84,7 +84,7 @@ jobs:
           npm_script: "prod"
       - clean
       - git_push:
-          repo: "git@git.wpengine.com:production/elexiostag.git"
+          repo: ${GIT_DEPLOY_STAGING}
   dev:
     docker:
       - image: pyxl/wordpress-ci-cd-2019
@@ -96,7 +96,7 @@ jobs:
           npm_script: "prod"
       - clean
       - git_push:
-          repo: "git@git.wpengine.com:production/elexiodev.git"
+          repo: ${GIT_DEPLOY_DEVELOPMENT}
       - notify
 
 workflows:
@@ -107,7 +107,7 @@ workflows:
           filters:
             branches:
               only:
-                - env/production
+                - production
       - stag:
           filters:
             branches:
