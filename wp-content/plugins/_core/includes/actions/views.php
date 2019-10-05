@@ -9,10 +9,10 @@ function head( $data ) {
 }
 
 function header( $data ) {
-	printf( '<body class="%s">', join( get_body_class(), ' ' ) );
+	printf( '<body class="%s">', esc_html( join( get_body_class(), ' ' ) ) );
 	require_once get_stylesheet_directory() . '/dist/svgs/sprite.svg';
-	printf( '<div id="wrapper" class="%s">', join( apply_filters( '_view/wrapper/classes', [ 'wrapper' ] ) ) );
-	printf( '<main class="%s">', join( apply_filters( '_view/main/classes', [ 'main' ] ) ) );
+	printf( '<div id="wrapper" class="%s">', esc_html( join( apply_filters( '_view/wrapper/classes', [ 'wrapper' ] ) ) ) );
+	printf( '<main class="%s">', esc_html( join( apply_filters( '_view/main/classes', [ 'main' ] ) ) ) );
 	render( 'global/header', $data );
 }
 

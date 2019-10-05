@@ -1,4 +1,5 @@
-<?php // phpcs:disable WordPress.Files.FileName.NotHyphenatedLowercase
+<?php // phpcs:disable WordPress.Files.FileName.NotHyphenatedLowercase, Squiz.PHP.CommentedOutCode.Found
+
 
 /**
  * Plugin Name: (custom) Core
@@ -18,26 +19,28 @@ defined( 'WPINC' ) || die;
 define( __NAMESPACE__ . '\PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( __NAMESPACE__ . '\URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 
-require_once PATH . 'vendor/autoload.php'; // Composer Support
+/**
+ * Composer Autoloader
+ */
+require_once PATH . 'vendor/autoload.php';
+
+/**
+ *  A Convenient pseudo autoloader. As always, consider using composer via https://getcomposer.org/doc/04-schema.md#files
+ *  Note, this is available due to being loaded in composer.json
+ */
+autoloader\simple_glob_require(
+	[
+		PATH . 'includes/helpers/*.php',
+		PATH . 'includes/helpers/acf/*.php',
+		PATH . 'includes/helpers/wp/*.php',
+		PATH . 'includes/actions/*.php',
+		PATH . 'includes/actions/views/*.php',
+		PATH . 'includes/filters/*.php',
+	]
+);
 
 add_action( 'plugins_loaded', '_core\run' );
 function run() {
-
-	/**
-	 *  A Convenient pseudo autoloader. As always, consider using composer via https://getcomposer.org/doc/04-schema.md#files
-	 *  Note, this is available due to being loaded in composer.json
-	 */
-	autoloader\simple_glob_require(
-		[
-			PATH . 'includes/helpers/*.php',
-			PATH . 'includes/helpers/acf/*.php',
-			PATH . 'includes/helpers/wp/*.php',
-			PATH . 'includes/actions/*.php',
-			PATH . 'includes/actions/views/*.php',
-			PATH . 'includes/filters/*.php',
-			// PATH . 'includes/models/*.php',
-		]
-	);
 
 	/**
 	 * Post Types
@@ -62,12 +65,19 @@ function run() {
 	add_action( 'init', '_core\actions\register\blocks' ); // Register blocks
 
 	/**
-	 * Metaboxes
+	 * Field Groups
 	 */
-	// add_filter( 'core/field_group', '_core\filters\field_groups\career' );
-	// add_filter( 'core/field_group', '_core\filters\field_groups\testimonial' );
-	// add_filter( 'core/field_group', '_core\filters\field_groups\event' );
-	// add_filter( 'core/option_pages', '_core\models\option_pages\general' );
+	// add_filter( '_core/field_groups', '_core\filters\field_groups\career' );
+
+	// add_filter( '_core/field_groups', '_core\filters\field_groups\event' );
+	add_filter( '_core/field_groups', '_core\filters\field_groups\testimonial' );
+	add_filter( '_core/field_groups', '_core\filters\field_groups\social_menu_item' );
+	add_action( 'init', '_core\actions\register\field_groups' ); // Register blocks
+
+	/**
+	 * Options
+	 */
+	// add_filter( '_core/option_pages', '_core\filters\option_pages\general' );
 
 	add_filter( '_view/global/head/data', '_core\filters\views\head' );
 	add_action( '_view/global/head', '_core\actions\views\head' );
@@ -86,6 +96,4 @@ function run() {
 
 	add_filter( '_view/single/post/data', '_core\filters\views\singular' );
 	add_action( '_view/single/post', '_core\actions\views\post' );
-
-	// add_action('init', '_core\actions\debug\utils');
 }

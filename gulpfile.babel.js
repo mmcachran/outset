@@ -20,7 +20,8 @@ const build = series(
     sprite,
     images,
     vendors,
-    php,
+    // TODO: Do not enable php task until fully working
+    // php,
   ),
 );
 
@@ -37,13 +38,13 @@ const prod = series(
     sprite,
     images,
     vendors,
-    php,
+    // TODO: Do not enable php task until fully working
+    // php,
   ),
 );
 
 export {
   build,
   start,
-  prod,
-  php
+  prod
 };

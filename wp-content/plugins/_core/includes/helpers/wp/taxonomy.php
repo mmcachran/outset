@@ -1,23 +1,13 @@
 <?php
-
+// phpcs:disable Squiz.PHP.CommentedOutCode.Found
 namespace _core\helpers\wp\taxonomy;
 
+use function _core\helpers\utils\has_every_key;
 use function _core\helpers\utils\merge;
-use function _core\helpers\utils\has_key;
 
 function create( $args ) {
-	$required = [
-		'slug',
-		'types',
-		'singular',
-		'plural',
-	];
-
-	foreach ( $required as $key ) {
-		if ( has_key( $key, $args ) ) {
-			continue;
-		}
-		return new WP_Error( 'broke', __( 'Arguments "' . $key . '" is required', 'core' ) );
+	if ( ! has_every_key( [ 'slug', 'types', 'singular', 'plural' ], $args ) ) {
+		return;
 	}
 
 	$taxonomy = merge(

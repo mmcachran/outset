@@ -7,6 +7,7 @@
 		"ValeryanM.vscode-phpsab", // PHP Sniffer & Beautifier - https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab
 		"bmewburn.vscode-intelephense-client", // PHP Intelephense - https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client
 		"MehediDracula.php-namespace-resolver", // PHP Namespace Resolver - https://marketplace.visualstudio.com/items?itemName=MehediDracula.php-namespace-resolver
+		"neilbrayfield.php-docblocker", // PHP DocBlocker https://marketplace.visualstudio.com/items?itemName=neilbrayfield.php-docblocker
 		// Node
 		"jasonnutter.search-node-modules", // Search node_modules - https://marketplace.visualstudio.com/items?itemName=jasonnutter.search-node-modules
 		"dbaeumer.vscode-eslint", // ESLint - https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
@@ -19,7 +20,7 @@
 		"mikestead.dotenv", // DotENV - https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv
 		"andrejunges.Handlebars", // Handlebars - https://marketplace.visualstudio.com/items?itemName=andrejunges.Handlebars
 		"DotJoshJohnson.xml", // XML Tools - https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml
-		"rebornix.project-snippets" // Project Snippets - https://marketplace.visualstudio.com/items?itemName=rebornix.project-snippets
+		"rebornix.project-snippets", // Project Snippets - https://marketplace.visualstudio.com/items?itemName=rebornix.project-snippets
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": []

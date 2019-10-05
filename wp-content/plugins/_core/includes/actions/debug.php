@@ -10,14 +10,17 @@ function utils() {
 			ob_start();
 			?>
 		<span class="debug-template">
-			<strong><?php echo basename( $template ); ?></strong>
+			<strong><?php echo esc_html( basename( $template ) ); ?></strong>
 			<br>
 			<code>
-			<?php var_dump( get_queried_object() ); ?>
+			<?php
+			// phpcs:disable WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+			var_dump( get_queried_object() );
+			?>
 			</code>
 		</span>
 			<?php
-			print( ob_get_clean() );
+			print( wp_kses_post( ob_get_clean() ) );
 		}
 	);
 	flush_rewrite_rules( true );

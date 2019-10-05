@@ -37,7 +37,7 @@ function field_groups() {
 	return each(
 		apply_filters( '_core/field_groups', [] ),
 		function ( $args ) {
-			register_field_group( $args );
+			acf\field_group\create( $args );
 		}
 	);
 }

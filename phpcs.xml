@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="MyStandard">
+<ruleset name="PyxlStandard">
+
     <!--
     Section: Config
     Example: <config name="installed_paths" value="/path/to/standard1,/path/to/standard2"/>
@@ -17,6 +18,7 @@
     -->
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>./core/*</exclude-pattern>
 
     <!-- Exclude all Javascript files. -->
     <exclude-pattern>*.js</exclude-pattern>
@@ -28,7 +30,9 @@
     Section: Rules Sets
     -->
     <!-- Include the WordPress-Extra standard. -->
-    <rule ref="WordPress-Extra"></rule>
+    <rule ref="WordPress-Extra">
+        <exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores" />
+    </rule>
 
     <!--
     Section: Singles Rules

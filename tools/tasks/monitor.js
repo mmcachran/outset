@@ -22,7 +22,8 @@ function monitor(cb) {
       `!${plugin}/vendor/**/*.*`,
     ],
     series(
-      php,
+      // TODO: Do not enable php task until fully working
+      // php,
       reload,
     ),
   );

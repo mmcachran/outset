@@ -6,22 +6,14 @@ use Timber;
 use function _core\helpers\template\render;
 use function _core\helpers\utils\has_key;
 use function _core\helpers\utils\merge;
-use function _core\helpers\acf\misc\easy_field_transformations;
+use function _core\helpers\acf\misc\field_shorthand_translator;
+use function _core\helpers\utils\has_every_key;
 use function _core\helpers\utils\underscores_to_dashes;
 use function Functional\select_keys;
 
 function create( $args = [] ) {
-	$required = [
-		'name',
-		'slug',
-		'fields',
-	];
-
-	foreach ( $required as $key ) {
-		if ( has_key( 'slug', $args ) ) {
-			continue;
-		}
-		wp_die( '<pre>' . var_export( $args, true ) . '</pre>', "Error: {$key} missing" );
+	if ( ! has_every_key( [ 'name', 'slug', 'fields' ], $args ) ) {
+		return;
 	}
 
 	if ( ! function_exists( 'acf_register_block_type' ) ) {
@@ -41,29 +33,10 @@ function create( $args = [] ) {
 				'keywords'        => $args['slug'],
 				'supports'        => [
 					'mode'     => 'auto',
-					// 'align'    => [ 'full', 'wide' ],
-					'align'    => false,
+					'align'    => [], //  full, wide, left, right, center
 					'multiple' => true,
 				],
-				'render_callback' => function ( $block, $content = '', $is_preview = false ) {
-					// var_dump($block);
-
-					render(
-						"block/{$block['slug']}",
-						apply_filters(
-							"_view/block/{$block['slug']}",
-							merge(
-								get_fields(),
-								select_keys( $block, [ 'align', 'mode', 'title' ] ),
-								[
-									'base'       => $block['slug'],
-									'is_preview' => $is_preview,
-									'classes'    => has_key( 'className', $block ) ? $block['className'] : '',
-								]
-							)
-						)
-					);
-				},
+				'render_callback' => trailingslashit( __NAMESPACE__ ) . 'render_callback_handler',
 			],
 			$args
 		)
@@ -76,8 +49,10 @@ function create( $args = [] ) {
 	acf_add_local_field_group(
 		[
 			'key'      => "block/{$args['slug']}",
-			'title'    => __( $args['label'], 'core' ),
-			'fields'   => easy_field_transformations( $args['slug'], $args['fields'] ),
+			// phpcs:disable WordPress.WP.I18n.NoEmptyStrings
+			// translators: %s: Title of field group
+			'title'    => sprintf( __( '%s', 'core' ), $args['label'] ),
+			'fields'   => field_shorthand_translator( $args['slug'], $args['fields'] ),
 			'location' => [
 				[
 					[
@@ -89,5 +64,23 @@ function create( $args = [] ) {
 			],
 			3,
 		]
+	);
+}
+
+function render_callback_handler( $block, $content = '', $is_preview = false ) {
+	render(
+		"block/{$block['slug']}",
+		apply_filters(
+			sprintf( '_view/block/%s/data', $block['slug'] ),
+			merge(
+				get_fields(),
+				select_keys( $block, [ 'align', 'mode', 'title' ] ),
+				[
+					'base'       => $block['slug'],
+					'is_preview' => $is_preview,
+					'classes'    => has_key( 'className', $block ) ? $block['className'] : '',
+				]
+			)
+		)
 	);
 }

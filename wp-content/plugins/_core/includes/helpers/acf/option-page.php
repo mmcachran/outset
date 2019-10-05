@@ -2,26 +2,22 @@
 
 namespace _core\helpers\acf\option_page;
 
+use function _core\helpers\utils\has_every_key;
 use function _core\helpers\utils\merge;
 
 function create( $args ) {
-	$required = [
-		'name',
-		'slug',
-	];
-
-	foreach ( $required as $key ) {
-		if ( has_key( $key, $args ) ) {
-			continue;
-		}
-		return new WP_Error( 'broke', __( 'Arguments "' . $key . '" is required', 'core' ) );
+	if ( ! has_every_key( [ 'slug', 'name' ], $args ) ) {
+		return;
 	}
 
 	// https://www.advancedcustomfields.com/resources/acf_add_options_page/
 	return merge(
 		[
-			'page_title'      => __( sprintf( '%s', $args['name'] ), 'core' ),
-			'menu_title'      => __( sprintf( '%s', $args['name'] ), 'core' ),
+			// phpcs:disable WordPress.WP.I18n.NoEmptyStrings
+			// translators: %s: Name of option page
+			'page_title'      => sprintf( __( '%s', 'core' ), $args['name'] ),
+			// translators: %s: Name of option page for menu
+			'menu_title'      => sprintf( __( '%s', 'core' ), $args['name'] ),
 			'menu_slug'       => $args['slug'],
 			'capability'      => 'edit_posts',
 			'position'        => false,
@@ -31,7 +27,8 @@ function create( $args ) {
 			'post_id'         => $args['slug'],
 			'autoload'        => false,
 			'update_button'   => __( 'Update', 'core' ),
-			'updated_message' => __( sprintf( '%s Updated', $args['name'] ), 'core' ),
+			// translators: %s: Text to indicate options have been updated
+			'updated_message' => sprintf( __( '%s Updated', 'core' ), $args['name'] ),
 		],
 		$args
 	);

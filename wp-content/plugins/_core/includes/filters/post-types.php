@@ -5,7 +5,8 @@ namespace _core\filters\post_types;
 use function _core\helpers\utils\push;
 use function Functional\each;
 
-function career( $post_types ) {
+
+function career( $post_types = [] ) {
 	return push(
 		$post_types,
 		[
@@ -17,7 +18,7 @@ function career( $post_types ) {
 	);
 }
 
-function event( $post_types ) {
+function event( $post_types = [] ) {
 	return push(
 		$post_types,
 		[
@@ -28,7 +29,7 @@ function event( $post_types ) {
 	);
 }
 
-function testimonial( $post_types ) {
+function testimonial( $post_types = [] ) {
 	return push(
 		$post_types,
 		[

@@ -2,7 +2,7 @@
 
 namespace _core\filters\blocks;
 
-use _core\helpers\fields;
+use _core\helpers\field;
 use function _core\helpers\utils\push;
 
 function cta( $blocks ) {
@@ -15,14 +15,14 @@ function cta( $blocks ) {
 			'icon'        => 'laptop',
 			'keywords'    => [ 'cta', 'custom' ],
 			'fields'      => [
-				fields\tab_general(),
-				fields\heading(),
-				fields\content(),
-				fields\repeater(
+				field\tab_general(),
+				field\heading(),
+				field\content(),
+				field\repeater(
 					[
 						'sub_fields' => [
-							fields\heading(),
-							fields\content(),
+							field\heading(),
+							field\content(),
 						],
 					]
 				),
@@ -41,8 +41,8 @@ function hero_basic( $blocks ) {
 			'icon'        => 'laptop',
 			'keywords'    => [ 'hero', 'custom' ],
 			'fields'      => [
-				fields\heading(),
-				fields\content(),
+				field\heading(),
+				field\content(),
 			],
 		]
 	);

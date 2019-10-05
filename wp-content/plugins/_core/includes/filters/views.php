@@ -11,7 +11,7 @@ function head( $data ) {
 	return merge(
 		$data,
 		[
-			'charset' => get_bloginfo( 'charset' ),
+			'charset' => esc_html( get_bloginfo( 'charset' ) ),
 		]
 	);
 }

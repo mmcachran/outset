@@ -108,7 +108,6 @@
     "build": "NODE_ENV=development gulp build",
     "prod": "NODE_ENV=production gulp build",
     "lint": "NODE_ENV=development gulp lint",
-    "php": "NODE_ENV=development gulp php",
-    "stylelint": "stylelint 'wp-content/themes/view/**/*.scss'; exit 0"
+    "stylelint": "stylelint 'src/**/*.scss'; exit 0"
   }
 }
