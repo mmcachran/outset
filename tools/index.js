@@ -1,5 +1,5 @@
 export { scripts } from './tasks/scripts';
-export { globalStyles, blockStyles, tailwindStyles } from './tasks/styles';
+export { globalStyles, blockStyles, tailwindStyles, setupStyles } from './tasks/styles';
 export { fonts } from './tasks/fonts';
 export { templates } from './tasks/templates';
 export { php } from './tasks/php';

@@ -29,7 +29,8 @@ module.exports = {
   },
   corePlugins: {
     float: false,
-    objectFit: false,
+    objectFit: true,
     objectPosition: false,
+    // preflight: false,
   },
 };

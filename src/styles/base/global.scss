@@ -217,50 +217,13 @@ iframe {
 }
 
 select {
-  -webkit-appearance: none;
   background-color: $brand__light;
   color: $brand__gray;
-}
-
-.select-wrapper {
-  position: relative;
-  width: 100%;
-
-  &::before {
-    border: 10px solid $brand__gray--dark;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-top-color: $brand__dark;
-    content: '';
-    display: block;
-    height: 0;
-    position: absolute;
-    right: 0;
-    top: 44%;
-    width: 0;
-  }
 }
 
 ::selection {
   background-color: $brand__gray;
   color: white;
-}
-
-
-// Avoid Using .hide if possible
-.hide {
-  &--desktop {
-    @include for-tablet__landscape--up-to {
-      display: none;
-    }
-  }
-
-  &--mobile {
-    @include for-tablet__landscape--up {
-      display: none;
-    }
-  }
 }
 
 .icon {
@@ -276,43 +239,5 @@ select {
     position: absolute;
     top: 0;
     width: 100%;
-  }
-}
-
-.light {
-  color: $brand__gray;
-}
-
-.dark {
-  color: $brand__light;
-}
-
-.gray {
-  color: $brand__gray--dark;
-}
-
-.container {
-  @include container;
-
-  &--wide {
-    max-width: $width--wide;
-  }
-
-  &--full {
-    max-width: $width--full;
-  }
-}
-
-.width {
-  &--normal {
-    max-width: $width--normal;
-  }
-
-  &--wide {
-    max-width: $width--wide;
-  }
-
-  &--full {
-    max-width: $width--full;
   }
 }

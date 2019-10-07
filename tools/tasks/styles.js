@@ -16,6 +16,7 @@ import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import purgeCSS from '@fullhuman/postcss-purgecss';
 import tailwindCSS from 'tailwindcss';
+import TailwindExportConfig from 'tailwindcss-export-config';
 import postCSSNoop from 'postcss-noop';
 
 const options = {
@@ -47,7 +48,7 @@ const options = {
       'body',
     ],
     css: [
-      // './src/**/*.scss',
+      './src/**/*.scss',
     ],
     content: [
       './src/**/*.js',
@@ -61,6 +62,7 @@ function globalStyles(cb) {
     src([
       `${paths.src.styles}/*.scss`,
       `!${paths.src.styles}/tailwind.scss`,
+      `!${paths.src.styles}/normalize.scss`,
     ]),
     plumber(),
     'production' === mode ? noop() : sourcemaps.init(),
@@ -88,14 +90,47 @@ function blockStyles(cb) {
     plumber(),
     'production' === mode ? noop() : sourcemaps.init(),
     inject(`
-      @import "utils/**/*";
+    @import "../../../styles/utils/**/*";
     `),
     sassGlob(),
     sass(options.sass).on('error', sass.logError),
+    postcss([
+      tailwindCSS(),
+      'production' === mode ? purgeCSS(options.purgeCSS) : postCSSNoop(),
+      autoprefixer(options.autoprefixer),
+    ]),
     rename(options.rename),
     'production' === mode ? noop() : sourcemaps.write(),
     dest(paths.dist.blocks),
     server.stream(),
+  ], cb);
+}
+
+function setupStyles(cb) {
+  const converter = new TailwindExportConfig({
+    config: `${root}/tailwind.config.js`,
+    destination: 'src/styles/utils/theme',
+    format: 'scss',
+    prefix: 'tw',
+    flat: true,
+  });
+  converter.writeToFile();
+
+  return pump([
+    src(`${paths.src.styles}/normalize.scss`),
+    plumber(),
+    sourcemaps.init(),
+    postcss([
+      tailwindCSS(`${root}/tailwind.config.js`),
+      autoprefixer(options.autoprefixer),
+    ]),
+    cleanCSS(options.cleanCSS),
+    rename({
+      suffix: '.min',
+      extname: '.css',
+    }),
+    sourcemaps.write(),
+    dest(paths.dist.styles),
   ], cb);
 }
 
@@ -117,4 +152,4 @@ function tailwindStyles(cb) {
   ], cb);
 }
 
-export { globalStyles, blockStyles, tailwindStyles };
+export { globalStyles, blockStyles, tailwindStyles, setupStyles };

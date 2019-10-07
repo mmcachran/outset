@@ -21,6 +21,8 @@
 		"shinnn.stylelint", // Stylelint - https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint
 		"mrmlnc.vscode-scss", // SCSS IntelliSense - https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss
 		"kamikillerto.vscode-colorize", // Colorize - https://marketplace.visualstudio.com/items?itemName=kamikillerto.vscode-colorize
+		"bradlc.vscode-tailwindcss", // Tailwind Intellisense - https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
+		"macieklad.tailwind-sass-syntax", // Tailwind SCSS Syntax - https://marketplace.visualstudio.com/items?itemName=macieklad.tailwind-sass-syntax
 		// Misc
 		"mikestead.dotenv", // DotENV - https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv
 		"DotJoshJohnson.xml", // XML Tools - https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml

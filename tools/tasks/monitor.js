@@ -6,30 +6,29 @@ import { scripts, globalStyles, blockStyles, tailwindStyles, svgs, fonts, clean,
 function monitor(cb) {
   watch(
     [
-      './tools/**/*',
-      './gulpfile.babel.js',
-      './postcss.config.js',
-      './babel.config.js',
-      './package.json',
+      'tools/**/*',
+      'gulpfile.babel.js',
+      'postcss.config.js',
+      'babel.config.js',
+      'package.json',
     ],
     quit,
   );
   watch(
     [
       `${theme}/**/*.php`,
-      `!${theme}/vendor/**/*.*`,
+      `!${theme}/vendor/**/*`,
       `${plugin}/**/*.php`,
-      `!${plugin}/vendor/**/*.*`,
+      `!${plugin}/vendor/**/*`,
     ],
     series(
-      // TODO: Do not enable php task until fully working
       php,
       reload,
     ),
   );
   watch(
     [
-      './src/**/*.svg',
+      'src/**/*.svg',
     ],
     series(
       svgs,
@@ -39,8 +38,8 @@ function monitor(cb) {
   );
   watch(
     [
-      './src/**/*.js',
-      './views/**/*.js',
+      'src/**/*.js',
+      'views/**/*.js',
     ],
     series(
       scripts,
@@ -50,8 +49,9 @@ function monitor(cb) {
   );
   watch(
     [
-      './src/**/*.scss',
-      './tailwind.config.js',
+      'src/**/*.scss',
+      '!src/styles/utils/theme.scss',
+      'tailwind.config.js',
     ],
     series(
       globalStyles,
@@ -61,7 +61,7 @@ function monitor(cb) {
   );
   watch(
     [
-      './src/images/**/*',
+      'src/images/**/*',
     ],
     series(
       reload,
@@ -69,7 +69,7 @@ function monitor(cb) {
   );
   watch(
     [
-      './src/**/*.twig',
+      'src/**/*.twig',
     ],
     series(
       templates,

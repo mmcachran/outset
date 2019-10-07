@@ -1,6 +1,5 @@
 /*
- * Creates utils classes for tailwind
+ * Creates normalize.css with tailwind flavoring
  * NOTE: You probably shouldn't or don't actually want to edit this file.
  */
-@tailwind components;
-@tailwind utilities;
+@tailwind base;

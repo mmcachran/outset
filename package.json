@@ -87,7 +87,6 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.1.0",
-    "gulp-sass-variables": "^1.2.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^9.0.0",
     "gulp-svg-symbols": "^3.2.3",
@@ -108,7 +107,6 @@
     "build": "NODE_ENV=development gulp build",
     "prod": "NODE_ENV=production gulp prod",
     "lint": "NODE_ENV=development gulp lint",
-    "stylelint": "stylelint 'src/**/*.scss' --fix; exit 0",
-    "php": "gulp php"
+    "stylelint": "stylelint 'src/**/*.scss' --fix; exit 0"
   }
 }

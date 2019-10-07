@@ -11,15 +11,15 @@
     "editor.formatOnSaveTimeout": 2000,
     "[php]": {
         "editor.formatOnSave": true,
-        "editor.formatOnPaste": false
     },
     "[json]": {
         "editor.formatOnSave": true,
-        "editor.formatOnPaste": false
     },
     "[scss]": {
         "editor.formatOnSave": true,
-        "editor.formatOnPaste": false
+    },
+    "[twig]": {
+        "editor.formatOnSave": true,
     },
     /**
     * CSS Comb
@@ -95,8 +95,11 @@
         "wp"
     ],
     "cSpell.words": [
+        "autoplace",
         "bloginfo",
         "browserslist",
+        "full",
+        "fullhuman",
         "get",
         "hubspot",
         "lozad",
