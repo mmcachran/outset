@@ -27,7 +27,7 @@ function hero_basic( $blocks ) {
 	return push(
 		$blocks,
 		[
-			'slug'        => 'hero_basic',
+			'slug'        => 'hero-basic',
 			'label'       => __( 'Hero (basic)', 'core' ),
 			'description' => __( 'A simple hero block', 'core' ),
 			'icon'        => 'laptop',
