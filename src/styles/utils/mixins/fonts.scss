@@ -5,15 +5,15 @@
 
 @mixin font--base {
   font-family: 'Helvetica';
-  font-weight: 400;
   font-style: normal;
+  font-weight: 400;
 }
 
 @mixin font--alternate {
   font-family: 'Helvetica';
-  font-weight: 700;
   font-style: normal;
-  letter-spacing: -.053em;
+  font-weight: 700;
+  letter-spacing: -0.053em;
 }
 
 @mixin font--accent {

@@ -61,6 +61,7 @@ function run() {
 	 */
 	add_filter( '_core/blocks', '_core\filters\blocks\cta' );
 	add_filter( '_core/blocks', '_core\filters\blocks\hero_basic' );
+	add_filter( '_core/blocks', '_core\filters\blocks\featurette' );
 	add_action( 'init', '_core\actions\register\blocks' ); // Register blocks
 
 	/**

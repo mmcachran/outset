@@ -1,39 +1,39 @@
 @mixin social-icons-main {
-  text-align: center;
-  margin: 0 .5em;
+  height: 2.8em;
+  margin: 0 0.5em;
   padding: 0;
   position: relative;
+  text-align: center;
   width: 2.8em;
-  height: 2.8em;
   @include for-tablet__landscape--up {
-    font-size: .8em;
+    font-size: 0.8em;
   }
 
-  &:before {
-    content: "";
-    border: .1rem solid $brand__yellow;
+  &::before {
+    background-color: transparent;
+    border: 0.1rem solid $brand__yellow;
     border-radius: 100rem;
-    width: inherit;
+    content: '';
     height: inherit;
-    transition: 400ms ease all;
+    left: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    background-color: transparent;
+    transition: 400ms ease all;
+    width: inherit;
   }
 
 
   a {
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    right: 0;
-    left: 0;
     bottom: 0;
-    text-align: center;
+    left: 0;
     line-height: 3.2em;
-    margin: 0 .5em;
+    margin: 0 0.5em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 10;
   }
 
   svg {
@@ -42,10 +42,11 @@
 
   &:hover,
   &:focus {
-    &:after {
+    &::after {
       content: none;
     }
-    &:before {
+
+    &::before {
       background-color: $brand__yellow;
     }
   }

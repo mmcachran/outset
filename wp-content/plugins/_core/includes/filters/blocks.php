@@ -5,6 +5,23 @@ namespace _core\filters\blocks;
 use _core\helpers\field;
 use function _core\helpers\utils\push;
 
+function featurette( $blocks ) {
+	return push(
+		$blocks,
+		[
+			'slug'        => 'featurette',
+			'label'       => __( 'Featurette', 'core' ),
+			'description' => __( 'The Featurette Block', 'core' ),
+			'icon'        => 'laptop',
+			'keywords'    => [ 'featurette', 'custom' ],
+			'fields'      => [
+				field\heading(),
+				field\content(),
+			],
+		]
+	);
+}
+
 function cta( $blocks ) {
 	return push(
 		$blocks,
@@ -15,7 +32,6 @@ function cta( $blocks ) {
 			'icon'        => 'laptop',
 			'keywords'    => [ 'cta', 'custom' ],
 			'fields'      => [
-				field\tab_general(),
 				field\heading(),
 				field\content(),
 			],

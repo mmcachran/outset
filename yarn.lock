@@ -3608,7 +3608,7 @@ fs-extra@3.0.1:
     jsonfile "^3.0.0"
     universalify "^0.1.0"
 
-fs-extra@^8.0.0:
+fs-extra@^8.0.0, fs-extra@^8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
   integrity sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
@@ -4010,6 +4010,14 @@ gulp-sass-glob@^1.1.0:
     minimatch "^3.0.4"
     slash "^3.0.0"
     through2 "^3.0.1"
+
+gulp-sass-variables@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/gulp-sass-variables/-/gulp-sass-variables-1.2.0.tgz#ff532bbddd52b8f3dd2019e21be8d42049a8728a"
+  integrity sha512-xdRyM/OXlRLcK2rN4K7cucc/5eHoqS1MLgAI79tW5gRYAdxF8pYX7Zuj89zu4RchX9nr2Yu/jIC146V/6w7TnA==
+  dependencies:
+    plugin-error "^1.0.1"
+    through2 "^2.0.1"
 
 gulp-sass@^4.0.2:
   version "4.0.2"
@@ -5133,6 +5141,11 @@ lodash.isfinite@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/lodash.isfinite/-/lodash.isfinite-3.3.2.tgz#fb89b65a9a80281833f0b7478b3a5104f898ebb3"
   integrity sha1-+4m2WpqAKBgz8LdHizpRBPiY67M=
+
+lodash.reduce@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.reduce/-/lodash.reduce-4.6.0.tgz#f1ab6b839299ad48f784abbf476596f03b914d3b"
+  integrity sha1-8atrg5KZrUj3hKu/R2WW8DuRTTs=
 
 lodash.some@^4.2.2:
   version "4.6.0"
@@ -8017,7 +8030,7 @@ stylelint-config-sass-guidelines@^6.1.0:
     stylelint-order "^3.0.0"
     stylelint-scss "^3.4.0"
 
-stylelint-order@^3.0.0:
+stylelint-order@^3.0.0, stylelint-order@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-3.1.1.tgz#ba9ea6844d1482f97f31204e7c9605c7b792c294"
   integrity sha512-4gP/r8j/6JGZ/LL41b2sYtQqfwZl4VSqTp7WeIwI67v/OXNQ08dnn64BGXNwAUSgb2+YIvIOxQaMzqMyQMzoyQ==
@@ -8178,6 +8191,17 @@ table@^5.2.3:
     lodash "^4.17.14"
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
+
+tailwindcss-export-config@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/tailwindcss-export-config/-/tailwindcss-export-config-2.0.2.tgz#5fb15fe6256ed02813468d64dba366dbe8a26a6d"
+  integrity sha512-E6If8cTZ2iAZ/MHxoN1WMTtQgrkhp+riQv3TNRvM/7VXKMlCDnIF1Jur0wtdGJjX/Wq/c4nTadq5RIX2vfb/rQ==
+  dependencies:
+    chalk "^2.4.2"
+    fs-extra "^8.1.0"
+    lodash.reduce "^4.6.0"
+    tailwindcss "^1.1.2"
+    yargs "^14.0.0"
 
 tailwindcss@^1.1.2:
   version "1.1.2"

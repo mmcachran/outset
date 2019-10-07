@@ -20,51 +20,56 @@ function create( $args = [] ) {
 		return;
 	}
 
-	acf_register_block_type(
-		merge(
-			[
-				'align'           => 'full',
-				'name'            => 'block-' . underscores_to_dashes( $args['slug'] ),
-				'title'           => $args['label'],
-				'description'     => $args['description'],
-				'category'        => 'layout',
-				'icon'            => 'layout', // http://aalmiray.github.io/ikonli/cheat-sheet-dashicons.html
-				'mode'            => 'preview',
-				'keywords'        => $args['slug'],
-				'supports'        => [
-					'mode'     => 'auto',
-					'align'    => [], //  full, wide, left, right, center
-					'multiple' => true,
-				],
-				'render_callback' => __NAMESPACE__ . '\render_callback_handler',
-			],
-			$args
-		)
-	);
+	acf_register_block_type( create_block_type_args( $args ) );
 
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
 	}
 
-	acf_add_local_field_group(
+	acf_add_local_field_group( create_register_group_args( $args ) );
+}
+
+function create_block_type_args( $args ) {
+	return merge(
 		[
-			'key'      => "block/{$args['slug']}",
-			// phpcs:disable WordPress.WP.I18n.NoEmptyStrings
-			// translators: %s: Title of field group
-			'title'    => sprintf( __( '%s', 'core' ), $args['label'] ),
-			'fields'   => field_shorthand_translator( $args['slug'], $args['fields'] ),
-			'location' => [
+			'align'           => 'full',
+			'name'            => 'block-' . underscores_to_dashes( $args['slug'] ),
+			'title'           => $args['label'],
+			'description'     => $args['description'],
+			'category'        => 'layout',
+			'icon'            => 'layout', // http://aalmiray.github.io/ikonli/cheat-sheet-dashicons.html
+			'mode'            => 'preview',
+			'keywords'        => $args['slug'],
+			'supports'        => [
+				'mode'     => 'auto',
+				'align'    => [], //  full, wide, left, right, center
+				'multiple' => true,
+			],
+			'render_callback' => __NAMESPACE__ . '\render_callback_handler',
+			'enqueue_style'   => get_stylesheet_directory_uri() . sprintf( '/dist/views/block/%1$s/%2$s.css', $args['slug'], basename( $args['slug'] ) ),
+			'enqueue_script'  => get_stylesheet_directory_uri() . sprintf( '/dist/views/block/%1$s/%2$s.js', $args['slug'], basename( $args['slug'] ) ),
+		],
+		$args
+	);
+}
+
+function create_register_group_args( $args ) {
+	return [
+		'key'      => "block/{$args['slug']}",
+		// phpcs:disable WordPress.WP.I18n.NoEmptyStrings
+		// translators: %s: Title of field group
+		'title'    => sprintf( __( '%s', 'core' ), $args['label'] ),
+		'fields'   => field_shorthand_translator( $args['slug'], $args['fields'] ),
+		'location' => [
+			[
 				[
-					[
-						'param'    => 'block',
-						'operator' => '==',
-						'value'    => 'acf/block-' . underscores_to_dashes( $args['slug'] ),
-					],
+					'param'    => 'block',
+					'operator' => '==',
+					'value'    => 'acf/block-' . underscores_to_dashes( $args['slug'] ),
 				],
 			],
-			3,
-		]
-	);
+		],
+	];
 }
 
 function render_callback_handler( $block, $content = '', $is_preview = false ) {

@@ -11,8 +11,27 @@
     "editor.formatOnSaveTimeout": 2000,
     "[php]": {
         "editor.formatOnSave": true,
-        "editor.formatOnPaste": true
+        "editor.formatOnPaste": false
     },
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": false
+    },
+    "[scss]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": false
+    },
+    /**
+    * CSS Comb
+    */
+    "csscomb.formatOnSave": true,
+    "csscomb.preset": "csscomb",
+    /**
+    * Prettier
+    */
+    "prettier.disableLanguages": [
+        "javascript"
+    ],
     /**
     * Favorites - https://marketplace.visualstudio.com/items?itemName=kdcro101.favorites
     */

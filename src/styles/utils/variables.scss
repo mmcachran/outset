@@ -1,14 +1,15 @@
 // Colors
-$brand__light: #ffffff;
+$brand__light: #fff;
 $brand__dark: #212721;
-$brand__gray: #888B8D;
-$brand__gray--dark: #53565A;
-$brand__gray--light: #D9D9D6;
-$brand__gray--lighter: #E9E9E9;
+$brand__gray: #888b8d;
+$brand__gray--dark: #53565a;
+$brand__gray--light: #d9d9d6;
+$brand__gray--lighter: #e9e9e9;
 $brand__blue: cyan;
-$brand__aqua: pink;
+$brand--aqua: pink;
+$brand--thing: #333;
 
-$drop__shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.12);
+$drop__shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.12);
 
 // Widths
 $width--line-length: 40rem;
