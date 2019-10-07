@@ -1,4 +1,4 @@
-import { basename, extname } from 'path';
+import { parse } from 'path';
 import { src, dest } from 'gulp';
 import pump from 'pump';
 import plumber from 'gulp-plumber';
@@ -22,19 +22,14 @@ const srcPaths = find([
  *       webpack instances wasn't working. The result being something like taking 'views/blocks/hero/hero.js'
  *       and outputting to 'dist/view/hero/hero.js'
  */
-function filterToIdentifyViews(file) {
-  const fileName = basename(file.basename, '.js');
+function filterToIdentifyViews(currentPath) {
+  const originalPath = parse(srcPaths.find(path => path.includes(currentPath.basename)));
 
-  if ('.js' !== extname(file.basename)) {
-    return paths.dist.scripts;
+  if (originalPath.dir.includes(paths.src.views)) {
+    return originalPath.dir.replace(paths.src.views, paths.dist.views);
+  } else {
+    return originalPath.dir.replace(paths.src.scripts, paths.dist.scripts);
   }
-
-  const viewMatch = srcPaths.find(item => item.includes(`views/${fileName}`));
-  if ('undefined' !== typeof viewMatch) {
-    return `${paths.dist.views}/${fileName}`;
-  }
-
-  return paths.dist.scripts;
 }
 
 function scripts(cb) {
