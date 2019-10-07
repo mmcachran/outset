@@ -106,8 +106,9 @@
   "scripts": {
     "start": "NODE_ENV=development gulp start",
     "build": "NODE_ENV=development gulp build",
-    "prod": "NODE_ENV=production gulp build",
+    "prod": "NODE_ENV=production gulp prod",
     "lint": "NODE_ENV=development gulp lint",
-    "stylelint": "stylelint 'src/**/*.scss'; exit 0"
+    "stylelint": "stylelint 'src/**/*.scss'; exit 0",
+    "php": "gulp php"
   }
 }

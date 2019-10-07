@@ -22,17 +22,19 @@ function create( $args ) {
 		return;
 	}
 
-	$field_group = map(
-		create_field_group_arguments( $args ),
-		function( $item, $key ) use ( $args ) {
-			if ( 'fields' === $key ) {
-				return field_shorthand_translator( $args['slug'], $args['fields'] );
-			}
-					return $item;
-		}
-	);
-
-	if ( function_exists( 'register_field_group' ) ) {
-		register_field_group( $field_group );
+	if ( ! function_exists( 'register_field_group' ) ) {
+		return;
 	}
+
+	register_field_group(
+		map(
+			create_field_group_arguments( $args ),
+			function( $item, $key ) use ( $args ) {
+				if ( 'fields' === $key ) {
+					return field_shorthand_translator( $args['slug'], $args['fields'] );
+				}
+				return $item;
+			}
+		)
+	);
 }

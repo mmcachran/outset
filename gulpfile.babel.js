@@ -28,15 +28,15 @@ const build = series(
 const prod = series(
   clean,
   parallel(
-    scripts,
-    globalStyles,
-    blockStyles,
-    tailwindStyles,
-    fonts,
-    templates,
-    svgs,
-    sprite,
-    images,
+    // scripts,
+    // globalStyles,
+    // blockStyles,
+    // tailwindStyles,
+    // fonts,
+    // templates,
+    // svgs,
+    // sprite,
+    // images,
     vendors,
     // TODO: Do not enable php task until fully working
     // php,
@@ -46,5 +46,6 @@ const prod = series(
 export {
   build,
   start,
-  prod
+  prod,
+  php
 };

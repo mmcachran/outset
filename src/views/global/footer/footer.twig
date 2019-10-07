@@ -1,11 +1,11 @@
 {# {{ dump() }} #}
-<footer class="{{ base }} w-10/12 mx-auto flex flex-wrap justify-between items-center h-12">
-   <div class="{{ base }}__primary">
+<footer class="footer w-10/12 mx-auto flex flex-wrap justify-between items-center h-12">
+   <div class="footer__primary">
         <a href="{{ urls.home }}">
             <span>Logo</span>
         </a>
     </div>
-    <div class="{{ base }}_secondary">
-        {% include "component/menu/menu.twig" with menus.primary only %}
+    <div class="footer_secondary">
+        {% include "component/menu/menu.twig" with menus.footer only %}
     </div>
 </header>

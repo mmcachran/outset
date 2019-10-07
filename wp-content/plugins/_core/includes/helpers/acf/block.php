@@ -12,6 +12,7 @@ use function _core\helpers\utils\underscores_to_dashes;
 use function Functional\select_keys;
 
 function create( $args = [] ) {
+
 	if ( ! has_every_key( [ 'name', 'slug', 'fields' ], $args ) ) {
 		return;
 	}

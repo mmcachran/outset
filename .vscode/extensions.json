@@ -4,10 +4,13 @@
 	// List of extensions which should be recommended for users of this workspace.
 	"recommendations": [
 		// PHP
+		"ikappas.phpcs", // PHPCS - https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs
 		"ValeryanM.vscode-phpsab", // PHP Sniffer & Beautifier - https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab
 		"bmewburn.vscode-intelephense-client", // PHP Intelephense - https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client
 		"MehediDracula.php-namespace-resolver", // PHP Namespace Resolver - https://marketplace.visualstudio.com/items?itemName=MehediDracula.php-namespace-resolver
-		"neilbrayfield.php-docblocker", // PHP DocBlocker https://marketplace.visualstudio.com/items?itemName=neilbrayfield.php-docblocker
+		"neilbrayfield.php-docblocker", // PHP DocBlocker - https://marketplace.visualstudio.com/items?itemName=neilbrayfield.php-docblocker
+		"felixfbecker.php-debug", // PHP Debug - https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug
+		"ikappas.composer", // Composer - https://marketplace.visualstudio.com/items?itemName=ikappas.composer
 		// Node
 		"jasonnutter.search-node-modules", // Search node_modules - https://marketplace.visualstudio.com/items?itemName=jasonnutter.search-node-modules
 		"dbaeumer.vscode-eslint", // ESLint - https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
@@ -16,11 +19,17 @@
 		"eamodio.gitlens", // GitLens — Git supercharged - https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
 		// CSS
 		"mrmlnc.vscode-scss", // SCSS IntelliSense - https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss
+		"kamikillerto.vscode-colorize", // Colorize - https://marketplace.visualstudio.com/items?itemName=kamikillerto.vscode-colorize
 		// Misc
 		"mikestead.dotenv", // DotENV - https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv
-		"andrejunges.Handlebars", // Handlebars - https://marketplace.visualstudio.com/items?itemName=andrejunges.Handlebars
 		"DotJoshJohnson.xml", // XML Tools - https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml
 		"rebornix.project-snippets", // Project Snippets - https://marketplace.visualstudio.com/items?itemName=rebornix.project-snippets
+		"streetsidesoftware.code-spell-checker", // streetsidesoftware.code-spell-checker - https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+		"mrmlnc.vscode-apache", // Apache Conf - https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-apache
+		"kdcro101.favorites", // Favorites - https://marketplace.visualstudio.com/items?itemName=kdcro101.favorites
+		"christian-kohler.path-intellisense", // Path Intellisense - https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense
+		"formulahendry.auto-close-tag", // Auto Close Tag https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag
+		"formulahendry.auto-rename-tag", // Auto Rename Tag - https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": []

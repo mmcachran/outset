@@ -6,7 +6,7 @@ use function _view\utils\merge;
 use Timber;
 
 Timber\Timber::$locations = [
-	get_stylesheet_directory() . '/dist/',
+	get_stylesheet_directory() . '/dist',
 	get_stylesheet_directory() . '/dist/views',
 ];
 

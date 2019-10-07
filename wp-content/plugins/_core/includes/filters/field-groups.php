@@ -2,7 +2,6 @@
 
 namespace _core\filters\field_groups;
 
-use _core\filters\post_types;
 use _core\helpers\acf\location;
 use _core\helpers\field;
 
@@ -69,28 +68,28 @@ function social_menu_item( $field_groups ) {
 
 
 function event( $field_groups ) {
-	$post_type = post_types\event();
+	$post_type = get_post_type_object( 'event' );
 
 	return push(
 		$field_groups,
 		[
-			'slug'     => $post_type['slug'],
+			'slug'     => $post_type->name,
 			'name'     => __( 'Additional Information', 'core' ),
 			'fields'   => [
 				field\text(),
 			],
 			'position' => 'side',
-			'location' => location\post_type( $post_type['slug'] ),
+			'location' => location\post_type( $post_type->name ),
 		]
 	);
 }
 
 function career( $field_groups ) {
-	$post_type = post_types\testimonial();
+	$post_type = get_post_type_object( 'career' );
 	return push(
 		$field_groups,
 		[
-			'slug'     => $post_type['slug'],
+			'slug'     => $post_type->name,
 			'name'     => __( 'Additional Information', 'core' ),
 			'fields'   => [
 				field\text(),
@@ -98,7 +97,7 @@ function career( $field_groups ) {
 				field\image(),
 			],
 			'position' => 'side',
-			'location' => location_post_type( $post_type['slug'] ),
+			'location' => location\post_type( $post_type->name ),
 		]
 	);
 }

@@ -1,11 +1,10 @@
-<?php // phpcs:disable WordPress.Files.FileName.NotHyphenatedLowercase, Squiz.PHP.CommentedOutCode.Found
-
+<?php
 
 /**
  * Plugin Name: (custom) Core
  * Plugin URI: https://pyxl.com
  * Description:
- * Version: 1.0
+ * Version: 1.0.0
  * Author: Pyxl
  * Author URI: https://pyxl.com
  * License: GPLv3+
@@ -34,8 +33,8 @@ autoloader\simple_glob_require(
 		PATH . 'includes/helpers/acf/*.php',
 		PATH . 'includes/helpers/wp/*.php',
 		PATH . 'includes/actions/*.php',
-		PATH . 'includes/actions/views/*.php',
 		PATH . 'includes/filters/*.php',
+		PATH . 'includes/filters/views/*.php',
 	]
 );
 
@@ -67,9 +66,8 @@ function run() {
 	/**
 	 * Field Groups
 	 */
-	// add_filter( '_core/field_groups', '_core\filters\field_groups\career' );
-
-	// add_filter( '_core/field_groups', '_core\filters\field_groups\event' );
+	add_filter( '_core/field_groups', '_core\filters\field_groups\career' );
+	add_filter( '_core/field_groups', '_core\filters\field_groups\event' );
 	add_filter( '_core/field_groups', '_core\filters\field_groups\testimonial' );
 	add_filter( '_core/field_groups', '_core\filters\field_groups\social_menu_item' );
 	add_action( 'init', '_core\actions\register\field_groups' ); // Register blocks
@@ -77,8 +75,11 @@ function run() {
 	/**
 	 * Options
 	 */
-	// add_filter( '_core/option_pages', '_core\filters\option_pages\general' );
+	add_filter( '_core/option_pages', '_core\filters\option_pages\general' );
 
+	/**
+	 * Views
+	 */
 	add_filter( '_view/global/head/data', '_core\filters\views\head' );
 	add_action( '_view/global/head', '_core\actions\views\head' );
 

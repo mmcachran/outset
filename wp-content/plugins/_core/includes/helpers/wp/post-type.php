@@ -15,13 +15,6 @@ function create( $args ) {
 		return;
 	}
 
-	foreach ( $required as $key ) {
-		if ( has_key( $key, $args ) ) {
-			continue;
-		}
-		return;
-	}
-
 	$singular     = $args['singular'];
 	$plural       = $args['plural'];
 	$slug         = $args['slug'];
