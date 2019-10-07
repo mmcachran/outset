@@ -23,7 +23,7 @@ function monitor(cb) {
     ],
     series(
       // TODO: Do not enable php task until fully working
-      // php,
+      php,
       reload,
     ),
   );

@@ -1,23 +1,13 @@
-import pump from 'pump';
-import { src } from 'gulp';
-import plumber from 'gulp-plumber';
-import phpcs from 'gulp-phpcs';
-import { theme, plugin, root } from '../utils/paths';
+const { spawn } = require('child_process');
 
 function php(cb) {
-  return pump(
-    [
-      src(`${plugin}/**/*.php`),
-      plumber(),
-      // phpcs({
-      //   standard: 'phpcs.xml',
-      //   bin: 'vendor/bin/phpcs',
-      //   warningSeverity: 0,
-      // }),
-      // phpcs.reporter('log'),
-    ],
-    cb,
-  );
+  return spawn('phpcs', [], { stdio: 'inherit' })
+    .on('close', cb)
+    .on('exit', () => cb())
+    .on('error', err => {
+      console.error(err);
+      process.exit(err);
+    });
 }
 
 export { php };

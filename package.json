@@ -94,6 +94,7 @@
     "gulp-svg-symbols": "^3.2.3",
     "gulp-svgo": "^2.1.1",
     "gulp-uglify": "^3.0.2",
+    "mississippi": "^4.0.0",
     "node-sass-package-importer": "^5.3.2",
     "postcss-noop": "^1.0.1",
     "script-loader": "*",

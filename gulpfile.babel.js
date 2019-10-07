@@ -20,26 +20,24 @@ const build = series(
     sprite,
     images,
     vendors,
-    // TODO: Do not enable php task until fully working
-    // php,
+    php,
   ),
 );
 
 const prod = series(
   clean,
   parallel(
-    // scripts,
-    // globalStyles,
-    // blockStyles,
-    // tailwindStyles,
-    // fonts,
-    // templates,
-    // svgs,
-    // sprite,
-    // images,
+    scripts,
+    globalStyles,
+    blockStyles,
+    tailwindStyles,
+    fonts,
+    templates,
+    svgs,
+    sprite,
+    images,
     vendors,
-    // TODO: Do not enable php task until fully working
-    // php,
+    php,
   ),
 );
 

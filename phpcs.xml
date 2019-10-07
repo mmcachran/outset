@@ -19,7 +19,8 @@
     Example: <exclude-pattern>*/vendor/*</exclude-pattern>
     -->
     <exclude-pattern>*/vendor/*</exclude-pattern>
-    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>wp-content/plugins/_core/vendor/*</exclude-pattern>
     <exclude-pattern>./core/*</exclude-pattern>
 
     <!-- Exclude all Javascript files. -->
@@ -32,6 +33,9 @@
     Section: Rules Sets
     -->
     <!-- Include the WordPress-Extra standard. -->
+    <!-- <rule ref="WordPress"/> -->
+	<!-- <rule ref="WordPress-Core" /> -->
+	<!-- <rule ref="WordPress-Docs" /> -->
     <rule ref="WordPress-Extra">
         <exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores" />
         <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />

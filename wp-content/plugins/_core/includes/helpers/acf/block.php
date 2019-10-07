@@ -12,8 +12,7 @@ use function _core\helpers\utils\underscores_to_dashes;
 use function Functional\select_keys;
 
 function create( $args = [] ) {
-
-	if ( ! has_every_key( [ 'name', 'slug', 'fields' ], $args ) ) {
+	if ( ! has_every_key( [ 'label', 'slug', 'fields' ], $args ) ) {
 		return;
 	}
 
@@ -37,7 +36,7 @@ function create( $args = [] ) {
 					'align'    => [], //  full, wide, left, right, center
 					'multiple' => true,
 				],
-				'render_callback' => trailingslashit( __NAMESPACE__ ) . 'render_callback_handler',
+				'render_callback' => __NAMESPACE__ . '\render_callback_handler',
 			],
 			$args
 		)
