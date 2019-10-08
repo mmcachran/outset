@@ -1,6 +1,20 @@
+/**
+ * Fonts
+ * Hosting fonts locally is recommended if possible, for google fonts check out - https://google-webfonts-helper.herokuapp.com/fonts
+ */
+@include font-face('Montserrat', '../../dist/fonts/montserrat-v14-latin-700', 700, normal);
+@include font-face('Montserrat', '../../dist/fonts/montserrat-v14-latin-900', 900, normal);
+@include font-face('Cardo', '../../dist/fonts/cardo-v11-latin-regular', 500, normal, eot woff2 woff);
+@include font-face('Cardo', '../../dist/fonts/cardo-v11-latin-700', 700, normal, eot woff2 woff);
+@include font-face('Cardo', '../../dist/fonts/cardo-v11-latin-italic', 500, italic, eot woff2 woff);
+
+/**
+ * Base Elements
+ */
 body {
-  color: $brand__gray;
-  font-size: 16px;
+  @apply text-dark;
+  @apply text-base;
+  @apply font-base;
   -webkit-font-smoothing: antialiased;
   margin: 0;
 
@@ -9,12 +23,8 @@ body {
   }
 }
 
-
-#wrapper {
-  position: relative;
-}
-
 main {
+  //
 }
 
 h1,
@@ -23,34 +33,36 @@ h3,
 h4,
 h5,
 h6 {
-  color: $brand__gray--dark;
+  @apply font-primary;
   line-height: 1.2;
   margin-bottom: 0.2em;
   margin-top: 0.2em;
 }
 
 h1 {
+  @apply text-3xl;
   margin-top: 0;
+
 }
 
 h2 {
-
+  @apply text-2xl;
 }
 
 h3 {
-
+  @apply text-1xl;
 }
 
 h4 {
-
+  @apply text-lg;
 }
 
 h5 {
-
+  @apply text-md;
 }
 
 h6 {
-
+  @apply text-base;
 }
 
 small {
@@ -63,12 +75,12 @@ p {
 }
 
 a {
-  color: $brand__blue;
+  @apply text-primary;
   text-decoration: underline;
 
   &:focus,
   &:hover {
-    color: $brand__blue;
+    @apply text-primary-dark;
   }
 }
 
@@ -86,27 +98,10 @@ ol {
 
 
 blockquote {
-  color: $brand__gray--dark;
   position: relative;
-
-  &::before {
-    background-color: $brand__dark;
-    content: '';
-    display: block;
-    height: 100%;
-    left: -1em;
-    min-width: 2px;
-    position: absolute;
-    top: 0;
-    width: 0.2em;
-  }
 }
 
 cite {
-  a {
-    color: $brand__gray--dark;
-    text-decoration: none;
-  }
 }
 
 
@@ -124,7 +119,6 @@ hr,
   }
 }
 
-
 figure {
   margin: 0;
 }
@@ -133,7 +127,6 @@ img {
   height: auto;
   max-width: 100%;
 }
-
 
 table,
 th,
@@ -195,7 +188,7 @@ input[type='reset'],
 input[type='button'],
 button {
   // TODO: handle states (e.g. disabled, etc.)
-  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 textarea {
@@ -217,13 +210,17 @@ iframe {
 }
 
 select {
-  background-color: $brand__light;
-  color: $brand__gray;
 }
 
 ::selection {
-  background-color: $brand__gray;
-  color: white;
+}
+
+/**
+ * Some key selectors
+ */
+
+.wrapper {
+  position: relative;
 }
 
 .icon {
@@ -240,4 +237,9 @@ select {
     top: 0;
     width: 100%;
   }
+}
+
+.content {
+  margin: auto;
+  max-width: 40rem;
 }

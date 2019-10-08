@@ -1,16 +1,18 @@
+.custom-block,
 .wp-block-gallery,
 .wp-block-embed,
 .wp-block {
-  &.alignfull,
-  &.alignwide {
+  &.alignfull {
     margin: 2rem calc(50% - 50vw);
     max-width: 100vw;
     width: 100vw;
   }
 
   &.alignwide {
-    margin: 2rem calc((#{$width--normal} - #{$width--wide}) / 2);
-    max-width: $width--wide;
-    width: $width--wide;
+    @include for-tablet__landscape--up {
+      margin: 2rem calc((#{$width--normal} - #{$width--wide}) / 2);
+      max-width: $width--wide;
+      width: $width--wide;
+    }
   }
 }

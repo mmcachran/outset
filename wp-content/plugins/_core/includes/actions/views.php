@@ -25,7 +25,7 @@ function footer( $data ) {
 }
 
 function archive( $data ) {
-	render( 'archive/post_type/default', $data );
+	render( 'archive/post-type/default', $data );
 }
 
 function singular( $data ) {
@@ -34,4 +34,8 @@ function singular( $data ) {
 
 function post( $data ) {
 	render( 'single/post', $data );
+}
+
+function four_oh_four( $data ) {
+	render( 'four-oh-four', $data );
 }

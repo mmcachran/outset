@@ -1,3 +1,10 @@
 .pagination {
+  &__prev ,
+  &__next {
+    padding-left: 0.5em;
+  }
+}
 
+.page-number {
+  padding: 0.25em;
 }

@@ -1,14 +1,14 @@
 {# {{ dump() }} #}
-<header class="header bg-gray-100 py-10">
-        <div class="header__wrapper w-10/12 lg:w-3/4 mx-auto flex flex-wrap justify-between items-center">
-            <section class="header__logo">
-                <a href="{{ urls.home }}">
-                    {% include "svgs/logo.svg" %}
-                </a>
-            </section>
-            <section class="header__menu flex flex-wrap justify-between items-center">
-                {% include "component/social_menu/social_menu.twig" with menus.social only %}
-                {% include "component/menu/menu.twig" with menus.primary only %}
-            </section>
-        </div>
+<header class="header bg-primary-light py-10">
+    <div class="header__wrapper w-10/12 mx-auto flex flex-wrap justify-between items-center">
+        <section class="header__logo">
+            <a href="{{ urls.home }}" class="logo">
+                {% include "svgs/logo.svg" %}
+            </a>
+        </section>
+        <section class="header__menu flex flex-wrap justify-between items-center">
+            {% include "component/social-menu/social-menu.twig" with menus.social only %}
+            {% include "component/menu/menu.twig" with menus.primary only %}
+        </section>
+    </div>
 </header>

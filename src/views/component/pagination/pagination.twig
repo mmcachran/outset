@@ -1,23 +1,28 @@
-{% set base = 'pagination' %}
-<section class="{{ base }}">
+<section class="pagination py-4">
     <div class="container">
-        <div class="{{ base }}__inner">
-            <ul class="{{ base }}__pages">
+        <div class="pagination__inner flex">
+            <ul class="pagination__pages flex">
+                {% if prev %}
+                    <a class="pagination__prev {{ prev.class }}" href="{{ prev.link }}">
+                        <span>Newer</span>
+                    </a>
+                {% endif %}
                 {% for page in pages %}
-                    <li class="{{ base }}__page">
+                    <li class="pagination__page">
                         {% if page.link %}
-                            <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+                            <a href="{{ page.link }}" class="{{ page.class }}">
+                                <span>{{ page.title }}</span>
+                            </a>
                         {% else %}
                             <span class="{{ page.class }}">{{ page.title }}</span>
                         {% endif %}
                     </li>
                 {% endfor %}
             </ul>
-            {% if prev %}
-                <a class={{ prev.class }} href="{{ prev.link }}">Newer</a>
-            {% endif %}
-               {% if next %}
-                <a class={{ next.class }} href="{{ next.link }}">Older</a>
+            {% if next %}
+                <a class="pagination__next {{ next.class }}" href="{{ next.link }}">
+                    <span>Older</span>
+                </a>
             {% endif %}
         </div>
     </div>

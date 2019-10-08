@@ -42,7 +42,7 @@ function create_block_type_args( $args ) {
 			'keywords'        => $args['slug'],
 			'supports'        => [
 				'mode'     => 'auto',
-				'align'    => [], //  full, wide, left, right, center
+				'align'    => [ 'wide', 'full' ], //  full, wide, left, right, center
 				'multiple' => true,
 			],
 			'render_callback' => __NAMESPACE__ . '\render_callback_handler',
@@ -83,7 +83,16 @@ function render_callback_handler( $block, $content = '', $is_preview = false ) {
 				[
 					'base'       => $block['slug'],
 					'is_preview' => $is_preview,
-					'classes'    => has_key( 'className', $block ) ? $block['className'] : '',
+					'classes'    => trim(
+						join(
+							' ',
+							[
+								'custom-block',
+								has_key( 'align', $block ) ? "align{$block['align']}" : null,
+								has_key( 'className', $block ) ? $block['className'] : null,
+							]
+						)
+					),
 				]
 			)
 		)

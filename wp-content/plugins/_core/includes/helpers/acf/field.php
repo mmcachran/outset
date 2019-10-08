@@ -6,6 +6,24 @@ use GravityForm;
 
 use function _core\helpers\utils\merge;
 
+
+function asset_type( $args = [] ) {
+	return merge(
+		[
+			'label'   => __( 'Asset Type', 'core' ),
+			'slug'    => 'asset_type',
+			'type'    => 'button_group',
+			'choices' => [
+				'none'  => 'None',
+				'image' => 'Image',
+				'video' => 'Video',
+			],
+			'default' => 'none',
+		],
+		$args
+	);
+}
+
 function boolean( $args = [] ) {
 	return merge(
 		[
@@ -50,6 +68,17 @@ function heading( $args = [] ) {
 			'label' => __( 'Heading', 'core' ),
 			'slug'  => 'heading',
 			'type'  => 'text',
+		],
+		$args
+	);
+}
+
+function file( $args = [] ) {
+	return merge(
+		[
+			'label' => __( 'File', 'core' ),
+			'slug'  => 'file',
+			'type'  => 'file',
 		],
 		$args
 	);
@@ -387,4 +416,25 @@ function tags( $args = [] ) {
 		],
 		$args
 	);
+}
+
+/**
+ * Basic Conditional logic
+ *
+ * Matching the structure of ACF's deep array structure, which we don't often need.
+ * ...yes, it's silly, but useful.
+ *
+ * @param [type] $condition
+ * @return void
+ */
+function basic_condition( $field, $value, $operator = '==' ) {
+	return [
+		[
+			[
+				'field'    => $field,
+				'operator' => $operator,
+				'value'    => $value,
+			],
+		],
+	];
 }

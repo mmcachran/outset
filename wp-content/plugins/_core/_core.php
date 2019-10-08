@@ -33,8 +33,9 @@ autoloader\simple_glob_require(
 		PATH . 'includes/helpers/acf/*.php',
 		PATH . 'includes/helpers/wp/*.php',
 		PATH . 'includes/actions/*.php',
+		PATH . 'includes/models/*.php',
+		PATH . 'includes/models/blocks/*.php',
 		PATH . 'includes/filters/*.php',
-		PATH . 'includes/filters/views/*.php',
 	]
 );
 
@@ -44,33 +45,42 @@ function run() {
 	/**
 	 * Post Types
 	 */
-	add_filter( '_core/post_types', '_core\filters\post_types\career' );
-	add_filter( '_core/post_types', '_core\filters\post_types\event' );
-	add_filter( '_core/post_types', '_core\filters\post_types\testimonial' );
+	add_filter( '_core/post_types', '_core\models\post_types\career' );
+	add_filter( '_core/post_types', '_core\models\post_types\event' );
+	add_filter( '_core/post_types', '_core\models\post_types\testimonial' );
 	add_action( 'init', '_core\actions\register\post_types' ); // Register post types
 
 	/**
 	 * Taxonomies
 	 */
-	add_filter( '_core/taxonomies', '_core\filters\taxonomies\event' );
-	add_filter( '_core/taxonomies', '_core\filters\taxonomies\location' );
+	add_filter( '_core/taxonomies', '_core\models\taxonomies\event' );
+	add_filter( '_core/taxonomies', '_core\models\taxonomies\location' );
 	add_action( 'init', '_core\actions\register\taxonomies' ); // Register taxonomies
 
 	/**
 	 * Blocks
 	 */
-	add_filter( '_core/blocks', '_core\filters\blocks\cta' );
-	add_filter( '_core/blocks', '_core\filters\blocks\hero_basic' );
-	add_filter( '_core/blocks', '_core\filters\blocks\featurette' );
+	// add_filter( '_core/blocks', '_core\models\blocks\accordion' );
+	// add_filter( '_core/blocks', '_core\models\blocks\basic' );
+	// add_filter( '_core/blocks', '_core\models\blocks\blurbs' );
+	// add_filter( '_core/blocks', '_core\models\blocks\comparison-cards' );
+	add_filter( '_core/blocks', '_core\models\blocks\cta' );
+	// add_filter( '_core/blocks', '_core\models\blocks\featurette' );
+	add_filter( '_core/blocks', '_core\models\blocks\hero_basic' );
+	// add_filter( '_core/blocks', '_core\models\blocks\hero_form' );
+	// add_filter( '_core/blocks', '_core\models\blocks\image_grid' );
+	add_filter( '_core/blocks', '_core\models\blocks\posts' );
+	// add_filter( '_core/blocks', '_core\models\blocks\tabs' );
+	// add_filter( '_core/blocks', '_core\models\blocks\testimonials' );
 	add_action( 'init', '_core\actions\register\blocks' ); // Register blocks
 
 	/**
 	 * Field Groups
 	 */
-	add_filter( '_core/field_groups', '_core\filters\field_groups\career' );
-	add_filter( '_core/field_groups', '_core\filters\field_groups\event' );
-	add_filter( '_core/field_groups', '_core\filters\field_groups\testimonial' );
-	add_filter( '_core/field_groups', '_core\filters\field_groups\social_menu_item' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\career' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\event' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\testimonial' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\social_menu_item' );
 	add_action( 'init', '_core\actions\register\field_groups' ); // Register blocks
 
 	/**
@@ -90,8 +100,11 @@ function run() {
 	add_filter( '_view/global/footer/data', '_core\filters\views\footer' );
 	add_action( '_view/global/footer', '_core\actions\views\footer' );
 
-	add_filter( '_view/archive/post_type/default/data', '_core\filters\views\archive' );
-	add_action( '_view/archive/post_type/default', '_core\actions\views\archive' );
+	add_filter( '_view/four-oh-four', '_core\filters\views\four_oh_four' );
+	add_action( '_view/four-oh-four', '_core\actions\views\four_oh_four' );
+
+	add_filter( '_view/archive/post-type/default/data', '_core\filters\views\archive' );
+	add_action( '_view/archive/post-type/default', '_core\actions\views\archive' );
 
 	add_filter( '_view/singular/default/data', '_core\filters\views\singular' );
 	add_action( '_view/singular/default', '_core\actions\views\singular' );

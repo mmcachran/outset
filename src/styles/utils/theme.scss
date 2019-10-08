@@ -1,9 +1,29 @@
 /* Converted Tailwind Config to scss */
-$tw-fontFamily-display: (Gilroy,sans-serif);
-$tw-fontFamily-body: (Graphik,sans-serif);
+$tw-screens-sm: 640px;
+$tw-screens-md: 768px;
+$tw-screens-lg: 1024px;
+$tw-screens-xl: 1280px;
+$tw-screens-2xl: 1440px;
 
-$tw-colors-blue: blue;
-$tw-colors-red: #de3618;
+$tw-fontFamily-base: (Cardo,sans-serif);
+$tw-fontFamily-primary: (Montserrat,sans-serif);
+
+$tw-fontSize-xs: 0.64em;
+$tw-fontSize-sm: 0.8em;
+$tw-fontSize-base: 1em;
+$tw-fontSize-md: 1.25em;
+$tw-fontSize-lg: 1.563em;
+$tw-fontSize-xl: 1.953em;
+$tw-fontSize-1xl: 2.441em;
+$tw-fontSize-2xl: 3.052em;
+$tw-fontSize-3xl: 3.815em;
+$tw-fontSize-4xl: 4.768em;
+
+$tw-colors-light: #FEFFFF;
+$tw-colors-dark: #17252A;
+$tw-colors-primary-default: #3AAfA9;
+$tw-colors-primary-light: #DEF2F1;
+$tw-colors-primary-dark: #2B7A78;
 $tw-colors-gray-100: #f5f5f5;
 $tw-colors-gray-200: #eeeeee;
 $tw-colors-gray-300: #e0e0e0;
@@ -13,11 +33,6 @@ $tw-colors-gray-600: #757575;
 $tw-colors-gray-700: #616161;
 $tw-colors-gray-800: #424242;
 $tw-colors-gray-900: #212121;
-
-$tw-screens-sm: 640px;
-$tw-screens-md: 768px;
-$tw-screens-lg: 1024px;
-$tw-screens-xl: 1280px;
 
 $tw-spacing-0: 0;
 $tw-spacing-1: 0.25rem;
@@ -39,8 +54,11 @@ $tw-spacing-56: 14rem;
 $tw-spacing-64: 16rem;
 $tw-spacing-px: 1px;
 
-$tw-backgroundColor-blue: blue;
-$tw-backgroundColor-red: #de3618;
+$tw-backgroundColor-light: #FEFFFF;
+$tw-backgroundColor-dark: #17252A;
+$tw-backgroundColor-primary-default: #3AAfA9;
+$tw-backgroundColor-primary-light: #DEF2F1;
+$tw-backgroundColor-primary-dark: #2B7A78;
 $tw-backgroundColor-gray-100: #f5f5f5;
 $tw-backgroundColor-gray-200: #eeeeee;
 $tw-backgroundColor-gray-300: #e0e0e0;
@@ -65,8 +83,11 @@ $tw-backgroundSize-auto: auto;
 $tw-backgroundSize-cover: cover;
 $tw-backgroundSize-contain: contain;
 
-$tw-borderColor-blue: blue;
-$tw-borderColor-red: #de3618;
+$tw-borderColor-light: #FEFFFF;
+$tw-borderColor-dark: #17252A;
+$tw-borderColor-primary-default: #3AAfA9;
+$tw-borderColor-primary-light: #DEF2F1;
+$tw-borderColor-primary-dark: #2B7A78;
 $tw-borderColor-gray-100: #f5f5f5;
 $tw-borderColor-gray-200: #eeeeee;
 $tw-borderColor-gray-300: #e0e0e0;
@@ -120,17 +141,6 @@ $tw-flexGrow-default: 1;
 
 $tw-flexShrink-0: 0;
 $tw-flexShrink-default: 1;
-
-$tw-fontSize-xs: 0.75rem;
-$tw-fontSize-sm: 0.875rem;
-$tw-fontSize-base: 1rem;
-$tw-fontSize-lg: 1.125rem;
-$tw-fontSize-xl: 1.25rem;
-$tw-fontSize-2xl: 1.5rem;
-$tw-fontSize-3xl: 1.875rem;
-$tw-fontSize-4xl: 2.25rem;
-$tw-fontSize-5xl: 3rem;
-$tw-fontSize-6xl: 4rem;
 
 $tw-fontWeight-hairline: 100;
 $tw-fontWeight-thin: 200;
@@ -204,8 +214,6 @@ $tw-margin-40: 10rem;
 $tw-margin-48: 12rem;
 $tw-margin-56: 14rem;
 $tw-margin-64: 16rem;
-$tw-margin-96: 24rem;
-$tw-margin-128: 32rem;
 $tw-margin-auto: auto;
 $tw-margin-px: 1px;
 $tw-margin--1: -0.25rem;
@@ -301,8 +309,11 @@ $tw-padding-56: 14rem;
 $tw-padding-64: 16rem;
 $tw-padding-px: 1px;
 
-$tw-placeholderColor-blue: blue;
-$tw-placeholderColor-red: #de3618;
+$tw-placeholderColor-light: #FEFFFF;
+$tw-placeholderColor-dark: #17252A;
+$tw-placeholderColor-primary-default: #3AAfA9;
+$tw-placeholderColor-primary-light: #DEF2F1;
+$tw-placeholderColor-primary-dark: #2B7A78;
 $tw-placeholderColor-gray-100: #f5f5f5;
 $tw-placeholderColor-gray-200: #eeeeee;
 $tw-placeholderColor-gray-300: #e0e0e0;
@@ -315,8 +326,11 @@ $tw-placeholderColor-gray-900: #212121;
 
 $tw-stroke-current: currentColor;
 
-$tw-textColor-blue: blue;
-$tw-textColor-red: #de3618;
+$tw-textColor-light: #FEFFFF;
+$tw-textColor-dark: #17252A;
+$tw-textColor-primary-default: #3AAfA9;
+$tw-textColor-primary-light: #DEF2F1;
+$tw-textColor-primary-dark: #2B7A78;
 $tw-textColor-gray-100: #f5f5f5;
 $tw-textColor-gray-200: #eeeeee;
 $tw-textColor-gray-300: #e0e0e0;

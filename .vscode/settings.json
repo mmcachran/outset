@@ -15,23 +15,14 @@
     "[json]": {
         "editor.formatOnSave": true,
     },
+    "scss.validate": false, // Because of supporting tailwind
     "[scss]": {
         "editor.formatOnSave": true,
     },
     "[twig]": {
         "editor.formatOnSave": true,
+        "editor.snippetSuggestions": "top"
     },
-    /**
-    * CSS Comb
-    */
-    "csscomb.formatOnSave": true,
-    "csscomb.preset": "csscomb",
-    /**
-    * Prettier
-    */
-    "prettier.disableLanguages": [
-        "javascript"
-    ],
     /**
     * Favorites - https://marketplace.visualstudio.com/items?itemName=kdcro101.favorites
     */
@@ -95,6 +86,9 @@
         "wp"
     ],
     "cSpell.words": [
+        "acf",
+        "alignfull",
+        "antialiased",
         "autoplace",
         "bloginfo",
         "browserslist",
@@ -109,6 +103,8 @@
         "svgs",
         "tailwindcss",
         "trackbacks",
+        "woff",
+        "wordpress",
         "wpinc"
     ],
 }
