@@ -24,7 +24,7 @@ function header( $data ) {
 				'home' => esc_url( get_home_url() ),
 			],
 			'menus' => [
-				'social'  => menu\get( 'social' ),
+				'social'  => menu\get( 'social', [], [ 'icon' ] ),
 				'primary' => menu\get( 'primary' ),
 			],
 		]

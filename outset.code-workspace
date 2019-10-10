@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "src"
+		},
+		{
+			"path": "wp-content/plugins/_core"
+		}
+	],
+	"settings": {
+		"window.title": "Outset - ${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
+		"files.associations": {},
+		"search-node-modules.path": "./wp-content/themes/_view/node_modules"
+	}
+}
