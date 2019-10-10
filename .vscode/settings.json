@@ -24,10 +24,6 @@
         "editor.snippetSuggestions": "top"
     },
     /**
-    * Favorites - https://marketplace.visualstudio.com/items?itemName=kdcro101.favorites
-    */
-    "favorites.storageFilePath": "./.vscode/favorites.json",
-    /**
     * Composer - https://marketplace.visualstudio.com/items?itemName=ikappas.composer
     */
     "composer.executablePath": "/usr/local/bin/composer",
