@@ -61,7 +61,7 @@ function run() {
 	 * Blocks
 	 */
 	add_filter( '_core/blocks', '_core\models\blocks\accordion' );
-	// add_filter( '_core/blocks', '_core\models\blocks\basic' );
+	add_filter( '_core/blocks', '_core\models\blocks\basic' );
 	// add_filter( '_core/blocks', '_core\models\blocks\blurbs' );
 	// add_filter( '_core/blocks', '_core\models\blocks\comparison-cards' );
 	add_filter( '_core/blocks', '_core\models\blocks\cta' );
