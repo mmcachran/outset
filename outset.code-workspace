@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "wp-content/plugins/_core"
+		},
+		{
+			"path": "wp-content/themes/_view"
 		}
 	],
 	"settings": {
