@@ -1,101 +1,16 @@
-{#
-/*
- * Available variables:
- * - heading
- * - subheading
- * - link { url, target, title }
-
- blurbs:
-    colums: 1, 2, or 3,
-    lead_in,
-    icon {src, alt, sizes{}, },
-    heading,
-    content,
-    list [1, text],
-
- modifiers:
-    appearance: light or dark
-    layout: card or flat
-    block.align: full or wide
-
- */
-#}
-
-{% set defaults = {
-
-    heading: '',
-    subheading: '',
-    link: false,
-    blurbs: [
-        {
-            columns: 3,
-            lead_in: '',
-            icon: '',
-            heading: '',
-            content: '',
-            list: '',
-        }
-    ],
-    appearance: 'light',
-    layout: 'flat',
-} %}
-
-{% set heading = heading ?: defaults.heading %}
-{% set subheading = subheading ?: defaults.subheading %}
-{% set link = link ?: defaults.link %}
-{% set blurbs = blurbs ?: defaults.blurbs %}
-{% set appearance = appearance ?: defaults.appearance %}
-{% set layout = layout ?: defaults.layout %}
-
-{% set base = 'Blurbs' %}
-{% set classes = [
-    base~"--"~appearance,
-    base~"--"~layout,
-    base,
-] %}
-
-<section class="{{ classes|join(' ') }}">
-    <div class="container">
-        <div class="{{ base }}__text-wrapper">
-            {% if heading %}
-                <div class="{{ base }}__heading-wrapper">
-                    <h3 class="{{ base }}__heading {{ highlight ? 'font-highlight' : '' }}">{{ heading }}</h3>
-                </div>
-            {% endif %}
-            {% if subheading %}
-                <div class="{{ base }}__subheading">{{ subheading }}</div>
-            {% endif %}
-            {% if link %}
-                {% include 'Components/Button/ButtonPrimary.twig' with {
-                    link: link,
-                    appearance: 'light',
-                } only %}
-            {% endif %}
+<section>
+    <header class="blurbs-heading">
+        <h3>{{ heading }}</h3>
+        <div class="blurbs-heading__content">
+            {{ content }}
         </div>
-        <div
-                class="{{ base }}__blurb-wrapper"
-        >
-            {% if layout == 'flat' %}
-                {% include "Blocks/Blurbs/Flat.twig" with {
-                    blurbs: blurbs,
-                    layout: layout,
-                    base: base,
-                } only %}
-            {% endif %}
-            {% if layout == 'card' %}
-                {% include "Blocks/Blurbs/Card.twig" with {
-                    blurbs: blurbs,
-                    layout: layout,
-                    base: base,
-                } only %}
-            {% endif %}
-            {% if layout == 'post' %}
-                {% include "Blocks/Blurbs/Card.twig" with {
-                    blurbs: blurbs,
-                    layout: layout,
-                    base: base,
-                } only %}
-            {% endif %}
-        </div>
+    </header>
+    <div class="blurbs__items">
+        {% for item in blurbs %}
+            <article class="blurbs__item">
+                <h4 class="blurbs__title">{{ item.heading }}</h4>
+                <div class="blurbs__content"></div>
+            </article>
+        {% endfor %}
     </div>
 </section>
