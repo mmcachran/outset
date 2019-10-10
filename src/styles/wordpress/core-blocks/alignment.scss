@@ -9,10 +9,8 @@
   }
 
   &.alignwide {
-    @include for-tablet__landscape--up {
-      margin: 2rem calc((#{$width--normal} - #{$width--wide}) / 2);
-      max-width: $width--wide;
-      width: $width--wide;
-    }
+    left: -10vw;
+    position: relative;
+    width: calc(100% + 20vw);
   }
 }
