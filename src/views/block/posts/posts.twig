@@ -1,29 +1,3 @@
-{% set base = 'Posts' %}
-{% set classes = [
-    base~"--"~appearance,
-    base~"--"~layout,
-    base,
-] %}
-<div class="{{ base }}__wrapper {{ appearance }}">
-    <section class="{{ classes|join(' ') }}">
-        <div class="{{ base }}__intro">
-            {% if heading %}
-                <h3 class="{{ base }}__title">{{ heading }}</h3>
-            {% endif %}
-            {% if content %}
-                <div class="{{ base }}__content">{{ content }}</div>
-            {% endif %}
-        </div>
-        <div class="{{ base }}__list">
-            {% for post in posts %}
-                {% include "Components/SinglePreview/SinglePreview.twig" with {
-                    layout: layout,
-                    title: post.title,
-                    excerpt: post.excerpt,
-                    image: post.image,
-                    link: post.link,
-                } only %}
-            {% endfor %}
-        </div>
-    </section>
-</div>
+<section class="posts {{ classes }}">
+    <h1>Posts</h1>
+</section>

@@ -15,6 +15,24 @@ function featurette( $blocks ) {
 			'icon'        => 'laptop',
 			'keywords'    => [ 'featurette', 'custom' ],
 			'fields'      => [
+				field\asset_type(
+					[
+						'label' => __( 'Background', 'core' ),
+						'slug'  => 'type',
+					]
+				),
+				field\image(
+					[
+						'slug'              => 'background_image',
+						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'image' ),
+					]
+				),
+				field\file(
+					[
+						'slug'              => 'background_video',
+						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'video' ),
+					]
+				),
 				field\heading(),
 				field\content(),
 			],

@@ -33,6 +33,7 @@ function cta( $blocks ) {
 						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'video' ),
 					]
 				),
+				field\lead_in(),
 				field\heading(),
 				field\content(),
 			],

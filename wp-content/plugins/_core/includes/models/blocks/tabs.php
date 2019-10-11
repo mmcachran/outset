@@ -5,15 +5,15 @@ namespace _core\models\blocks;
 use _core\helpers\field;
 use function _core\helpers\utils\push;
 
-function comparison_cards( $blocks ) {
+function tabs( $blocks ) {
 	return push(
 		$blocks,
 		[
-			'slug'        => 'comparison-cards',
-			'label'       => __( 'Comparison Cards', 'core' ),
-			'description' => __( 'The Comparison Cards Block', 'core' ),
+			'slug'        => 'tabs',
+			'label'       => __( 'Tabs', 'core' ),
+			'description' => __( 'The Tabs Block', 'core' ),
 			'icon'        => 'laptop',
-			'keywords'    => [ 'comparison', 'cards', 'custom' ],
+			'keywords'    => [ 'tabs', 'custom' ],
 			'fields'      => [
 				field\heading(),
 				field\content(),

@@ -10,8 +10,8 @@ function hero_form( $blocks ) {
 		$blocks,
 		[
 			'slug'        => 'hero-form',
-			'label'       => __( 'Hero (basic)', 'core' ),
-			'description' => __( 'A simple hero block', 'core' ),
+			'label'       => __( 'Hero (form)', 'core' ),
+			'description' => __( 'A hero block with an embedded form', 'core' ),
 			'icon'        => 'laptop',
 			'keywords'    => [ 'hero', 'custom' ],
 			'fields'      => [

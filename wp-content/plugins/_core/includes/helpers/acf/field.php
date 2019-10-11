@@ -2,10 +2,10 @@
 
 namespace _core\helpers\field;
 
-use GravityForm;
-
+use _core\helpers\query;
 use function _core\helpers\utils\merge;
-
+use function _view\utils\has_key;
+use function Functional\select_keys;
 
 function asset_type( $args = [] ) {
 	return merge(
@@ -44,7 +44,6 @@ function boolean( $args = [] ) {
 }
 
 function categories( $args = [] ) {
-
 	return merge(
 		[
 			'slug'          => 'categories',
@@ -73,6 +72,17 @@ function heading( $args = [] ) {
 	);
 }
 
+function lead_in( $args = [] ) {
+	return merge(
+		[
+			'label' => __( 'Lead In', 'core' ),
+			'slug'  => 'lead_in',
+			'type'  => 'text',
+		],
+		$args
+	);
+}
+
 function file( $args = [] ) {
 	return merge(
 		[
@@ -90,6 +100,17 @@ function subheading( $args = [] ) {
 			'label' => __( 'Subheading', 'core' ),
 			'slug'  => 'subheading',
 			'type'  => 'text',
+		],
+		$args
+	);
+}
+
+function description( $args = [] ) {
+	return merge(
+		[
+			'label' => __( 'Description', 'core' ),
+			'slug'  => 'description',
+			'type'  => 'textarea',
 		],
 		$args
 	);
@@ -240,8 +261,9 @@ function post_object( $args = [] ) {
 	return merge(
 		[
 			'label'     => __( 'Post', 'core' ),
-			'slug'      => 'post',
+			'slug'      => 'post_object',
 			'type'      => 'post_object',
+			'multiple'  => true,
 			'post_type' => [
 				'post',
 			],
@@ -301,7 +323,7 @@ function forms( $args = [] ) {
 			'label'   => __( 'Form', 'core' ),
 			'slug'    => 'form',
 			'type'    => 'select',
-			'choices' => class_exists( GravityForm::class ) ? GravityForms::get_forms_list_for_acf_options() : [],
+			'choices' => [],
 		],
 		$args
 	);
@@ -437,4 +459,24 @@ function basic_condition( $field, $value, $operator = '==' ) {
 			],
 		],
 	];
+}
+
+function post_types( $args = [] ) {
+
+	// TODO: consider refactoring to something like Functional/reindex
+	$all_post_types = [];
+
+	foreach ( query\post_types() as $post_type ) {
+		$all_post_types[ $post_type->name ] = $post_type->label;
+	};
+
+	return merge(
+		[
+			'label'   => __( 'Post Type', 'core' ),
+			'slug'    => 'post_types',
+			'type'    => 'select',
+			'choices' => has_key( 'post_types', $args ) ? select_keys( $all_post_types, $args['post_types'] ) : $all_post_types,
+		],
+		$args
+	);
 }

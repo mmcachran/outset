@@ -15,26 +15,31 @@ function posts( $blocks ) {
 			'icon'        => 'laptop',
 			'keywords'    => [ 'posts', 'custom' ],
 			'fields'      => [
-				field\asset_type(
-					[
-						'label' => __( 'Background', 'core' ),
-						'slug'  => 'type',
-					]
-				),
-				field\image(
-					[
-						'slug'              => 'background_image',
-						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'image' ),
-					]
-				),
-				field\file(
-					[
-						'slug'              => 'background_video',
-						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'video' ),
-					]
-				),
 				field\heading(),
-				field\content(),
+				field\description(),
+				field\post_types(
+					[
+						'post_types' => [ 'post', 'event' ],
+					]
+				),
+				field\post_object(
+					[
+						'label'             => __( 'Select Posts', 'core' ),
+						'instructions'      => __( 'Optional, will default to most recent.', 'core' ),
+						'conditional_logic' => field\basic_condition( 'posts/post_types', 'post' ),
+						'slug'              => 'posts',
+						'post_type'         => 'post',
+					]
+				),
+				field\post_object(
+					[
+						'label'             => __( 'Select Events', 'core' ),
+						'instructions'      => __( 'Optional, will default to most recent.', 'core' ),
+						'conditional_logic' => field\basic_condition( 'posts/post_types', 'event' ),
+						'slug'              => 'events',
+						'post_type'         => 'event',
+					]
+				),
 			],
 		]
 	);
