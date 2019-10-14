@@ -2,9 +2,9 @@
 
 ### Project Details
 * __Local:__ `outset.test`
-* __Development:__ `outset.wpengine.com`
-* __Staging:__ `outsetstag.wpengine.com`
-* __Production:__ `outsetprod.wpengine.com`
+* __Development:__ `outset.example.com`
+* __Staging:__ `outsetstag.example.com`
+* __Production:__ `outsetprod.example.com`
 
 ### Intro
 Welcome to a heavily opinionated MVC-ish Twig based WordPress build that balances ACF flexible content layouts while balancing the new WordPress block based editor ("Gutenberg").
@@ -25,10 +25,6 @@ Helpful info on getting a local development set up.
 * Run `composer run-script setup`
     * Will install plugins
 
-#### Body Attributes
-* `data-scroll-enabled`
-* Used for disabling scollingQ
-
 ## Post Types
 * Posts
 * Pages
@@ -48,3 +44,37 @@ Helpful info on getting a local development set up.
 * Posts
 * Tabs
 * Testimonials
+
+## Actions
+### Model Registrations
+* `_core/post_types`
+* `_core/taxonomies`
+* `_core/blocks`
+* `_core/field_groups`
+* `_core/option_pages`
+### Globals
+* `_view/global/head`
+* `_view/global/header`
+* `_view/global/footer`
+### Template Hierarchy
+* `_view/index`
+* `_view/archive/post-type/default`
+* `_view/singular/default`
+* `_view/single/post`
+* `_view/four-oh-four`
+### Blocks
+* uses render callback directly
+
+## Filters
+### Globals
+* `_view/global/head/data`
+* `_view/global/header/data`
+* `_view/global/footer/data`
+### Template Hierarchy
+* `_view/index/data`
+* `_view/archive/post-type/default/data`
+* `_view/singular/default/data`
+* `_view/single/post/data`
+* `_view/four-oh-four/data`
+### Blocks
+* `_view/block/$block-name/data`
