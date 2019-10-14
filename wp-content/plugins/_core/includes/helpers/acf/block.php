@@ -42,7 +42,7 @@ function create_block_type_args( $args ) {
 			'keywords'        => $args['slug'],
 			'supports'        => [
 				'mode'     => 'auto',
-				'align'    => [ 'wide', 'full' ], //  full, wide, left, right, center
+				'align'    => [ 'full' ], // string or array [full, wide, left, right, center]
 				'multiple' => true,
 			],
 			'render_callback' => __NAMESPACE__ . '\render_callback_handler',

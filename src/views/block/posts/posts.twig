@@ -3,15 +3,19 @@
     <div class="posts__wrapper">
         <h3 class="posts__title">{{ heading }}</h3>
         <div class="posts__description">{{ content }}</div>
-        <div class="posts__list">
+        <div class="posts__list flex flex-wrap w-10/12 m-auto">
             {% if 'event' == post_type %}
                 {% for event in events %}
-                    {% include 'component/preview/preview.twig' with event only %}
+                    <div class="w-full md:w-1/2 lg:w-1/3">
+                        {% include 'component/preview/preview.twig' with event only %}
+                    </div>
                 {% endfor %}
             {% endif %}
             {% if 'post' == post_type %}
                 {% for post in posts %}
-                    {% include 'component/preview/preview.twig' with post only %}
+                    <div class="w-full md:w-1/2 lg:w-1/3">
+                        {% include 'component/preview/preview.twig' with post only %}
+                    </div>
                 {% endfor %}
             {% endif %}
         </div>
