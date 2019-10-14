@@ -8,6 +8,7 @@ namespace _core\filters\block_editor;
  * @param [type] $can_edit
  * @param [type] $post_type
  * @return bool
+ * @since 1.0.0
  */
 function enable_by_post_type( $can_edit, $post_type ) {
 	if ( in_array( $post_type, [ 'post', 'page' ], true ) ) {
