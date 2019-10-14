@@ -9,6 +9,10 @@ use function Functional\map;
 use function Functional\select_keys;
 
 function simplify_menu_items( $menu_items, $menu_item_fields ) {
+	if (! \is_array($menu_items)) {
+		return $menu_items;
+	}
+
 	return map(
 		$menu_items,
 		function( $item ) use ( $menu_item_fields ) {
