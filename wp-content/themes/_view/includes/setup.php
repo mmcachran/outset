@@ -24,6 +24,7 @@ function menus() {
 	register_nav_menus(
 		[
 			'primary' => 'Primary',
+			'secondary' => 'Secondary',
 			'footer'  => 'Footer',
 			'social'  => 'Social',
 		]

@@ -1,5 +1,5 @@
 {# {{ dump() }} #}
-<header class="header bg-primary-light py-10">
+<header class="header w-full bg-primary-light py-5 sticky top-0 z-40">
     <div class="header__wrapper w-10/12 mx-auto flex flex-wrap justify-between items-center">
         <section class="header__logo">
             <a href="{{ urls.home }}" class="logo">
@@ -7,8 +7,26 @@
             </a>
         </section>
         <section class="header__menu flex flex-wrap justify-between items-center">
-            {% include "component/social-menu/social-menu.twig" with menus.social only %}
-            {% include "component/menu/menu.twig" with menus.primary only %}
+            <div class="header__menu--desktop hidden lg:flex flex-wrap justify-between items-center">
+                {% include "component/menu/menu.twig" with menus.primary only %}
+                {% include "component/menu/menu.twig" with menus.secondary only %}
+            </div>
+
+            <div aria-hidden="true" class="header__menu--mobile lg:hidden flex flex-col absolute top-0 right-0 z-50 h-100 w-full max-w-md bg-primary">
+                <button class="header__menu_toggle menu_toggle p-5 self-end" data-action="close">
+                    <svg class="icon h-10 w-10">
+                        <use xlink:href="#icon-times"/>
+                    </svg>
+                </button>
+                {% include "component/menu/menu.twig" with menus.primary only %}
+                {% include "component/menu/menu.twig" with menus.secondary only %}
+            </div>
+
+            <button class="lg:hidden header__menu_toggle menu_toggle" data-action="open">
+                <svg class="icon h-10 w-10">
+                    <use xlink:href="#icon-bars"/>
+                </svg>
+            </button>
         </section>
     </div>
 </header>

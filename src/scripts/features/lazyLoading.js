@@ -16,4 +16,4 @@ function lazyLoading() {
   pictureObserver.observe();
 }
 
-export { lazyLoading };
+export default lazyLoading;

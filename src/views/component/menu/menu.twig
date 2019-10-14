@@ -1,13 +1,16 @@
-{# {{dump()}} #}
-{% if items %}
-    <ul class="menu flex flex-wrap">
-        {% for item in items %}
-            {% include "component/menu-item/menu-item.twig" with item only %}
-            <ul class="">
-                {% for child in item.children %}
-                    {% include "component/menu-item/menu-item.twig" with child only %}
-                {% endfor %}
-            </ul>
-        {% endfor %}
-    </ul>
-{% endif %}
+{% set classes = classes ?: [
+  'flex',
+] %}
+  
+<ul class="{{ classes|join(' ') }} {{ base ?: 'menu' }}__list menu">
+    {% for item in items %}
+        {% include "component/menu-item/menu-item.twig" with {
+          title: item.title ?: '',
+          url: item.url ?: '',
+          target: item.target ?: '',
+          items: item.items ?: [],
+          icon: item.icon ?: false,
+          base: base,
+        } only %}
+    {% endfor %}
+</ul>
