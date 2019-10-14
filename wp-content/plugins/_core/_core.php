@@ -111,4 +111,10 @@ function run() {
 
 	add_filter( '_view/single/post/data', '_core\filters\views\singular' );
 	add_action( '_view/single/post', '_core\actions\views\post' );
+
+	/**
+	 * ACF Customizations
+	 */
+	add_filter( 'acf/fields/wysiwyg/toolbars', '_core\filters\wysiwyg\acf' );
+	add_filter( 'tiny_mce_before_init', '_core\filters\wysiwyg\wp' );
 }
