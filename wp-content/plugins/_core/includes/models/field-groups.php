@@ -54,7 +54,6 @@ function social_menu_item( $field_groups ) {
 	);
 }
 
-
 function event( $field_groups ) {
 	$post_type = get_post_type_object( 'event' );
 
@@ -65,6 +64,30 @@ function event( $field_groups ) {
 			'name'     => __( 'Additional Information', 'core' ),
 			'fields'   => [
 				field\text(),
+			],
+			'position' => 'side',
+			'location' => location\post_type( $post_type->name ),
+		]
+	);
+}
+
+function page( $field_groups ) {
+	$post_type = get_post_type_object( 'page' );
+
+	return push(
+		$field_groups,
+		[
+			'slug'     => $post_type->name,
+			'name'     => __( 'Header Options', 'core' ),
+			'fields'   => [
+				field\button_group([
+					'label' => 'Header Style',
+					'slug' => 'header_style',
+					'choices' => [
+						'light' => 'Light',
+						'transparent' => 'Transparent'
+					]
+				]),
 			],
 			'position' => 'side',
 			'location' => location\post_type( $post_type->name ),

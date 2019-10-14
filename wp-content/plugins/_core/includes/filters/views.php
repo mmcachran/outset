@@ -17,12 +17,15 @@ function head( $data ) {
 }
 
 function header( $data ) {
+	global $post;
+
 	return merge(
 		$data,
 		[
 			'urls'  => [
 				'home' => esc_url( get_home_url() ),
 			],
+			'header_style' => $post ? get_post_meta($post->ID, 'header_style', true) : 'light',
 			'menus' => [
 				'secondary'  => menu\get( 'secondary', [], [ 'icon' ] ),
 				'primary' => menu\get( 'primary', [], [ 'icon' ] ),

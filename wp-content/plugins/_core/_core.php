@@ -92,6 +92,7 @@ function run() {
 	/**
 	 * Field Groups
 	 */
+	add_filter( '_core/field_groups', '_core\models\field_groups\page' );
 	add_filter( '_core/field_groups', '_core\models\field_groups\career' );
 	add_filter( '_core/field_groups', '_core\models\field_groups\event' );
 	add_filter( '_core/field_groups', '_core\models\field_groups\testimonial' );

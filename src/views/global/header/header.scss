@@ -1,4 +1,14 @@
 .header {
+  margin-bottom: -100%;
+
+  .admin-bar & {
+    top: 32px;
+  }
+
+  &--light {
+    background: $tw-colors-light;
+  }
+
   a {
     text-decoration: none;
     @apply font-primary;
