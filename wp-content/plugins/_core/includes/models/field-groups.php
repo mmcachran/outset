@@ -15,28 +15,16 @@ function testimonial( $field_groups ) {
 			'slug'     => $post_type->name,
 			'name'     => __( 'Additional Information', 'core' ),
 			'fields'   => [
-				field\text(),
-				field\repeater(
+				field\text(
 					[
-						'sub_fields' => [
-							field\text(),
-							field\repeater(
-								[
-									'conditional_logic' => [
-										[
-											[
-												'field'    => 'testimonial/items/text',
-												'operator' => '==',
-												'value'    => 'more',
-											],
-										],
-									],
-									'sub_fields'        => [
-										field\text(),
-									],
-								]
-							),
-						],
+						'label' => __( 'Location', 'core' ),
+						'slug'  => 'location',
+					]
+				),
+				field\text(
+					[
+						'label' => __( 'Position', 'core' ),
+						'slug'  => 'position',
 					]
 				),
 			],
@@ -92,9 +80,12 @@ function career( $field_groups ) {
 			'slug'     => $post_type->name,
 			'name'     => __( 'Additional Information', 'core' ),
 			'fields'   => [
-				field\text(),
-				field\content(),
-				field\image(),
+				field\text(
+					[
+						'label' => __( 'Location', 'core' ),
+						'slug'  => 'location',
+					]
+				),
 			],
 			'position' => 'side',
 			'location' => location\post_type( $post_type->name ),

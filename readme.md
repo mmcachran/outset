@@ -14,23 +14,6 @@ Welcome to a heavily opinionated MVC-ish Twig based WordPress build that balance
 * Composer
 * WP CLI
 
-#### Body Attributes
-* `data-scroll-enabled`
-    * Used for disabling scolling
-
-### Timber
-Please note the custom Twig/Timber functions available in `wp-content/themes/view/classes/Timber/CustomFunctions.php`
-
-#### Notable Functions:
-* `svg_inline`
-    * Usage `svg_inline('logo')`
-    * Will look for SVG files in `dist/svgs`
-* `menu`
-    * Just a wrapper for `wp_nav_menu`
-* `site`
-    * Usage `site('url')`
-    * Wrapper for `get_bloginfo`
-
 ### Getting started
 Helpful info on getting a local development set up.
 * Rename `.env.example` to `.env`
@@ -42,10 +25,15 @@ Helpful info on getting a local development set up.
 * Run `composer run-script setup`
     * Will install plugins
 
+#### Body Attributes
+* `data-scroll-enabled`
+* Used for disabling scollingQ
+
 ## Post Types
 * Posts
 * Pages
 * Testimonials
+* Careers
 
 ## Blocks
 * Accordion
@@ -58,4 +46,5 @@ Helpful info on getting a local development set up.
 * Hero Form
 * Image Grid
 * Posts
+* Tabs
 * Testimonials

@@ -16,8 +16,8 @@ function posts( $blocks ) {
 			'keywords'    => [ 'posts', 'custom' ],
 			'fields'      => [
 				field\heading(),
-				field\description(),
-				field\post_types(
+				field\content(),
+				field\post_type(
 					[
 						'post_types' => [ 'post', 'event' ],
 					]
@@ -26,7 +26,7 @@ function posts( $blocks ) {
 					[
 						'label'             => __( 'Select Posts', 'core' ),
 						'instructions'      => __( 'Optional, will default to most recent.', 'core' ),
-						'conditional_logic' => field\basic_condition( 'posts/post_types', 'post' ),
+						'conditional_logic' => field\basic_condition( 'posts/post_type', 'post' ),
 						'slug'              => 'posts',
 						'post_type'         => 'post',
 					]
@@ -35,7 +35,7 @@ function posts( $blocks ) {
 					[
 						'label'             => __( 'Select Events', 'core' ),
 						'instructions'      => __( 'Optional, will default to most recent.', 'core' ),
-						'conditional_logic' => field\basic_condition( 'posts/post_types', 'event' ),
+						'conditional_logic' => field\basic_condition( 'posts/post_type', 'event' ),
 						'slug'              => 'events',
 						'post_type'         => 'event',
 					]

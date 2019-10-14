@@ -4,9 +4,7 @@ namespace _core\helpers\post;
 
 use _core\helpers\image;
 use _core\helpers\taxonomy;
-use function _core\helpers\utils\merge;
 use function Functional\map;
-use function Functional\select_keys;
 
 function simplify( $post = [] ) {
 	return [

@@ -1,3 +1,19 @@
+{# {{dump()}} #}
 <section class="posts {{ classes }}">
-    <h1>Posts</h1>
+    <div class="posts__wrapper">
+        <h3 class="posts__title">{{ heading }}</h3>
+        <div class="posts__description">{{ content }}</div>
+        <div class="posts__list">
+            {% if 'event' == post_type %}
+                {% for event in events %}
+                    {% include 'component/preview/preview.twig' with event only %}
+                {% endfor %}
+            {% endif %}
+            {% if 'post' == post_type %}
+                {% for post in posts %}
+                    {% include 'component/preview/preview.twig' with post only %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 </section>

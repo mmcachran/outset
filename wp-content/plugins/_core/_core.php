@@ -36,6 +36,7 @@ autoloader\simple_glob_require(
 		PATH . 'includes/models/*.php',
 		PATH . 'includes/models/blocks/*.php',
 		PATH . 'includes/filters/*.php',
+		PATH . 'includes/filters/blocks/*.php',
 	]
 );
 
@@ -61,18 +62,32 @@ function run() {
 	 * Blocks
 	 */
 	add_filter( '_core/blocks', '_core\models\blocks\accordion' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\basic' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\blurbs' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\comparison_cards' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\cta' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\featurette' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\hero_basic' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\hero_form' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\image_grid' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\posts' );
+	add_filter( '_view/block/posts/data', '_core\filters\blocks\posts' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\tabs' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\testimonials' );
-	add_action( 'init', '_core\actions\register\blocks' ); // Register blocks
+
+	// Register blocks
+	add_action( 'init', '_core\actions\register\blocks' );
 
 	/**
 	 * Field Groups
@@ -117,4 +132,14 @@ function run() {
 	 */
 	add_filter( 'acf/fields/wysiwyg/toolbars', '_core\filters\wysiwyg\acf' );
 	add_filter( 'tiny_mce_before_init', '_core\filters\wysiwyg\wp' );
+
+	/**
+	 * Blocks Editor Customizations
+	 */
+	add_filter( 'use_block_editor_for_post_type', '_core\filters\block_editor\enable_by_post_type', 10, 2 );
+
+	/**
+	 * Misc
+	 */
+	add_filter( 'enter_title_here', '_core\filters\misc\customize_title' );
 }

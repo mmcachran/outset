@@ -260,11 +260,12 @@ function image( $args = [] ) {
 function post_object( $args = [] ) {
 	return merge(
 		[
-			'label'     => __( 'Post', 'core' ),
-			'slug'      => 'post_object',
-			'type'      => 'post_object',
-			'multiple'  => true,
-			'post_type' => [
+			'label'         => __( 'Post', 'core' ),
+			'slug'          => 'post_object',
+			'type'          => 'post_object',
+			'multiple'      => true,
+			'return_format' => 'id',
+			'post_type'     => [
 				'post',
 			],
 		],
@@ -461,7 +462,7 @@ function basic_condition( $field, $value, $operator = '==' ) {
 	];
 }
 
-function post_types( $args = [] ) {
+function post_type( $args = [] ) {
 
 	// TODO: consider refactoring to something like Functional/reindex
 	$all_post_types = [];
@@ -473,7 +474,7 @@ function post_types( $args = [] ) {
 	return merge(
 		[
 			'label'   => __( 'Post Type', 'core' ),
-			'slug'    => 'post_types',
+			'slug'    => 'post_type',
 			'type'    => 'select',
 			'choices' => has_key( 'post_types', $args ) ? select_keys( $all_post_types, $args['post_types'] ) : $all_post_types,
 		],
