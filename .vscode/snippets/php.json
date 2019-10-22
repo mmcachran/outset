@@ -1,0 +1,10 @@
+{
+    "Var_Dump": {
+        "prefix": "var",
+        "body": [
+            "var_dump($1);",
+            "$2"
+        ],
+        "description": "var_dump"
+    }
+}

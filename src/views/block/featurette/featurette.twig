@@ -1,0 +1,73 @@
+{#
+/**
+ * Available variables:
+ * - image { url, alt }
+ * - heading
+ * - content
+ * - link { url, target, title}
+ */
+#}
+
+{% set defaults = {
+    image: '',
+    heading: '',
+    subheading: '',
+    content: '',
+    link: {
+        target: '_blank',
+        title: 'Learn More',
+        url: '#',
+    },
+} %}
+
+{% set image = image ?: defaults.image %}
+{% set heading = heading ?: defaults.heading %}
+{% set subheading = subheading ?: defaults.subheading %}
+{% set content = content ?: defaults.content %}
+{% set link = link ?: default.link %}
+
+{# selects different layout for image #}
+{% if image %}
+    {% set layout = 'image-layout' %}
+{% endif %}
+
+{% set base = 'Featurette' %}
+{% set classes = [
+    base~'--'~alignment,
+    base~'--'~block.align,
+    base
+] %}
+
+<section class="{{ classes|join(' ') }}">
+    <div class="container">
+        <div class="{{ base }}__wrapper">
+            {% if image.url %}
+                <div class="{{ base }}__primary">
+                    <figure class="{{ base }}__image object-fit">
+                        <img src="{{ image.url }}" alt="{{ image.alt }}">
+                    </figure>
+                </div>
+            {% endif %}
+            <div class="{{ base }}__secondary">
+                <h3 class="{{ base }}__heading">{{ heading }}</h3>
+                {% if subheading %}
+                    <h4 class="{{ base }}__subheading">{{ subheading }}</h4>
+                {% endif %}
+                <div class="{{ base }}__content">{{ content }}</div>
+                {% if link %}
+                    {% if alignment == 'right' %}
+                        {% include 'Components/Button/ButtonPrimary.twig' with {
+                            link: link,
+                            appearance: 'dark-inverse',
+                        } only %}
+                    {% else %}
+                        {% include 'Components/Button/ButtonSecondary.twig' with {
+                            link: link,
+                            appearance: 'dark',
+                        } only %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

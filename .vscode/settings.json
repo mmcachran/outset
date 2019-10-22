@@ -1,0 +1,107 @@
+{
+    /**
+    * VS Code General
+    */
+    "window.title": "Outset - ${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
+    "files.associations": {},
+    "files.exclude": {
+        "starter-files/*": true,
+        "**/*.lock": true,
+    },
+    "editor.formatOnSaveTimeout": 2000,
+    "[php]": {
+        "editor.formatOnSave": true,
+    },
+    "[json]": {
+        "editor.formatOnSave": true,
+    },
+    "scss.validate": false, // Because of supporting tailwind
+    "[scss]": {
+        "editor.formatOnSave": true,
+    },
+    "[twig]": {
+        "editor.formatOnSave": true,
+        "editor.snippetSuggestions": "top"
+    },
+    /**
+    * Composer - https://marketplace.visualstudio.com/items?itemName=ikappas.composer
+    */
+    "composer.executablePath": "/usr/local/bin/composer",
+    /**
+    * PHP Sniffer & Beautifier - https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab
+    */
+    "phpsab.standard": "./.phpcs.xml",
+    "phpsab.snifferMode": "onType",
+    "phpsab.snifferTypeDelay": 400,
+    "phpsab.executablePath": "./vendor/bin",
+    "phpsab.snifferShowSources": true,
+    "phpsab.fixerEnable": true,
+    /**
+    * PHPCS - https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs
+    */
+    "phpcs.standard": "./phpcs.xml",
+    /**
+    * Search Node modules vscode - https://marketplace.visualstudio.com/items?itemName=jasonnutter.search-node-modules
+    */
+    "search-node-modules.path": "./wp-content/themes/_view/node_modules",
+    /**
+    * ESLint
+    */
+    "eslint.options": {
+        "configFile": "./.eslintrc"
+    },
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+        {
+            "language": "javascript",
+            "autoFix": true
+        },
+        {
+            "language": "javascriptreact",
+            "autoFix": true
+        },
+    ],
+    "eslint.workingDirectories": [
+        "./wp-content/themes/_view",
+        "./wp-content/plugins/_core",
+    ],
+    /**
+    * Spelling
+    */
+    "cSpell.ignoreWords": [
+        "autoloader",
+        "enqueues",
+        "gulpif",
+        "kses",
+        "phpcs",
+        "post",
+        "pyxl",
+        "simple",
+        "stylelint",
+        "trailingslashit",
+        "wp"
+    ],
+    "cSpell.words": [
+        "acf",
+        "alignfull",
+        "alignwide",
+        "antialiased",
+        "autoplace",
+        "bloginfo",
+        "browserslist",
+        "full",
+        "fullhuman",
+        "get",
+        "hubspot",
+        "lozad",
+        "metaboxes",
+        "purgecss",
+        "squiz",
+        "svgs",
+        "tailwindcss",
+        "trackbacks",
+        "woff",
+        "wordpress",
+        "wpinc"
+    ],
+}

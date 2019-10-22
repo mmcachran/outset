@@ -1,0 +1,68 @@
+{#
+/**
+ * Available variables:
+ * - heading
+ * - content
+ * - tabs { 'title', content }
+ */
+#}
+{% set defaults = {
+    image: '',
+    heading: '',
+    tabs: {
+        title: 'Click Here',
+        content: 'Lorem Ipsum',
+    },
+    active: '',
+} %}
+
+{% set image = image ?: defaults.image %}
+{% set heading = heading ?: defaults.heading %}
+{% set tabs = tabs ?: defaults.tabs %}
+
+{# selects different layout for image #}
+{% if image %}
+    {% set layout = 'image-layout' %}
+{% endif %}
+
+{% set base = 'Tabs' %}
+{% set classes = [
+    base~'--'~layout,
+    base
+] %}
+<section class="{{ classes|join(' ') }}">
+    <div class="container">
+        <div class="{{ base }}__primary">
+            <h3 class="{{ base }}__heading">{{ heading }}</h3>
+            <div class="{{ base }}__content">{{ content }}</div>
+        </div>
+        <div class="{{ base }}__secondary">
+            {% for i, tab in tabs %}
+                {% if tab.title %}
+                    {% set active = i == 0 %}
+                    <button
+                        class="{{ base }}__tab-title"
+                        data-tab="{{ tab.title|lower|replace(' ', '_') }}"
+                        aria-selected={{ active ? 'true' : 'false' }}
+                    >
+                        {{ tab.title }}
+                    </button>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="{{ base }}__tertiary">
+            {% for i, tab in tabs %}
+                {% if tab.content %}
+                    {% set active = i == 0 %}
+                    <div
+                        class="{{ base }}__tab-content" 
+                        data-tab="{{ tab.title|lower|replace(' ', '_') }}"
+                        aria-expanded={{ active ? 'true' : 'false' }}
+                    >
+                        {{ tab.content }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

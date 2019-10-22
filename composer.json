@@ -3,8 +3,12 @@
   "description": "Site version & installation configuration",
   "authors": [
     {
+      "name": "Pyxl",
+      "email": "development@pyxl.com"
+    },
+    {
       "name": "Michael Mizner",
-      "email": "mmizner@pyxl.com"
+      "email": "mike@mizner.io"
     }
   ],
   "config": {
@@ -33,61 +37,48 @@
       "url": "https://composer.deliciousbrains.com/3998821A01BD70FAD9531E70B4F5EE17"
     },
     {
-      "type": "vcs",
-      "url": "https://bitbucket.org/pyxlinc/pyxl-layouts.git"
-    },
-    {
       "type": "composer",
       "url": "https://composer.pyxl.com"
     }
   ],
   "require-dev": {
-    "deliciousbrains-plugin/wp-migrate-db-pro-cli": "*",
+    "squizlabs/php_codesniffer": "^3.5",
+    "vlucas/phpdotenv": "^3.3",
+    "wp-coding-standards/wpcs": "*",
     "wpackagist-plugin/query-monitor": "^3.3"
   },
   "require": {
-    "php": "^7.1",
+    "php": "^7.3",
     "deliciousbrains-plugin/wp-migrate-db-pro": "*",
-    "deliciousbrains-plugin/wp-migrate-db-pro-media-files": "*",
-    "deliciousbrains-plugin/wp-offload-media": "*",
-    "pyxl/acf-pro": "^5.8.0",
-    "pyxl/gravity-forms": "^2.4",
-    "vlucas/phpdotenv": "^3.3",
-    "wpackagist-plugin/acf-image-aspect-ratio-crop": "^2.0",
-    "wpackagist-plugin/gutenberg": "^5.9",
+    "pyxl/acf-pro": "^5.8",
+    "wpackagist-plugin/acf-image-aspect-ratio-crop": "^3.0",
+    "wpackagist-plugin/gutenberg": "^6",
     "wpackagist-plugin/imsanity": "^2.4",
+    "wpackagist-plugin/ninja-forms": "^3.4",
     "wpackagist-plugin/post-duplicator": "^2.20",
     "wpackagist-plugin/simple-page-ordering": "^2.3",
-    "wpackagist-plugin/timber-library": "1.9.5",
-    "wpackagist-plugin/wordpress-seo": "^11.0"
+    "wpackagist-plugin/wordpress-seo": "^12.0"
   },
   "scripts": {
-    "post-install-cmd": [
-      "@wp_core_download"
-    ],
-    "post-update-cmd": [
-    ],
-    "lint": [
-      "phpcs ./wp-content/plugins/_core"
-    ],
-    "repeat": [
-      "echo {$config}"
-    ],
     "setup": [
       "composer install",
       "@wp_core_download",
-      "npm install --prefix wp-content/themes/view",
-      "@build"
-    ],
-    "start": [
-      "npm run --prefix wp-content/themes/view start"
-    ],
-    "build": [
-      "npm run --prefix wp-content/themes/view build"
+      "yarn install",
+      "yarn build"
     ],
     "prod": [
-      "composer install --no-dev --optimize-autoloader"
+      "composer install --no-dev --optimize-autoloader",
+      "composer install -d wp-content/themes/_view --no-dev --optimize-autoloader",
+      "composer install -d wp-content/plugins/_core --no-dev --optimize-autoloader"
     ],
-    "wp_core_download": "wp core download --path=core --skip-content --force --version=5.2.2"
+    "post-install-cmd": [
+      "composer install -d wp-content/themes/_view",
+      "composer install -d wp-content/plugins/_core"
+    ],
+    "post-update-cmd": [
+      "composer update -d wp-content/themes/_view",
+      "composer update -d wp-content/plugins/_core"
+    ],
+    "wp_core_download": "wp core download --path=core --skip-content --force --version=5.2.3"
   }
 }

@@ -1,0 +1,34 @@
+.header {
+  margin-bottom: -100%;
+
+  .admin-bar & {
+    top: 32px;
+  }
+
+  &--light {
+    background: $tw-colors-light;
+  }
+
+  a {
+    text-decoration: none;
+    @apply font-primary;
+  }
+
+  .logo {
+    * {
+      fill: $tw-colors-primary-dark;
+    }
+  }
+
+  &__menu {
+    &--mobile {
+      height: 100vh;
+      transition: all .2s ease-in-out;
+
+      &[aria-hidden=true] {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+  }
+}

@@ -1,77 +1,146 @@
 <?php
+
 /**
- * Plugin Name: (custom) Core Plugin
- * Description: Plugin for custom WordPress development
+ * Plugin Name: (custom) Core
+ * Plugin URI: https://pyxl.com
+ * Description:
  * Version: 1.0.0
- * Author: Pyxl Inc.
+ * Author: Pyxl
  * Author URI: https://pyxl.com
  * License: GPLv3+
  */
 
-namespace Core;
 
-defined('WPINC') || die;
+namespace _core;
 
-define(__NAMESPACE__ . '\PATH', plugin_dir_path(__FILE__));
-define(__NAMESPACE__ . '\URI', plugin_dir_url(__FILE__));
+defined( 'WPINC' ) || die;
 
-// Gravity Forms
-define('GF_LICENSE_KEY', 'XXXXXXXXXXXXXXX');
+define( __NAMESPACE__ . '\PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+define( __NAMESPACE__ . '\URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 
-// S3 Media Offload
-define('AS3CF_SETTINGS', serialize([
-    'provider'          => 'aws',
-    'access-key-id'     => 'XXXXXXXXXXXXXXX',
-    'secret-access-key' => 'XXXXXXXXXXXXXXX',
-]));
+/**
+ * Composer Autoloader
+ */
+require_once PATH . 'vendor/autoload.php';
 
-require_once 'lib/autoload.php';
+/**
+ *  A Convenient pseudo autoloader. As always, consider using composer via https://getcomposer.org/doc/04-schema.md#files
+ *  Note, this is available due to being loaded in composer.json
+ */
+autoloader\simple_glob_require(
+	[
+		PATH . 'includes/helpers/*.php',
+		PATH . 'includes/helpers/acf/*.php',
+		PATH . 'includes/helpers/wp/*.php',
+		PATH . 'includes/actions/*.php',
+		PATH . 'includes/models/*.php',
+		PATH . 'includes/models/blocks/*.php',
+		PATH . 'includes/filters/*.php',
+		PATH . 'includes/filters/blocks/*.php',
+	]
+);
 
-add_action('plugins_loaded', function () {
+add_action( 'plugins_loaded', '_core\run' );
+function run() {
 
-    /**
-     * Models
-     */
-    // Post Types
-    Models\PostTypes\Posts::init();
-    Models\PostTypes\Pages::init();
-    // Models\PostTypes\Events::init();
-    // Models\PostTypes\Testimonial::init();
-    // Models\PostTypes\Careers::init();
+	/**
+	 * Post Types
+	 */
+	add_filter( '_core/post_types', '_core\models\post_types\career' );
+	add_filter( '_core/post_types', '_core\models\post_types\event' );
+	add_filter( '_core/post_types', '_core\models\post_types\testimonial' );
+	add_action( 'init', '_core\actions\register\post_types' ); // Register post types
 
-    // Taxonomies
-    // Models\Taxonomies\EventType::init();
+	/**
+	 * Taxonomies
+	 */
+	add_filter( '_core/taxonomies', '_core\models\taxonomies\event' );
+	add_filter( '_core/taxonomies', '_core\models\taxonomies\location' );
+	add_action( 'init', '_core\actions\register\taxonomies' ); // Register taxonomies
 
-    // Options Pages
-    Models\OptionsPages\Globals::init();
+	/**
+	 * Blocks
+	 */
+	add_filter( '_core/blocks', '_core\models\blocks\accordion' );
 
-    // Field Groups
-    Models\FieldGroups\Globals::init();
-    Models\FieldGroups\Pages::init();
-    // Models\FieldGroups\Testimonial::init();
+	add_filter( '_core/blocks', '_core\models\blocks\basic' );
 
-    // Blocks
-    Models\Blocks\Hero::init();
-    Models\Blocks\Featurette::init();
-    // Models\Blocks\CallToAction::init();
+	add_filter( '_core/blocks', '_core\models\blocks\blurbs' );
 
-    /**
-     * Controllers
-     */
-    // Globals
-    Controllers\Globals\Footer::init();
-    Controllers\Globals\Header::init();
-    Controllers\Globals\FourOhFour::init();
+	add_filter( '_core/blocks', '_core\models\blocks\comparison_cards' );
 
-    // Post Types
-    Controllers\PostTypes\Pages::init();
-    Controllers\PostTypes\Posts::init();
-    // Controllers\PostTypes\Event::init();
+	add_filter( '_core/blocks', '_core\models\blocks\cta' );
 
-    // Blocks
-    Controllers\Blocks\Hero::init();
-    /**
-     * Compatibility
-     */
-    Compatibility\BlockEditor::init();
-});
+	add_filter( '_core/blocks', '_core\models\blocks\featurette' );
+
+	add_filter( '_core/blocks', '_core\models\blocks\hero_basic' );
+
+	add_filter( '_core/blocks', '_core\models\blocks\hero_form' );
+
+	add_filter( '_core/blocks', '_core\models\blocks\image_grid' );
+
+	add_filter( '_core/blocks', '_core\models\blocks\posts' );
+	add_filter( '_view/block/posts/data', '_core\filters\blocks\posts' );
+
+	add_filter( '_core/blocks', '_core\models\blocks\tabs' );
+
+	add_filter( '_core/blocks', '_core\models\blocks\testimonials' );
+
+	// Register blocks
+	add_action( 'init', '_core\actions\register\blocks' );
+
+	/**
+	 * Field Groups
+	 */
+	add_filter( '_core/field_groups', '_core\models\field_groups\page' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\career' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\event' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\testimonial' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\social_menu_item' );
+	add_action( 'init', '_core\actions\register\field_groups' ); // Register blocks
+
+	/**
+	 * Options
+	 */
+	add_filter( '_core/option_pages', '_core\filters\option_pages\general' );
+
+	/**
+	 * Views
+	 */
+	add_filter( '_view/global/head/data', '_core\filters\views\head' );
+	add_action( '_view/global/head', '_core\actions\views\head' );
+
+	add_filter( '_view/global/header/data', '_core\filters\views\header' );
+	add_action( '_view/global/header', '_core\actions\views\header' );
+
+	add_filter( '_view/global/footer/data', '_core\filters\views\footer' );
+	add_action( '_view/global/footer', '_core\actions\views\footer' );
+
+	add_filter( '_view/four-oh-four', '_core\filters\views\four_oh_four' );
+	add_action( '_view/four-oh-four', '_core\actions\views\four_oh_four' );
+
+	add_filter( '_view/archive/post-type/default/data', '_core\filters\views\archive' );
+	add_action( '_view/archive/post-type/default', '_core\actions\views\archive' );
+
+	add_filter( '_view/singular/default/data', '_core\filters\views\singular' );
+	add_action( '_view/singular/default', '_core\actions\views\singular' );
+
+	add_filter( '_view/single/post/data', '_core\filters\views\singular' );
+	add_action( '_view/single/post', '_core\actions\views\post' );
+
+	/**
+	 * ACF Customizations
+	 */
+	add_filter( 'acf/fields/wysiwyg/toolbars', '_core\filters\wysiwyg\acf' );
+	add_filter( 'tiny_mce_before_init', '_core\filters\wysiwyg\wp' );
+
+	/**
+	 * Blocks Editor Customizations
+	 */
+	add_filter( 'use_block_editor_for_post_type', '_core\filters\block_editor\enable_by_post_type', 10, 2 );
+
+	/**
+	 * Misc
+	 */
+	add_filter( 'enter_title_here', '_core\filters\misc\customize_title' );
+}

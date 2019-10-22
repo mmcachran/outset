@@ -1,0 +1,35 @@
+{#
+/**
+ * Available variables:
+ * - link { url, target, title}
+ * - appearance ['light', 'dark', 'all_white']
+ * - size ['small', '']
+ */
+#}
+
+{% set defaults = {
+    appearance: '',
+    size: '',
+    link: {
+        target: '_blank',
+        title: 'Learn More',
+        url: '#',
+    }
+} %}
+
+{% set base = 'button-tertiary' %}
+{% set appearance = appearance ?: defaults.appearance %}
+{% set size = size ?: defaults.size %}
+{% set link = link ?: default.link %}
+{% set classes = [
+    base~"--"~appearance,
+    base~"--"~size,
+    base
+] %}
+
+<a href="{{ link.url }}" class="{{ classes|join(' ') }}" target="{{ link.target }}">
+    <span class="button-tertiary__link">{{ link.title }}</span>
+    <span class="button-tertiary__arrow">
+         <svg height="20" viewBox="0 0 45 20" width="45" xmlns="http://www.w3.org/2000/svg"><g class="arrow" fill="#1c2375" fill-rule="evenodd"><path d="m16.8710977 7h-8.4685101-5.77751849l-2.62506911 6h8.4025876 8.4685101 19.1289023v-6z"/><path d="m28 0v10.0008542 9.9991458l8.5-5.0004271 8.5-4.9987187-8.5-5.00042711z"/></g></svg>
+            </span>
+</a>

@@ -1,0 +1,17 @@
+{% set defaults = {
+    lead_in: '',
+    footnote: '',
+    appearance: 'light',
+    alignment: 'center',
+} %}
+
+{% set classes = [
+    base~"__form",
+    classes,
+] %}
+<section class="form">
+    {% if lead_in %}
+        <h5 class="{{ base }}__lead-in">{{ lead_in }}</h5>
+    {% endif %}
+    {{ form.html }}
+</section>

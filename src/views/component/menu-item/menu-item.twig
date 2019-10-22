@@ -1,0 +1,30 @@
+{% set url = url ?: '' %}
+{% set target = target ?: '_self' %}
+{% set title = title ?: '' %}
+{% set classes = classes ?: [ 'px-3', 'py-2' ] %}
+{% set items = items ?: [] %}
+{% set link_classes = link_classes ?: [] %}
+{% set base = base ?: 'menu' %}
+{% set icon = icon ?: false %}
+{% set children_class = items|length ? base~"__parent" : '' %}
+{% set aria_expanded = items|length ? 'aria-expanded="false"' : '' %}
+
+<li class="{{ classes|join(' ') }} {{ base }}__item {{ children_class }}" {{ aria_expanded }}>
+    <a class="{{ link_classes|join(' ') }} {{ base }}__link" href="{{ url }}" target="{{ target }}">
+      {% if icon %}
+        <svg class="icon">
+            <use xlink:href="#icon-{{ icon|lower }}"/>
+        </svg>
+      {% else %}
+        {{ title }}
+      {% endif %}
+    </a>
+
+    {% if items|length %}
+      {% include "Components/Menu/Menu.twig" with {
+        items: items,
+        base: base,
+        classes: base ~ '__child',
+      } %}
+    {% endif %}
+</li>

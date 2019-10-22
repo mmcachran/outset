@@ -1,0 +1,57 @@
+{#
+/*
+ * Available variables:
+ * - heading
+ * - logos:
+        link { url, target, title }
+        image { url, alt }
+
+ modifiers:
+    appearance: light or dark
+    block.align: full or wide
+
+ */
+#}
+
+{% set defaults = {
+    heading: '',
+    logos: '',
+    appearance: 'light',
+    background_color: '',
+} %}
+
+{% set heading = heading ?: defaults.heading %}
+{% set logos = logos ?: defaults.logos %}
+{% set appearance = appearance ?: defaults.appearance %}
+{% set background_color = background_color ?: defaults.background_color %}
+
+{% set base = 'LogoGrid' %}
+{% set classes = [
+    base,
+    background_color ? '' : base~"--"~appearance,
+] %}
+
+<section class="{{ classes|join(' ') }}" style="background-color: {{ background_color }}">
+    <div class="container">
+        <h3 class="{{ base }}__heading">{{ heading }}</h3>
+        <div class="{{ base }}__wrapper">
+            {% for logo in logos %}
+                {% if logo.link %}
+                    <a href="{{ logo.link.url }}" target="{{ logo.link.target }}">
+                        {% include 'Components/Image/Image.twig' with {
+                            image: logo.image,
+                            base: base,
+                            classes: 'object-fit',
+                        } only %}
+                    </a>
+                {% else %}
+                    {% include 'Components/Image/Image.twig' with {
+                        image: logo.image,
+                        base: base,
+                        classes: 'object-fit',
+                    } only %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

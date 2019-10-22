@@ -1,0 +1,13 @@
+.footer {
+  a {
+    text-decoration: none;
+    @apply text-light;
+    @apply font-primary;
+  }
+
+  .logo {
+    * {
+      fill: $tw-colors-light;
+    }
+  }
+}

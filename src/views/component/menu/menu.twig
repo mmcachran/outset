@@ -1,0 +1,16 @@
+{% set classes = classes ?: [
+  'flex',
+] %}
+  
+<ul class="{{ classes|join(' ') }} {{ base ?: 'menu' }}__list menu">
+    {% for item in items %}
+        {% include "component/menu-item/menu-item.twig" with {
+          title: item.title ?: '',
+          url: item.url ?: '',
+          target: item.target ?: '',
+          items: item.items ?: [],
+          icon: item.icon ?: false,
+          base: base,
+        } only %}
+    {% endfor %}
+</ul>

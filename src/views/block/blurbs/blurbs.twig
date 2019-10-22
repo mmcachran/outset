@@ -1,0 +1,16 @@
+<section>
+    <header class="blurbs-heading">
+        <h3>{{ heading }}</h3>
+        <div class="blurbs-heading__content">
+            {{ content }}
+        </div>
+    </header>
+    <div class="blurbs__items">
+        {% for item in blurbs %}
+            <article class="blurbs__item">
+                <h4 class="blurbs__title">{{ item.heading }}</h4>
+                <div class="blurbs__content">{{ item.content }}</div>
+            </article>
+        {% endfor %}
+    </div>
+</section>

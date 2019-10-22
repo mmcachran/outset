@@ -1,0 +1,21 @@
+{# {{dump()}} #}
+{#
+    References:
+        * https://www.responsivebreakpoints.com
+        * https://jakearchibald.com/2015/anatomy-of-responsive-images/
+        * https://scottjehl.github.io/picturefill/#ie9
+        * https://apoorv.pro/lozad.js/#example-with-picture-tag
+#}
+<picture class="lozad-picture" data-iesrc="{{ src }}" data-alt="{{ alt }}" style="display: block; min-height: 1rem">
+    {% for image in sizes %}
+        <source
+        media="(min-width: {{ image.width }}px)"
+        srcset="{{ image.url }}"
+        height="{{ image.height }}"
+        width="{{ image.width }}"
+        >
+    {% endfor %}
+    <noscript>
+        <img src="{{ src }}" alt="{{ alt }}">
+    </noscript>
+</picture>

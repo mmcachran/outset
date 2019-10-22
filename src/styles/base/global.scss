@@ -1,0 +1,245 @@
+/**
+ * Fonts
+ * Hosting fonts locally is recommended if possible, for google fonts check out - https://google-webfonts-helper.herokuapp.com/fonts
+ */
+@include font-face('Montserrat', '../../dist/fonts/montserrat-v14-latin-700', 700, normal);
+@include font-face('Montserrat', '../../dist/fonts/montserrat-v14-latin-900', 900, normal);
+@include font-face('Cardo', '../../dist/fonts/cardo-v11-latin-regular', 500, normal, eot woff2 woff);
+@include font-face('Cardo', '../../dist/fonts/cardo-v11-latin-700', 700, normal, eot woff2 woff);
+@include font-face('Cardo', '../../dist/fonts/cardo-v11-latin-italic', 500, italic, eot woff2 woff);
+
+/**
+ * Base Elements
+ */
+body {
+  @apply text-dark;
+  @apply text-base;
+  @apply font-base;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+
+  &[data-scroll-enabled='false'] {
+    overflow: hidden;
+  }
+}
+
+main {
+  //
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-primary;
+  line-height: 1.2;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+
+h1 {
+  @apply text-3xl;
+  margin-top: 0;
+
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-1xl;
+}
+
+h4 {
+  @apply text-lg;
+}
+
+h5 {
+  @apply text-md;
+}
+
+h6 {
+  @apply text-base;
+}
+
+small {
+  font-size: 0.75em;
+}
+
+p {
+  margin-bottom: 1.25em;
+  margin-top: 0.5em;
+}
+
+a {
+  @apply text-primary;
+  text-decoration: underline;
+
+  &:focus,
+  &:hover {
+    @apply text-primary-dark;
+  }
+}
+
+ul {
+  li {
+    padding-left: 0.2em;
+  }
+}
+
+ol {
+  li {
+    padding-left: 0.2em;
+  }
+}
+
+
+blockquote {
+  position: relative;
+}
+
+cite {
+}
+
+
+hr,
+.wp-block-separator {
+  border-bottom: 1px solid $brand__gray;
+  border-bottom-width: 1px;
+}
+
+.wp-block-separator {
+  &.is-style-wide {
+    //width: 100%;
+    border-bottom-width: 1px;
+    max-width: $width--wide;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid $brand__dark;
+}
+
+th,
+td {
+  padding: 0.25em 0.5em;
+}
+
+table {
+  border-collapse: collapse;
+
+  caption {
+    line-height: 2em;
+    text-align: left;
+  }
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  height: 1em;
+  vertical-align: bottom;
+}
+
+select,
+input:not([type='submit']),
+textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid $brand__gray--dark;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  padding: 0.9em 1.2em;
+
+  &::placeholder {
+    color: $brand__gray--dark;
+  }
+
+  &:focus {
+  }
+}
+
+input:focus {
+  border-bottom: 2px solid $brand__gray;
+  box-shadow: transparent;
+  outline: none;
+}
+
+
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+button {
+  // TODO: handle states (e.g. disabled, etc.)
+  border-radius: 0;
+}
+
+textarea {
+  border: 2px solid $brand__gray--dark;
+  padding: 0.9em;
+}
+
+textarea:focus {
+  border-color: $brand__aqua;
+  box-shadow: none;
+  outline: none;
+}
+
+label {
+}
+
+iframe {
+  max-width: 100%;
+}
+
+select {
+}
+
+::selection {
+}
+
+/**
+ * Some key selectors
+ */
+
+.wrapper {
+  position: relative;
+}
+
+.icon {
+  display: inline-block;
+  height: 2rem;
+  position: relative;
+  user-select: none;
+  width: 2rem;
+
+  svg {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.content {
+  margin: auto;
+  max-width: 40rem;
+}

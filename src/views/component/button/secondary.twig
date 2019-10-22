@@ -1,0 +1,32 @@
+{#
+/**
+ * Available variables:
+ * - link { url, target, title}
+ * - appearance ['light', 'dark']
+ * - size ['small', '']
+ */
+#}
+
+{% set defaults = {
+    appearance: '',
+    size: '',
+    link: {
+        target: '_blank',
+        title: 'Learn More',
+        url: '#',
+    }
+} %}
+
+{% set base = 'button-secondary' %}
+{% set appearance = appearance ?: defaults.appearance %}
+{% set size = size ?: defaults.size %}
+{% set link = link ?: default.link %}
+{% set classes = [
+    base~"--"~appearance,
+    base~"--"~size,
+    base
+] %}
+
+<a href="{{ link.url }}" class="{{ classes|join(' ') }}" target="{{ link.target }}">
+    <span class="button-secondary__link">{{ link.title }}</span>
+</a>
