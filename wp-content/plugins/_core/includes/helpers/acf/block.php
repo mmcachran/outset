@@ -77,24 +77,7 @@ function render_callback_handler( $block, $content = '', $is_preview = false ) {
 		"block/{$block['slug']}",
 		apply_filters(
 			sprintf( '_view/block/%s/data', $block['slug'] ),
-			merge(
-				get_fields(),
-				select_keys( $block, [ 'align', 'mode', 'title' ] ),
-				[
-					'base'       => $block['slug'],
-					'is_preview' => $is_preview,
-					'classes'    => trim(
-						join(
-							' ',
-							[
-								'custom-block',
-								has_key( 'align', $block ) ? "align{$block['align']}" : null,
-								has_key( 'className', $block ) ? $block['className'] : null,
-							]
-						)
-					),
-				]
-			)
+			apply_filters( '_core/block/data', $block )
 		)
 	);
 }

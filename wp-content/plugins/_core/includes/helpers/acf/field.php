@@ -481,3 +481,14 @@ function post_type( $args = [] ) {
 		$args
 	);
 }
+
+function accordion( $args = [] ) {
+	return merge(
+		[
+			'slug'  => 'accordion',
+			'label' => __( 'Accordion', 'core' ),
+			'type'  => 'accordion',
+		],
+		$args
+	);
+}

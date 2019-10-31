@@ -61,6 +61,10 @@ function run() {
 	/**
 	 * Blocks
 	 */
+	add_filter( '_core/block/data', '_core\filters\block\spacing' );
+	add_filter( '_core/block/data', '_core\filters\block\fields' );
+	add_filter( '_core/block/data', '_core\filters\block\general' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\accordion' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\basic' );
@@ -85,6 +89,8 @@ function run() {
 	add_filter( '_core/blocks', '_core\models\blocks\tabs' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\testimonials' );
+
+	add_filter( '_core/blocks', '_core\models\block\spacing' );
 
 	// Register blocks
 	add_action( 'init', '_core\actions\register\blocks' );
