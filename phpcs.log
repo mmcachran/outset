@@ -1,9 +1,0 @@
-FILE: ...s/miz/Local/outset/app/public/wp-content/plugins/_core/_core.php
-----------------------------------------------------------------------
-FOUND 1 ERROR AFFECTING 1 LINE
-----------------------------------------------------------------------
- 100 | ERROR | Function name "thingTHing" is not in snake case
-     |       | format, try "thing_t_hing"
-----------------------------------------------------------------------
-
-Time: 91ms; Memory: 8MB
