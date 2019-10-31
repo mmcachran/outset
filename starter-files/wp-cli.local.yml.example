@@ -1,0 +1,4 @@
+path: core
+require:
+  - vendor/autoload.php
+  - wp-cli.local.php
