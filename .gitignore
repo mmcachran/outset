@@ -4,6 +4,7 @@ node_modules
 yarn-error.log
 npm-debug.log
 debug.log
+phpcs.log
 
 ## Root Files / Folders
 /.idea
