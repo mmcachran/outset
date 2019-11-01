@@ -8,7 +8,6 @@ phpcs.log
 
 ## Root Files / Folders
 /.idea
-/.env
 /vendor
 
 ## WordPress
