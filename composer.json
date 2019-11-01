@@ -49,7 +49,7 @@
     "wpackagist-plugin/query-monitor": "*"
   },
   "require": {
-    "php": "^7.3",
+    "php": "^7.2",
     "deliciousbrains-plugin/wp-migrate-db-pro": "*",
     "pyxl/acf-pro": "^5.8",
     "wpackagist-plugin/acf-image-aspect-ratio-crop": "^3.0",
