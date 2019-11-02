@@ -1,0 +1,9 @@
+.menu-mobile {
+  height: 100vh;
+  transition: all 0.2s ease-in-out;
+
+  &[aria-hidden=true] {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}

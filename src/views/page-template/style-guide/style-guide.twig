@@ -1,33 +1,11 @@
-{% set base = 'StyleGuide' %}
-<style>
-    @media screen and (min-width: 1100px) {
-        .{{ base }}__content {
-            display: grid;
-            grid-template-columns: 20% 20% 20% 20% 20%;
-        }
-        .{{ base }}__main {
-            grid-column-start: 2;
-            grid-column-end: 5;
-
-        }
-        .{{ base }}__navigation {
-            grid-column-start: 1;
-            grid-column-end: 1;
-            top: 0;
-            position: sticky;
-        }
-    }
-</style>
-
-<div id="StyleGuide" class="container">
+<div id="styleGuide" class="mx-12 lg:mx-24">
     <div id="top" class="page" role="document">
         <header role="banner">
             <h1>HTML5 Test Page</h1>
-            <p>This is a test page filled with common HTML elements to be used to provide visual feedback whilst
-                building CSS systems and frameworks.</p>
+            <p>This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
         </header>
-        <div class="{{ base }}__content">
-            <nav role="navigation" class="{{ base }}__navigation">
+        <div class="style-guide__content md:flex md:flex-wrap">
+            <nav role="navigation" class="style-guide__navigation md:w-1/3 max-w-lg sticky top-0">
                 <ul>
                     <li>
                         <a href="#text">Text</a>
@@ -69,10 +47,12 @@
                         </ul>
                     </li>
                 </ul>
-            </nav cl>
-            <main role="main" class="{{ base }}__main">
+            </nav>
+            <main role="main" class="style-guide__main md:w-2/3 max-w-3xl">
                 <section id="text">
-                    <header><h1>Text</h1></header>
+                    <header>
+                        <h1>Text</h1>
+                    </header>
                     <article id="text__headings">
                         <header>
                             <h1>Headings</h1>
@@ -85,37 +65,57 @@
                             <h5>Heading 5</h5>
                             <h6>Heading 6</h6>
                         </div>
-                        <footer><p><a href="#top">[Top]</a></p></footer>
+                        <footer>
+                            <p>
+                                <a href="#top">[Top]</a>
+                            </p>
+                        </footer>
                     </article>
                     <article id="text__paragraphs">
-                        <header><h1>Paragraphs</h1></header>
+                        <header>
+                            <h1>Paragraphs</h1>
+                        </header>
                         <div>
                             <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a
-                                self-contained unit of a discourse in writing dealing with a particular point or idea. A
-                                paragraph consists of one or more sentences. Though not required by the syntax of any
-                                language, paragraphs are usually an expected part of formal writing, used to organize
-                                longer
-                                prose.</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                self-contained unit of a discourse in writing dealing with a particular point or idea. A
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                paragraph consists of one or more sentences. Though not required by the syntax of any
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                language, paragraphs are usually an expected part of formal writing, used to organize
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                longer
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                prose.</p>
                         </div>
-                        <footer><p><a href="#top">[Top]</a></p></footer>
+                        <footer>
+                            <p>
+                                <a href="#top">[Top]</a>
+                            </p>
+                        </footer>
                     </article>
                     <article id="text__blockquotes">
-                        <header><h1>Blockquotes</h1></header>
+                        <header>
+                            <h1>Blockquotes</h1>
+                        </header>
                         <div>
                             <blockquote>
                                 <p>A block quotation (also known as a long quotation or extract) is a quotation in a
-                                    written
-                                    document, that is set off from the main text as a paragraph, or block of text.</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                written
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                document, that is set off from the main text as a paragraph, or block of text.</p>
                                 <p>It is typically distinguished visually using indentation and a different typeface or
-                                    smaller size quotation. It may or may not include a citation, usually placed at the
-                                    bottom.</p>
-                                <cite><a href="#!">Said no one, ever.</a></cite>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                smaller size quotation. It may or may not include a citation, usually placed at the
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                bottom.</p>
+                                <cite>
+                                    <a href="#!">Said no one, ever.</a>
+                                </cite>
                             </blockquote>
                         </div>
-                        <footer><p><a href="#top">[Top]</a></p></footer>
+                        <footer>
+                            <p>
+                                <a href="#top">[Top]</a>
+                            </p>
+                        </footer>
                     </article>
                     <article id="text__lists">
-                        <header><h1>Lists</h1></header>
+                        <header>
+                            <h1>Lists</h1>
+                        </header>
                         <div>
                             <h3>Definition list</h3>
                             <dl>
@@ -135,77 +135,103 @@
                                 <li>List Item 3</li>
                             </ul>
                         </div>
-                        <footer><p><a href="#top">[Top]</a></p></footer>
+                        <footer>
+                            <p>
+                                <a href="#top">[Top]</a>
+                            </p>
+                        </footer>
                     </article>
                     <article id="text__hr">
-                        <header><h1>Horizontal rules</h1></header>
+                        <header>
+                            <h1>Horizontal rules</h1>
+                        </header>
                         <div>
                             <hr>
                         </div>
-                        <footer><p><a href="#top">[Top]</a></p></footer>
+                        <footer>
+                            <p>
+                                <a href="#top">[Top]</a>
+                            </p>
+                        </footer>
                     </article>
                     <article id="text__tables">
-                        <header><h1>Tabular data</h1></header>
+                        <header>
+                            <h1>Tabular data</h1>
+                        </header>
                         <table>
                             <caption>Table Caption</caption>
                             <thead>
-                            <tr>
-                                <th>Table Heading 1</th>
-                                <th>Table Heading 2</th>
-                                <th>Table Heading 3</th>
-                                <th>Table Heading 4</th>
-                                <th>Table Heading 5</th>
-                            </tr>
+                                <tr>
+                                    <th>Table Heading 1</th>
+                                    <th>Table Heading 2</th>
+                                    <th>Table Heading 3</th>
+                                    <th>Table Heading 4</th>
+                                    <th>Table Heading 5</th>
+                                </tr>
                             </thead>
                             <tfoot>
-                            <tr>
-                                <th>Table Footer 1</th>
-                                <th>Table Footer 2</th>
-                                <th>Table Footer 3</th>
-                                <th>Table Footer 4</th>
-                                <th>Table Footer 5</th>
-                            </tr>
+                                <tr>
+                                    <th>Table Footer 1</th>
+                                    <th>Table Footer 2</th>
+                                    <th>Table Footer 3</th>
+                                    <th>Table Footer 4</th>
+                                    <th>Table Footer 5</th>
+                                </tr>
                             </tfoot>
                             <tbody>
-                            <tr>
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3</td>
-                                <td>Table Cell 4</td>
-                                <td>Table Cell 5</td>
-                            </tr>
-                            <tr>
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3</td>
-                                <td>Table Cell 4</td>
-                                <td>Table Cell 5</td>
-                            </tr>
-                            <tr>
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3</td>
-                                <td>Table Cell 4</td>
-                                <td>Table Cell 5</td>
-                            </tr>
-                            <tr>
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3</td>
-                                <td>Table Cell 4</td>
-                                <td>Table Cell 5</td>
-                            </tr>
+                                <tr>
+                                    <td>Table Cell 1</td>
+                                    <td>Table Cell 2</td>
+                                    <td>Table Cell 3</td>
+                                    <td>Table Cell 4</td>
+                                    <td>Table Cell 5</td>
+                                </tr>
+                                <tr>
+                                    <td>Table Cell 1</td>
+                                    <td>Table Cell 2</td>
+                                    <td>Table Cell 3</td>
+                                    <td>Table Cell 4</td>
+                                    <td>Table Cell 5</td>
+                                </tr>
+                                <tr>
+                                    <td>Table Cell 1</td>
+                                    <td>Table Cell 2</td>
+                                    <td>Table Cell 3</td>
+                                    <td>Table Cell 4</td>
+                                    <td>Table Cell 5</td>
+                                </tr>
+                                <tr>
+                                    <td>Table Cell 1</td>
+                                    <td>Table Cell 2</td>
+                                    <td>Table Cell 3</td>
+                                    <td>Table Cell 4</td>
+                                    <td>Table Cell 5</td>
+                                </tr>
                             </tbody>
                         </table>
-                        <footer><p><a href="#top">[Top]</a></p></footer>
+                        <footer>
+                            <p>
+                                <a href="#top">[Top]</a>
+                            </p>
+                        </footer>
                     </article>
                     <article id="text__code">
-                        <header><h1>Code</h1></header>
+                        <header>
+                            <h1>Code</h1>
+                        </header>
                         <div>
-                            <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
-                            <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
-                            <p><strong>Sample output:</strong> <samp>This is sample output from a computer
-                                    program.</samp>
+                            <p>
+                                <strong>Keyboard input:</strong>
+                                <kbd>Cmd</kbd>
+                            </p>
+                            <p>
+                                <strong>Inline code:</strong>
+                                <code>&lt;div&gt;code&lt;/div&gt;</code>
+                            </p>
+                            <p>
+                                <strong>Sample output:</strong>
+                                <samp>This is sample output from a computer
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                program.</samp>
                             </p>
                             <h2>Pre-formatted text</h2>
                             <pre>P R E F O R M A T T E D T E X T
@@ -278,14 +304,14 @@
                         <header><h2>Images</h2></header>
                         <div>
                             <h3>No <code>&lt;figure&gt;</code> element</h3>
-                            <p><img src="http://placekitten.com/480/480" alt="Image alt text"></p>
+                            <p><img src="https://placekitten.com/480/480" alt="Image alt text"></p>
                             <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no <code>&lt;figcaption&gt;</code>
                             </h3>
-                            <figure><img src="http://placekitten.com/420/420" alt="Image alt text"></figure>
+                            <figure><img src="https://placekitten.com/420/420" alt="Image alt text"></figure>
                             <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code>
                             </h3>
                             <figure>
-                                <img src="http://placekitten.com/420/420" alt="Image alt text">
+                                <img src="https://placekitten.com/420/420" alt="Image alt text">
                                 <figcaption>Here is a caption for this image.</figcaption>
                             </figure>
                         </div>
@@ -338,8 +364,8 @@
                     <article id="embedded__iframe">
                         <header><h2>IFrame</h2></header>
                         <div>
-                            <iframe src="https://www.cpd.org.au/wp-content/uploads/2014/11/placeholder.pdf"
-                                    height="300"></iframe>
+                            <iframe src="https://pyxl.com/assets/files/Pyxl_Inbound_Marketing_for_Healthcare.pdf"
+                                    height="300" type="application/pdf"></iframe>
                         </div>
                         <footer><p><a href="#top">[Top]</a></p></footer>
                     </article>
@@ -359,7 +385,7 @@
                             </p>
                             <p>
                                 <label for="input__webaddress">Web Address</label>
-                                <input id="input__webaddress" type="url" placeholder="http://yoursite.com">
+                                <input id="input__webaddress" type="url" placeholder="https://yoursite.com">
                             </p>
                             <p>
                                 <label for="input__emailaddress">Email Address</label>

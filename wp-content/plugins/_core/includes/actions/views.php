@@ -5,6 +5,10 @@ namespace _core\actions\views;
 use function _core\helpers\template\render;
 use function _core\helpers\template\render_svg;
 
+function style_guide() {
+	render( 'page-template/style-guide' );
+}
+
 function head( $data ) {
 	render( 'global/head', $data );
 }

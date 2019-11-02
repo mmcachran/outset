@@ -19,6 +19,10 @@ function merge( ...$params ) {
 	return array_merge( ...$params );
 }
 
+function string_contains( $needle, $haystack ) {
+	return strpos( $haystack, $needle ) !== false;
+}
+
 function has_key( $key, $data ) {
 	if ( is_array( $data ) ) {
 		return array_key_exists( $key, $data );

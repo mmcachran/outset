@@ -23,10 +23,10 @@ function theme_supports() {
 function menus() {
 	register_nav_menus(
 		[
-			'primary' => 'Primary',
+			'primary'   => 'Primary',
 			'secondary' => 'Secondary',
-			'footer'  => 'Footer',
-			'social'  => 'Social',
+			'footer'    => 'Footer',
+			'social'    => 'Social',
 		]
 	);
 }

@@ -135,6 +135,11 @@ function run() {
 	add_action( '_view/single/post', '_core\actions\views\post' );
 
 	/**
+	 * Templates
+	 */
+	add_action( '_view/page-templates/style-guide', '_core\actions\views\style_guide' );
+
+	/**
 	 * ACF Customizations
 	 */
 	add_filter( 'acf/fields/wysiwyg/toolbars', '_core\filters\wysiwyg\acf' );
@@ -149,4 +154,5 @@ function run() {
 	 * Misc
 	 */
 	add_filter( 'enter_title_here', '_core\filters\misc\customize_title' );
+	add_filter( 'body_class', '_core\filters\misc\simplify_page_template_classes', 20 );
 }
