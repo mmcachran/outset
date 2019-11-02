@@ -1,0 +1,14 @@
+<div aria-hidden="true" class="menu-mobile lg:hidden flex flex-col fixed top-0 right-0 z-50 h-100 w-11/12 bg-primary">
+    <button class="menu-mobile__toggle menu-toggle p-5 self-end" data-action="close">
+        <svg class="icon h-10 w-10">
+            <use xlink:href="#icon-times"/>
+        </svg>
+    </button>
+    {% include "component/menu/menu.twig" with primary only %}
+    {% include "component/menu/menu.twig" with secondary only %}
+</div>
+<button class="lg:hidden menu-mobile__toggle menu-toggle" data-action="open">
+    <svg class="icon h-10 w-10">
+        <use xlink:href="#icon-bars"/>
+    </svg>
+</button>

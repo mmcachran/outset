@@ -22,13 +22,13 @@ function header( $data ) {
 	return merge(
 		$data,
 		[
-			'urls'  => [
+			'urls'         => [
 				'home' => esc_url( get_home_url() ),
 			],
-			'header_style' => $post ? get_post_meta($post->ID, 'header_style', true) : 'light',
-			'menus' => [
-				'secondary'  => menu\get( 'secondary', [], [ 'icon' ] ),
-				'primary' => menu\get( 'primary', [], [ 'icon' ] ),
+			'header_style' => $post ? get_post_meta( $post->ID, 'header_style', true ) : 'light',
+			'menus'        => [
+				'secondary' => menu\get( 'secondary', [], [ 'icon' ] ),
+				'primary'   => menu\get( 'primary', [], [ 'icon' ] ),
 			],
 		]
 	);

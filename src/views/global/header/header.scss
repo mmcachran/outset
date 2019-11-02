@@ -1,12 +1,6 @@
 .header {
-  margin-bottom: -100%;
-
-  .admin-bar & {
-    top: 32px;
-  }
-
   &--light {
-    background: $tw-colors-light;
+    @apply bg-light;
   }
 
   a {
@@ -16,19 +10,16 @@
 
   .logo {
     * {
-      fill: $tw-colors-primary-dark;
+      @apply text-primary-dark;
+      @apply fill-current;
     }
   }
+}
 
-  &__menu {
-    &--mobile {
-      height: 100vh;
-      transition: all .2s ease-in-out;
+body.sticky-header .header {
+  margin-bottom: -100%;
 
-      &[aria-hidden=true] {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-    }
+  .admin-bar & {
+    top: 32px;
   }
 }

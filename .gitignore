@@ -4,8 +4,9 @@ node_modules
 yarn-error.log
 npm-debug.log
 debug.log
+phpcs.log
 
-# Root Files / Folders
+## Root Files / Folders
 /.idea
 /.env
 /vendor
@@ -36,6 +37,10 @@ debug.log
 /wp-content/mu-plugins/*
 /wp-content/plugins/*
 /wp-content/themes/*
+
+## WP CLI
+wp-cli.local.php
+wp-cli.local.yml
 
 ## Exceptions (Generally, our custom work)
 !/wp-content/mu-plugins/pyxl-mu.php

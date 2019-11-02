@@ -1,5 +1,5 @@
-<header class="header header--{{ header_style }} w-full py-5 sticky top-0 z-40">
-    <div class="header__wrapper w-10/12 mx-auto flex flex-wrap justify-between items-center">
+<header class="header header--{{ header_style ?: 'static' }} w-full py-5 top-0 z-40">
+    <div class="header__wrapper mx-12 lg:mx-24 flex flex-wrap justify-between items-center">
         <section class="header__logo">
             <a href="{{ urls.home }}" class="logo">
                 {% include "svgs/logo.svg" %}
@@ -11,21 +11,8 @@
                 {% include "component/menu/menu.twig" with menus.secondary only %}
             </div>
 
-            <div aria-hidden="true" class="header__menu--mobile lg:hidden flex flex-col absolute top-0 right-0 z-50 h-100 w-full max-w-md bg-primary">
-                <button class="header__menu_toggle menu_toggle p-5 self-end" data-action="close">
-                    <svg class="icon h-10 w-10">
-                        <use xlink:href="#icon-times"/>
-                    </svg>
-                </button>
-                {% include "component/menu/menu.twig" with menus.primary only %}
-                {% include "component/menu/menu.twig" with menus.secondary only %}
-            </div>
+            {% include "component/menu-mobile/menu-mobile.twig" with menus only %}
 
-            <button class="lg:hidden header__menu_toggle menu_toggle" data-action="open">
-                <svg class="icon h-10 w-10">
-                    <use xlink:href="#icon-bars"/>
-                </svg>
-            </button>
         </section>
     </div>
 </header>

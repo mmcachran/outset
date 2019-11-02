@@ -61,6 +61,10 @@ function run() {
 	/**
 	 * Blocks
 	 */
+	add_filter( '_core/block/data', '_core\filters\block\spacing' );
+	add_filter( '_core/block/data', '_core\filters\block\fields' );
+	add_filter( '_core/block/data', '_core\filters\block\general' );
+
 	add_filter( '_core/blocks', '_core\models\blocks\accordion' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\basic' );
@@ -85,6 +89,8 @@ function run() {
 	add_filter( '_core/blocks', '_core\models\blocks\tabs' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\testimonials' );
+
+	add_filter( '_core/blocks', '_core\models\block\spacing' );
 
 	// Register blocks
 	add_action( 'init', '_core\actions\register\blocks' );
@@ -129,6 +135,11 @@ function run() {
 	add_action( '_view/single/post', '_core\actions\views\post' );
 
 	/**
+	 * Templates
+	 */
+	add_action( '_view/page-templates/style-guide', '_core\actions\views\style_guide' );
+
+	/**
 	 * ACF Customizations
 	 */
 	add_filter( 'acf/fields/wysiwyg/toolbars', '_core\filters\wysiwyg\acf' );
@@ -143,4 +154,5 @@ function run() {
 	 * Misc
 	 */
 	add_filter( 'enter_title_here', '_core\filters\misc\customize_title' );
+	add_filter( 'body_class', '_core\filters\misc\simplify_page_template_classes', 20 );
 }

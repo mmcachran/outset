@@ -80,14 +80,16 @@ function page( $field_groups ) {
 			'slug'     => $post_type->name,
 			'name'     => __( 'Header Options', 'core' ),
 			'fields'   => [
-				field\button_group([
-					'label' => 'Header Style',
-					'slug' => 'header_style',
-					'choices' => [
-						'light' => 'Light',
-						'transparent' => 'Transparent'
+				field\button_group(
+					[
+						'label'   => 'Header Style',
+						'slug'    => 'header_style',
+						'choices' => [
+							'light'       => 'Light',
+							'transparent' => 'Transparent',
+						],
 					]
-				]),
+				),
 			],
 			'position' => 'side',
 			'location' => location\post_type( $post_type->name ),

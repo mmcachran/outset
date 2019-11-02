@@ -5,7 +5,7 @@
     "window.title": "Outset - ${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
     "files.associations": {},
     "files.exclude": {
-        "starter-files/*": true,
+        "starter-files": true,
         "**/*.lock": true,
     },
     "editor.formatOnSaveTimeout": 2000,

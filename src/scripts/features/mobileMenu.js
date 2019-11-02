@@ -11,20 +11,14 @@ const handleToggleClick = menu => ({ currentTarget }) => {
 
   menu.setAttribute('aria-hidden', hide);
   document.body.setAttribute('data-scroll-enabled', hide);
+  document.body.classList.toggle('mobile-menu-active');
 };
 
 const mobileMenu = () => {
-  const toggles = document.querySelectorAll('.menu_toggle');
-  const mobileMenu = document.querySelector('.header__menu--mobile');
+  const toggles = document.querySelectorAll('.menu-mobile__toggle');
+  const mobileMenu = document.querySelector('.menu-mobile');
 
-  [...toggles].forEach(
-    el => {
-      el.addEventListener(
-        'click',
-        handleToggleClick(mobileMenu),
-      );
-    },
-  );
+  [...toggles].forEach(el => el.addEventListener('click', handleToggleClick(mobileMenu)));
 };
 
 export default mobileMenu;
