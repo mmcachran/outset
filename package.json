@@ -47,7 +47,7 @@
     "custom-event-polyfill": "^1.0.7",
     "flickity": "^2.2.1",
     "flickity-fade": "^1.0.0",
-    "font-awesome-5": "https://pyxl-bucket.s3.us-east-2.amazonaws.com/public-access/npm/font-awesome/font-awesome-pro-svgs-5.11.1.tar.gz",
+    "font-awesome-5": "https://pyxl-bucket.s3.amazonaws.com/public-access/npm/font-awesome/font-awesome-5.0.12.tar.gz",
     "line-clamp": "^1.0.0",
     "lottie-web": "^5.5.9",
     "lozad": "^1.9.0",
