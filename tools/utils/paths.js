@@ -24,6 +24,7 @@ const paths = {
     views: `${theme}/dist/views`,
     blocks: `${theme}/dist/views/block`,
   },
+  root: root,
 };
 
 export { paths, root, theme, plugin };
