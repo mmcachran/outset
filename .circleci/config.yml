@@ -24,8 +24,8 @@ commands:
     steps:
       - run: |
           source .env
-          npm ci --prefix 'wp-content/themes/_view'
-          npm run --prefix 'wp-content/themes/_view' << parameters.npm_script >>
+          npm ci --prefix $PATH_THEME
+          npm run --prefix $PATH_THEME << parameters.npm_script >>
   composer:
     description: "Install Composer Packages (including WordPress Plugins from wpackagist, satis, etc.)"
     steps:
