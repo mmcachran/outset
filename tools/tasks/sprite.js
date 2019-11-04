@@ -14,7 +14,7 @@ function sprite(cb) {
   return pump(
     [
       src([
-        ...config['font-awesome'].map(svg => `${fa}/svgs/${svg}.svg`),
+        ...config['font-awesome'].map(svg => `${fa}/raw-svg/${svg}.svg`),
         ...find(`${paths.src.svgs}/sprite/*.svg`),
       ]),
       svgo(),
