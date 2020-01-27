@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <ruleset name="PyxlStandard">
-
     <!--
     Section: Config
     Example: <config name="installed_paths" value="/path/to/standard1,/path/to/standard2"/>
     -->
-    <config name="installed_paths" value="vendor/wp-coding-standards/wpcs"/>
+    <config name="installed_paths" value="vendor/wp-coding-standards/wpcs/WordPress-Extra,vendor/wp-coding-standards/wpcs/WordPress-Core,vendor/wp-coding-standards/wpcs/WordPress"/>
 
     <!--
     Section: Directories & Files to include
@@ -34,18 +33,15 @@
     -->
     <!-- Include the WordPress-Extra standard. -->
     <!-- <rule ref="WordPress"/> -->
-	<!-- <rule ref="WordPress-Core" /> -->
+	<rule ref="WordPress-Core">
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+    </rule>
 	<!-- <rule ref="WordPress-Docs" /> -->
     <rule ref="WordPress-Extra">
         <exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores" />
         <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
     </rule>
 
-    <!--
-    Section: Singles Rules
-    -->
-    <!-- <rule ref="Generic.Arrays.DisallowShortArraySyntax"/> -->
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
-    <!-- <rule ref="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/> -->
 
 </ruleset>
