@@ -30,11 +30,12 @@
     /**
     * PHP Sniffer & Beautifier - https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab
     */
-    "phpsab.standard": "./.phpcs.xml",
+    "phpsab.standard": "./phpcs.xml",
     "phpsab.snifferMode": "onType",
     "phpsab.snifferTypeDelay": 400,
-    "phpsab.executablePath": "./vendor/bin",
     "phpsab.snifferShowSources": true,
+    "phpsab.executablePathCS": "vendor/bin/phpcs",
+    "phpsab.executablePathCBF": "vendor/bin/phpcbf",
     "phpsab.fixerEnable": true,
     /**
     * PHPCS - https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs
@@ -104,4 +105,8 @@
         "wordpress",
         "wpinc"
     ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "intelephense.format.enable": false
 }
