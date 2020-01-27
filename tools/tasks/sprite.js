@@ -8,13 +8,13 @@ import svgo from 'gulp-svgo';
 import rename from 'gulp-rename';
 import { find } from 'globule';
 
-const fa = `${root}/node_modules/font-awesome-5`;
+const fa = `${root}/node_modules/@fortawesome/fontawesome-pro`;
 
 function sprite(cb) {
   return pump(
     [
       src([
-        ...config['font-awesome'].map(svg => `${fa}/svgs/${svg}.svg`),
+        ...config['fontawesome-pro'].map(svg => `${fa}/svgs/${svg}.svg`),
         ...find(`${paths.src.svgs}/sprite/*.svg`),
       ]),
       svgo(),

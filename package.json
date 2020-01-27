@@ -10,7 +10,7 @@
     "not Opera > 0"
   ],
   "watch": {
-    "proxy": "https://outset.test",
+    "proxy": "https://ouset.test",
     "port": 3333,
     "ui": false,
     "online": true
@@ -24,19 +24,35 @@
     "flickity-fade/flickity-fade.js",
     "lozad/dist/lozad.min.js"
   ],
-  "font-awesome": [
+  "fontawesome-pro": [
     "brands/facebook-f",
     "brands/facebook",
     "brands/twitter",
     "brands/google",
+    "brands/youtube",
     "brands/instagram",
     "brands/linkedin-in",
     "brands/vimeo-v",
     "brands/pinterest-p",
     "light/search",
+    "light/arrow-to-bottom",
     "light/bars",
     "light/times",
-    "light/chevron-down"
+    "light/chevron-down",
+    "light/envelope-open-text",
+    "light/phone",
+    "light/external-link-alt",
+    "light/weight",
+    "light/running",
+    "light/weight-hanging",
+    "light/ruler",
+    "light/ruler-horizontal",
+    "light/ruler-vertical",
+    "light/circle-notch",
+    "light/ruler-triangle",
+    "light/sticky-note",
+    "light/cog",
+    "light/dumbbell"
   ],
   "dependencies": {
     "animejs": "^3.1.0",
@@ -47,8 +63,9 @@
     "custom-event-polyfill": "^1.0.7",
     "flickity": "^2.2.1",
     "flickity-fade": "^1.0.0",
-    "font-awesome-5": "https://pyxl-bucket.s3.us-east-2.amazonaws.com/public-access/npm/font-awesome/font-awesome-pro-svgs-5.11.1.tar.gz",
+    "@fortawesome/fontawesome-pro": "^5.11",
     "line-clamp": "^1.0.0",
+    "lodash": "^4.17.15",
     "lottie-web": "^5.5.9",
     "lozad": "^1.9.0",
     "ramda": "^0.26.1",

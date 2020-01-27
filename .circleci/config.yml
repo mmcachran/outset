@@ -23,9 +23,8 @@ commands:
         type: string
     steps:
       - run: |
-          source .env
-          npm ci --prefix $PATH_THEME
-          npm run --prefix $PATH_THEME << parameters.npm_script >>
+          npm ci
+          npm run << parameters.npm_script >>
   composer:
     description: "Install Composer Packages (including WordPress Plugins from wpackagist, satis, etc.)"
     steps:
@@ -37,6 +36,7 @@ commands:
           rm -rf $(cat .clean)
           find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
           find . -name '.gitignore' -type d -prune -exec rm -rf '{}' +
+          find . -name 'starter-files' -type d -prune -exec rm -rf '{}' +
   git_push:
     description: "Deploy our files"
     parameters:
@@ -63,7 +63,7 @@ commands:
 jobs:
   prod:
     docker:
-      - image: pyxl/wordpress-ci-cd-2019
+      - image: pyxl/wordpress-ci-cd-2020
     steps:
       - checkout
       - setup
@@ -75,7 +75,7 @@ jobs:
           repo: ${GIT_DEPLOY_PRODUCTION}
   stag:
     docker:
-      - image: pyxl/wordpress-ci-cd-2019
+      - image: pyxl/wordpress-ci-cd-2020
     steps:
       - checkout
       - setup
@@ -87,7 +87,7 @@ jobs:
           repo: ${GIT_DEPLOY_STAGING}
   dev:
     docker:
-      - image: pyxl/wordpress-ci-cd-2019
+      - image: pyxl/wordpress-ci-cd-2020
     steps:
       - checkout
       - setup

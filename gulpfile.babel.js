@@ -24,7 +24,7 @@ const build = series(
     sprite,
     images,
     vendors,
-    php,
+    // php,
   ),
 );
 
@@ -42,7 +42,7 @@ const prod = series(
     sprite,
     images,
     vendors,
-    php,
+    // php,
   ),
 );
 
