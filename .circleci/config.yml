@@ -36,6 +36,7 @@ commands:
           rm -rf $(cat .clean)
           find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
           find . -name '.gitignore' -type d -prune -exec rm -rf '{}' +
+          find . -name 'starter-files' -type d -prune -exec rm -rf '{}' +
   git_push:
     description: "Deploy our files"
     parameters:
