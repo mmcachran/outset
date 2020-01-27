@@ -63,7 +63,7 @@ commands:
 jobs:
   prod:
     docker:
-      - image: pyxl/wordpress-ci-cd-2019
+      - image: pyxl/wordpress-ci-cd-2020
     steps:
       - checkout
       - setup
@@ -75,7 +75,7 @@ jobs:
           repo: ${GIT_DEPLOY_PRODUCTION}
   stag:
     docker:
-      - image: pyxl/wordpress-ci-cd-2019
+      - image: pyxl/wordpress-ci-cd-2020
     steps:
       - checkout
       - setup
@@ -87,7 +87,7 @@ jobs:
           repo: ${GIT_DEPLOY_STAGING}
   dev:
     docker:
-      - image: pyxl/wordpress-ci-cd-2019
+      - image: pyxl/wordpress-ci-cd-2020
     steps:
       - checkout
       - setup
