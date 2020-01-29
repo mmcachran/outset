@@ -10,7 +10,7 @@
     "not Opera > 0"
   ],
   "watch": {
-    "proxy": "https://ouset.test",
+    "proxy": "https://outset.test",
     "port": 3333,
     "ui": false,
     "online": true
