@@ -2,7 +2,6 @@
 
 namespace _core\helpers\acf\block;
 
-use Timber;
 use function _core\helpers\template\render;
 use function _core\helpers\utils\has_key;
 use function _core\helpers\utils\merge;
@@ -10,6 +9,7 @@ use function _core\helpers\acf\misc\field_shorthand_translator;
 use function _core\helpers\utils\has_every_key;
 use function _core\helpers\utils\underscores_to_dashes;
 use function Functional\select_keys;
+use function _view\utils\env_check;
 
 function create( $args = [] ) {
 	if ( ! has_every_key( [ 'label', 'slug', 'fields' ], $args ) ) {
@@ -46,8 +46,8 @@ function create_block_type_args( $args ) {
 				'multiple' => true,
 			],
 			'render_callback' => __NAMESPACE__ . '\render_callback_handler',
-			'enqueue_style'   => get_stylesheet_directory_uri() . sprintf( '/dist/views/block/%1$s/%2$s.css', $args['slug'], basename( $args['slug'] ) ),
-			'enqueue_script'  => get_stylesheet_directory_uri() . sprintf( '/dist/views/block/%1$s/%2$s.js', $args['slug'], basename( $args['slug'] ) ),
+			'enqueue_style'   => env_check( sprintf( '/dist/views/block/%1$s/%2$s.css', $args['slug'], basename( $args['slug'] ) ) ),
+			'enqueue_script'  => env_check( sprintf( '/dist/views/block/%1$s/%2$s.js', $args['slug'], basename( $args['slug'] ) ) ),
 		],
 		$args
 	);
@@ -77,7 +77,24 @@ function render_callback_handler( $block, $content = '', $is_preview = false ) {
 		"block/{$block['slug']}",
 		apply_filters(
 			sprintf( '_view/block/%s/data', $block['slug'] ),
-			apply_filters( '_core/block/data', $block )
+			merge(
+				( get_fields() ) ?: [],
+				select_keys( $block, [ 'align', 'mode', 'title' ] ),
+				[
+					'base'       => $block['slug'],
+					'is_preview' => $is_preview,
+					'classes'    => trim(
+						join(
+							' ',
+							[
+								'custom-block',
+								has_key( 'align', $block ) ? "align{$block['align']}" : null,
+								has_key( 'className', $block ) ? $block['className'] : null,
+							]
+						)
+					),
+				]
+			)
 		)
 	);
 }
