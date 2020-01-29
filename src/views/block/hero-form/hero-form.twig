@@ -49,8 +49,8 @@
 ] %}
 
 <section class="{{ classes|join(' ') }}">
-    {% if layout == 'homepage' %}
-        {% include 'Blocks/HeroForm/HeroHomepage.twig' with {
+	{% if layout == 'homepage' %}
+		{% include 'Blocks/HeroForm/HeroHomepage.twig' with {
             heading: heading,
             animated_text:animated_text,
             content: content,
@@ -60,9 +60,9 @@
             image: image,
             appearance: appearance,
         } %}
-    {% endif %}
-    {% if layout == 'product' %}
-        {% include 'Blocks/HeroForm/HeroProduct.twig' with {
+	{% endif %}
+	{% if layout == 'product' %}
+		{% include 'Blocks/HeroForm/HeroProduct.twig' with {
             heading: heading,
             animated_text:animated_text,
             content: content,
@@ -72,5 +72,5 @@
             image: image,
             appearance: appearance,
         } %}
-    {% endif %}
+	{% endif %}
 </section>
