@@ -74,6 +74,7 @@
         "enqueues",
         "gulpif",
         "kses",
+        "phpcbf",
         "phpcs",
         "post",
         "pyxl",

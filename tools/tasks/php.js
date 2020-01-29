@@ -1,7 +1,9 @@
+import { paths } from '../utils/paths';
+
 const { spawn } = require('child_process');
 
-function php(cb) {
-  return spawn('phpcs', [], { stdio: 'inherit' })
+function phpcs(cb) {
+  return spawn(`${paths.src.vendor}/squizlabs/php_codesniffer/bin/phpcs`, [], { stdio: 'inherit' })
     .on('close', cb)
     .on('exit', () => cb())
     .on('error', err => {
@@ -10,4 +12,14 @@ function php(cb) {
     });
 }
 
-export { php };
+function phpcbf(cb) {
+  return spawn(`${paths.src.vendor}/squizlabs/php_codesniffer/bin/phpcbf`, [], { stdio: 'inherit' })
+    .on('close', cb)
+    .on('exit', () => cb())
+    .on('error', err => {
+      console.error(err);
+      process.exit(err);
+    });
+}
+
+export { phpcs, phpcbf };

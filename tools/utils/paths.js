@@ -14,6 +14,7 @@ const paths = {
     svgs: `${root}/src/svgs`,
     views: `${root}/src/views`,
     blocks: `${root}/src/views/block`,
+    vendor: `${root}/vendor`,
   },
   dist: {
     styles: `${theme}/dist/styles`,
