@@ -49,7 +49,7 @@ function social_menu_item( $field_groups ) {
 				),
 			],
 			'position' => 'normal',
-			'location' => location\social_menu(),
+			'location' => location\menu( 'social' ),
 		]
 	);
 }
@@ -114,6 +114,68 @@ function career( $field_groups ) {
 			],
 			'position' => 'side',
 			'location' => location\post_type( $post_type->name ),
+		]
+	);
+}
+
+function home( $field_groups ) {
+	return push(
+		$field_groups,
+		[
+			'slug'     => 'home',
+			'name'     => __( 'Home Page Content', 'core' ),
+			'fields'   => [
+				field\tab(
+					[
+						'label' => 'Hero',
+						'slug'  => 'hero_tab',
+					]
+				),
+				field\group(
+					[
+						'label'      => 'Hero',
+						'slug'       => 'hero',
+						'sub_fields' => [
+							field\heading(),
+							field\text(
+								[
+									'label' => __( 'Sub-Heading', 'core' ),
+									'slug'  => 'subheading',
+								]
+							),
+							field\image(
+								[
+									'label' => __( 'Background Image (desktop)', 'core' ),
+									'slug'  => 'background_desktop',
+								]
+							),
+							field\image(
+								[
+									'label' => __( 'Background Image (mobile)', 'core' ),
+									'slug'  => 'background_mobile',
+								]
+							),
+							field\boolean(
+								[
+									'label'         => __( 'Background Overlay', 'core' ),
+									'slug'          => 'hero_image_overlay',
+									'default_value' => 0,
+								]
+							),
+							field\link(),
+							field\link(
+								[
+									'label' => 'Secondary Link',
+									'slug'  => 'secondary_link',
+								]
+							),
+							field\post_type(),
+						],
+					]
+				),
+			],
+			'position' => 'normal',
+			'location' => location\page_template(),
 		]
 	);
 }

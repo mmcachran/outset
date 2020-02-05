@@ -70,6 +70,14 @@ function run() {
 	add_filter( '_core/option_pages', '_core\filters\option_pages\general' );
 
 	/**
+	 * Field Groups
+	 */
+	add_filter( '_core/field_groups', '_core\models\field_groups\posts' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\home' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\social_menu_item' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\testimonial' );
+
+	/**
 	 * Views
 	 */
 	add_filter( '_view/global/head/data', '_core\filters\views\head' );
