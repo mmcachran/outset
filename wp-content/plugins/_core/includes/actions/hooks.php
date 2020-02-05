@@ -38,9 +38,7 @@ function run() {
 
 	add_filter( '_core/blocks', '_core\models\blocks\featurette' );
 
-	add_filter( '_core/blocks', '_core\models\blocks\hero_basic' );
-
-	add_filter( '_core/blocks', '_core\models\blocks\hero_form' );
+	add_filter( '_core/blocks', '_core\models\blocks\hero' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\image_grid' );
 

@@ -1,0 +1,15 @@
+<section class="hero-basic {{ classes }} flex items-center justify-center">
+    <div class="hero-basic__background">
+        {% if 'video' == type and background_video %}
+            <video autoplay muted loop title="{{ background_video.alt }}">
+                <source src="{{ background_video.url }}" type="video/mp4">
+            </video>
+        {% elseif 'image' == type and background_image %}
+            {% include 'component/picture/picture.twig' with background_image only %}
+        {% endif %}
+    </div>
+    <div class="hero-basic__inner p-5 bg-light">
+        <h1 class="hero-basic__heading">{{ heading }}</h1>
+        <div class="hero-basic__content">{{ content }}</div>
+    </div>
+</section>
