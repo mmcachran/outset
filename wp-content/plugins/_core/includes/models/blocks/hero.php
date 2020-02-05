@@ -5,7 +5,7 @@ namespace _core\models\blocks;
 use _core\helpers\field;
 use function _core\helpers\utils\push;
 
-function hero_basic( $blocks ) {
+function hero( $blocks ) {
 	return push(
 		$blocks,
 		[
