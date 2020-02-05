@@ -4,7 +4,8 @@ namespace _core\helpers\field;
 
 use _core\helpers\query;
 use function _core\helpers\utils\merge;
-use function _core\helpers\utils\has_key;
+use function _view\utils\has_key;
+use function _core \helpers\utils\index_from_value;
 use function Functional\select_keys;
 
 function asset_type( $args = [] ) {
@@ -27,17 +28,15 @@ function asset_type( $args = [] ) {
 function boolean( $args = [] ) {
 	return merge(
 		[
-			[
-				'slug'          => 'boolean',
-				'label'         => __( 'Boolean', 'core' ),
-				'type'          => 'true_false',
-				'instructions'  => '',
-				'message'       => '',
-				'default_value' => 1,
-				'ui'            => 1,
-				'ui_on_text'    => 'On',
-				'ui_off_text'   => 'Off',
-			],
+			'slug'          => 'boolean',
+			'label'         => __( 'Boolean', 'core' ),
+			'type'          => 'true_false',
+			'instructions'  => '',
+			'message'       => '',
+			'default_value' => 1,
+			'ui'            => 1,
+			'ui_on_text'    => 'On',
+			'ui_off_text'   => 'Off',
 		],
 		$args
 	);
@@ -330,6 +329,17 @@ function forms( $args = [] ) {
 	);
 }
 
+function menus( $args = [] ) {
+	return merge(
+		[
+			'label'   => __( 'Menu', 'core' ),
+			'slug'    => 'menu',
+			'type'    => 'select',
+			'choices' => [],
+		],
+		$args
+	);
+}
 
 function slider( $args = [] ) {
 	return [
@@ -441,27 +451,6 @@ function tags( $args = [] ) {
 	);
 }
 
-/**
- * Basic Conditional logic
- *
- * Matching the structure of ACF's deep array structure, which we don't often need.
- * ...yes, it's silly, but useful.
- *
- * @param [type] $condition
- * @return void
- */
-function basic_condition( $field, $value, $operator = '==' ) {
-	return [
-		[
-			[
-				'field'    => $field,
-				'operator' => $operator,
-				'value'    => $value,
-			],
-		],
-	];
-}
-
 function post_type( $args = [] ) {
 
 	// TODO: consider refactoring to something like Functional/reindex
@@ -491,4 +480,76 @@ function accordion( $args = [] ) {
 		],
 		$args
 	);
+}
+
+function appearance( $args = [] ) {
+	return merge(
+		[
+
+			'label'   => __( 'Appearance', 'core' ),
+			'slug'    => 'appearance',
+			'type'    => 'button_group',
+			'choices' => [
+				'light' => 'Light',
+				'dark'  => 'Dark',
+			],
+			'default' => 'light',
+		],
+		$args
+	);
+}
+
+function alignment( $args = [] ) {
+	return merge(
+		[
+			'label'   => __( 'Alignment', 'core' ),
+			'slug'    => 'alignment',
+			'type'    => 'button_group',
+			'choices' => [
+				'left'  => 'Left',
+				'right' => 'Right',
+			],
+			'default' => 'left',
+		],
+		$args
+	);
+}
+
+function height( $args = [] ) {
+	return merge(
+		[
+			'label'   => __( 'Height', 'core' ),
+			'slug'    => 'height',
+			'type'    => 'button_group',
+			'choices' => [
+				'full'  => 'Tall',
+				'mid'   => 'Normal',
+				'short' => 'Short',
+			],
+			'default' => 'mid',
+		],
+		$args
+	);
+}
+
+
+/**
+ * Basic Conditional logic
+ *
+ * Matching the structure of ACF's deep array structure, which we don't often need.
+ * ...yes, it's silly, but useful.
+ *
+ * @param [type] $condition
+ * @return void
+ */
+function basic_condition( $field, $value, $operator = '==' ) {
+	return [
+		[
+			[
+				'field'    => $field,
+				'operator' => $operator,
+				'value'    => $value,
+			],
+		],
+	];
 }
