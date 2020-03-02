@@ -6,16 +6,17 @@
         * https://scottjehl.github.io/picturefill/#ie9
         * https://apoorv.pro/lozad.js/#example-with-picture-tag
 #}
-<picture class="lozad-picture" data-iesrc="{{ src }}" data-alt="{{ alt }}" style="display: block; min-height: 1rem">
-    {% for image in sizes %}
-        <source
-        media="(min-width: {{ image.width }}px)"
-        srcset="{{ image.url }}"
-        height="{{ image.height }}"
-        width="{{ image.width }}"
-        >
-    {% endfor %}
-    <noscript>
-        <img src="{{ src }}" alt="{{ alt }}">
-    </noscript>
+	<picture class="lozad-picture {{ classes }}" data-iesrc="{{ src }}" data-alt="{{ alt }}" {{ preview ? 'data-loaded="true"' : '' }}> {% for i, image in sizes|reverse() %}
+		<source media="(max-width: {{ image.width }}px)" srcset="{{ image.url }}" height="{{ image.height }}" width="{{ image.width }}">
+	{% endfor %}
+
+	<source media="(min-width: 0)" srcset="{{ src }}" height="{{ height }}" width="{{ width }}">
+
+	<noscript>
+		<img src="{{ src }}" alt="{{ alt }}">
+	</noscript>
+
+	{% if preview %}
+		<img src="{{ src }}" alt="{{ alt }}">
+	{% endif %}
 </picture>
