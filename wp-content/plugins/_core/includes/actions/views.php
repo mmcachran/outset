@@ -43,3 +43,8 @@ function post( $data ) {
 function four_oh_four( $data ) {
 	render( 'four-oh-four', $data );
 }
+
+function home( $data ) {
+	wp_enqueue_style( 'home' );
+	render( 'template/home', $data );
+}

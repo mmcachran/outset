@@ -6,19 +6,26 @@ use function _view\utils\merge;
 use function Functional\map;
 
 function create_sizes_urls( $src, $sizes ) {
-	return array_reverse(
-		map(
-			$sizes,
-			function( $size ) use ( $src ) {
-				return merge(
-					$size,
-					[
-						'url' => dirname( $src ) . "/{$size['file']}",
-					]
-				);
-			}
-		)
+	$urls = map(
+		$sizes,
+		function( $size ) use ( $src ) {
+			return merge(
+				$size,
+				[
+					'url' => dirname( $src ) . "/{$size['file']}",
+				]
+			);
+		}
 	);
+
+	usort(
+		$urls,
+		function( $a, $b ) {
+			return $a['width'] <=> $b['width'];
+		}
+	);
+
+	return array_reverse( $urls );
 }
 
 function reformat_from_timber( $timber_image ) {
