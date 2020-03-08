@@ -39,6 +39,7 @@ function run() {
 	add_filter( '_core/blocks', '_core\models\blocks\featurette' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\hero' );
+	add_filter( '_view/block/hero/data', '_core\filters\blocks\hero' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\image_grid' );
 

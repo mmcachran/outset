@@ -15,9 +15,9 @@ glob_autoloader( [ PATH . 'includes/*.php' ] );
 
 // Actions
 add_action( 'wp_enqueue_scripts', '_view\enqueues\registrations' );
+add_action( 'admin_enqueue_scripts', '_view\enqueues\admin_registrations' );
 add_action( 'after_setup_theme', '_view\setup\theme_supports' );
 add_action( 'after_setup_theme', '_view\setup\menus' );
-
 // Filters
 add_filter( 'script_loader_tag', '_view\enqueues\handle_async', 50, 3 );
 add_filter( 'script_loader_tag', '_view\enqueues\handle_defer', 50, 3 );
