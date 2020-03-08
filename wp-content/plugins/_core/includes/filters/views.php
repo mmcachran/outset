@@ -6,6 +6,7 @@ use _core\helpers\query;
 use _core\helpers\menu;
 
 use function _core\helpers\utils\merge;
+use function _core\helpers\template\setup_fields;
 
 function head( $data ) {
 	return merge(
@@ -59,5 +60,16 @@ function archive( $data ) {
 	return merge(
 		$data,
 		query\posts()
+	);
+}
+
+function home( $data ) {
+	$fields = get_fields();
+
+	$content = $fields ? setup_fields( $fields ) : [];
+
+	return merge(
+		$data,
+		$content
 	);
 }

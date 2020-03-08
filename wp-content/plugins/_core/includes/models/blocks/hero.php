@@ -5,11 +5,11 @@ namespace _core\models\blocks;
 use _core\helpers\field;
 use function _core\helpers\utils\push;
 
-function hero_basic( $blocks ) {
+function hero( $blocks ) {
 	return push(
 		$blocks,
 		[
-			'slug'        => 'hero-basic',
+			'slug'        => 'hero',
 			'label'       => __( 'Hero (basic)', 'core' ),
 			'description' => __( 'A simple hero block', 'core' ),
 			'icon'        => 'laptop',
@@ -24,13 +24,13 @@ function hero_basic( $blocks ) {
 				field\image(
 					[
 						'slug'              => 'background_image',
-						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'image' ),
+						'conditional_logic' => field\basic_condition( 'hero/type', 'image' ),
 					]
 				),
 				field\file(
 					[
 						'slug'              => 'background_video',
-						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'video' ),
+						'conditional_logic' => field\basic_condition( 'hero/type', 'video' ),
 					]
 				),
 				field\heading(),

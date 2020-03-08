@@ -38,9 +38,7 @@ function run() {
 
 	add_filter( '_core/blocks', '_core\models\blocks\featurette' );
 
-	add_filter( '_core/blocks', '_core\models\blocks\hero_basic' );
-
-	add_filter( '_core/blocks', '_core\models\blocks\hero_form' );
+	add_filter( '_core/blocks', '_core\models\blocks\hero' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\image_grid' );
 
@@ -72,6 +70,14 @@ function run() {
 	add_filter( '_core/option_pages', '_core\filters\option_pages\general' );
 
 	/**
+	 * Field Groups
+	 */
+	add_filter( '_core/field_groups', '_core\models\field_groups\posts' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\home' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\social_menu_item' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\testimonial' );
+
+	/**
 	 * Views
 	 */
 	add_filter( '_view/global/head/data', '_core\filters\views\head' );
@@ -100,16 +106,20 @@ function run() {
 	 */
 	add_action( '_view/page-templates/style-guide', '_core\actions\views\style_guide' );
 
+	add_filter( '_view/template/home/data', '_core\filters\views\home' );
+	add_action( '_view/template/home', '_core\actions\views\home' );
+
 	/**
 	 * ACF Customizations
 	 */
 	add_filter( 'acf/fields/wysiwyg/toolbars', '_core\filters\wysiwyg\acf' );
 	add_filter( 'tiny_mce_before_init', '_core\filters\wysiwyg\wp' );
 
-	/**
+		/**
 	 * Blocks Editor Customizations
 	 */
 	add_filter( 'use_block_editor_for_post_type', '_core\filters\block_editor\enable_by_post_type', 10, 2 );
+	add_filter( 'use_block_editor_for_post', '_core\filters\block_editor\enable_by_page_template', 10, 2 );
 
 	/**
 	 * Misc

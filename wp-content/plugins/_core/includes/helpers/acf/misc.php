@@ -125,3 +125,11 @@ function conditional_logic_handler( $prefix, $field ) {
 
 	return $field;
 }
+
+function check_for_link( $link ) {
+	return empty( $link ) ? [] : [
+		'url'    => has_key( 'url', $link ) ? $link['url'] : '',
+		'target' => has_key( 'target', $link ) ? $link['target'] : '',
+		'title'  => has_key( 'title', $link ) ? $link['title'] : __( 'Learn More', 'core' ),
+	];
+}
