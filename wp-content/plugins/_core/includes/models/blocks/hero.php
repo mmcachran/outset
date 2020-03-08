@@ -10,9 +10,9 @@ function hero( $blocks ) {
 		$blocks,
 		[
 			'slug'        => 'hero',
-			'label'       => __( 'Hero (basic)', 'core' ),
-			'description' => __( 'A simple hero block', 'core' ),
-			'icon'        => 'laptop',
+			'label'       => __( 'Hero', 'core' ),
+			'description' => __( 'A hero block', 'core' ),
+			'icon'        => 'format-image',
 			'keywords'    => [ 'hero', 'custom' ],
 			'fields'      => [
 				field\asset_type(
@@ -35,6 +35,7 @@ function hero( $blocks ) {
 				),
 				field\heading(),
 				field\content(),
+				field\link(),
 			],
 		]
 	);
