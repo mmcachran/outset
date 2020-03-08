@@ -8,6 +8,21 @@ use function _view\utils\load_style;
 use function _view\utils\load_script;
 use function _view\utils\localize_script_data;
 
+function admin_registrations() {
+	$current_screen = get_current_screen();
+
+	if ( $current_screen->is_block_editor() ) {
+		register_style( 'tailwind-important', 'dist/styles/tailwind-important.css' );
+		load_style( 'tailwind-important' );
+	}
+
+	register_style( 'admin', 'dist/styles/admin.css' );
+	load_style( 'admin' );
+
+	register_script( 'admin', 'dist/scripts/admin.js' );
+	load_script( 'admin' );
+}
+
 function registrations() {
 	global $is_IE;
 
@@ -32,6 +47,7 @@ function registrations() {
 	register_script( 'main', 'dist/scripts/main.js', null, 1.0, false, true, true );
 	localize_script_data( 'main', 'globals', $localized );
 	load_script( 'main' );
+	register_style( 'home', 'dist/styles/home.css' );
 
 	register_style( 'normalize', 'dist/styles/normalize.css' );
 	load_style( 'normalize' );

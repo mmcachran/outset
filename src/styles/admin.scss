@@ -1,0 +1,63 @@
+.acf-block-preview .custom-block {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	width: 100% !important;
+	max-width: auto !important;
+
+	button,
+	.button {
+		align-items: flex-start;
+		-webkit-appearance: unset;
+		background-color: unset;
+		border-color: transparent;
+		border-image: initial;
+		border-style: solid;
+		border-width: unset;
+		color: unset;
+		letter-spacing: unset;
+		margin: unset;
+		padding: unset;
+		text-align: unset;
+		text-indent: unset;
+		text-rendering: unset;
+		text-shadow: none;
+		text-transform: none;
+		word-spacing: normal;
+		height: unset;
+		border-radius: unset;
+		border: unset;
+	}
+}
+
+.acf-block-component>div>.acf-block-preview {
+	@import './base/*';
+	@import './features/*';
+	@import './wordpress/**/*';
+	@import '../views/component/**/*';
+	@import '../views/block/**/*';
+}
+
+.acf-block-preview .custom-block {
+	max-width: 100%;
+	position: relative;
+
+	&::before {
+		bottom: 0;
+		content: ' ';
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 200;
+	}
+}
+
+.editor-styles-wrapper {
+	ul {
+		list-style-type: none !important;
+	}
+}
+
+.acf-block-panel .acf-block-fields {
+	margin: initial !important;
+}
