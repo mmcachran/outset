@@ -191,6 +191,29 @@ function number( $args = [] ) {
 	);
 }
 
+function date( $args = [] ) {
+	return merge(
+		[
+			'label' => __( 'Date', 'core' ),
+			'slug'  => 'date',
+			'type'  => 'date_picker',
+		],
+		$args
+	);
+}
+
+
+function datetime( $args = [] ) {
+	return merge(
+		[
+			'label' => __( 'Date and Time', 'core' ),
+			'slug'  => 'date_time',
+			'type'  => 'date_time_picker',
+		],
+		$args
+	);
+}
+
 
 function button_group( $args = [] ) {
 	return merge(
