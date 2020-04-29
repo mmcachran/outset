@@ -59,3 +59,27 @@ function reformat_from_timber( $timber_image ) {
 function image_from_post_id( $post ) {
 	return reformat_from_timber( new Timber\Image( get_post_thumbnail_id( $post ) ) );
 }
+
+/**
+ * Will set the image fields for a default repeater at a root level using default image fields
+ */
+function attach_timber_images( $data, $repeater_key = 'items', $image_key = 'image' ) {
+
+	if ( ! array_key_exists( $repeater_key, $data ) ) {
+		_log( 'Set the "$repeater_key" value to the slug of the repeater and make sure it is in the root level of fields' );
+		return;
+	};
+
+	$data[ $repeater_key ] = map(
+		$data[ $repeater_key ],
+		function( $value ) use ( $data, $image_key ) {
+			if ( ! array_key_exists( $image_key, $value ) ) {
+				_log( 'Set the "$image_key" value to the slug of the image field in the repeater and make sure it is in the root level of repeater\'s subfields' );
+				return $value;
+			};
+			$value[ $image_key ] = ! empty( $value[ $image_key ] ) ? reformat_from_timber( new Timber\Image( $value[ $image_key ] ) ) : [];
+			return $value;
+		}
+	);
+	return $data;
+}
