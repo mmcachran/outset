@@ -105,18 +105,8 @@ cite {
 }
 
 
-hr,
-.wp-block-separator {
-  border-bottom: 1px solid $brand__gray;
-  border-bottom-width: 1px;
-}
+hr {
 
-.wp-block-separator {
-  &.is-style-wide {
-    //width: 100%;
-    border-bottom-width: 1px;
-    max-width: $width--wide;
-  }
 }
 
 figure {
@@ -131,7 +121,6 @@ img {
 table,
 th,
 td {
-  border: 1px solid $brand__dark;
 }
 
 th,
@@ -157,19 +146,18 @@ td {
   vertical-align: bottom;
 }
 
+form {
+  margin-bottom: 0;
+}
+
 select,
 input:not([type='submit']),
 textarea {
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid $brand__gray--dark;
-  border-radius: 0;
-  box-shadow: none;
-  outline: none;
-  padding: 0.9em 1.2em;
+  width: 100%;
+  @apply font-bold py-2 px-4 rounded bg-light text-dark;
 
   &::placeholder {
-    color: $brand__gray--dark;
+
   }
 
   &:focus {
@@ -177,29 +165,21 @@ textarea {
 }
 
 input:focus {
-  border-bottom: 2px solid $brand__gray;
   box-shadow: transparent;
   outline: none;
 }
-
 
 input[type='submit'],
 input[type='reset'],
 input[type='button'],
 button {
-  // TODO: handle states (e.g. disabled, etc.)
-  border-radius: 0;
+  @apply font-bold py-2 px-4 rounded bg-primary;
 }
 
 textarea {
-  border: 2px solid $brand__gray--dark;
-  padding: 0.9em;
 }
 
 textarea:focus {
-  border-color: $brand__aqua;
-  box-shadow: none;
-  outline: none;
 }
 
 label {

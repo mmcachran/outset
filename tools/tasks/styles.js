@@ -40,7 +40,7 @@ const options = {
     extname: '.css',
   },
   autoprefixer: {
-    grid: 'autoplace',
+    grid: false, // autoplace,
     cascade: false,
   },
   purgeCSS: {

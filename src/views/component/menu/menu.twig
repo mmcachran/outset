@@ -1,16 +1,15 @@
-{% set classes = classes ?: [
-  'flex',
-] %}
-  
-<ul class="{{ classes|join(' ') }} {{ base ?: 'menu' }}__list menu">
-    {% for item in items %}
-        {% include "component/menu-item/menu-item.twig" with {
-          title: item.title ?: '',
-          url: item.url ?: '',
-          target: item.target ?: '',
-          items: item.items ?: [],
-          icon: item.icon ?: false,
-          base: base,
-        } only %}
-    {% endfor %}
+<ul class="menu{{ slug ? " menu-#{slug}"}} py-4 md:py-0 md:flex">
+	{% for item in items %}
+		<li class="menu-item">
+			<a class="menu-link md:px-4 py-2 md:py-4" href="{{ url }}" target="{{ item.target }}">
+				{% if icon %}
+					<svg class="icon">
+						<use xlink:href="#icon-{{ icon|lower }}"/>
+					</svg>
+				{% else %}
+					<span>{{ item.title }}</span>
+				{% endif %}
+			</a>
+		</li>
+	{% endfor %}
 </ul>

@@ -1,0 +1,9 @@
+.top-bar {
+  .menu {
+    @apply flex;
+
+    a {
+      @apply text-light px-4;
+    }
+  }
+}
