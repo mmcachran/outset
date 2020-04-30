@@ -68,6 +68,7 @@
   },
   "scripts": {
     "setup": [
+      "bash starter-files/wp-setup.sh",
       "composer install",
       "@wp_core_download",
       "yarn install",
