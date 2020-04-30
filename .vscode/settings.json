@@ -46,22 +46,17 @@
     */
     "search-node-modules.path": "./wp-content/themes/_view/node_modules",
     /**
+    * Code Actions
+    */
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    /**
     * ESLint
     */
     "eslint.options": {
         "configFile": "./.eslintrc"
     },
-    "eslint.autoFixOnSave": true,
-    "eslint.validate": [
-        {
-            "language": "javascript",
-            "autoFix": true
-        },
-        {
-            "language": "javascriptreact",
-            "autoFix": true
-        },
-    ],
     "eslint.workingDirectories": [
         "./wp-content/themes/_view",
         "./wp-content/plugins/_core",
@@ -106,8 +101,5 @@
         "wordpress",
         "wpinc"
     ],
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
     "intelephense.format.enable": false
 }
