@@ -24,26 +24,19 @@
     "space-before-function-paren": [
       "error",
       "never"
-    ],
+    ]
   },
   "globals": {
     "$": "readonly",
     "axios": "readonly",
     "anime": "readonly",
-    "bodymovin": "readonly",
-    "scrollMonitor": "readonly",
-    "Mustache": "readonly",
     "jQuery": "readonly",
-    "RevealFx": "readonly",
     "DOMParser": "readonly",
     "Navigo": "readonly",
     "compose": "readonly",
     "ga": "readonly",
     "Pyxl": "writable",
     "CustomEvent": "readonly",
-    "render": "writable",
-    "getTemplate": "writable",
-    "Router": "writable",
-    "globals": "writable",
+    "globals": "writable"
   }
 }
