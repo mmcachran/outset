@@ -8,8 +8,7 @@
         // "starter-files": true,
         "**/*.lock": true,
     },
-    "editor.tabCompletion": "on",
-    "editor.snippetSuggestions": "top",
+    "editor.tabCompletion": "on", // Enable Snippets
     "editor.formatOnSaveTimeout": 2000,
     "[php]": {
         "editor.formatOnSave": true,
@@ -23,11 +22,8 @@
     },
     "[twig]": {
         "editor.formatOnSave": true,
-        "editor.snippetSuggestions": "top"
+        "editor.snippetSuggestions": "top",
     },
-    /**
-    * Emmet
-    */
     "emmet.showSuggestionsAsSnippets": true,
     /**
     * Composer - https://marketplace.visualstudio.com/items?itemName=ikappas.composer
