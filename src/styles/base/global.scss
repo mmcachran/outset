@@ -16,12 +16,6 @@ body {
 
   &[data-scroll-enabled='false'] {
     @apply overflow-hidden;
-
-    &::before {
-      @apply bg-dark absolute h-full w-full z-10;
-      content: '';
-      filter: blur(100px);
-    }
   }
 }
 
@@ -142,7 +136,7 @@ form {
 }
 
 select,
-input:not([type='submit']),
+input,
 textarea {
   @apply font-bold py-2 px-4 rounded bg-light text-dark w-full;
 

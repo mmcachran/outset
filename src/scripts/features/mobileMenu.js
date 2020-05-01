@@ -15,7 +15,7 @@ const handleToggleClick = menu => ({ currentTarget }) => {
 };
 
 const mobileMenu = () => {
-  const toggles = document.querySelectorAll('.menu-mobile__toggle');
+  const toggles = document.querySelectorAll('.menu-toggle');
   const mobileMenu = document.querySelector('.menu-mobile');
 
   [...toggles].forEach(el => el.addEventListener('click', handleToggleClick(mobileMenu)));

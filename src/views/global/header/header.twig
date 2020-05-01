@@ -1,16 +1,18 @@
 <header class="header header--{{ header_style ?: 'static' }} w-full top-0 z-40">
 	{% include "global/top-bar/top-bar.twig" %}
-	<section class="header__wrapper mx-12 lg:mx-24 flex flex-wrap justify-between items-center py-5">
-		<div class="header__logo">
+	<section class="header-wrapper mx-12 lg:mx-24 flex flex-wrap justify-between items-center py-5">
+		<div class="header-logo">
 			<a href="{{ urls.home }}" class="logo">
 				{% include "svgs/logo.svg" %}
 			</a>
 		</div>
-		<div class="header__menu flex flex-wrap justify-between items-center">
-			<div class="header__menu--desktop hidden lg:flex flex-wrap justify-between items-center">
+		<div class="header-menu flex flex-wrap justify-between items-center">
+			<div class="header-menu-desktop hidden lg:block">
 				{% include "component/menu/menu.twig" with menus.primary only %}
 			</div>
-			{% include "component/menu-mobile/menu-mobile.twig" with menus only %}
+			<div class="header-menu-mobile lg:hidden">
+				{% include "component/menu-mobile/menu-mobile.twig" with menus only %}
+			</div>
 		</div>
 	</section>
 </header>

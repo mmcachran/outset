@@ -1,9 +1,36 @@
 .menu-mobile {
-  height: 100vh;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
   &[aria-hidden=true] {
-    opacity: 0;
     transform: translateX(100%);
+  }
+
+  a {
+    @apply text-light;
+  }
+
+  .menu {
+    @apply block;
+  }
+}
+
+.menu-toggle {
+  svg {
+    @apply text-light fill-current;
+  }
+}
+
+body.mobile-menu-active {
+  &::before {
+    @apply absolute h-full w-full z-10;
+    background: rgba(0, 0, 0, 0.8);
+    content: '';
+  }
+
+  .content,
+  .footer,
+  .top-bar,
+  .header-logo {
+    filter: blur(3px);
   }
 }
