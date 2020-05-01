@@ -7,6 +7,7 @@ use function _core\helpers\utils\has_key;
 use function _core\helpers\utils\merge;
 use function _core\helpers\acf\misc\field_shorthand_translator;
 use function _core\helpers\utils\has_every_key;
+use function _core\helpers\utils\setup_classes;
 use function _core\helpers\utils\underscores_to_dashes;
 use function Functional\select_keys;
 use function _view\utils\env_check;
@@ -78,20 +79,17 @@ function render_callback_handler( $block, $content = '', $is_preview = false ) {
 		apply_filters(
 			sprintf( '_view/block/%s/data', $block['slug'] ),
 			merge(
-				( get_fields() ) ?: [],
+				get_fields(),
 				select_keys( $block, [ 'align', 'mode', 'title' ] ),
 				[
-					'base'       => $block['slug'],
+					// 'base' is inherited from template.php
 					'is_preview' => $is_preview,
-					'classes'    => trim(
-						join(
-							' ',
-							[
-								'custom-block',
-								has_key( 'align', $block ) ? "align{$block['align']}" : null,
-								has_key( 'className', $block ) ? $block['className'] : null,
-							]
-						)
+					'classes'    => setup_classes(
+						[
+							'custom-block',
+							has_key( 'align', $block ) ? "align{$block['align']}" : null,
+							has_key( 'className', $block ) ? $block['className'] : null,
+						]
 					),
 				]
 			)

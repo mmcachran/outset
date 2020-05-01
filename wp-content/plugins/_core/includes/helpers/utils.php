@@ -44,3 +44,7 @@ function has_every_key( $required_keys = [], $data = [] ) {
 function underscores_to_dashes( $string = '' ) {
 	return str_replace( '_', '-', $string );
 }
+
+function setup_classes( $classes = [] ) {
+	return trim( join( ' ', $classes ) );
+}
