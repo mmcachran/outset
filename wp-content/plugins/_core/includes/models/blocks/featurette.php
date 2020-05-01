@@ -27,14 +27,14 @@ function featurette( $blocks ) {
 				),
 				field\image(
 					[
-						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'image' ),
+						'conditional_logic' => field\basic_condition( 'featurette/type', 'image' ),
 					]
 				),
 				field\file(
 					[
 						'label'             => __( 'Image', 'core' ),
 						'slug'              => 'video',
-						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'video' ),
+						'conditional_logic' => field\basic_condition( 'featurette/type', 'video' ),
 					]
 				),
 				field\lead_in(),
