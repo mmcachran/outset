@@ -2,6 +2,16 @@
   "defaultSeverity": "warning",
   "extends": "stylelint-config-sass-guidelines",
   "rules": {
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "apply",
+          "screen",
+          "tailwind"
+        ]
+      }
+    ],
     "selector-no-qualifying-type": [
       true,
       {
