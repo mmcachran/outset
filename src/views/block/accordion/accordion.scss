@@ -1,3 +1,32 @@
-.accordion {
+.accordion-item {
+  $item: &;
 
+  &__content {
+    @apply overflow-hidden h-0;
+    transition: 0.4s ease height;
+  }
+
+  button {
+
+  }
+
+  svg {
+    transition: 0.4s ease transform;
+  }
+
+  &.expanded {
+    #{$item}__heading {
+      button {
+
+      }
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    #{$item}__content {
+      // height dynamically handled in accordion js
+    }
+  }
 }

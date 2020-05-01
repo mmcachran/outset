@@ -20,13 +20,18 @@
 			<h2 class="accordion__heading">{{ heading }}</h2>
 			<div class="accordion__description">{{ content }}</div>
 		</header>
-		<div class="accorion__item">
+		<div class="accorion__items">
 			{% for item in items %}
-				<article class="accordion-item">
-					<header class="accodion-item__heading">
+				<article class="accordion-item mb-4">
+					<header class="accordion-item__heading flex justify-between">
 						<h3>{{ item.heading }}</h3>
+						<button>
+							<svg class="icon">
+								<use xlink:href="#icon-chevron-down"/>
+							</svg>
+						</button>
 					</header>
-					<div class="accordion-item__content">
+					<div class="accordion-item__content" aria-hidden="true">
 						{{ item.content }}
 					</div>
 				</article>
