@@ -46,7 +46,7 @@ function option_pages() {
 	each(
 		apply_filters( '_core/option_pages', [] ),
 		function ( $args ) {
-			acf_add_options_page( $args );
+			acf\option_page\create( $args );
 		}
 	);
 }

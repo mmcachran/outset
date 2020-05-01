@@ -66,12 +66,13 @@ function run() {
 	/**
 	 * Options
 	 */
-	add_filter( '_core/option_pages', '_core\filters\option_pages\general' );
+	add_filter( '_core/option_pages', '_core\models\option_pages\general' );
+	add_action( 'init', '_core\actions\register\option_pages' );
 
 	/**
 	 * Field Groups
 	 */
-	add_filter( '_core/field_groups', '_core\models\field_groups\posts' );
+	// add_filter( '_core/field_groups', '_core\models\field_groups\posts' ); TODO: Review callback
 	add_filter( '_core/field_groups', '_core\models\field_groups\home' );
 	add_filter( '_core/field_groups', '_core\models\field_groups\social_menu_item' );
 	add_filter( '_core/field_groups', '_core\models\field_groups\testimonial' );

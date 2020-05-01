@@ -2,9 +2,14 @@
 
 namespace _core\models\option_pages;
 
-function general() {
-	return [
-		'name' => 'General',
-		'slug' => 'general',
-	];
+use function _core\helpers\utils\push;
+
+function general( $args = [] ) {
+	return push(
+		$args,
+		[
+			'name' => 'General',
+			'slug' => 'general',
+		]
+	);
 }
