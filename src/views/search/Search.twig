@@ -24,6 +24,15 @@
 					<span>Sorry, no results found for</span>
 					<span>"{{ query }}"</span>
 				</h1>
+				<form role="search" method="get" id="searchform" class="search flex w-full" action="{{urls.home}}">
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<div class="input-wrapper flex-auto md:flex-none">
+						<input class="search__input" type="text" value="{{ query }}" name="s" id="s" placeholder="...I'm looking for"/>
+					</div>
+					<button class="btn flex-none" type="submit" id="searchsubmit">
+						<span>Search</span>
+					</button>
+				</form>
 			{% endif %}
 		</div>
 	</header>
