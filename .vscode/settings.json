@@ -8,6 +8,7 @@
         // "starter-files": true,
         "**/*.lock": true,
     },
+    "editor.snippetSuggestions": "top",
     "editor.formatOnSaveTimeout": 2000,
     "[php]": {
         "editor.formatOnSave": true,
@@ -23,6 +24,10 @@
         "editor.formatOnSave": true,
         "editor.snippetSuggestions": "top"
     },
+    /**
+    * Emmet
+    */
+    "emmet.showSuggestionsAsSnippets": true,
     /**
     * Composer - https://marketplace.visualstudio.com/items?itemName=ikappas.composer
     */
