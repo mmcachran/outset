@@ -1,9 +1,26 @@
+{#
+/**
+ * @file
+ * Featurette Block
+ *
+ * Available variables:
+ * - heading: The title for this region.
+ * - content: The description for this region.
+ * - link: The link for this region.
+ * - type: The type for this region to determine media asset shown.
+ * - image: The image for this region.
+ * - video: The video for this region.
+ *
+ * @see _core/models/blocks/featurette & _core/filters/blocks/featurette
+ *
+ */
+#}
 <section class="featurette {{ classes }}">
-	<div class="container md:flex items-center justify-center">
-		<div class="featurette__background">
-			{% if 'video' == type and background_video %}
-				<video autoplay muted loop title="{{ background_video.alt }}">
-					<source src="{{ background_video.url }}" type="video/mp4">
+	<div class="container md:flex items-center">
+		<div class="featurette__asset">
+			{% if 'video' == type and video %}
+				<video autoplay muted loop title="{{ video.alt }}">
+					<source src="{{ video.url }}" type="video/mp4">
 				</video>
 			{% elseif 'image' == type and background_image %}
 				{% include 'component/picture/picture.twig' with background_image only %}

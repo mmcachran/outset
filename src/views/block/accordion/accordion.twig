@@ -1,6 +1,36 @@
+{#
+/**
+ * @file
+ * Accordion Block
+ *
+ * Available variables:
+ * - heading: The title for this region.
+ * - content: The description for this region.
+ * - items: Repeatable content for this region, commonly used for FAQ-like patterns.
+ *   - heading: The title for this item.
+ *   - content: The content for this item.
+ *
+ * @see _core/models/blocks/accordion & _core/filters/blocks/accordion
+ *
+ */
+#}
 <section class="accordion {{ classes }}">
-    <div class="container">
-        <h1>{{ heading }}</h1>
-        <div>{{ content }}</div>
-    </div>
+	<div class="container">
+		<header class="accordion__header">
+			<h2 class="accordion__heading">{{ heading }}</h2>
+			<div class="accordion__description">{{ content }}</div>
+		</header>
+		<div class="accorion__item">
+			{% for item in items %}
+				<article class="accordion-item">
+					<header class="accodion-item__heading">
+						<h3>{{ item.heading }}</h3>
+					</header>
+					<div class="accordion-item__content">
+						{{ item.content }}
+					</div>
+				</article>
+			{% endfor %}
+		</div>
+	</div>
 </section>

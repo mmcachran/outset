@@ -23,13 +23,13 @@ function hero( $blocks ) {
 				),
 				field\image(
 					[
-						'slug'              => 'background_image',
+						'slug'              => 'image',
 						'conditional_logic' => field\basic_condition( 'hero/type', 'image' ),
 					]
 				),
 				field\file(
 					[
-						'slug'              => 'background_video',
+						'slug'              => 'video',
 						'conditional_logic' => field\basic_condition( 'hero/type', 'video' ),
 					]
 				),
