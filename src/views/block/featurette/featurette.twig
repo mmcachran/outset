@@ -1,73 +1,23 @@
-{#
-/**
- * Available variables:
- * - image { url, alt }
- * - heading
- * - content
- * - link { url, target, title}
- */
-#}
-
-{% set defaults = {
-    image: '',
-    heading: '',
-    subheading: '',
-    content: '',
-    link: {
-        target: '_blank',
-        title: 'Learn More',
-        url: '#',
-    },
-} %}
-
-{% set image = image ?: defaults.image %}
-{% set heading = heading ?: defaults.heading %}
-{% set subheading = subheading ?: defaults.subheading %}
-{% set content = content ?: defaults.content %}
-{% set link = link ?: default.link %}
-
-{# selects different layout for image #}
-{% if image %}
-    {% set layout = 'image-layout' %}
-{% endif %}
-
-{% set base = 'Featurette' %}
-{% set classes = [
-    base~'--'~alignment,
-    base~'--'~block.align,
-    base
-] %}
-
-<section class="{{ classes|join(' ') }}">
-    <div class="container">
-        <div class="{{ base }}__wrapper">
-            {% if image.url %}
-                <div class="{{ base }}__primary">
-                    <figure class="{{ base }}__image object-fit">
-                        <img src="{{ image.url }}" alt="{{ image.alt }}">
-                    </figure>
-                </div>
-            {% endif %}
-            <div class="{{ base }}__secondary">
-                <h3 class="{{ base }}__heading">{{ heading }}</h3>
-                {% if subheading %}
-                    <h4 class="{{ base }}__subheading">{{ subheading }}</h4>
-                {% endif %}
-                <div class="{{ base }}__content">{{ content }}</div>
-                {% if link %}
-                    {% if alignment == 'right' %}
-                        {% include 'Components/Button/ButtonPrimary.twig' with {
-                            link: link,
-                            appearance: 'dark-inverse',
-                        } only %}
-                    {% else %}
-                        {% include 'Components/Button/ButtonSecondary.twig' with {
-                            link: link,
-                            appearance: 'dark',
-                        } only %}
-                    {% endif %}
-                {% endif %}
-            </div>
-        </div>
-    </div>
+{{dump()}}
+<section class="featurette-basic {{ classes }}">
+	<div class="container md:flex items-center justify-center">
+		<div class="featurette-basic__background">
+			{% if 'video' == type and background_video %}
+				<video autoplay muted loop title="{{ background_video.alt }}">
+					<source src="{{ background_video.url }}" type="video/mp4">
+				</video>
+			{% elseif 'image' == type and background_image %}
+				{% include 'component/picture/picture.twig' with background_image only %}
+			{% endif %}
+		</div>
+		<div class="featurette-basic__inner p-5 bg-light">
+			<h2 class="featurette-basic__heading">{{ heading }}</h2>
+			<div class="featurette-basic__content">{{ content }}</div>
+			{% if link %}
+				<a class="btn" href="{{ link.url }}" target="{{ link.target }}">
+					<span>{{ link.title }}</span>
+				</a>
+			{% endif %}
+		</div>
+	</div>
 </section>
