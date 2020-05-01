@@ -1,3 +1,9 @@
 .search {
-  //
+  &__input {
+    @apply rounded-br-none rounded-tr-none;
+  }
+
+  .btn {
+    @apply rounded-tl-none rounded-bl-none;
+  }
 }

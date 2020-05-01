@@ -2,9 +2,9 @@
 <form role="search" method="get" id="searchform" class="search flex w-full" action="{{urls.home}}">
 	<label class="screen-reader-text" for="s">Search for:</label>
 	<div class="input-wrapper flex-auto md:flex-none">
-		<input class="rounded-br-none rounded-tr-none" type="text" value="{{ function('get_search_query') }}" name="s" id="s" placeholder="...I'm looking for"/>
+		<input class="search__input" type="text" value="{{ function('get_search_query') }}" name="s" id="s" placeholder="...I'm looking for"/>
 	</div>
-	<button class="button flex-none rounded-tl-none rounded-bl-none" type="submit" id="searchsubmit">
+	<button class="btn flex-none" type="submit" id="searchsubmit">
 		<span>Search</span>
 	</button>
 </form>

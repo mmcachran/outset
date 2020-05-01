@@ -8,6 +8,7 @@
         "ignoreAtRules": [
           "apply",
           "screen",
+          "variants",
           "tailwind"
         ]
       }

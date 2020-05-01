@@ -5,6 +5,12 @@ $tw-screens-lg: 1024px;
 $tw-screens-xl: 1280px;
 $tw-screens-2xl: 1440px;
 
+$tw-container-center: true;
+$tw-container-padding-default: 1rem;
+$tw-container-padding-sm: 2rem;
+$tw-container-padding-lg: 4rem;
+$tw-container-padding-xl: 5rem;
+
 $tw-fontFamily-base: (Cardo,sans-serif);
 $tw-fontFamily-primary: (Montserrat,sans-serif);
 
@@ -134,7 +140,6 @@ $tw-boxShadow-2xl: (0 25px 50px -12px rgba(0, 0, 0, 0.25));
 $tw-boxShadow-inner: (inset 0 2px 4px 0 rgba(0, 0, 0, 0.06));
 $tw-boxShadow-outline: (0 0 0 3px rgba(66, 153, 225, 0.5));
 $tw-boxShadow-none: none;
-
 
 $tw-cursor-auto: auto;
 $tw-cursor-default: default;
