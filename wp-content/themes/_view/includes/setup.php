@@ -27,6 +27,7 @@ function menus() {
 			'secondary' => 'Secondary',
 			'footer'    => 'Footer',
 			'social'    => 'Social',
+			'details'   => 'Details',
 		]
 	);
 }

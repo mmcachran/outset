@@ -1,13 +1,15 @@
-{# {{ dump() }} #}
-<footer class="footer bg-primary-dark text-light py-10">
-	<div class="container flex flex-wrap justify-between items-center h-12">
-		<section class="footer__primary">
-			<a href="{{ urls.home }}" class="logo">
-				{% include "svgs/logo.svg" %}
-			</a>
-		</section>
-		<section class="footer_secondary">
-			{% include "component/menu/menu.twig" with menus.footer only %}
-		</section>
-	</div>
+<footer class="footer">
+	<section class="footer__wraper bg-primary-dark text-light py-10">
+		<div class="container flex flex-wrap justify-between items-center">
+			<div class="footer__primary">
+				<a href="{{ urls.home }}" class="logo">
+					{% include "svgs/logo.svg" %}
+				</a>
+			</div>
+			<div class="footer_secondary">
+				{% include "component/menu/menu.twig" with menus.footer only %}
+			</div>
+		</div>
+	</section>
+	{% include "global/bottom-bar/bottom-bar.twig" %}
 </header>

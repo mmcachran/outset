@@ -1,19 +1,14 @@
-<section class="bottom-bar">
-	<div class="container">
-		<div class="bottom-bar__wrapper">
+<section class="bottom-bar bg-dark text-light">
+	<div class="container py-4">
+		<div class="bottom-bar__wrapper md:flex items-center justify-between">
 			<div class="bottom-bar__primary">
-				<div class="bottom-bar__logo">
-					<a href="{{ urls.home }}" class="logo">
-						{% include "svgs/logo.svg" %}
-					</a>
-				</div>
-			</div>
-			<div class="bottom-bar__secondary">
 				<small class="bottom-bar__copyright">
 					<span>Copyright ©</span>
 					<span>{{ "now"|date("Y") }}</span>
-					<a class="bottom-bar__privacy-policy" href="/privacy-terms">Privacy & Terms</a>
 				</small>
+			</div>
+			<div class="bottom-bar__secondary">
+				{% include "component/menu/menu.twig" with menus.details only %}
 			</div>
 		</div>
 	</div>

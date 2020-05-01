@@ -52,7 +52,8 @@ function footer( $data ) {
 				'home' => esc_url( get_home_url() ),
 			],
 			'menus' => [
-				'footer' => menu\get( 'footer' ),
+				'footer'  => menu\get( 'footer' ),
+				'details' => menu\get( 'details' ),
 			],
 		]
 	);
