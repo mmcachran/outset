@@ -6,11 +6,18 @@
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
 	// Placeholders with the same ids are connected.
 	// Example:
-	"Create Button": {
-		"prefix": "bb",
+	"Create button": {
+		"prefix": "btn",
 		"description": "",
 		"body": [
-			"<a class=\"btn\"><span>{{ link.title }}</span></a>"
+			"<a class=\"btn\" href=\"{{ link.url }}\" target=\"{{ link.target }}\"><span>{{ link.title }}</span></a>"
+		]
+	},
+	"Input variable": {
+		"prefix": "v",
+		"description": "",
+		"body": [
+			"{{ $0 }}"
 		]
 	}
 }
