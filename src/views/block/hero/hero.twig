@@ -1,20 +1,22 @@
-<section class="hero-basic flex items-center justify-center {{ classes }}">
-	<div class="hero-basic__background">
-		{% if 'video' == type and background_video %}
-			<video autoplay muted loop title="{{ background_video.alt }}">
-				<source src="{{ background_video.url }}" type="video/mp4">
-			</video>
-		{% elseif 'image' == type and background_image %}
-			{% include 'component/picture/picture.twig' with background_image only %}
-		{% endif %}
-	</div>
-	<div class="hero-basic__inner p-5 bg-light">
-		<h1 class="hero-basic__heading">{{ heading }}</h1>
-		<div class="hero-basic__content">{{ content }}</div>
-		{% if link %}
-			<a class="btn" href="{{ link.url }}" target="{{ link.target }}">
-				<span>{{ link.title }}</span>
-			</a>
-		{% endif %}
+<section class="hero-basic {{ classes }}">
+	<div class="container md:flex items-center justify-center">
+		<div class="hero-basic__background">
+			{% if 'video' == type and background_video %}
+				<video autoplay muted loop title="{{ background_video.alt }}">
+					<source src="{{ background_video.url }}" type="video/mp4">
+				</video>
+			{% elseif 'image' == type and background_image %}
+				{% include 'component/picture/picture.twig' with background_image only %}
+			{% endif %}
+		</div>
+		<div class="hero-basic__inner p-5 bg-light">
+			<h2 class="hero-basic__heading">{{ heading }}</h2>
+			<div class="hero-basic__content">{{ content }}</div>
+			{% if link %}
+				<a class="btn" href="{{ link.url }}" target="{{ link.target }}">
+					<span>{{ link.title }}</span>
+				</a>
+			{% endif %}
+		</div>
 	</div>
 </section>
