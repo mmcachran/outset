@@ -5,31 +5,6 @@ namespace _view\utils;
 use const _view\PATH;
 use const _view\URI;
 
-function get_post_preview_image( $post_id ) {
-	if ( get_field( 'listing_image' ) ) {
-		return map_acf_image( get_field( 'listing_image' ) );
-	} else {
-		return map_wp_image( $post_id );
-	}
-}
-
-function map_wp_image( $post_id ) {
-	$image_id = get_post_thumbnail_id( $post_id );
-	return [
-		'src'    => wp_get_attachment_image_url( $image_id, 'your_image_size' ),
-		'alt'    => get_post_meta( $image_id, '_wp_attachment_image_alt', true ) ?: __( 'Pyxl Image', 'view' ),
-		'srcset' => wp_get_attachment_image_srcset( $image_id ),
-	];
-}
-
-function map_acf_image( $acf_image ) {
-	return [
-		'src'    => $acf_image['url'],
-		'alt'    => $acf_image['alt'] ?: __( 'Pyxl Image', 'view' ),
-		'srcset' => wp_get_attachment_image_srcset( $acf_image['ID'] ),
-	];
-}
-
 function get_file_as_string( $path ) {
 	ob_start();
 	include_once $path;
