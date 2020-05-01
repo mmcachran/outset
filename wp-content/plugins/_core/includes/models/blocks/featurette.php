@@ -17,24 +17,26 @@ function featurette( $blocks ) {
 			'fields'      => [
 				field\asset_type(
 					[
-						'label' => __( 'Background', 'core' ),
+						'label' => __( 'Image', 'core' ),
 						'slug'  => 'type',
 					]
 				),
 				field\image(
 					[
-						'slug'              => 'background_image',
+						'slug'              => 'image',
 						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'image' ),
 					]
 				),
 				field\file(
 					[
-						'slug'              => 'background_video',
+						'slug'              => 'video',
 						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'video' ),
 					]
 				),
+				field\lead_in(),
 				field\heading(),
 				field\content(),
+				field\link(),
 			],
 		]
 	);
