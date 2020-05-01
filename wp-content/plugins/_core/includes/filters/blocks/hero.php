@@ -11,8 +11,8 @@ function hero( $data ) {
 		$data,
 		function( $value, $key ) use ( $data ) {
 
-			if ( in_array( $key, [ 'background_image', 'background_image' ], true ) ) {
-				return ! empty( $value ) ? image\reformat_from_timber( new Timber\Image( $value ) ) : [];
+			if ( in_array( $key, [ 'image', 'background_image' ] ) ) {
+				return image\reformat_from_timber( new Timber\Image( $value ) );
 			}
 
 			return $value;
