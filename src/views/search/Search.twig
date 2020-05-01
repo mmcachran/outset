@@ -1,29 +1,45 @@
-{% set base = 'search-results' %}
-
-<section class="{{ base }}">
-    <header class="{{ base }}__header">
-        <div class="container">
-            {% if posts | length > 0 %}
-                <h1>{{ __("Results for", 'view') }}: {{ search_query }}</h1>
-            {% else %}
-                <h1>{{ __("Sorry, no results found for", 'view') }} "{{ search_query }}"</h1>
-            {% endif %}
-        </div>
-    </header>
-    <section class="{{ base }}__posts">
-        <div class="container">
-            {% if posts | length > 0 %}
-                {% for post in posts %}
-                    {% include "components/post_preview/post_preview.twig" %}
-                {% endfor %}
-            {% else %}
-                {# No results #}
-            {% endif %}
-        </div>
-    </section>
-    <section class="{{ base }}__pagination">
-        <div class="container">
-            {% include "components/pagination/pagination.twig" %}
-        </div>
-    </section>
+{#
+/**
+ * @file
+ * Search View
+ *
+ * Available variables:
+ * - query: The user term queried for this region.
+ * - posts: The matching posts based on the query.
+ *
+ * @see _core/actions/views/search & _core/filters/views/search
+ *
+ */
+#}
+<section class="search-results">
+	<header class="search-results__header">
+		<div class="container">
+			{% if posts | length > 0 %}
+				<h1>
+					<span>Results for:</span>
+					<span>{{ query }}</span>
+				</h1>
+			{% else %}
+				<h1>
+					<span>Sorry, no results found for</span>
+					<span>"{{ query }}"</span>
+				</h1>
+			{% endif %}
+		</div>
+	</header>
+	<div class="search-results__posts">
+		<div class="container flex flex-wrap">
+			{% for post in posts %}
+				<div class="w-full lg:w-1/2 xl:w-1/3">
+					{% include 'component/preview/preview.twig' with post only %}
+				</div>
+			{% endfor %}
+			{% include 'component/pagination/pagination.twig' with pagination only %}
+		</div>
+	</div>
 </section>
+<section class="search-results__pagination">
+	<div class="container">
+		{% include "component/pagination/pagination.twig" %}
+	</div>
+</section></section>

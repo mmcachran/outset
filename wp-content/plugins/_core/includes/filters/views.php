@@ -6,7 +6,16 @@ use _core\helpers\query;
 use _core\helpers\menu;
 
 use function _core\helpers\utils\merge;
-use function _core\helpers\template\setup_fields;
+
+function search( $data ) {
+	return merge(
+		$data,
+		query\posts(),
+		[
+			'query' => get_search_query(),
+		]
+	);
+}
 
 function head( $data ) {
 	return merge(

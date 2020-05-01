@@ -91,6 +91,9 @@ function run() {
 	add_filter( '_view/four-oh-four', '_core\filters\views\four_oh_four' );
 	add_action( '_view/four-oh-four', '_core\actions\views\four_oh_four' );
 
+	add_filter( '_view/search/data', '_core\filters\views\search' );
+	add_action( '_view/search', '_core\actions\views\search' );
+
 	add_filter( '_view/archive/post-type/default/data', '_core\filters\views\archive' );
 	add_action( '_view/archive/post-type/default', '_core\actions\views\archive' );
 

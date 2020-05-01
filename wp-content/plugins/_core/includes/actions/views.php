@@ -13,6 +13,10 @@ function head( $data ) {
 	render( 'global/head', $data );
 }
 
+function search( $data ) {
+	render( 'search', $data );
+}
+
 function header( $data ) {
 	printf( '<body class="%s">', esc_html( join( get_body_class(), ' ' ) ) );
 	render_svg( 'sprite' );
