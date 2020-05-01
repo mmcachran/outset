@@ -180,7 +180,7 @@ function home( $field_groups ) {
 	);
 }
 
-function global_options( $field_groups ) {
+function globals( $field_groups ) {
 	return push(
 		$field_groups,
 		[
@@ -209,7 +209,7 @@ function global_options( $field_groups ) {
 				),
 
 			],
-			'location'        => location\options_page( 'global_options' ),
+			'location'        => location\options_page( 'globals' ),
 		]
 	);
 }

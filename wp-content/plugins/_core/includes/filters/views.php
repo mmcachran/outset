@@ -48,10 +48,11 @@ function footer( $data ) {
 	return merge(
 		$data,
 		[
-			'urls'  => [
+			'urls'   => [
 				'home' => esc_url( get_home_url() ),
 			],
-			'menus' => [
+			'global' => function_exists( 'get_field' ) ? get_field( 'footer', 'globals' ) : [],
+			'menus'  => [
 				'footer'  => menu\get( 'footer' ),
 				'details' => menu\get( 'details' ),
 			],

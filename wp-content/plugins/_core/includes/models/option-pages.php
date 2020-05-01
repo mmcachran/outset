@@ -4,12 +4,12 @@ namespace _core\models\option_pages;
 
 use function _core\helpers\utils\push;
 
-function global_options( $args = [] ) {
+function globals( $args = [] ) {
 	return push(
 		$args,
 		[
-			'name' => 'Global',
-			'slug' => 'global_options',
+			'name' => 'Globals',
+			'slug' => 'globals',
 		]
 	);
 }
