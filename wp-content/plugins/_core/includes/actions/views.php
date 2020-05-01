@@ -6,7 +6,7 @@ use function _core\helpers\template\render;
 use function _core\helpers\template\render_svg;
 
 function style_guide() {
-	render( 'page-template/style-guide' );
+	render( 'template/style-guide' );
 }
 
 function head( $data ) {
