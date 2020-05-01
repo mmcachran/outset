@@ -116,7 +116,7 @@ function run() {
 	add_filter( 'acf/fields/wysiwyg/toolbars', '_core\filters\wysiwyg\acf' );
 	add_filter( 'tiny_mce_before_init', '_core\filters\wysiwyg\wp' );
 
-		/**
+	/**
 	 * Blocks Editor Customizations
 	 */
 	add_filter( 'use_block_editor_for_post_type', '_core\filters\block_editor\enable_by_post_type', 10, 2 );
