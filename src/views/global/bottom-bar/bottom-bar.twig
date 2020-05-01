@@ -1,0 +1,20 @@
+<section class="bottom-bar">
+	<div class="container">
+		<div class="bottom-bar__wrapper">
+			<div class="bottom-bar__primary">
+				<div class="bottom-bar__logo">
+					<a href="{{ urls.home }}" class="logo">
+						{% include "svgs/logo.svg" %}
+					</a>
+				</div>
+			</div>
+			<div class="bottom-bar__secondary">
+				<small class="bottom-bar__copyright">
+					<span>Copyright ©</span>
+					<span>{{ "now"|date("Y") }}</span>
+					<a class="bottom-bar__privacy-policy" href="/privacy-terms">Privacy & Terms</a>
+				</small>
+			</div>
+		</div>
+	</div>
+</section>
