@@ -25,7 +25,6 @@
 		// Misc
 		"mikestead.dotenv", // DotENV - https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv
 		"DotJoshJohnson.xml", // XML Tools - https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml
-		"rebornix.project-snippets", // Project Snippets - https://marketplace.visualstudio.com/items?itemName=rebornix.project-snippets
 		"streetsidesoftware.code-spell-checker", // streetsidesoftware.code-spell-checker - https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
 		"mrmlnc.vscode-apache", // Apache Conf - https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-apache
 		"christian-kohler.path-intellisense", // Path Intellisense - https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense

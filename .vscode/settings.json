@@ -8,6 +8,7 @@
         // "starter-files": true,
         "**/*.lock": true,
     },
+    "editor.tabCompletion": "on",
     "editor.snippetSuggestions": "top",
     "editor.formatOnSaveTimeout": 2000,
     "[php]": {
