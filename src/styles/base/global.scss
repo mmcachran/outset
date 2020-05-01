@@ -12,14 +12,16 @@
  * Base Elements
  */
 body {
-  @apply text-dark;
-  @apply text-base;
-  @apply font-base;
-  -webkit-font-smoothing: antialiased;
-  margin: 0;
+  @apply text-dark text-base font-base m-0 antialiased;
 
   &[data-scroll-enabled='false'] {
-    overflow: hidden;
+    @apply overflow-hidden;
+
+    &::before {
+      @apply bg-dark absolute h-full w-full z-10;
+      content: '';
+      filter: blur(100px);
+    }
   }
 }
 
@@ -33,16 +35,11 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-primary;
-  line-height: 1.2;
-  margin-bottom: 0.2em;
-  margin-top: 0.2em;
+  @apply font-primary leading-tight my-1;
 }
 
 h1 {
-  @apply text-3xl;
-  margin-top: 0;
-
+  @apply text-3xl mt-0;
 }
 
 h2 {
@@ -66,17 +63,15 @@ h6 {
 }
 
 small {
-  font-size: 0.75em;
+  @apply text-sm;
 }
 
 p {
-  margin-bottom: 1.25em;
-  margin-top: 0.5em;
+  @apply mt-2 mb-1;
 }
 
 a {
-  @apply text-primary;
-  text-decoration: underline;
+  @apply text-primary underline;
 
   &:focus,
   &:hover {
@@ -86,19 +81,19 @@ a {
 
 ul {
   li {
-    padding-left: 0.2em;
+    @apply pl-1;
   }
 }
 
 ol {
   li {
-    padding-left: 0.2em;
+    @apply pl-1;
   }
 }
 
 
 blockquote {
-  position: relative;
+  @apply relative;
 }
 
 cite {
@@ -110,12 +105,11 @@ hr {
 }
 
 figure {
-  margin: 0;
+  @apply m-0;
 }
 
 img {
-  height: auto;
-  max-width: 100%;
+  @apply h-auto max-w-full;
 }
 
 table,
@@ -125,36 +119,32 @@ td {
 
 th,
 td {
-  padding: 0.25em 0.5em;
+  @apply py-1 px-2;
 }
 
 table {
-  border-collapse: collapse;
+  @apply border-collapse;
+}
 
-  caption {
-    line-height: 2em;
-    text-align: left;
-  }
+caption {
+  @apply leading-loose;
 }
 
 th {
-  text-align: left;
 }
 
 td {
-  height: 1em;
-  vertical-align: bottom;
+  @apply h-4 align-bottom;
 }
 
 form {
-  margin-bottom: 0;
+  @apply mb-0;
 }
 
 select,
 input:not([type='submit']),
 textarea {
-  width: 100%;
-  @apply font-bold py-2 px-4 rounded bg-light text-dark;
+  @apply font-bold py-2 px-4 rounded bg-light text-dark w-full;
 
   &::placeholder {
 
@@ -165,8 +155,7 @@ textarea {
 }
 
 input:focus {
-  box-shadow: transparent;
-  outline: none;
+  @apply outline-none;
 }
 
 input[type='submit'],
@@ -186,7 +175,7 @@ label {
 }
 
 iframe {
-  max-width: 100%;
+  @apply max-w-full;
 }
 
 select {
@@ -200,26 +189,17 @@ select {
  */
 
 .wrapper {
-  position: relative;
+  @apply relative;
 }
 
 .icon {
-  display: inline-block;
-  height: 2rem;
-  position: relative;
-  user-select: none;
-  width: 2rem;
+  @apply inline-block h-8 relative select-none w-8;
 
   svg {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+    @apply h-full absolute left-0 top-0 w-full;
   }
 }
 
 .content {
-  margin: auto;
-  max-width: 40rem;
+  @apply m-auto max-w-xl;
 }
