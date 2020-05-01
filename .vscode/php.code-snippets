@@ -1,9 +1,16 @@
 {
-    "ddump": {
+    "Dumb var dump": {
         "prefix": "ddump",
         "body": [
             "echo '<pre>';\nvar_dump($1);\necho '</pre>';\ndie();",
             "$2"
+        ],
+        "description": "var_dump"
+    },
+    "Varible Dump": {
+        "prefix": "var",
+        "body": [
+            "var_dump( $0 ); \ndie;",
         ],
         "description": "var_dump"
     },
