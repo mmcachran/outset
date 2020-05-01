@@ -17,18 +17,22 @@ function featurette( $blocks ) {
 			'fields'      => [
 				field\asset_type(
 					[
-						'label' => __( 'Image', 'core' ),
-						'slug'  => 'type',
+						'label'   => __( 'Media Type', 'core' ),
+						'slug'    => 'type',
+						'choices' => [
+							'image' => 'Image',
+							'video' => 'Video',
+						],
 					]
 				),
 				field\image(
 					[
-						'slug'              => 'image',
 						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'image' ),
 					]
 				),
 				field\file(
 					[
+						'label'             => __( 'Image', 'core' ),
 						'slug'              => 'video',
 						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'video' ),
 					]
