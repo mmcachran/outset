@@ -1,6 +1,6 @@
-<section class="featurette-basic {{ classes }}">
+<section class="featurette {{ classes }}">
 	<div class="container md:flex items-center justify-center">
-		<div class="featurette-basic__background">
+		<div class="featurette__background">
 			{% if 'video' == type and background_video %}
 				<video autoplay muted loop title="{{ background_video.alt }}">
 					<source src="{{ background_video.url }}" type="video/mp4">
@@ -9,9 +9,10 @@
 				{% include 'component/picture/picture.twig' with background_image only %}
 			{% endif %}
 		</div>
-		<div class="featurette-basic__inner p-5 bg-light">
-			<h2 class="featurette-basic__heading">{{ heading }}</h2>
-			<div class="featurette-basic__content">{{ content }}</div>
+		<div class="featurette__inner">
+			<h3 class="featurette__leadin text-sm">{{ lead_in }}</h3>
+			<h2 class="featurette__heading">{{ heading }}</h2>
+			<div class="featurette__content">{{ content }}</div>
 			{% if link %}
 				<a class="btn" href="{{ link.url }}" target="{{ link.target }}">
 					<span>{{ link.title }}</span>
