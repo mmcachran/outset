@@ -66,7 +66,7 @@ function archive( $data ) {
 function home( $data ) {
 	$fields = get_fields();
 
-	$content = $fields ? setup_fields( $fields ) : [];
+	$content = $fields;
 
 	return merge(
 		$data,
