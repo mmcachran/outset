@@ -8,6 +8,16 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
     },
+    // https://tailwindcss.com/docs/container/#app
+    container: {
+      center: true,
+      padding: {
+        default: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+      },
+    },
     fontFamily: {
       // Please Keep this under 3 or less fonts if possible. - https://tailwindcss.com/docs/font-family/#app
       base: ['Cardo', 'sans-serif'],
