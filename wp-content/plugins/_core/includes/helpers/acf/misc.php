@@ -8,6 +8,21 @@ use function _core\helpers\utils\merge;
 use function Functional\map;
 
 /**
+ * Get Field Wrapper
+ *
+ * @param [type] $selector
+ * @param boolean $post_id
+ * @param boolean $format_value
+ * @return void
+ */
+function get_meta( $selector, $post_id = false, $format_value = true ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return [];
+	}
+	return get_field( $selector, $post_id, $format_value );
+}
+
+/**
  * Create Field Group
  *
  * A function to take advantage of custom defaults for a field group our registrations a bit more DRY.

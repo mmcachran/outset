@@ -5,6 +5,7 @@ namespace _core\filters\views;
 use _core\helpers\query;
 use _core\helpers\menu;
 
+use function _core\helpers\acf\misc\get_meta;
 use function _core\helpers\utils\merge;
 
 function search( $data ) {
@@ -47,12 +48,12 @@ function header( $data ) {
 function footer( $data ) {
 	return merge(
 		$data,
+		get_meta( 'footer', 'globals' ),
 		[
-			'urls'   => [
+			'urls'  => [
 				'home' => esc_url( get_home_url() ),
 			],
-			'global' => function_exists( 'get_field' ) ? get_field( 'footer', 'globals' ) : [],
-			'menus'  => [
+			'menus' => [
 				'footer'  => menu\get( 'footer' ),
 				'details' => menu\get( 'details' ),
 			],

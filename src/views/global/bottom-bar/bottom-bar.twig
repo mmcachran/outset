@@ -2,10 +2,7 @@
 	<div class="container py-4">
 		<div class="bottom-bar__wrapper md:flex items-center justify-between">
 			<div class="bottom-bar__primary">
-				<small class="bottom-bar__copyright">
-					<span>Copyright ©</span>
-					<span>{{ "now"|date("Y") }}</span>
-				</small>
+				<small class="bottom-bar__copyright">{{ copyright }}</small>
 			</div>
 			<div class="bottom-bar__secondary">
 				{% include "component/menu/menu.twig" with menus.details only %}
