@@ -1,6 +1,6 @@
 <?php
 
-namespace _core\actions\hooks;
+namespace _core\hooks;
 
 function run() {
 
@@ -22,9 +22,7 @@ function run() {
 	/**
 	 * Blocks
 	 */
-	add_filter( '_core/block/data', '_core\filters\block\spacing' );
-	add_filter( '_core/block/data', '_core\filters\block\fields' );
-	add_filter( '_core/block/data', '_core\filters\block\general' );
+	add_filter( '_core/block/data', '_core\filters\block\global_block_data' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\accordion' );
 

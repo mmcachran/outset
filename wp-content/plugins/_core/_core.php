@@ -40,4 +40,4 @@ autoloader\simple_glob_require(
 	]
 );
 
-add_action( 'plugins_loaded', '_core\actions\hooks\run' );
+add_action( 'plugins_loaded', '_core\hooks\run' );

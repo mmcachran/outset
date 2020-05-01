@@ -18,9 +18,10 @@
     "lstrojny/functional-php": "^1.9",
     "timber/timber": "^1.11"
   },
-	"autoload": {
+  "autoload": {
     "files": [
-			"includes/autoloader.php"
-		]
-	}
+      "includes/autoloader.php",
+      "includes/hooks.php"
+    ]
+  }
 }
