@@ -22,7 +22,7 @@ function run() {
 	/**
 	 * Blocks
 	 */
-	add_filter( '_core/block/data', '_core\filters\block\global_block_data' );
+	add_filter( '_core/block/global_data', '_core\filters\block\global_data' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\accordion' );
 
