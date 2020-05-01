@@ -15,15 +15,15 @@
  */
 #}
 <section class="accordion {{ classes }}">
-	<div class="container">
-		<header class="accordion__header">
+	<div class="container md:flex">
+		<header class="accordion__header md:mr-12 md:w-1/3">
 			<h2 class="accordion__heading">{{ heading }}</h2>
 			<div class="accordion__description">{{ content }}</div>
 		</header>
-		<div class="accorion__items">
+		<div class="accorion__items md:w-2/3">
 			{% for item in items %}
 				<article class="accordion-item mb-4">
-					<header class="accordion-item__heading flex justify-between">
+					<header class="accordion-item__heading flex justify-between items-center">
 						<h3>{{ item.heading }}</h3>
 						<button>
 							<svg class="icon">
