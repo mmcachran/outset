@@ -233,6 +233,7 @@ function group( $args = [] ) {
 		[
 			'label'      => __( 'Group', 'core' ),
 			'slug'       => 'group',
+			'layout'     => 'block', // block, table, row
 			'type'       => 'group',
 			'sub_fields' => [],
 		],

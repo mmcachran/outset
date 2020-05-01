@@ -30,6 +30,7 @@ function create_field_group_arguments( $args = [] ) {
 			'title'                 => esc_html( sprintf( __( '%s', 'core' ), $args['name'] ) ),
 			'fields'                => [],
 			'location'              => [
+				// Defaulting to posts
 				[
 					[
 						'param'    => 'post_type',
@@ -40,7 +41,7 @@ function create_field_group_arguments( $args = [] ) {
 			],
 			'menu_order'            => 0,
 			'position'              => 'normal', // normal, side
-			'style'                 => 'default',
+			'style'                 => 'default', //
 			'label_placement'       => 'top', // top, left
 			'instruction_placement' => 'label',
 			'hide_on_screen'        => [], // permalink, the_content, excerpt, discussion, comments, revisions, slug, author, format, page_attributes, featured_image, categories, tags, send-trackbacks

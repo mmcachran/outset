@@ -21,7 +21,7 @@ function create( $args ) {
 				'menu_title'      => sprintf( __( '%s', 'core' ), $args['name'] ),
 				'menu_slug'       => $args['slug'],
 				'capability'      => 'edit_posts',
-				'position'        => false,
+				'position'        => '2',
 				'parent_slug'     => '',
 				'icon_url'        => false, // https://developer.wordpress.org/resource/dashicons
 				'redirect'        => true,

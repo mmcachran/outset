@@ -179,3 +179,37 @@ function home( $field_groups ) {
 		]
 	);
 }
+
+function global_options( $field_groups ) {
+	return push(
+		$field_groups,
+		[
+			'slug'            => 'global',
+			'name'            => __( 'Additional Information', 'core' ),
+			'label_placement' => 'left', // top, left
+			'fields'          => [
+				field\group(
+					[
+						'label'        => __( 'Footer', 'core' ),
+						'instructions' => __( 'Fields to help control footer values', 'core' ),
+						'slug'         => 'footer',
+						'type'         => 'group',
+						'layout'       => 'block',
+						'sub_fields'   => [
+							field\text(
+								[
+									'label'         => __( 'Copyright', 'core' ),
+									// translators: %s: Text for copyright
+									'default_value' => sprintf( __( 'Copyright © %s', 'core' ), gmdate( 'Y' ) ),
+									'slug'          => 'copyright',
+								]
+							),
+						],
+					]
+				),
+
+			],
+			'location'        => location\options_page( 'global_options' ),
+		]
+	);
+}

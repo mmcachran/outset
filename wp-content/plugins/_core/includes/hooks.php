@@ -66,7 +66,7 @@ function run() {
 	/**
 	 * Options
 	 */
-	add_filter( '_core/option_pages', '_core\models\option_pages\general' );
+	add_filter( '_core/option_pages', '_core\models\option_pages\global_options' );
 	add_action( 'init', '_core\actions\register\option_pages' );
 
 	/**
@@ -76,6 +76,7 @@ function run() {
 	add_filter( '_core/field_groups', '_core\models\field_groups\home' );
 	add_filter( '_core/field_groups', '_core\models\field_groups\social_menu_item' );
 	add_filter( '_core/field_groups', '_core\models\field_groups\testimonial' );
+	add_filter( '_core/field_groups', '_core\models\field_groups\global_options' );
 
 	/**
 	 * Views
