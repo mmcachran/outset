@@ -37,6 +37,7 @@
     "ga": "readonly",
     "Pyxl": "writable",
     "CustomEvent": "readonly",
-    "globals": "writable"
+    "globals": "writable",
+    "wp": "readonly"
   }
 }

@@ -1,5 +1,5 @@
 import { series, parallel } from 'gulp';
-import { scripts, setupStyles, globalStyles, blockStyles, tailwindStyles, fonts, templates, images, svgs, sprite, clean, monitor, vendors, phpcs, phpcbf } from './tools/index';
+import { scripts, setupStyles, globalStyles, blockStyles, tailwindStyles, adminStyles, fonts, templates, images, svgs, sprite, clean, monitor, vendors, phpcs, phpcbf } from './tools/index';
 import { serve } from './tools/tasks/serve';
 
 const start = series(
@@ -17,6 +17,7 @@ const build = series(
     globalStyles,
     blockStyles,
     tailwindStyles,
+    adminStyles,
     scripts,
     fonts,
     templates,
