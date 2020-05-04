@@ -17,6 +17,11 @@ function search( $data ) {
 	render( 'search', $data );
 }
 
+function admin_header() {
+	// adds icon sprite to be available in the editor
+	render_svg( 'sprite' );
+}
+
 function header( $data ) {
 	printf( '<body class="%s">', esc_html( join( get_body_class(), ' ' ) ) );
 	render_svg( 'sprite' );
