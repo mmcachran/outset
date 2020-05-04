@@ -67,6 +67,23 @@
 /**
 * Misc
 */
+// Minor custom styling to title block
+.wp-block {
+  &.editor-post-title {
+    &__block {
+      border-bottom: 1px solid #e5e5e5;
+      margin-left: 0;
+      max-width: 100%;
+    }
+  }
+}
+// Patch weird format with title block was adjusted
+.editor-post-permalink {
+  &__link {
+    align-items: center;
+    display: flex;
+  }
+}
 
 .editor-styles-wrapper {
   ul {
@@ -76,4 +93,9 @@
 
 .acf-block-panel .acf-block-fields {
   margin: initial !important;
+}
+
+// Patch weird ACF spacing to match core WordPress
+.acf-accordion-title {
+  padding: 15px !important;
 }
