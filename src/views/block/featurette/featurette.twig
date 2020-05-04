@@ -17,16 +17,16 @@
 #}
 <section class="featurette {{ classes }}">
 	<div class="container md:flex items-center">
-		<div class="featurette__asset">
+		<div class="featurette__primary md:w-1/2">
 			{% if 'video' == type and video %}
 				<video autoplay muted loop title="{{ video.alt }}">
 					<source src="{{ video.url }}" type="video/mp4">
 				</video>
-			{% elseif 'image' == type and background_image %}
-				{% include 'component/picture/picture.twig' with background_image only %}
+			{% elseif 'image' == type and image %}
+				{% include 'component/picture/picture.twig' with image only %}
 			{% endif %}
 		</div>
-		<div class="featurette__inner">
+		<div class="featurette__secondary md:w-1/2">
 			<h3 class="featurette__leadin text-sm">{{ lead_in }}</h3>
 			<h2 class="featurette__heading">{{ heading }}</h2>
 			<div class="featurette__content">{{ content }}</div>

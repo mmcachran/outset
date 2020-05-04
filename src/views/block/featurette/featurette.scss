@@ -1,3 +1,34 @@
+/* stylelint-disable max-nesting-depth */
 .featurette {
+  $base: &;
 
+  &.alignment {
+    &--right {
+      #{$base}__primary {
+        @screen md {
+          @apply order-2;
+        }
+      }
+
+      #{$base}__secondary {
+        @screen md {
+          @apply order-1 pr-4;
+        }
+      }
+    }
+
+    &--left {
+      #{$base}__primary {
+        @screen md {
+          @apply order-2;
+        }
+      }
+
+      #{$base}__secondary {
+        @screen md {
+          @apply order-1 pr-4;
+        }
+      }
+    }
+  }
 }
