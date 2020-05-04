@@ -6,6 +6,7 @@ use _core\helpers\field;
 use function _core\helpers\utils\merge;
 use function Functional\map;
 
+// TODO: place this in relevant file
 function spacing( $blocks ) {
 	return map(
 		$blocks,
