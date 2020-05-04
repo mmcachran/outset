@@ -108,6 +108,7 @@ function create_block_type_args( $args ) {
 			],
 			'render_callback' => __NAMESPACE__ . '\render_callback_handler',
 			'enqueue_style'   => env_check( sprintf( '/dist/views/block/%1$s/%2$s.css', $args['slug'], basename( $args['slug'] ) ) ),
+			// TODO: Enqueue script may not fire in the editor. Which is probably fine, but needs some thought.
 			'enqueue_script'  => env_check( sprintf( '/dist/views/block/%1$s/%2$s.js', $args['slug'], basename( $args['slug'] ) ) ),
 		],
 		$args
