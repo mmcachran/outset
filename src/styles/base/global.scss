@@ -1,12 +1,4 @@
-/**
- * Fonts
- * Hosting fonts locally is recommended if possible, for google fonts check out - https://google-webfonts-helper.herokuapp.com/fonts
- */
-@include font-face('Montserrat', '../../dist/fonts/montserrat-v14-latin-700', 700, normal);
-@include font-face('Montserrat', '../../dist/fonts/montserrat-v14-latin-900', 900, normal);
-@include font-face('Cardo', '../../dist/fonts/cardo-v11-latin-regular', 500, normal, eot woff2 woff);
-@include font-face('Cardo', '../../dist/fonts/cardo-v11-latin-700', 700, normal, eot woff2 woff);
-@include font-face('Cardo', '../../dist/fonts/cardo-v11-latin-italic', 500, italic, eot woff2 woff);
+@import './fonts';
 
 /**
  * Base Elements
@@ -29,7 +21,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-primary leading-tight my-1;
+  @apply font-primary leading-tight my-1 font-medium;
 }
 
 h1 {
@@ -37,7 +29,7 @@ h1 {
 }
 
 h2 {
-  @apply text-2xl;
+  @apply text-2xl font-extrabold;
 }
 
 h3 {
@@ -61,7 +53,7 @@ small {
 }
 
 p {
-  @apply mt-2 mb-8;
+  @apply text-base font-base mt-2 mb-8;
 }
 
 a {
