@@ -5,7 +5,6 @@ namespace _core\helpers\field;
 use _core\helpers\query;
 use function _core\helpers\utils\merge;
 use function _view\utils\has_key;
-use function _core \helpers\utils\index_from_value;
 use function Functional\select_keys;
 
 function asset_type( $args = [] ) {
