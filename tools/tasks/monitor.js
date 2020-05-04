@@ -1,7 +1,7 @@
 import { series, watch } from 'gulp';
 import { quit, reload } from './serve';
 import { theme, plugin } from '../utils/paths';
-import { scripts, globalStyles, blockStyles, tailwindStyles, svgs, fonts, clean, sprite, templates, phpcs, phpcbf } from '../index';
+import { scripts, globalStyles, blockStyles, tailwindStyles, adminStyles, svgs, fonts, clean, sprite, templates, phpcs, phpcbf } from '../index';
 
 function monitor(cb) {
   watch(
@@ -58,6 +58,7 @@ function monitor(cb) {
       globalStyles,
       blockStyles,
       tailwindStyles,
+      adminStyles,
     ),
   );
   watch(

@@ -20,6 +20,7 @@ import TailwindExportConfig from 'tailwindcss-export-config';
 import postCSSNoop from 'postcss-noop';
 
 const options = {
+  tailwind: require(`${root}/tailwind.config.js`),
   cleanCSS: {
     level: {
       1: {
@@ -61,7 +62,10 @@ function globalStyles(cb) {
   return pump([
     src([
       `${paths.src.styles}/*.scss`,
+      // Exceptions
       `!${paths.src.styles}/tailwind.scss`,
+      `!${paths.src.styles}/fonts.scss`,
+      `!${paths.src.styles}/admin.scss`,
       `!${paths.src.styles}/normalize.scss`,
     ]),
     plumber(),
@@ -84,6 +88,30 @@ function globalStyles(cb) {
   ], cb);
 }
 
+function adminStyles(cb) {
+  options.tailwind.important = true;
+
+  return pump([
+    src([
+      `${paths.src.styles}/admin.scss`,
+    ]),
+    plumber(),
+    'production' === mode ? noop() : sourcemaps.init(),
+    inject(`
+      @import "utils/**/*";
+    `),
+    sassGlob(),
+    sass(options.sass).on('error', sass.logError),
+    postcss([
+      tailwindCSS(options.tailwind),
+      'production' === mode ? autoprefixer(options.autoprefixer) : postCSSNoop(),
+    ]),
+    rename(options.rename),
+    'production' === mode ? noop() : sourcemaps.write(),
+    dest(paths.dist.styles),
+  ], cb);
+}
+
 function blockStyles(cb) {
   return pump([
     src(`${paths.src.blocks}/**/*.scss`),
@@ -95,7 +123,7 @@ function blockStyles(cb) {
     sassGlob(),
     sass(options.sass).on('error', sass.logError),
     postcss([
-      tailwindCSS(),
+      tailwindCSS(options.tailwind),
       'production' === mode ? purgeCSS(options.purgeCSS) : postCSSNoop(),
       autoprefixer(options.autoprefixer),
     ]),
@@ -121,7 +149,7 @@ function setupStyles(cb) {
     plumber(),
     sourcemaps.init(),
     postcss([
-      tailwindCSS(`${root}/tailwind.config.js`),
+      tailwindCSS(options.tailwind),
       autoprefixer(options.autoprefixer),
     ]),
     cleanCSS(options.cleanCSS),
@@ -140,7 +168,7 @@ function tailwindStyles(cb) {
     plumber(),
     'production' === mode ? noop() : sourcemaps.init(),
     postcss([
-      tailwindCSS(`${root}/tailwind.config.js`),
+      tailwindCSS(options.tailwind),
       'production' === mode ? purgeCSS(options.purgeCSS) : postCSSNoop(),
       autoprefixer(options.autoprefixer),
     ]),
@@ -152,4 +180,4 @@ function tailwindStyles(cb) {
   ], cb);
 }
 
-export { globalStyles, blockStyles, tailwindStyles, setupStyles };
+export { globalStyles, blockStyles, tailwindStyles, setupStyles, adminStyles };

@@ -10,14 +10,16 @@ function run() {
 	add_filter( '_core/post_types', '_core\models\post_types\career' );
 	add_filter( '_core/post_types', '_core\models\post_types\event' );
 	add_filter( '_core/post_types', '_core\models\post_types\testimonial' );
-	add_action( 'init', '_core\actions\register\post_types' ); // Register post types
+	// Register post types
+	add_action( 'init', '_core\actions\register\post_types' );
 
 	/**
 	 * Taxonomies
 	 */
 	add_filter( '_core/taxonomies', '_core\models\taxonomies\event' );
 	add_filter( '_core/taxonomies', '_core\models\taxonomies\location' );
-	add_action( 'init', '_core\actions\register\taxonomies' ); // Register taxonomies
+	// Register taxonomies
+	add_action( 'init', '_core\actions\register\taxonomies' );
 
 	/**
 	 * Blocks
@@ -35,6 +37,7 @@ function run() {
 	add_filter( '_core/blocks', '_core\models\blocks\cta' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\featurette' );
+	add_filter( '_view/block/featurette/data', '_core\filters\blocks\featurette' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\hero' );
 	add_filter( '_view/block/hero/data', '_core\filters\blocks\hero' );
@@ -64,7 +67,8 @@ function run() {
 	add_filter( '_core/field_groups', '_core\models\field_groups\globals' );
 	// add_filter( '_core/field_groups', '_core\models\field_groups\posts' ); TODO: Review callback
 	// add_filter( '_core/field_groups', '_core\models\field_groups\home' );
-	add_action( 'init', '_core\actions\register\field_groups' ); // Register blocks
+	// Register field groups
+	add_action( 'init', '_core\actions\register\field_groups' );
 
 	/**
 	 * Options
@@ -98,6 +102,11 @@ function run() {
 
 	add_filter( '_view/single/post/data', '_core\filters\views\singular' );
 	add_action( '_view/single/post', '_core\actions\views\post' );
+
+	/**
+	 * Views (admin support)
+	 */
+	add_action( 'admin_notices', '_core\actions\views\admin_header' ); // admin_notices might not be the best hook for this, but it's the best found so far
 
 	/**
 	 * Templates

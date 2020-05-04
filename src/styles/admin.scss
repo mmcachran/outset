@@ -1,56 +1,72 @@
-.acf-block-preview .custom-block {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  max-width: auto !important;
-  width: 100% !important;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
 
-  button,
-  .btn {
-    align-items: flex-start;
-    -webkit-appearance: unset;
-    background-color: unset;
-    border: unset;
-    border-color: transparent;
-    border-image: initial;
-    border-radius: unset;
-    border-style: solid;
-    border-width: unset;
-    color: unset;
-    height: unset;
-    letter-spacing: unset;
-    margin: unset;
-    padding: unset;
-    text-align: unset;
-    text-indent: unset;
-    text-rendering: unset;
-    text-shadow: none;
-    text-transform: none;
-    word-spacing: normal;
+@import './fonts';
+
+/**
+* Attempt to unset from WordPress
+*/
+.editor-styles-wrapper {
+  .custom-block {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: auto !important;
+    position: relative;
+    width: 100% !important;
+
+    &::before {
+      bottom: 0;
+      // content: ' '; // provides layer to prevent accidental clicks
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 200;
+    }
+
+    img {
+      border-width: inherit;
+    }
+
+    button {
+      align-items: flex-start;
+      -webkit-appearance: unset;
+      background-color: unset;
+      border: unset;
+      border-color: transparent;
+      border-image: initial;
+      border-radius: unset;
+      border-style: solid;
+      border-width: unset;
+      color: unset;
+      height: unset;
+      letter-spacing: unset;
+      margin: unset;
+      padding: unset;
+      text-align: unset;
+      text-indent: unset;
+      text-rendering: unset;
+      text-shadow: none;
+      text-transform: none;
+      word-spacing: normal;
+    }
+
+    /**
+    * Import styles
+    */
+    @import './base/*';
+    @import './features/*';
+    @import './wordpress/**/*';
+    @import '../views/component/**/*';
   }
 }
 
-.acf-block-component>div>.acf-block-preview {
-  @import './base/*';
-  @import './features/*';
-  @import './wordpress/**/*';
-  @import '../views/component/**/*';
-  @import '../views/block/**/*';
-}
 
-.acf-block-preview .custom-block {
-  max-width: 100%;
-  position: relative;
-
-  &::before {
-    bottom: 0;
-    content: ' ';
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 200;
-  }
-}
+/**
+* Misc
+*/
 
 .editor-styles-wrapper {
   ul {
