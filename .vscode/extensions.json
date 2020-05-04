@@ -17,7 +17,7 @@
 		"codezombiech.gitignore", // gitignore - https://marketplace.visualstudio.com/items?itemName=codezombiech.gitignore
 		"eamodio.gitlens", // GitLens — Git supercharged - https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
 		// CSS
-		"shinnn.stylelint", // Stylelint - https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint
+		"stylelint.vscode-stylelint", // Stylelint - https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint
 		"mrmlnc.vscode-scss", // SCSS IntelliSense - https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss
 		"kamikillerto.vscode-colorize", // Colorize - https://marketplace.visualstudio.com/items?itemName=kamikillerto.vscode-colorize
 		"bradlc.vscode-tailwindcss", // Tailwind Intellisense - https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
