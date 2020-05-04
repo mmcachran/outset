@@ -15,6 +15,8 @@ function featurette( $blocks ) {
 			'icon'        => 'laptop',
 			'keywords'    => [ 'featurette', 'custom' ],
 			'fields'      => [
+				// Using this in favor over built alignment due to dashboard css issues
+				field\alignment(),
 				field\asset_type(
 					[
 						'label'   => __( 'Media Type', 'core' ),
