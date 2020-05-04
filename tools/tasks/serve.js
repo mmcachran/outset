@@ -10,7 +10,7 @@ function serve(done) {
     proxy: proxy,
     port: port,
     ui: ui,
-    online: online, // reduces start-up time
+    online: online, // "offline" reduces start-up time
     root: root,
     open: {
       file: `${root}/index.php`,
