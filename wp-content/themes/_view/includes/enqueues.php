@@ -12,20 +12,15 @@ function admin_registrations() {
 	$current_screen = get_current_screen();
 
 	if ( $current_screen->is_block_editor() ) {
-		register_style( 'tailwind-important', 'dist/styles/tailwind-important.css' );
-		load_style( 'tailwind-important' );
+		register_style( 'admin', 'dist/styles/admin.css' );
+		load_style( 'admin' );
+
+		register_script( 'admin', 'dist/scripts/admin.js' );
+		load_script( 'admin' );
 	}
-
-	register_style( 'admin', 'dist/styles/admin.css' );
-	load_style( 'admin' );
-
-	register_script( 'admin', 'dist/scripts/admin.js' );
-	load_script( 'admin' );
 }
 
 function registrations() {
-	global $is_IE;
-
 	$localized = [
 		'debug'        => WP_DEBUG,
 		'is_search'    => is_search(),
@@ -60,13 +55,6 @@ function registrations() {
 
 	register_script( 'lozad', 'dist/vendors/lozad.js' );
 	load_style( 'lozad' );
-
-	if ( $is_IE ) {
-		register_script( 'hubspot-legacy', '//js.hsforms.net/forms/v2-legacy.js', [], '2.0', true );
-		load_script( 'hubspot-legacy' );
-	}
-	register_script( 'hubspot', '//js.hsforms.net/forms/v2-legacy.js', [], '2.0', true );
-	load_script( 'hubspot' );
 }
 
 function handle_async( $html, $handle, $src ) {
