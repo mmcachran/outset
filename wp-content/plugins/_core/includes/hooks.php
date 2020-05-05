@@ -24,17 +24,17 @@ function run() {
 	/**
 	 * Blocks
 	 */
-	add_filter( '_core/block/global_data', '_core\filters\block\global_data' );
+	// add_filter( '_core/block/global_data', '_core\filters\block\global_data' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\accordion' );
 
-	add_filter( '_core/blocks', '_core\models\blocks\basic' );
+	// add_filter( '_core/blocks', '_core\models\blocks\basic' );
 
-	add_filter( '_core/blocks', '_core\models\blocks\blurbs' );
+	// add_filter( '_core/blocks', '_core\models\blocks\blurbs' );
 
-	add_filter( '_core/blocks', '_core\models\blocks\comparison_cards' );
+	// add_filter( '_core/blocks', '_core\models\blocks\comparison_cards' );
 
-	add_filter( '_core/blocks', '_core\models\blocks\cta' );
+	// add_filter( '_core/blocks', '_core\models\blocks\cta' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\featurette' );
 	add_filter( '_view/block/featurette/data', '_core\filters\blocks\featurette' );
@@ -42,16 +42,17 @@ function run() {
 	add_filter( '_core/blocks', '_core\models\blocks\hero' );
 	add_filter( '_view/block/hero/data', '_core\filters\blocks\hero' );
 
-	add_filter( '_core/blocks', '_core\models\blocks\image_grid' );
+	// add_filter( '_core/blocks', '_core\models\blocks\image_grid' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\posts' );
 	add_filter( '_view/block/posts/data', '_core\filters\blocks\posts' );
 
-	add_filter( '_core/blocks', '_core\models\blocks\tabs' );
+	// add_filter( '_core/blocks', '_core\models\blocks\tabs' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\testimonials' );
+	add_filter( '_view/block/testimonials/data', '_core\filters\blocks\testimonials' );
 
-	add_filter( '_core/blocks', '_core\models\block\spacing' );
+	// add_filter( '_core/blocks', '_core\models\block\spacing' );
 
 	// Register blocks
 	add_action( 'init', '_core\actions\register\blocks' );
