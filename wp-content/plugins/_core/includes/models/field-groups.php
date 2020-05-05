@@ -23,6 +23,12 @@ function testimonial( $field_groups ) {
 				),
 				field\text(
 					[
+						'label' => __( 'Name', 'core' ),
+						'slug'  => 'name',
+					]
+				),
+				field\text(
+					[
 						'label' => __( 'Position', 'core' ),
 						'slug'  => 'position',
 					]
