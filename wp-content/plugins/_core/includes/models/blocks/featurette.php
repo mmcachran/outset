@@ -41,7 +41,7 @@ function featurette( $blocks ) {
 				),
 				field\lead_in(),
 				field\heading(),
-				field\content(),
+				field\description(),
 				field\link(),
 			],
 		]
