@@ -33,8 +33,9 @@ function hero( $blocks ) {
 						'conditional_logic' => field\basic_condition( 'hero/type', 'video' ),
 					]
 				),
+				field\lead_in(),
 				field\heading(),
-				field\content(),
+				field\description(),
 				field\link(),
 			],
 		]
