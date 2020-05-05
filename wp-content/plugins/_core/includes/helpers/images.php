@@ -46,6 +46,7 @@ function reformat_from_timber( $timber_image ) {
 	];
 }
 
+// TODO implement or remove
 function default_images() {
 	$theme_uri = get_stylesheet_uri();
 	return [
