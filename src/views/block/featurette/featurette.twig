@@ -5,7 +5,7 @@
  *
  * Available variables:
  * - heading: The title for this region.
- * - content: The description for this region.
+ * - description: The description for this region.
  * - link: The link for this region.
  * - type: The type for this region to determine media asset shown.
  * - image: The image for this region.
@@ -29,7 +29,7 @@
 		<div class="featurette__secondary md:w-1/2">
 			<h3 class="featurette__leadin text-sm">{{ lead_in }}</h3>
 			<h2 class="featurette__heading">{{ heading }}</h2>
-			<div class="featurette__content">{{ content }}</div>
+			<p class="featurette__description">{{ description }}</p>
 			{% if link %}
 				<a class="btn" href="{{ link.url }}" target="{{ link.target }}">
 					<span>{{ link.title }}</span>
