@@ -94,8 +94,9 @@ figure {
   @apply m-0;
 }
 
-img {
-  @apply h-auto max-w-full;
+img,
+picture {
+  @apply h-auto max-w-full block;
 }
 
 table,
@@ -149,7 +150,7 @@ input[type='reset'],
 input[type='button'],
 button,
 .btn {
-  @apply font-bold py-2 px-4 rounded bg-primary font-primary text-light no-underline transition ease-in duration-200;
+  @apply py-2 px-4 rounded bg-primary font-primary text-light no-underline transition ease-in duration-200 inline-block;
 
   svg {
     @apply fill-current;
