@@ -1,8 +1,26 @@
-<section class="testimonials">
-    <h1>Testimonials</h1>
-    <h3 class="testimonials__heading">{{ heading }}</h3>
-    {% for testimonial in testimonials %}
-        {# {{dump(testimonial)}} #}
-
-    {% endfor %}
+{# {{ dump() }} #}
+<section class="testimonials {{ classes }} my-8">
+	<div class="testimonials__wrapper container">
+		<header class="testimonials__inner">
+			<h2 class="testimonials__heading">{{ heading }}</h2>
+			<p class="testimonials__description">{{ description }}</p>
+		</header>
+		<div class="testimonials__content">
+			{% if testimonials.posts is defined %}
+				{% for testimonial in testimonials.posts %}
+					<article class="testimonial">
+						{% if tesimonial.featured_image %}
+							<img srcset="{{ tesimonial.featured_image.srcset }}" src="{{ tesimonial.featured_image.src }}" alt="{{ tesimonial.featured_image.alt }}">
+						{% endif %}
+						<h3>{{ testimonial.title }}</h3>
+						<p>{{ testimonial.content }}</p>
+						<p>{{ testimonial.location }}</p>
+						<p>{{ testimonial.name }}</p>
+						<p>{{ testimonial.position }}</p>
+						<img src="" alt="">
+					</article>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</div>
 </section>
