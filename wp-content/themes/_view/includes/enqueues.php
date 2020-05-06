@@ -58,7 +58,6 @@ function registrations() {
 }
 
 function handle_async( $html, $handle, $src ) {
-	// Async
 	if ( in_array( $handle, apply_filters( 'view/enqueues/async', [] ), true ) ) {
 		return substr_replace( $html, "async='async' ", strpos( $html, "type='text/javascript' " ), 0 );
 	}
@@ -67,7 +66,6 @@ function handle_async( $html, $handle, $src ) {
 }
 
 function handle_defer( $html, $handle, $src ) {
-	// Defer
 	if ( in_array( $handle, apply_filters( 'view/enqueues/defer', [] ), true ) ) {
 		return substr_replace( $html, "defer='defer' ", strpos( $html, "type='text/javascript' " ), 0 );
 	}
