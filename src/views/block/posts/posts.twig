@@ -1,10 +1,10 @@
-<section class="posts">
-	<div class="posts__wrapper">
-		<header class="w-10/12 m-auto">
+<section class="posts {{ classes }}">
+	<div class="posts__wrapper container">
+		<header class="posts__header">
 			<h3 class="posts__title">{{ heading }}</h3>
-			<div class="posts__description">{{ content }}</div>
+			<p class="posts__description">{{ description }}</p>
 		</header>
-		<div class="posts__list flex flex-wrap w-10/12 m-auto">
+		<div class="posts__list flex flex-wrap">
 			{% if 'event' == post_type %}
 				{% for event in events %}
 					<div class="w-full md:w-1/2 lg:w-1/3">
