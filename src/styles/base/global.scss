@@ -3,6 +3,12 @@
 /**
  * Base Elements
  */
+html {
+  // having to force this due to using negative margins for custom block widths
+  // @see https://codepen.io/tigt/post/bust-elements-out-of-containers-with-one-line-of-css
+  overflow-x: hidden;
+}
+
 body {
   @apply text-dark text-base font-base m-0 antialiased;
 
