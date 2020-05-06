@@ -16,7 +16,7 @@ function posts( $blocks ) {
 			'keywords'    => [ 'posts', 'custom' ],
 			'fields'      => [
 				field\heading(),
-				field\content(),
+				field\description(),
 				field\post_type(
 					[
 						'post_types' => [ 'post', 'event' ],
