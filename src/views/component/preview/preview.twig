@@ -1,10 +1,14 @@
-<article class="preview py-4">
+<article class="preview">
 	{% if featured_image %}
 		<div class="preview__image">
-			<img srcset="{{ featured_image.srcset }}" src="{{ featured_image.src }}">
+			<a href="{{ link }}">
+				<img srcset="{{ featured_image.srcset }}" src="{{ featured_image.src }}">
+			</a>
 		</div>
 	{% endif %}
-	<h3 class="preview__title text-md lg:text-lg">{{ title }}</h3>
+	<a href="{{ link }}">
+		<h3 class="preview__title text-md lg:text-lg">{{ title }}</h3>
+	</a>
 	<div class="preview__date">
 		<p>{{ date.posted }}</p>
 	</div>

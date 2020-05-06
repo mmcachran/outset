@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Contact Block
+ *
+ * Available variables:
+ * - heading: The title for this region.
+ * - description: The description for this region.
+ *
+ * @see _core/models/blocks/contact & _core/filters/blocks/contact
+ *
+ */
+#}
+<section class="contact {{ classes }}">
+	<div class="container md:flex items-center py-8">
+		<div class="contact__primary md:w-1/2 md:pr-8">
+			<h3 class="contact__leadin text-sm text-primary">{{ lead_in }}</h3>
+			<h2 class="contact__heading">{{ heading }}</h2>
+			<div class="contact__content">{{ content }}</div>
+		</div>
+		<div class="contact__secondary md:w-1/2">
+			<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+			<script>
+				hbspt.forms.create({portalId: "218184", formId: "d40b2b4d-7521-4f1b-806b-d591a7bc96d6"});
+			</script>
+		</div>
+	</div>
+</section>

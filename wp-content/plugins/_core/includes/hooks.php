@@ -52,6 +52,8 @@ function run() {
 	add_filter( '_core/blocks', '_core\models\blocks\testimonials' );
 	add_filter( '_view/block/testimonials/data', '_core\filters\blocks\testimonials' );
 
+	add_filter( '_core/blocks', '_core\models\blocks\contact' );
+
 	// add_filter( '_core/blocks', '_core\models\block\spacing' );
 
 	// Register blocks

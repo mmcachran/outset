@@ -1,0 +1,6 @@
+.contact {
+  input:not([type='submit']),
+  textarea {
+    @apply w-full;
+  }
+}
