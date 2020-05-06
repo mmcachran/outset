@@ -331,7 +331,7 @@ function repeater( $args = [] ) {
 			'label'        => __( 'Items', 'core' ),
 			'slug'         => 'items',
 			'type'         => 'repeater',
-			'layout'       => 'block',
+			'layout'       => 'block', // table, block, row
 			'button_label' => __( 'Add Item', 'core' ),
 			'sub_fields'   => [],
 		],

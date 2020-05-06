@@ -1,16 +1,20 @@
-<section>
-    <header class="blurbs-heading">
-        <h3>{{ heading }}</h3>
-        <div class="blurbs-heading__content">
-            {{ content }}
-        </div>
-    </header>
-    <div class="blurbs__items">
-        {% for item in blurbs %}
-            <article class="blurbs__item">
-                <h4 class="blurbs__title">{{ item.heading }}</h4>
-                <div class="blurbs__content">{{ item.content }}</div>
-            </article>
-        {% endfor %}
-    </div>
+<section class="blurbs {{ classes }} py-8">
+	<div class="blurbs__wrapper container">
+		<header class="blurbs__header">
+			<h3 class="">{{ heading }}</h3>
+			<p class="blurbs__description">{{ description }}</p>
+		</header>
+		<div class="blurbs__items grid-max-4">
+			<div class="grid-container">
+				{% for blurb in items %}
+					<article class="blurb__item grid-item">
+						<div class="grid-item-inner">
+							<h4 class="blurb__title">{{ blurb.heading }}</h4>
+							<p class="blurb__description">{{ blurb.description }}</p>
+						</div>
+					</article>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
 </section>

@@ -16,13 +16,23 @@ function blurbs( $blocks ) {
 			'keywords'    => [ 'blurbs', 'custom' ],
 			'fields'      => [
 				field\heading(),
-				field\content(),
+				field\description(),
 				field\repeater(
 					[
 						'sub_fields' => [
-							field\image(),
+							field\select(
+								[
+									'label'   => __( 'Select', 'core' ),
+									'slug'    => 'select',
+									'choices' => [
+										'icon1' => 'Icon 1',
+										'icon2' => 'Icon 2',
+										'icon3' => 'Icon 3',
+									],
+								]
+							),
 							field\heading(),
-							field\content(),
+							field\description(),
 						],
 					]
 				),

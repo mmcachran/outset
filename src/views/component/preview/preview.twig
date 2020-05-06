@@ -1,4 +1,4 @@
-<article class="preview">
+<article class="preview grid-item-inner">
 	{% if featured_image %}
 		<div class="preview__image">
 			<a href="{{ link }}">
@@ -12,5 +12,5 @@
 	<div class="preview__date">
 		<p>{{ date.posted }}</p>
 	</div>
-	<div class="preview__content">{{ excerpt }}</div>
+	<p class="preview__content">{{ excerpt }}</p>
 </article>

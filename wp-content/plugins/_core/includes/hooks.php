@@ -30,7 +30,7 @@ function run() {
 
 	// add_filter( '_core/blocks', '_core\models\blocks\basic' );
 
-	// add_filter( '_core/blocks', '_core\models\blocks\blurbs' );
+	add_filter( '_core/blocks', '_core\models\blocks\blurbs' );
 
 	// add_filter( '_core/blocks', '_core\models\blocks\comparison_cards' );
 
