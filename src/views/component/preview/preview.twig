@@ -1,7 +1,7 @@
-<article class="preview md:px-3 py-4">
+<article class="preview py-4">
 	{% if featured_image %}
 		<div class="preview__image">
-			<img class="lozad" data-src="{{ featured_image.sizes.medium.url }}" alt="{{ featured_image.alt }}">
+			<img srcset="{{ featured_image.srcset }}" src="{{ featured_image.src }}">
 		</div>
 	{% endif %}
 	<h3 class="preview__title text-md lg:text-lg">{{ title }}</h3>
