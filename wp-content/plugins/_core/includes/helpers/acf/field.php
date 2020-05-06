@@ -126,6 +126,23 @@ function select( $args = [] ) {
 	);
 }
 
+function max_columns( $args = [] ) {
+	return merge(
+		[
+			'label'         => __( 'Maximum Columns', 'core' ),
+			'slug'          => 'max_columns',
+			'type'          => 'button_group',
+			'default_value' => '3',
+			'choices'       => [
+				'2' => 'Two',
+				'3' => 'Three',
+				'4' => 'Four',
+			],
+		],
+		$args
+	);
+}
+
 function message( $args = [] ) {
 	return merge(
 		[

@@ -15,6 +15,17 @@ function blurbs( $blocks ) {
 			'icon'        => 'laptop',
 			'keywords'    => [ 'blurbs', 'custom' ],
 			'fields'      => [
+				field\max_columns(),
+				field\asset_type(
+					[
+						'slug'          => 'type',
+						'default_value' => 'icon',
+						'choices'       => [
+							'icon'  => 'Icon',
+							'image' => 'Image',
+						],
+					]
+				),
 				field\heading(),
 				field\description(),
 				field\repeater(
@@ -22,15 +33,23 @@ function blurbs( $blocks ) {
 						'sub_fields' => [
 							field\select(
 								[
-									'label'   => __( 'Select', 'core' ),
-									'slug'    => 'select',
-									'choices' => [
-										'icon1' => 'Icon 1',
-										'icon2' => 'Icon 2',
+									'label'             => __( 'Select', 'core' ),
+									'slug'              => 'icon',
+									'conditional_logic' => field\basic_condition( 'blurbs/type', 'icon' ),
+									'default_value'     => 'bars',
+									'choices'           => [
+										'bars'  => 'Icon 1',
+										'times' => 'Icon 2',
 										'icon3' => 'Icon 3',
 									],
 								]
 							),
+							field\image(
+								[
+									'conditional_logic' => field\basic_condition( 'blurbs/type', 'image' ),
+								]
+							),
+							field\link(),
 							field\heading(),
 							field\description(),
 						],

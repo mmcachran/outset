@@ -4,11 +4,23 @@
 			<h3 class="">{{ heading }}</h3>
 			<p class="blurbs__description">{{ description }}</p>
 		</header>
-		<div class="blurbs__items grid-max-4">
+		<div class="blurbs__items grid-max-{{ max_columns }}">
 			<div class="grid-container">
 				{% for blurb in items %}
 					<article class="blurb__item grid-item">
 						<div class="grid-item-inner">
+							{% if 'icon' == type %}
+								<svg class="icon">
+									<use xlink:href="#icon-{{ blurb.icon }}"/>
+								</svg>
+							{% endif %}
+							{% if 'image' == type %}
+								<div class="preview__image">
+									<a href="{{ blurb.link.url }}" target="{{ blurb.link.target }}">
+										<img srcset="{{ blurb.image.srcset }}" src="{{ blurb.image.src }}">
+									</a>
+								</div>
+							{% endif %}
 							<h4 class="blurb__title">{{ blurb.heading }}</h4>
 							<p class="blurb__description">{{ blurb.description }}</p>
 						</div>
