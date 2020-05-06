@@ -10,6 +10,7 @@ use function _core\helpers\utils\has_key;
 use function Functional\map;
 
 function featurette( $data ) {
+
 	return map(
 		$data,
 		function( $value, $key ) use ( $data ) {
