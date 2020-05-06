@@ -4,14 +4,16 @@
 			<h3 class="posts__title">{{ heading }}</h3>
 			<p class="posts__description">{{ description }}</p>
 		</header>
-		<div class="posts__list sm:flex sm:flex-wrap">
-			{% if 'post' == post_type %}
-				{% for post in posts %}
-					<div class="posts__column w-full md:w-1/2 lg:w-1/3">
-						{% include 'component/preview/preview.twig' with post only %}
-					</div>
-				{% endfor %}
-			{% endif %}
+		<div class="posts__list grid-max-3">
+			<div class="grid-container">
+				{% if 'post' == post_type %}
+					{% for post in posts %}
+						<div class="posts__column grid-item">
+							{% include 'component/preview/preview.twig' with post only %}
+						</div>
+					{% endfor %}
+				{% endif %}
+			</div>
 		</div>
 	</div>
 </section>
