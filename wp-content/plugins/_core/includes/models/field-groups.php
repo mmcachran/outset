@@ -47,7 +47,7 @@ function social_menu_item( $field_groups ) {
 			'slug'     => 'social_menu_item',
 			'name'     => 'Social Menu',
 			'fields'   => [
-				field\text(
+				field\heading(
 					[
 						'label' => __( 'Icon', 'core' ),
 						'slug'  => 'icon',
@@ -55,7 +55,7 @@ function social_menu_item( $field_groups ) {
 				),
 			],
 			'position' => 'normal',
-			'location' => location\menu( 'social' ),
+			'location' => location\menu_items( 'social' ),
 		]
 	);
 }
