@@ -11,7 +11,7 @@ use function Functional\map;
  * Get Field Wrapper
  *
  * @param [type] $selector
- * @param boolean $post_id
+ * @param boolean $post_id -- or post object
  * @param boolean $format_value
  * @return void
  */
