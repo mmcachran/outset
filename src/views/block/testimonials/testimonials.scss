@@ -5,4 +5,11 @@
   .carousel-cell {
     @apply w-full;
   }
+
+  .flickity-button {
+    @apply hidden;
+    @screen md {
+      @apply block;
+    }
+  }
 }
