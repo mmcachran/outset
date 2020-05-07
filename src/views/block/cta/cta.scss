@@ -1,3 +1,9 @@
 .cta {
+  $base: &;
 
+  &.light {
+    #{$base}__content {
+      @apply text-light;
+    }
+  }
 }

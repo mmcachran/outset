@@ -15,27 +15,20 @@ function cta( $blocks ) {
 			'icon'        => 'laptop',
 			'keywords'    => [ 'cta', 'custom' ],
 			'fields'      => [
-				field\asset_type(
-					[
-						'label' => __( 'Background', 'core' ),
-						'slug'  => 'type',
-					]
-				),
-				field\image(
-					[
-						'slug'              => 'background_image',
-						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'image' ),
-					]
-				),
-				field\file(
-					[
-						'slug'              => 'background_video',
-						'conditional_logic' => field\basic_condition( 'hero-basic/type', 'video' ),
-					]
-				),
+				field\image(),
 				field\lead_in(),
 				field\heading(),
-				field\content(),
+				field\description(),
+				field\link(
+					[
+						'slug' => 'primary_link',
+					]
+				),
+				field\link(
+					[
+						'slug' => 'secondary_link',
+					]
+				),
 			],
 		]
 	);

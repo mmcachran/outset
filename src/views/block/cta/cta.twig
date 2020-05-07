@@ -1,7 +1,41 @@
-{# {{ dump() }} #}
-<section class="cta {{ classes }} py-2 sm:py-4 md:py-5">
-    <div class="px-2 sm:px-3 md:py-4">
-        <h1>{{ heading }}</h1>
-        <div>{{ content }}</div>
-    </div>
+{#
+/**
+ * @file
+ * cta Block
+ *
+ * Available variables:
+ * - heading: The title for this region.
+ * - description: The description for this region.
+ * - link: The link for this region.
+ * - image: The image for this region.
+ *
+ * @see _core/models/blocks/cta & _core/filters/blocks/cta
+ *
+ */
+#}
+<section class="cta {{ classes }} relative">
+	<div class="container md:flex items-center py-8">
+		<div class="cta__asset absolute w-full h-full z-10 overflow-hidden object-fit inset-0">
+			{% if image is iterable %}
+				<img class="w-full h-full" srcset="{{ image.srcset }}" src="{{ image.src }}" alt="{{ image.alt }}">
+			{% endif %}
+		</div>
+		<div class="cta__content text-center md:w-1/2 m-auto relative z-20 my-8">
+			<h3 class="cta__leadin text-sm">{{ lead_in }}</h3>
+			<h2 class="cta__heading">{{ heading }}</h2>
+			<p class="cta__description">{{ description }}</p>
+			<div class="cta__action md:flex justify-center">
+				{% if primary_link %}
+					<a class="btn md:mx-2" href="{{ primary_link.url }}" target="{{ primary_link.target }}">
+						<span>{{ primary_link.title }}</span>
+					</a>
+				{% endif %}
+				{% if secondary_link %}
+					<a class="btn md:mx-2" href="{{ secondary_link.url }}" target="{{ secondary_link.target }}">
+						<span>{{ secondary_link.title }}</span>
+					</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
 </section>

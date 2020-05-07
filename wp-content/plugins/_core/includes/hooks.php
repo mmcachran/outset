@@ -24,7 +24,7 @@ function run() {
 	/**
 	 * Blocks
 	 */
-	// add_filter( '_core/block/global_data', '_core\filters\block\global_data' );
+	add_filter( '_core/block/global_data', '_core\filters\block\global_data' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\accordion' );
 
@@ -34,7 +34,8 @@ function run() {
 
 	// add_filter( '_core/blocks', '_core\models\blocks\comparison_cards' );
 
-	// add_filter( '_core/blocks', '_core\models\blocks\cta' );
+	add_filter( '_core/blocks', '_core\models\blocks\cta' );
+	add_filter( '_view/block/cta/data', '_core\filters\blocks\cta' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\featurette' );
 	add_filter( '_view/block/featurette/data', '_core\filters\blocks\featurette' );
