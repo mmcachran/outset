@@ -35,7 +35,7 @@ function get( $menu_name ) {
 	return merge(
 		select_keys( (array) $menu, [ 'name', 'slug', 'id' ] ),
 		[
-			'items' => simplify_menu_items( $menu->items, $menu_item_fields ),
+			'items' => simplify_menu_items( $menu->items ),
 		]
 	);
 }
