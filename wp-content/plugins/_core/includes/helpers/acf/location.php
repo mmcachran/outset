@@ -38,6 +38,18 @@ function menu( $menu = 'primary' ) {
 	];
 }
 
+function menu_items( $menu = 'primary' ) {
+	return [
+		[
+			[
+				'param'    => 'nav_menu_item',
+				'operator' => '==',
+				'value'    => "location/{$menu}",
+			],
+		],
+	];
+}
+
 function options_page( $option_page = 'site' ) {
 	return [
 		[
