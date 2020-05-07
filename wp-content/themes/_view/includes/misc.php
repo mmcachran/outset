@@ -76,14 +76,11 @@ function env_check( $path ) {
 
 	// Test for production file e.g.( app.min.js)
 	if ( file_exists( PATH . $file_path . '.min' . $file_extension ) ) {
-		error_log( 'found min:' . $file_path );
 		return URI . $file_path . '.min' . $file_extension;
 	} elseif ( file_exists( PATH . $path ) ) {
-		error_log( 'found non min:' . $file_path );
 		// If dev file exists e.g( app.js )
 		return URI . $path;
 	} else {
-		error_log( '!!!! not found:' . $file_path );
 		// If neither exist, return null
 		return null;
 	}
