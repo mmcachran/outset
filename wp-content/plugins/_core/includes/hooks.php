@@ -82,7 +82,7 @@ function run() {
 	// add_filter( '_core/field_groups', '_core\models\field_groups\home' );
 
 	// Register field groups
-	add_action( 'admin_init', '_core\actions\register\field_groups' );
+	add_action( 'init', '_core\actions\register\field_groups' );
 
 	/**
 	 * Options
