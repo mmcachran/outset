@@ -19,7 +19,7 @@
       .grid-item-inner {
         @screen md {
 
-          @apply mr-4;
+          @apply mr-2;
         }
 
         @screen lg {
@@ -31,7 +31,7 @@
     &:nth-child(even) {
       .grid-item-inner {
         @screen md {
-          @apply ml-4;
+          @apply ml-2;
         }
         @screen lg {
           @apply ml-0;
@@ -50,7 +50,7 @@
     &:nth-child(3n+2) {
       .grid-item-inner {
         @screen lg {
-          @apply mx-4;
+          @apply mx-1;
         }
       }
     }
