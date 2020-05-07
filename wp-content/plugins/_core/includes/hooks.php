@@ -10,6 +10,7 @@ function run() {
 	add_filter( '_core/post_types', '_core\models\post_types\career' );
 	add_filter( '_core/post_types', '_core\models\post_types\event' );
 	add_filter( '_core/post_types', '_core\models\post_types\testimonial' );
+	add_filter( '_core/post_types', '_core\models\post_types\staff' );
 	// Register post types
 	add_action( 'init', '_core\actions\register\post_types' );
 
@@ -31,6 +32,9 @@ function run() {
 	// add_filter( '_core/blocks', '_core\models\blocks\basic' );
 
 	add_filter( '_core/blocks', '_core\models\blocks\blurbs' );
+
+	add_filter( '_core/blocks', '_core\models\blocks\staff' );
+	add_filter( '_view/block/staff/data', '_core\filters\blocks\staff' );
 
 	// add_filter( '_core/blocks', '_core\models\blocks\comparison_cards' );
 
@@ -70,6 +74,8 @@ function run() {
 	add_filter( '_core/field_groups', '_core\models\field_groups\event' );
 
 	add_filter( '_core/field_groups', '_core\models\field_groups\testimonial' );
+
+	add_filter( '_core/field_groups', '_core\models\field_groups\staff' );
 
 	// TODO: is double registering, patched visually for now.
 	add_filter( '_core/field_groups', '_core\models\field_groups\social_menu_item' );
@@ -147,4 +153,5 @@ function run() {
 	 */
 	add_filter( 'enter_title_here', '_core\filters\misc\customize_title' );
 	add_filter( 'body_class', '_core\filters\misc\simplify_page_template_classes', 20 );
+	add_filter( 'wp_nav_menu_objects', '_core\filters\misc\menu_item_meta', 10, 2 );
 }

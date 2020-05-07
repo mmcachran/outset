@@ -4,6 +4,7 @@ namespace _core\filters\misc;
 
 use _core\helpers\utils;
 
+use function _core\helpers\acf\misc\get_meta;
 use function _view\utils\merge;
 use function Functional\filter;
 
@@ -12,6 +13,11 @@ function customize_title( $input ) {
 	if ( 'testimonial' === $post_type ) {
 		return __( 'Enter the reviewer\'s name here', 'core' );
 	}
+
+	if ( 'staff' === $post_type ) {
+		return __( 'Enter the person\'s name here', 'core' );
+	}
+
 	return $input;
 }
 

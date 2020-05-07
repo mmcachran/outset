@@ -7,6 +7,28 @@ use _core\helpers\field;
 
 use function _core\helpers\utils\push;
 
+
+function staff( $field_groups ) {
+	$post_type = get_post_type_object( 'staff' );
+	return push(
+		$field_groups,
+		[
+			'slug'     => $post_type->name,
+			'name'     => __( 'Additional Information', 'core' ),
+			'fields'   => [
+				field\text(
+					[
+						'label' => __( 'Position', 'core' ),
+						'slug'  => 'position',
+					]
+				),
+			],
+			'position' => 'side',
+			'location' => location\post_type( $post_type->name ),
+		]
+	);
+}
+
 function testimonial( $field_groups ) {
 	$post_type = get_post_type_object( 'testimonial' );
 	return push(

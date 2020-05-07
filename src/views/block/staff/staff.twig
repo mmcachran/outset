@@ -1,0 +1,34 @@
+{# {{ dump() }} #}
+<section class="staff {{ classes }} pt-8 pb-16">
+	<div class="staff__wrapper container">
+		<header class="staff__inner text-center max-w-4xl m-auto">
+			<h2 class="staff__heading">{{ heading }}</h2>
+			<p class="staff__description">{{ description }}</p>
+		</header>
+		<div class="staff__content carousel" data-flickity>
+			{% if staff.posts is defined %}
+				{% for staff in staff.posts %}
+					<article class="staff carousel-cell">
+						<div class="staff__inner max-w-screen-lg m-auto md:flex">
+							<div class="staff__primary md:flex-none">
+								{% if staff.featured_image %}
+									<img class="rounded-md" height="200" width="200" srcset="{{ staff.featured_image.srcset }}" src="{{ staff.featured_image.src }}" alt="{{ staff.featured_image.alt }}">
+								{% endif %}
+							</div>
+							<div class="staff__secondary md:flex-auto md:pl-8">
+								<h3>{{ staff.title }}</h3>
+								<p>{{ staff.content }}</p>
+								<p class="mb-0">
+									<span>{{ staff.name }}</span>
+									<span>-</span>
+									<span>{{ staff.position }}</span>
+								</p>
+								<p class="mb-0">{{ staff.location }}</p>
+							</div>
+						</div>
+					</article>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+</section>

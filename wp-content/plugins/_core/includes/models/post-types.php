@@ -37,3 +37,15 @@ function testimonial( $post_types = [] ) {
 		]
 	);
 }
+
+
+function staff( $post_types = [] ) {
+	return push(
+		$post_types,
+		[
+			'slug'     => 'staff',
+			'singular' => 'Staff',
+			'plural'   => 'Staff',
+		]
+	);
+}
