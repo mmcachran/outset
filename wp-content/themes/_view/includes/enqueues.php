@@ -13,10 +13,9 @@ function admin_registrations() {
 
 	if ( $current_screen->is_block_editor() ) {
 		// block editor specific
+		register_style( 'admin', 'dist/styles/admin.css' );
+		load_style( 'admin' );
 	}
-
-	register_style( 'admin', 'dist/styles/admin.css' );
-	load_style( 'admin' );
 
 	register_script( 'admin', 'dist/scripts/admin.js' );
 	load_script( 'admin' );
