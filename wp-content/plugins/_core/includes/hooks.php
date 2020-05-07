@@ -64,15 +64,25 @@ function run() {
 	 * Field Groups
 	 */
 	add_filter( '_core/field_groups', '_core\models\field_groups\page' );
+
 	add_filter( '_core/field_groups', '_core\models\field_groups\career' );
+
 	add_filter( '_core/field_groups', '_core\models\field_groups\event' );
+
 	add_filter( '_core/field_groups', '_core\models\field_groups\testimonial' );
+
+	// TODO: is double registering, patched visually for now.
 	add_filter( '_core/field_groups', '_core\models\field_groups\social_menu_item' );
+
 	add_filter( '_core/field_groups', '_core\models\field_groups\globals' );
-	// add_filter( '_core/field_groups', '_core\models\field_groups\posts' ); TODO: Review callback
+
+	// TODO: Review callback
+	// add_filter( '_core/field_groups', '_core\models\field_groups\posts' );
+
 	// add_filter( '_core/field_groups', '_core\models\field_groups\home' );
+
 	// Register field groups
-	add_action( 'init', '_core\actions\register\field_groups' );
+	add_action( 'admin_init', '_core\actions\register\field_groups' );
 
 	/**
 	 * Options
