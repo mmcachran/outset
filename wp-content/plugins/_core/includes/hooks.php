@@ -153,5 +153,4 @@ function run() {
 	 */
 	add_filter( 'enter_title_here', '_core\filters\misc\customize_title' );
 	add_filter( 'body_class', '_core\filters\misc\simplify_page_template_classes', 20 );
-	add_filter( 'wp_nav_menu_objects', '_core\filters\misc\menu_item_meta', 10, 2 );
 }

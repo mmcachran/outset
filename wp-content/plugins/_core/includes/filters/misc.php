@@ -4,7 +4,6 @@ namespace _core\filters\misc;
 
 use _core\helpers\utils;
 
-use function _core\helpers\acf\misc\get_meta;
 use function _view\utils\merge;
 use function Functional\filter;
 

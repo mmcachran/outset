@@ -56,6 +56,7 @@ function footer( $data ) {
 			'menus' => [
 				'footer'  => menu\get( 'footer' ),
 				'details' => menu\get( 'details' ),
+				'social'  => menu\get( 'social' ),
 			],
 		]
 	);
