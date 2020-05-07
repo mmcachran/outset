@@ -59,8 +59,6 @@ function run() {
 
 	add_filter( '_core/blocks', '_core\models\blocks\contact' );
 
-	// add_filter( '_core/blocks', '_core\models\block\spacing' );
-
 	// Register blocks
 	add_action( 'init', '_core\actions\register\blocks' );
 
