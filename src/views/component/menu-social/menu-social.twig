@@ -1,14 +1,14 @@
 {% if items %}
-    <ul class="social_menu__list flex flex-wrap">
-        {% for item in items %}
-            <li class="social_menu__item">
-                <a class="social_menu__link" href="{{ item.url }}" target="{{ item.target }}">
-                    <svg class="icon h-10 w-10">
-                        <use xlink:href="#icon-{{ item.icon }}"/>
-                    </svg>
-                    <span class="screen-reader-text">{{ title }}</p>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+	<ul class="social_menu__list flex flex-wrap justify-end px-2">
+		{% for item in items %}
+			<li class="social_menu__item">
+				<a class="social_menu__link text-white px-2 py-2" href="{{ item.url }}" target="{{ item.target }}">
+					<svg class="icon fill-current w-4 h-4">
+						<use xlink:href="#icon-{{ item.icon }}"/>
+					</svg>
+					<span class="screen-reader-text">{{ title }}</p>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
 {% endif %}
