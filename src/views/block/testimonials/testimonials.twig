@@ -1,23 +1,31 @@
 {# {{ dump() }} #}
-<section class="testimonials {{ classes }} py-8">
+<section class="testimonials {{ classes }} pt-8 pb-16">
 	<div class="testimonials__wrapper container">
-		<header class="testimonials__inner">
+		<header class="testimonials__inner text-center max-w-4xl m-auto">
 			<h2 class="testimonials__heading">{{ heading }}</h2>
 			<p class="testimonials__description">{{ description }}</p>
 		</header>
-		<div class="testimonials__content">
+		<div class="testimonials__content carousel" data-flickity>
 			{% if testimonials.posts is defined %}
 				{% for testimonial in testimonials.posts %}
-					<article class="testimonial">
-						{% if tesimonial.featured_image %}
-							<img srcset="{{ tesimonial.featured_image.srcset }}" src="{{ tesimonial.featured_image.src }}" alt="{{ tesimonial.featured_image.alt }}">
-						{% endif %}
-						<h3>{{ testimonial.title }}</h3>
-						<p>{{ testimonial.content }}</p>
-						<p>{{ testimonial.location }}</p>
-						<p>{{ testimonial.name }}</p>
-						<p>{{ testimonial.position }}</p>
-						<img src="" alt="">
+					<article class="testimonial carousel-cell">
+						<div class="testimonial__inner max-w-screen-lg m-auto md:flex">
+							<div class="testimonial__primary md:flex-none">
+								{% if testimonial.featured_image %}
+									<img class="rounded-md" height="200" width="200" srcset="{{ testimonial.featured_image.srcset }}" src="{{ testimonial.featured_image.src }}" alt="{{ testimonial.featured_image.alt }}">
+								{% endif %}
+							</div>
+							<div class="testimonial__secondary md:flex-auto md:pl-8">
+								<h3>{{ testimonial.title }}</h3>
+								<p>{{ testimonial.content }}</p>
+								<p class="mb-0">
+									<span>{{ testimonial.name }}</span>
+									<span>-</span>
+									<span>{{ testimonial.position }}</span>
+								</p>
+								<p class="mb-0">{{ testimonial.location }}</p>
+							</div>
+						</div>
 					</article>
 				{% endfor %}
 			{% endif %}

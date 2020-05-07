@@ -54,7 +54,19 @@ function registrations() {
 	load_style( 'main' );
 
 	register_script( 'lozad', 'dist/vendors/lozad.js' );
-	load_style( 'lozad' );
+	load_script( 'lozad' );
+
+	register_style( 'flickity', 'dist/vendors/flickity.css' );
+	load_style( 'flickity' );
+
+	register_style( 'flickity-fade', 'dist/vendors/flickity-fade.css' );
+	load_style( 'flickity-fade' );
+
+	register_script( 'flickity', 'dist/vendors/flickity.pkgd.min.js' );
+	load_script( 'flickity' );
+
+	register_script( 'flickity-fade', 'dist/vendors/flickity-fade.js' );
+	load_style( 'flickity-fade' );
 }
 
 function handle_async( $html, $handle, $src ) {
