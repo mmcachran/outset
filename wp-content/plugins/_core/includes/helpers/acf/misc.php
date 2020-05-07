@@ -19,7 +19,14 @@ function get_meta( $selector, $post_id = false, $format_value = true ) {
 	if ( ! function_exists( 'get_field' ) ) {
 		return [];
 	}
-	return get_field( $selector, $post_id, $format_value );
+
+	$data = get_field( $selector, $post_id, $format_value );
+
+	if ( '' === $data ) {
+		return [];
+	}
+
+	return $data;
 }
 
 /**
