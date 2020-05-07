@@ -12,12 +12,14 @@ function admin_registrations() {
 	$current_screen = get_current_screen();
 
 	if ( $current_screen->is_block_editor() ) {
-		register_style( 'admin', 'dist/styles/admin.css' );
-		load_style( 'admin' );
-
-		register_script( 'admin', 'dist/scripts/admin.js' );
-		load_script( 'admin' );
+		// block editor specific
 	}
+
+	register_style( 'admin', 'dist/styles/admin.css' );
+	load_style( 'admin' );
+
+	register_script( 'admin', 'dist/scripts/admin.js' );
+	load_script( 'admin' );
 }
 
 function registrations() {
