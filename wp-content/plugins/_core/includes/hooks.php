@@ -75,7 +75,7 @@ function run() {
 
 	add_filter( '_core/field_groups', '_core\models\field_groups\staff' );
 
-	// TODO: is double registering, patched visually for now.
+	// TODO: seems to be double registering, patched visually for now in admin.js
 	add_filter( '_core/field_groups', '_core\models\field_groups\social_menu_item' );
 
 	add_filter( '_core/field_groups', '_core\models\field_groups\globals' );
