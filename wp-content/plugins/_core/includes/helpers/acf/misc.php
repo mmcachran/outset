@@ -26,7 +26,7 @@ function get_meta( $selector, $post_id = false, $format_value = true ) {
 		return [];
 	}
 
-	return $data;
+	return (array) $data;
 }
 
 /**
